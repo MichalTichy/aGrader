@@ -39,22 +39,22 @@
             this.butRunTest = new System.Windows.Forms.Button();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabProtocol = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbpath = new System.Windows.Forms.TextBox();
             this.butBrowse = new System.Windows.Forms.Button();
             this.lbCodes = new System.Windows.Forms.ListBox();
-            this.lbObjects = new System.Windows.Forms.ListBox();
-            this.cbobjects = new System.Windows.Forms.ComboBox();
-            this.labHelop = new System.Windows.Forms.Label();
-            this.tbSettings = new System.Windows.Forms.TextBox();
-            this.tbpath = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.butAdd = new System.Windows.Forms.Button();
-            this.butDel = new System.Windows.Forms.Button();
-            this.butMoveUp = new System.Windows.Forms.Button();
-            this.butMoveDown = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.butImport = new System.Windows.Forms.Button();
+            this.tabProtocol = new System.Windows.Forms.TabPage();
             this.butExport = new System.Windows.Forms.Button();
+            this.butImport = new System.Windows.Forms.Button();
+            this.butMoveDown = new System.Windows.Forms.Button();
+            this.butMoveUp = new System.Windows.Forms.Button();
+            this.butDel = new System.Windows.Forms.Button();
+            this.butAdd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbSettings = new System.Windows.Forms.TextBox();
+            this.labHelop = new System.Windows.Forms.Label();
+            this.cbobjects = new System.Windows.Forms.ComboBox();
+            this.lbObjects = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,6 +86,7 @@
             this.rtbCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbCode.Location = new System.Drawing.Point(0, 0);
             this.rtbCode.Name = "rtbCode";
+            this.rtbCode.ReadOnly = true;
             this.rtbCode.Size = new System.Drawing.Size(499, 157);
             this.rtbCode.TabIndex = 0;
             this.rtbCode.Text = "";
@@ -95,6 +96,7 @@
             this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbOutput.Location = new System.Drawing.Point(0, 0);
             this.rtbOutput.Name = "rtbOutput";
+            this.rtbOutput.ReadOnly = true;
             this.rtbOutput.Size = new System.Drawing.Size(499, 153);
             this.rtbOutput.TabIndex = 1;
             this.rtbOutput.Text = "";
@@ -168,6 +170,41 @@
             this.tabPage1.Text = "Průzkumník";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Zvolte adresář s *.c soubory";
+            // 
+            // tbpath
+            // 
+            this.tbpath.Location = new System.Drawing.Point(3, 22);
+            this.tbpath.Name = "tbpath";
+            this.tbpath.ReadOnly = true;
+            this.tbpath.Size = new System.Drawing.Size(202, 20);
+            this.tbpath.TabIndex = 7;
+            this.tbpath.Text = "...";
+            // 
+            // butBrowse
+            // 
+            this.butBrowse.Location = new System.Drawing.Point(211, 20);
+            this.butBrowse.Name = "butBrowse";
+            this.butBrowse.Size = new System.Drawing.Size(69, 23);
+            this.butBrowse.TabIndex = 6;
+            this.butBrowse.Text = "Procházet";
+            this.butBrowse.UseVisualStyleBackColor = true;
+            // 
+            // lbCodes
+            // 
+            this.lbCodes.FormattingEnabled = true;
+            this.lbCodes.Location = new System.Drawing.Point(-4, 45);
+            this.lbCodes.Name = "lbCodes";
+            this.lbCodes.Size = new System.Drawing.Size(291, 277);
+            this.lbCodes.TabIndex = 5;
+            // 
             // tabProtocol
             // 
             this.tabProtocol.Controls.Add(this.butExport);
@@ -189,117 +226,14 @@
             this.tabProtocol.Text = "Protokol";
             this.tabProtocol.UseVisualStyleBackColor = true;
             // 
-            // butBrowse
+            // butExport
             // 
-            this.butBrowse.Location = new System.Drawing.Point(211, 20);
-            this.butBrowse.Name = "butBrowse";
-            this.butBrowse.Size = new System.Drawing.Size(69, 23);
-            this.butBrowse.TabIndex = 6;
-            this.butBrowse.Text = "Procházet";
-            this.butBrowse.UseVisualStyleBackColor = true;
-            // 
-            // lbCodes
-            // 
-            this.lbCodes.FormattingEnabled = true;
-            this.lbCodes.Location = new System.Drawing.Point(-4, 45);
-            this.lbCodes.Name = "lbCodes";
-            this.lbCodes.Size = new System.Drawing.Size(291, 277);
-            this.lbCodes.TabIndex = 5;
-            // 
-            // lbObjects
-            // 
-            this.lbObjects.FormattingEnabled = true;
-            this.lbObjects.Location = new System.Drawing.Point(0, 136);
-            this.lbObjects.Name = "lbObjects";
-            this.lbObjects.Size = new System.Drawing.Size(287, 147);
-            this.lbObjects.TabIndex = 0;
-            // 
-            // cbobjects
-            // 
-            this.cbobjects.FormattingEnabled = true;
-            this.cbobjects.Location = new System.Drawing.Point(0, 83);
-            this.cbobjects.Name = "cbobjects";
-            this.cbobjects.Size = new System.Drawing.Size(283, 21);
-            this.cbobjects.TabIndex = 1;
-            // 
-            // labHelop
-            // 
-            this.labHelop.AutoSize = true;
-            this.labHelop.Location = new System.Drawing.Point(3, 41);
-            this.labHelop.Name = "labHelop";
-            this.labHelop.Size = new System.Drawing.Size(128, 13);
-            this.labHelop.TabIndex = 2;
-            this.labHelop.Text = "Zvolte požadovaný úkon.";
-            // 
-            // tbSettings
-            // 
-            this.tbSettings.Location = new System.Drawing.Point(0, 57);
-            this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(283, 20);
-            this.tbSettings.TabIndex = 3;
-            // 
-            // tbpath
-            // 
-            this.tbpath.Location = new System.Drawing.Point(3, 22);
-            this.tbpath.Name = "tbpath";
-            this.tbpath.ReadOnly = true;
-            this.tbpath.Size = new System.Drawing.Size(202, 20);
-            this.tbpath.TabIndex = 7;
-            this.tbpath.Text = "...";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Tvorba testovacího protokolu";
-            // 
-            // butAdd
-            // 
-            this.butAdd.Location = new System.Drawing.Point(3, 110);
-            this.butAdd.Name = "butAdd";
-            this.butAdd.Size = new System.Drawing.Size(60, 23);
-            this.butAdd.TabIndex = 5;
-            this.butAdd.Text = "Přidat";
-            this.butAdd.UseVisualStyleBackColor = true;
-            // 
-            // butDel
-            // 
-            this.butDel.Location = new System.Drawing.Point(69, 110);
-            this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(54, 23);
-            this.butDel.TabIndex = 6;
-            this.butDel.Text = "Odebrat";
-            this.butDel.UseVisualStyleBackColor = true;
-            // 
-            // butMoveUp
-            // 
-            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
-            this.butMoveUp.Name = "butMoveUp";
-            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
-            this.butMoveUp.TabIndex = 7;
-            this.butMoveUp.Text = "^";
-            this.butMoveUp.UseVisualStyleBackColor = true;
-            // 
-            // butMoveDown
-            // 
-            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
-            this.butMoveDown.Name = "butMoveDown";
-            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
-            this.butMoveDown.TabIndex = 8;
-            this.butMoveDown.Text = "ˇ";
-            this.butMoveDown.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Zvolte adresář s *.c soubory";
+            this.butExport.Location = new System.Drawing.Point(152, 289);
+            this.butExport.Name = "butExport";
+            this.butExport.Size = new System.Drawing.Size(125, 23);
+            this.butExport.TabIndex = 10;
+            this.butExport.Text = "Exportovat";
+            this.butExport.UseVisualStyleBackColor = true;
             // 
             // butImport
             // 
@@ -310,14 +244,82 @@
             this.butImport.Text = "Importovat";
             this.butImport.UseVisualStyleBackColor = true;
             // 
-            // butExport
+            // butMoveDown
             // 
-            this.butExport.Location = new System.Drawing.Point(152, 289);
-            this.butExport.Name = "butExport";
-            this.butExport.Size = new System.Drawing.Size(125, 23);
-            this.butExport.TabIndex = 10;
-            this.butExport.Text = "Exportovat";
-            this.butExport.UseVisualStyleBackColor = true;
+            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
+            this.butMoveDown.Name = "butMoveDown";
+            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
+            this.butMoveDown.TabIndex = 8;
+            this.butMoveDown.Text = "ˇ";
+            this.butMoveDown.UseVisualStyleBackColor = true;
+            // 
+            // butMoveUp
+            // 
+            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
+            this.butMoveUp.Name = "butMoveUp";
+            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
+            this.butMoveUp.TabIndex = 7;
+            this.butMoveUp.Text = "^";
+            this.butMoveUp.UseVisualStyleBackColor = true;
+            // 
+            // butDel
+            // 
+            this.butDel.Location = new System.Drawing.Point(69, 110);
+            this.butDel.Name = "butDel";
+            this.butDel.Size = new System.Drawing.Size(54, 23);
+            this.butDel.TabIndex = 6;
+            this.butDel.Text = "Odebrat";
+            this.butDel.UseVisualStyleBackColor = true;
+            // 
+            // butAdd
+            // 
+            this.butAdd.Location = new System.Drawing.Point(3, 110);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(60, 23);
+            this.butAdd.TabIndex = 5;
+            this.butAdd.Text = "Přidat";
+            this.butAdd.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(129, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Tvorba testovacího protokolu";
+            // 
+            // tbSettings
+            // 
+            this.tbSettings.Location = new System.Drawing.Point(0, 57);
+            this.tbSettings.Name = "tbSettings";
+            this.tbSettings.Size = new System.Drawing.Size(283, 20);
+            this.tbSettings.TabIndex = 3;
+            // 
+            // labHelop
+            // 
+            this.labHelop.AutoSize = true;
+            this.labHelop.Location = new System.Drawing.Point(3, 41);
+            this.labHelop.Name = "labHelop";
+            this.labHelop.Size = new System.Drawing.Size(128, 13);
+            this.labHelop.TabIndex = 2;
+            this.labHelop.Text = "Zvolte požadovaný úkon.";
+            // 
+            // cbobjects
+            // 
+            this.cbobjects.FormattingEnabled = true;
+            this.cbobjects.Location = new System.Drawing.Point(0, 83);
+            this.cbobjects.Name = "cbobjects";
+            this.cbobjects.Size = new System.Drawing.Size(283, 21);
+            this.cbobjects.TabIndex = 1;
+            // 
+            // lbObjects
+            // 
+            this.lbObjects.FormattingEnabled = true;
+            this.lbObjects.Location = new System.Drawing.Point(0, 136);
+            this.lbObjects.Name = "lbObjects";
+            this.lbObjects.Size = new System.Drawing.Size(287, 147);
+            this.lbObjects.TabIndex = 0;
             // 
             // CaC
             // 
