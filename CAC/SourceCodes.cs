@@ -11,7 +11,7 @@ namespace CAC
     {
         private static DirectoryInfo SourceDir;
         private static List<FileInfo> SourceCodeFiles;
-        public static bool setpath()
+        public static bool setPath()
          {
              FolderBrowserDialog dialog = new FolderBrowserDialog();
              dialog.Description="Zvolte složku která obsahuje zdrojové kódy.";
@@ -28,7 +28,7 @@ namespace CAC
             return false;
          }
 
-        public static string getpath()
+        public static string getPath()
         {
             return SourceDir.FullName;
         }
