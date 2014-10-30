@@ -196,6 +196,7 @@
             this.butBrowse.TabIndex = 6;
             this.butBrowse.Text = "Procházet";
             this.butBrowse.UseVisualStyleBackColor = true;
+            this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
             // 
             // lbCodes
             // 
