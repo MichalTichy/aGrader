@@ -14,6 +14,8 @@ namespace CAC
         public static bool setpath()
          {
              FolderBrowserDialog dialog = new FolderBrowserDialog();
+             dialog.Description="Zvolte složku která obsahuje zdrojové kódy.";
+
              DialogResult dialogres = dialog.ShowDialog();
 
             if (dialogres==DialogResult.OK)
