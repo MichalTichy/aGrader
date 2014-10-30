@@ -20,7 +20,7 @@ namespace CAC
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.setpath())
+            if (SourceCodes.setpath()) //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
                 tbpath.Text = SourceCodes.getpath();
         }
     }
