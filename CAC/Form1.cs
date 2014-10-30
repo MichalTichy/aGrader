@@ -21,7 +21,27 @@ namespace CAC
         private void butBrowse_Click(object sender, EventArgs e)
         {
             if (SourceCodes.setPath()) //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
+            {
                 tbpath.Text = SourceCodes.getPath();
+                UpdateLbCodes();
+            }
+        }
+
+        private void UpdateLbCodes()
+        {
+            lbCodes.Items.Clear();
+            foreach (string name in SourceCodes.getNamesOfSourceCodeFiles())
+            {
+                lbCodes.Items.Add(name);
+            }
+        }
+
+        private void butReload_Click(object sender, EventArgs e)
+        {
+            if (SourceCodes.isdirectoryset())
+                UpdateLbCodes();
+            else
+                MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
         }
     }
 }

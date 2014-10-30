@@ -332,6 +332,7 @@
             this.butReload.TabIndex = 9;
             this.butReload.Text = "Obnovit";
             this.butReload.UseVisualStyleBackColor = true;
+            this.butReload.Click += new System.EventHandler(this.butReload_Click);
             // 
             // CaC
             // 
