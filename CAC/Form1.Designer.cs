@@ -55,6 +55,7 @@
             this.labHelop = new System.Windows.Forms.Label();
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
+            this.butReload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -158,6 +159,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.butReload);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.tbpath);
             this.tabPage1.Controls.Add(this.butBrowse);
@@ -181,7 +183,7 @@
             // 
             // tbpath
             // 
-            this.tbpath.Location = new System.Drawing.Point(3, 22);
+            this.tbpath.Location = new System.Drawing.Point(3, 32);
             this.tbpath.Name = "tbpath";
             this.tbpath.ReadOnly = true;
             this.tbpath.Size = new System.Drawing.Size(202, 20);
@@ -190,7 +192,7 @@
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(211, 20);
+            this.butBrowse.Location = new System.Drawing.Point(211, 30);
             this.butBrowse.Name = "butBrowse";
             this.butBrowse.Size = new System.Drawing.Size(69, 23);
             this.butBrowse.TabIndex = 6;
@@ -201,9 +203,9 @@
             // lbCodes
             // 
             this.lbCodes.FormattingEnabled = true;
-            this.lbCodes.Location = new System.Drawing.Point(-4, 45);
+            this.lbCodes.Location = new System.Drawing.Point(-4, 58);
             this.lbCodes.Name = "lbCodes";
-            this.lbCodes.Size = new System.Drawing.Size(291, 277);
+            this.lbCodes.Size = new System.Drawing.Size(291, 264);
             this.lbCodes.TabIndex = 5;
             // 
             // tabProtocol
@@ -322,6 +324,15 @@
             this.lbObjects.Size = new System.Drawing.Size(287, 147);
             this.lbObjects.TabIndex = 0;
             // 
+            // butReload
+            // 
+            this.butReload.Location = new System.Drawing.Point(211, 4);
+            this.butReload.Name = "butReload";
+            this.butReload.Size = new System.Drawing.Size(68, 23);
+            this.butReload.TabIndex = 9;
+            this.butReload.Text = "Obnovit";
+            this.butReload.UseVisualStyleBackColor = true;
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +385,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button butExport;
         private System.Windows.Forms.Button butImport;
+        private System.Windows.Forms.Button butReload;
     }
 }
 
