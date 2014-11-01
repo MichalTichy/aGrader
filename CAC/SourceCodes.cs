@@ -11,6 +11,8 @@ namespace CAC
     {
         private static DirectoryInfo SourceDir;
         private static List<FileInfo> SourceCodeFiles;
+
+
         public static bool setPath()
          {
              FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -33,7 +35,7 @@ namespace CAC
             return SourceDir.FullName;
         }
 
-        public static bool isdirectoryset() //TODO otestovat
+        public static bool isdirectoryset()
         {
             if (SourceDir != null)
                 return true;

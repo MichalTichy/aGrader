@@ -2,31 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace CAC
 {
     public class SourceCode
     {
-        public string Path
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private string path;
+        private string name;
 
-        public string Name
+        public SourceCode(string path)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.path = path;
+            this.name = Path.GetFileName(path);
         }
     }
 }
