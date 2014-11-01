@@ -10,7 +10,7 @@ namespace CAC
     public static class SourceCodes
     {
         private static DirectoryInfo SourceDir;
-        private static List<FileInfo> SourceCodeFiles;
+        private static List<SourceCode> SourceCodeFiles=new List<SourceCode>();
 
 
         public static bool setPath()
@@ -45,17 +45,13 @@ namespace CAC
 
         public static void ReloadSourceCodeFiles()
         {
-            SourceCodeFiles = new List<FileInfo>(SourceDir.GetFiles());
+            foreach (FileInfo file in SourceDir.GetFiles("*.c"))
+                SourceCodeFiles.Add(new SourceCode(file.FullName));
         }
 
-        public static List<string> getNamesOfSourceCodeFiles()
+        public static List<SourceCode> getSourceCodeFiles()
         {
-            List<string> Names=new List<string>();
-            foreach(FileInfo file in SourceCodeFiles)
-            {
-                Names.Add(file.Name);
-            }
-            return Names;
+            return SourceCodeFiles;
         }
 
     }

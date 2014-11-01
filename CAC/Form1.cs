@@ -30,9 +30,9 @@ namespace CAC
         private void UpdateLbCodes()
         {
             lbCodes.Items.Clear();
-            foreach (string name in SourceCodes.getNamesOfSourceCodeFiles())
+            foreach (SourceCode code in SourceCodes.getSourceCodeFiles())
             {
-                lbCodes.Items.Add(name);
+                lbCodes.Items.Add(code);
             }
         }
 
