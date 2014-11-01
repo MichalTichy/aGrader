@@ -53,6 +53,9 @@ namespace CAC
         {
             return SourceCodeFiles;
         }
-
+        public static SourceCode getSourceCode(int index)
+        {
+            return SourceCodeFiles[index];
+        }
     }
 }

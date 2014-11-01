@@ -26,5 +26,18 @@ namespace CAC
         {
             return path;
         }
+
+        public string GetSourceCode()
+        {
+            return File.ReadAllText(path);
+        }
+
+        public bool Exists()
+        {
+            if (File.Exists(path))
+                return true;
+            else
+                return false;
+        }
     }
 }

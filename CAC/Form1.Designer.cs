@@ -39,6 +39,7 @@
             this.butRunTest = new System.Windows.Forms.Button();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.butReload = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbpath = new System.Windows.Forms.TextBox();
             this.butBrowse = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.labHelop = new System.Windows.Forms.Label();
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
-            this.butReload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -172,6 +172,16 @@
             this.tabPage1.Text = "Průzkumník";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // butReload
+            // 
+            this.butReload.Location = new System.Drawing.Point(211, 4);
+            this.butReload.Name = "butReload";
+            this.butReload.Size = new System.Drawing.Size(68, 23);
+            this.butReload.TabIndex = 9;
+            this.butReload.Text = "Obnovit";
+            this.butReload.UseVisualStyleBackColor = true;
+            this.butReload.Click += new System.EventHandler(this.butReload_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -207,6 +217,7 @@
             this.lbCodes.Name = "lbCodes";
             this.lbCodes.Size = new System.Drawing.Size(291, 264);
             this.lbCodes.TabIndex = 5;
+            this.lbCodes.SelectedIndexChanged += new System.EventHandler(this.lbCodes_SelectedIndexChanged);
             // 
             // tabProtocol
             // 
@@ -323,16 +334,6 @@
             this.lbObjects.Name = "lbObjects";
             this.lbObjects.Size = new System.Drawing.Size(287, 147);
             this.lbObjects.TabIndex = 0;
-            // 
-            // butReload
-            // 
-            this.butReload.Location = new System.Drawing.Point(211, 4);
-            this.butReload.Name = "butReload";
-            this.butReload.Size = new System.Drawing.Size(68, 23);
-            this.butReload.TabIndex = 9;
-            this.butReload.Text = "Obnovit";
-            this.butReload.UseVisualStyleBackColor = true;
-            this.butReload.Click += new System.EventHandler(this.butReload_Click);
             // 
             // CaC
             // 

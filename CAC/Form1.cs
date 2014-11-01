@@ -34,6 +34,7 @@ namespace CAC
             {
                 lbCodes.Items.Add(code);
             }
+            rtbCode.Clear();
         }
 
         private void butReload_Click(object sender, EventArgs e)
@@ -42,6 +43,22 @@ namespace CAC
                 UpdateLbCodes();
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
+        }
+
+        private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbCodes.SelectedIndex >= 0) //if no item is selected index would be -1
+            {
+                SourceCode code = SourceCodes.getSourceCode(lbCodes.SelectedIndex);
+                if (code.Exists())
+                    rtbCode.Text = code.GetSourceCode();
+                else
+                {
+                    MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
+                    SourceCodes.ReloadSourceCodeFiles();
+                    UpdateLbCodes();
+                }
+            }
         }
     }
 }
