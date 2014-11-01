@@ -16,5 +16,15 @@ namespace CAC
             this.path = path;
             this.name = Path.GetFileName(path);
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
+
+        public string GetPath()
+        {
+            return path;
+        }
     }
 }
