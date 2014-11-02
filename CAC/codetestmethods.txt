@@ -1,0 +1,15 @@
+﻿Seznam a poznámky cěcí které se testují na kodu.
+************************************************
+
+VSTUP
+------
+string
+určité číslo.
+náhodné číslo (min, max)
+soubor
+
+Výstup
+------
+Určité číslo
+Hodnota svázané se vstupem
+soubor
