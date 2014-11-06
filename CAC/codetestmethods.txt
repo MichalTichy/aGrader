@@ -1,4 +1,4 @@
-﻿Seznam a poznámky cěcí které se testují na kodu.
+﻿Seznam a poznámky věcí které se testují na kodu.
 ************************************************
 
 VSTUP
