@@ -47,15 +47,12 @@
             this.tabProtocol = new System.Windows.Forms.TabPage();
             this.butExport = new System.Windows.Forms.Button();
             this.butImport = new System.Windows.Forms.Button();
-            this.butMoveDown = new System.Windows.Forms.Button();
-            this.butMoveUp = new System.Windows.Forms.Button();
-            this.butDel = new System.Windows.Forms.Button();
-            this.butAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbSettings = new System.Windows.Forms.TextBox();
             this.labHelop = new System.Windows.Forms.Label();
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
+            this.butMoveUp = new System.Windows.Forms.Button();
+            this.butMoveDown = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -225,10 +222,7 @@
             this.tabProtocol.Controls.Add(this.butImport);
             this.tabProtocol.Controls.Add(this.butMoveDown);
             this.tabProtocol.Controls.Add(this.butMoveUp);
-            this.tabProtocol.Controls.Add(this.butDel);
-            this.tabProtocol.Controls.Add(this.butAdd);
             this.tabProtocol.Controls.Add(this.label1);
-            this.tabProtocol.Controls.Add(this.tbSettings);
             this.tabProtocol.Controls.Add(this.labHelop);
             this.tabProtocol.Controls.Add(this.cbobjects);
             this.tabProtocol.Controls.Add(this.lbObjects);
@@ -258,42 +252,6 @@
             this.butImport.Text = "Importovat";
             this.butImport.UseVisualStyleBackColor = true;
             // 
-            // butMoveDown
-            // 
-            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
-            this.butMoveDown.Name = "butMoveDown";
-            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
-            this.butMoveDown.TabIndex = 8;
-            this.butMoveDown.Text = "ˇ";
-            this.butMoveDown.UseVisualStyleBackColor = true;
-            // 
-            // butMoveUp
-            // 
-            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
-            this.butMoveUp.Name = "butMoveUp";
-            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
-            this.butMoveUp.TabIndex = 7;
-            this.butMoveUp.Text = "^";
-            this.butMoveUp.UseVisualStyleBackColor = true;
-            // 
-            // butDel
-            // 
-            this.butDel.Location = new System.Drawing.Point(69, 110);
-            this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(54, 23);
-            this.butDel.TabIndex = 6;
-            this.butDel.Text = "Odebrat";
-            this.butDel.UseVisualStyleBackColor = true;
-            // 
-            // butAdd
-            // 
-            this.butAdd.Location = new System.Drawing.Point(3, 110);
-            this.butAdd.Name = "butAdd";
-            this.butAdd.Size = new System.Drawing.Size(60, 23);
-            this.butAdd.TabIndex = 5;
-            this.butAdd.Text = "Přidat";
-            this.butAdd.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -302,13 +260,6 @@
             this.label1.Size = new System.Drawing.Size(148, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tvorba testovacího protokolu";
-            // 
-            // tbSettings
-            // 
-            this.tbSettings.Location = new System.Drawing.Point(0, 57);
-            this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(283, 20);
-            this.tbSettings.TabIndex = 3;
             // 
             // labHelop
             // 
@@ -334,6 +285,24 @@
             this.lbObjects.Name = "lbObjects";
             this.lbObjects.Size = new System.Drawing.Size(287, 147);
             this.lbObjects.TabIndex = 0;
+            // 
+            // butMoveUp
+            // 
+            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
+            this.butMoveUp.Name = "butMoveUp";
+            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
+            this.butMoveUp.TabIndex = 7;
+            this.butMoveUp.Text = "^";
+            this.butMoveUp.UseVisualStyleBackColor = true;
+            // 
+            // butMoveDown
+            // 
+            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
+            this.butMoveDown.Name = "butMoveDown";
+            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
+            this.butMoveDown.TabIndex = 8;
+            this.butMoveDown.Text = "ˇ";
+            this.butMoveDown.UseVisualStyleBackColor = true;
             // 
             // CaC
             // 
@@ -377,12 +346,7 @@
         private System.Windows.Forms.Button butBrowse;
         private System.Windows.Forms.ListBox lbCodes;
         private System.Windows.Forms.TabPage tabProtocol;
-        private System.Windows.Forms.Button butMoveDown;
-        private System.Windows.Forms.Button butMoveUp;
-        private System.Windows.Forms.Button butDel;
-        private System.Windows.Forms.Button butAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbSettings;
         private System.Windows.Forms.Label labHelop;
         private System.Windows.Forms.ComboBox cbobjects;
         private System.Windows.Forms.ListBox lbObjects;
@@ -390,6 +354,8 @@
         private System.Windows.Forms.Button butExport;
         private System.Windows.Forms.Button butImport;
         private System.Windows.Forms.Button butReload;
+        private System.Windows.Forms.Button butMoveDown;
+        private System.Windows.Forms.Button butMoveUp;
     }
 }
 
