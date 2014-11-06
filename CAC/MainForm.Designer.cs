@@ -343,6 +343,8 @@
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.butRunTest);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "CaC";
             this.Text = "C application Checker";
             this.splitContainer1.Panel1.ResumeLayout(false);
