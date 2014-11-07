@@ -1,6 +1,6 @@
 ﻿namespace CAC
 {
-    partial class Input
+    partial class InputNumber
     {
         /// <summary>
         /// Required designer variable.
@@ -28,49 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.butDel = new System.Windows.Forms.Button();
             this.butAddOrChange = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.TabIndex = 14;
+            // 
             // butDel
             // 
-            this.butDel.Location = new System.Drawing.Point(78, 165);
+            this.butDel.Location = new System.Drawing.Point(102, 64);
             this.butDel.Name = "butDel";
             this.butDel.Size = new System.Drawing.Size(54, 23);
-            this.butDel.TabIndex = 8;
+            this.butDel.TabIndex = 13;
             this.butDel.Text = "Odebrat";
             this.butDel.UseVisualStyleBackColor = true;
             // 
             // butAddOrChange
             // 
-            this.butAddOrChange.Location = new System.Drawing.Point(12, 165);
+            this.butAddOrChange.Location = new System.Drawing.Point(12, 64);
             this.butAddOrChange.Name = "butAddOrChange";
             this.butAddOrChange.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrChange.TabIndex = 7;
+            this.butAddOrChange.TabIndex = 12;
             this.butAddOrChange.Text = "Přidat";
             this.butAddOrChange.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(13, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 26);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "butAddOrChange bude mít text \"Pridat\" nebo \"Změnit\".\r\n A butDel bude zapnut/vypnu" +
-    "t.";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Číslo";
             // 
-            // Input
+            // InputINT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 200);
+            this.ClientSize = new System.Drawing.Size(172, 90);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.butDel);
             this.Controls.Add(this.butAddOrChange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Input";
+            this.Name = "InputINT";
             this.Text = "Input";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -79,8 +87,10 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button butDel;
         private System.Windows.Forms.Button butAddOrChange;
         private System.Windows.Forms.Label label1;
+
     }
 }

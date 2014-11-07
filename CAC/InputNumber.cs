@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CAC
 {
-    public partial class Input : Form
+    public partial class InputNumber : Form
     {
-        public Input()
+        public InputNumber()
         {
             InitializeComponent();
         }
