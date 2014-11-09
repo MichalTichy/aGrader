@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNumber = new System.Windows.Forms.TextBox();
             this.butDel = new System.Windows.Forms.Button();
             this.butAddOrChange = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 14;
+            this.tbNumber.Location = new System.Drawing.Point(12, 38);
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.Size = new System.Drawing.Size(144, 20);
+            this.tbNumber.TabIndex = 14;
             // 
             // butDel
             // 
-            this.butDel.Location = new System.Drawing.Point(102, 64);
+            this.butDel.Location = new System.Drawing.Point(96, 64);
             this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(54, 23);
+            this.butDel.Size = new System.Drawing.Size(60, 23);
             this.butDel.TabIndex = 13;
             this.butDel.Text = "Odebrat";
             this.butDel.UseVisualStyleBackColor = true;
@@ -68,17 +68,17 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Číslo";
             // 
-            // InputINT
+            // InputNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(172, 90);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNumber);
             this.Controls.Add(this.butDel);
             this.Controls.Add(this.butAddOrChange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InputINT";
+            this.Name = "InputNumber";
             this.Text = "Input";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -87,7 +87,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbNumber;
         private System.Windows.Forms.Button butDel;
         private System.Windows.Forms.Button butAddOrChange;
         private System.Windows.Forms.Label label1;
