@@ -79,6 +79,7 @@
             this.Controls.Add(this.butAddOrChange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputString";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "InputString";
             this.ResumeLayout(false);
             this.PerformLayout();
