@@ -290,6 +290,7 @@
             // 
             // cbobjects
             // 
+            this.cbobjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobjects.FormattingEnabled = true;
             this.cbobjects.Items.AddRange(new object[] {
             "VSTUP: TEXT",
