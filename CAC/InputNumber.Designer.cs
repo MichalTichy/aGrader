@@ -70,6 +70,11 @@
             232830,
             0,
             0});
+            this.numeric.Minimum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            -2147483648});
             this.numeric.Name = "numeric";
             this.numeric.Size = new System.Drawing.Size(144, 20);
             this.numeric.TabIndex = 16;

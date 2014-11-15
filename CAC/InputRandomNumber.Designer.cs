@@ -92,6 +92,11 @@
             232830,
             0,
             0});
+            this.numMin.Minimum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            -2147483648});
             this.numMin.Name = "numMin";
             this.numMin.Size = new System.Drawing.Size(148, 20);
             this.numMin.TabIndex = 24;
@@ -106,6 +111,11 @@
             232830,
             0,
             0});
+            this.numMax.Minimum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            -2147483648});
             this.numMax.Name = "numMax";
             this.numMax.Size = new System.Drawing.Size(146, 20);
             this.numMax.TabIndex = 25;
