@@ -3,15 +3,22 @@
   <Class Name="CAC.SourceCodes">
     <Position X="6" Y="1.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAEAAIAAAEAAAAAAAQAAAAIgAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAIAAAEAAAAAAAQAQAAIgAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>SourceCodes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CAC.SourceCode">
     <Position X="3.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAACAAAAEAAGAAAAAAAAAAEAAAA=</HashCode>
       <FileName>SourceCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAC.SideFormManager">
+    <Position X="1.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAQAAAAAAAAAAAEAAAAAAAAAACAAAA=</HashCode>
+      <FileName>SideFormManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

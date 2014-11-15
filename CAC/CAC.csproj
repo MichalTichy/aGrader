@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SideFormManager.cs" />
     <Compile Include="SourceCode.cs" />
     <Compile Include="SourceCodes.cs" />
     <EmbeddedResource Include="InputFile.resx">
