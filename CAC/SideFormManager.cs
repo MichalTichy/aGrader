@@ -16,10 +16,14 @@ namespace CAC
             SideForm = FormToShow;
             UpdatePosition();
             SideForm.Show();
+            
         }
         public static void UpdatePosition()
         {
-            SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y);
+            if(SideForm!=null)
+            {
+                SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y+65);
+            }
         }
 
         public static void Close()
