@@ -16,5 +16,27 @@ namespace CAC
         {
             InitializeComponent();
         }
+
+        private void numMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (numMax.Value <= numMin.Value)
+            {
+                numMax.Value = numMin.Value + 1;
+                labErr.Text = "MAX nemůže být menší než MIN!";
+            }
+            else
+                labErr.Text = "";
+        }
+
+        private void numMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (numMin.Value >= numMax.Value)
+            {
+                numMin.Value = numMax.Value + -1;
+                labErr.Text = "MIN nemůže být větší než MAX!";
+            }
+            else
+                labErr.Text = "";
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numMin = new System.Windows.Forms.NumericUpDown();
             this.numMax = new System.Windows.Forms.NumericUpDown();
+            this.labErr = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +103,7 @@
             this.numMin.TabIndex = 24;
             this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numMin.ThousandsSeparator = true;
+            this.numMin.ValueChanged += new System.EventHandler(this.numMin_ValueChanged);
             // 
             // numMax
             // 
@@ -121,12 +123,29 @@
             this.numMax.TabIndex = 25;
             this.numMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numMax.ThousandsSeparator = true;
+            this.numMax.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numMax.ValueChanged += new System.EventHandler(this.numMax_ValueChanged);
+            // 
+            // labErr
+            // 
+            this.labErr.AutoSize = true;
+            this.labErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labErr.ForeColor = System.Drawing.Color.Red;
+            this.labErr.Location = new System.Drawing.Point(3, 73);
+            this.labErr.Name = "labErr";
+            this.labErr.Size = new System.Drawing.Size(0, 13);
+            this.labErr.TabIndex = 26;
             // 
             // InputRandomNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(170, 160);
+            this.Controls.Add(this.labErr);
             this.Controls.Add(this.numMax);
             this.Controls.Add(this.numMin);
             this.Controls.Add(this.label4);
@@ -154,5 +173,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numMin;
         private System.Windows.Forms.NumericUpDown numMax;
+        private System.Windows.Forms.Label labErr;
     }
 }
