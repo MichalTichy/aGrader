@@ -60,5 +60,34 @@ namespace CAC
                 }
             }
         }
+
+        private void cbobjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+             * VSTUP: TEXT
+             * VSTUP: ČÍSLO
+             * VSTUP: NÁHODNÉ ČÍSLO
+             * VSTUP: SOUBOR
+             */
+            
+            switch (cbobjects.SelectedIndex)
+            {
+                case 0:
+                    SideFormManager.Show(new InputString());
+                    break;
+                case 1:
+                    SideFormManager.Show(new InputNumber());
+                    break;
+                case 2:
+                    SideFormManager.Show(new InputRandomNumber());
+                    break;
+                case 3:
+                    SideFormManager.Show(new InputFile());
+                    break;
+                default:
+                    SideFormManager.Close();
+                    break;
+            }
+        }
     }
 }
