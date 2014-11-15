@@ -89,5 +89,10 @@ namespace CAC
                     break;
             }
         }
+
+        private void CaC_Move(object sender, EventArgs e)
+        {
+            SideFormManager.UpdatePosition();
+        }
     }
 }
