@@ -47,12 +47,12 @@
             this.tabProtocol = new System.Windows.Forms.TabPage();
             this.butExport = new System.Windows.Forms.Button();
             this.butImport = new System.Windows.Forms.Button();
+            this.butMoveDown = new System.Windows.Forms.Button();
+            this.butMoveUp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labHelop = new System.Windows.Forms.Label();
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
-            this.butMoveUp = new System.Windows.Forms.Button();
-            this.butMoveDown = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -252,6 +252,24 @@
             this.butImport.Text = "Importovat";
             this.butImport.UseVisualStyleBackColor = true;
             // 
+            // butMoveDown
+            // 
+            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
+            this.butMoveDown.Name = "butMoveDown";
+            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
+            this.butMoveDown.TabIndex = 8;
+            this.butMoveDown.Text = "ˇ";
+            this.butMoveDown.UseVisualStyleBackColor = true;
+            // 
+            // butMoveUp
+            // 
+            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
+            this.butMoveUp.Name = "butMoveUp";
+            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
+            this.butMoveUp.TabIndex = 7;
+            this.butMoveUp.Text = "^";
+            this.butMoveUp.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -273,6 +291,11 @@
             // cbobjects
             // 
             this.cbobjects.FormattingEnabled = true;
+            this.cbobjects.Items.AddRange(new object[] {
+            "VSTUP: TEXT",
+            "VSTUP: ČÍSLO",
+            "VSTUP: NÁHODNÉ ČÍSLO",
+            "VSTUP: SOUBOR"});
             this.cbobjects.Location = new System.Drawing.Point(0, 83);
             this.cbobjects.Name = "cbobjects";
             this.cbobjects.Size = new System.Drawing.Size(283, 21);
@@ -285,24 +308,6 @@
             this.lbObjects.Name = "lbObjects";
             this.lbObjects.Size = new System.Drawing.Size(287, 147);
             this.lbObjects.TabIndex = 0;
-            // 
-            // butMoveUp
-            // 
-            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
-            this.butMoveUp.Name = "butMoveUp";
-            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
-            this.butMoveUp.TabIndex = 7;
-            this.butMoveUp.Text = "^";
-            this.butMoveUp.UseVisualStyleBackColor = true;
-            // 
-            // butMoveDown
-            // 
-            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
-            this.butMoveDown.Name = "butMoveDown";
-            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
-            this.butMoveDown.TabIndex = 8;
-            this.butMoveDown.Text = "ˇ";
-            this.butMoveDown.UseVisualStyleBackColor = true;
             // 
             // CaC
             // 
