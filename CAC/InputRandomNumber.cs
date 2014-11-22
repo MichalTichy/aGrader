@@ -43,5 +43,11 @@ namespace CAC
         {
             SideFormManager.Close();
         }
+
+        private void butAddOrChange_Click(object sender, EventArgs e)
+        {
+            IOMethods.IO.Add(this);
+            SideFormManager.Close();
+        }
     }
 }

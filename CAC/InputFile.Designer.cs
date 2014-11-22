@@ -73,6 +73,7 @@
             this.butAddOrChange.TabIndex = 20;
             this.butAddOrChange.Text = "Přidat";
             this.butAddOrChange.UseVisualStyleBackColor = true;
+            this.butAddOrChange.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // butBrowse
             // 
