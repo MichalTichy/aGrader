@@ -41,7 +41,7 @@
             this.butDel.Name = "butDel";
             this.butDel.Size = new System.Drawing.Size(60, 23);
             this.butDel.TabIndex = 13;
-            this.butDel.Text = "Odebrat";
+            this.butDel.Text = "Zavřít";
             this.butDel.UseVisualStyleBackColor = true;
             // 
             // butAddOrChange
