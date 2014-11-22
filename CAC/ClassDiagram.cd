@@ -22,9 +22,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CAC.IOMethods">
-    <Position X="1.5" Y="1" Width="1.5" />
+    <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>IOMethods.cs</FileName>
     </TypeIdentifier>
   </Class>

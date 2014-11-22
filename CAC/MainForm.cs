@@ -16,7 +16,6 @@ namespace CAC
         public CaC()
         {
             InitializeComponent();
-            lbObjects.DataSource = IOMethods.IOObjects;
         }
 
         private void butBrowse_Click(object sender, EventArgs e)
@@ -44,7 +43,6 @@ namespace CAC
                 UpdateLbCodes();                
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
-            IOMethods.test();
         }
 
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
