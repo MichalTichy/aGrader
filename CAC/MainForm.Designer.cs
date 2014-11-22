@@ -357,13 +357,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labHelop;
         private System.Windows.Forms.ComboBox cbobjects;
-        private System.Windows.Forms.ListBox lbObjects;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button butExport;
         private System.Windows.Forms.Button butImport;
         private System.Windows.Forms.Button butReload;
         private System.Windows.Forms.Button butMoveDown;
         private System.Windows.Forms.Button butMoveUp;
+        public System.Windows.Forms.ListBox lbObjects;
     }
 }
 

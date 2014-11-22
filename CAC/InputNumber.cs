@@ -14,7 +14,7 @@ namespace CAC
     {
         public InputNumber()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }
