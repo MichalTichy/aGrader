@@ -19,7 +19,6 @@ namespace CAC
 
         private void butDel_Click(object sender, EventArgs e)
         {
-            SideFormManager.Close();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
