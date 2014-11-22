@@ -16,5 +16,10 @@ namespace CAC
         {
             InitializeComponent();            
         }
+
+        private void butDel_Click(object sender, EventArgs e)
+        {
+            SideFormManager.Close();
+        }
     }
 }

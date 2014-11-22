@@ -63,6 +63,7 @@
             this.butDel.TabIndex = 21;
             this.butDel.Text = "Zavřít";
             this.butDel.UseVisualStyleBackColor = true;
+            this.butDel.Click += new System.EventHandler(this.butDel_Click);
             // 
             // butAddOrChange
             // 
