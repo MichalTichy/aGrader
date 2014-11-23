@@ -27,5 +27,10 @@ namespace CAC
             IOMethods.IO.Add(this);
             SideFormManager.Close();
         }
+
+        public string getDescription()
+        {
+            return "VSTUP: text: \""+tbString.Text+"\"";
+        }
     }
 }
