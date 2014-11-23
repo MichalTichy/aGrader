@@ -27,7 +27,7 @@ namespace CAC
             SideFormManager.Close();
         }
 
-        public string getDescription()
+        public override string ToString()
         {
             return "VSTUP: soubor "+tbPath;
         }

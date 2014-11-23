@@ -28,7 +28,7 @@ namespace CAC
             SideFormManager.Close();
         }
 
-        public string getDescription()
+        public override string ToString()
         {
             return "VSTUP: text: \""+tbString.Text+"\"";
         }
