@@ -30,7 +30,7 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: číslo " + numeric;
+            return "VSTUP: číslo " + numeric.Value;
         }
     }
 }

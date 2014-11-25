@@ -52,7 +52,7 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: náhodné číslo od " + numMin + " do " + numMax;
+            return "VSTUP: náhodné číslo od " + numMin.Value + " do " + numMax.Value;
         }
     }
 }
