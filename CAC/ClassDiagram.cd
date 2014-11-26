@@ -17,15 +17,15 @@
   <Class Name="CAC.SideFormManager">
     <Position X="1.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAQAAAAAAAAAAAEAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAACAQAAAAAAAAAgAEAAAAAAAAAACAAAA=</HashCode>
       <FileName>SideFormManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CAC.IOMethods">
-    <Position X="1.25" Y="1.75" Width="1.5" />
+  <Class Name="CAC.IOs">
+    <Position X="8" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>IOMethods.cs</FileName>
+      <HashCode>AAAAgAAAAAAAAAAAIAAABAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>IOs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
