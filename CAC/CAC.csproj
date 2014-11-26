@@ -68,7 +68,7 @@
     <Compile Include="InputString.Designer.cs">
       <DependentUpon>InputString.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOMethods.cs" />
+    <Compile Include="IOs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

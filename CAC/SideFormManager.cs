@@ -9,6 +9,7 @@ namespace CAC
     public static class SideFormManager
     {
         private static dynamic SideForm=null;
+        private static string[] ValidDatatypes = {"InputFile","InputNumber","InputRandomNumber","InputString"};
 
         public static void Show(dynamic FormToShow)
         {
@@ -25,7 +26,12 @@ namespace CAC
                 SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y+65);
             }
         }
-
+        public static bool IsValidDataType(Type DataType)
+        {
+            if (ValidDatatypes.Contains(DataType.Name))
+                return true;
+            return false;
+        }
         public static void Close()
         {
             if(SideForm!=null)

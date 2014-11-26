@@ -46,7 +46,7 @@ namespace CAC
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            IOMethods.IO.Add(this);
+            IOs.Add(this);
             SideFormManager.Close();
         }
 
