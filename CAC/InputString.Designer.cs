@@ -49,6 +49,7 @@
             this.tbString.Name = "tbString";
             this.tbString.Size = new System.Drawing.Size(144, 20);
             this.tbString.TabIndex = 18;
+            this.tbString.Validated += new System.EventHandler(this.tbString_Validated);
             // 
             // butDel
             // 

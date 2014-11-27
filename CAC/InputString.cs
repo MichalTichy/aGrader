@@ -12,6 +12,7 @@ namespace CAC
 {
     public partial class InputString : Form
     {
+        private string text;
         public InputString()
         {
             InitializeComponent();
@@ -30,7 +31,12 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: text: \""+tbString.Text+"\"";
+            return "VSTUP: text: \""+text+"\"";
+        }
+
+        private void tbString_Validated(object sender, EventArgs e)
+        {
+            text = tbString.Text;
         }
     }
 }
