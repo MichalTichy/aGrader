@@ -125,6 +125,7 @@
             this.Controls.Add(this.butAddOrChange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputFile";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "InputFile";
             this.ResumeLayout(false);

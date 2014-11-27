@@ -94,6 +94,7 @@
             this.Controls.Add(this.butAddOrChange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputNumber";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Input";
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
