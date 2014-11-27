@@ -94,5 +94,6 @@ namespace CAC
         {
             SideFormManager.UpdatePosition();
         }
+        private void CaC_Activated(object sender, EventArgs e)
     }
 }

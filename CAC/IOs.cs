@@ -19,6 +19,12 @@ namespace CAC
             if (SideFormManager.IsValidDataType(IOForm.GetType()))
                 IOForms.Add(IOForm);
         }
+        public static void Swap(int index1,int index2)
+        {
+            dynamic temp = IOForms[index1];
+            IOForms[index1] = IOForms[index2];
+            IOForms[index2] = temp;
+        }
 
         public static void Import()
         {
