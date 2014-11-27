@@ -90,7 +90,7 @@ namespace CAC
             }
         }
 
-        private void CaC_Move(object sender, EventArgs e)
+        private void CaC_LocationChanged(object sender, EventArgs e)
         {
             SideFormManager.UpdatePosition();
         }

@@ -23,7 +23,13 @@ namespace CAC
         {
             if(SideForm!=null)
             {
-                SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y+65);
+
+                //HACK
+                try
+                {
+                    SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y+65);
+                }
+                catch { }
             }
         }
         public static bool IsValidDataType(Type DataType)
