@@ -89,44 +89,44 @@
             // 
             // numMin
             // 
+            this.numMin.DecimalPlaces = 3;
             this.numMin.Location = new System.Drawing.Point(12, 50);
             this.numMin.Maximum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             0});
             this.numMin.Minimum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             -2147483648});
             this.numMin.Name = "numMin";
             this.numMin.Size = new System.Drawing.Size(148, 20);
             this.numMin.TabIndex = 24;
             this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numMin.ThousandsSeparator = true;
             this.numMin.ValueChanged += new System.EventHandler(this.numMin_ValueChanged);
             // 
             // numMax
             // 
+            this.numMax.DecimalPlaces = 3;
             this.numMax.Location = new System.Drawing.Point(12, 102);
             this.numMax.Maximum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             0});
             this.numMax.Minimum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             -2147483648});
             this.numMax.Name = "numMax";
             this.numMax.Size = new System.Drawing.Size(146, 20);
             this.numMax.TabIndex = 25;
             this.numMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numMax.ThousandsSeparator = true;
             this.numMax.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});

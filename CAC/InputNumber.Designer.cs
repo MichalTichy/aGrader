@@ -66,22 +66,22 @@
             // 
             // numeric
             // 
+            this.numeric.DecimalPlaces = 3;
             this.numeric.Location = new System.Drawing.Point(12, 25);
             this.numeric.Maximum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             0});
             this.numeric.Minimum = new decimal(new int[] {
-            -1530494976,
-            232830,
+            2000000000,
+            0,
             0,
             -2147483648});
             this.numeric.Name = "numeric";
             this.numeric.Size = new System.Drawing.Size(144, 20);
             this.numeric.TabIndex = 16;
             this.numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numeric.ThousandsSeparator = true;
             // 
             // InputNumber
             // 
