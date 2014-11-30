@@ -37,6 +37,15 @@ namespace CAC
             rtbCode.Clear();
         }
 
+        private void UpdateLbObjects()
+        {
+            lbObjects.Items.Clear();
+            foreach(dynamic SideForm in IOs.getList())
+            {
+                lbObjects.Items.Add(SideForm.ToString());
+            }
+        }
+
         private void butReload_Click(object sender, EventArgs e)
         {
             if (SourceCodes.isdirectoryset())
@@ -94,6 +103,18 @@ namespace CAC
         {
             SideFormManager.UpdatePosition();
         }
+
         private void CaC_Activated(object sender, EventArgs e)
+        {
+            UpdateLbObjects();
+        }
+
+        private void butMoveUp_Click(object sender, EventArgs e)
+        {
+            if(lbObjects.SelectedItems.Count!=0 && lbObjects.SelectedIndex!=0)
+            {
+                
+            }
+        }
     }
 }
