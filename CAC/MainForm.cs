@@ -111,9 +111,23 @@ namespace CAC
 
         private void butMoveUp_Click(object sender, EventArgs e)
         {
-            if(lbObjects.SelectedItems.Count!=0 && lbObjects.SelectedIndex!=0)
+            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != 0) //if theres any selected item and it isnt top one;
             {
-                
+                int selectedindex = lbObjects.SelectedIndex;
+                IOs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex - 1);
+                UpdateLbObjects();
+                lbObjects.SelectedIndex = selectedindex - 1;
+            }
+        }
+
+        private void butMoveDown_Click(object sender, EventArgs e)
+        {
+            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1) //if theres any selected item and it isnt bottom one;
+            {
+                int selectedindex = lbObjects.SelectedIndex;
+                IOs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex + 1);
+                UpdateLbObjects();
+                lbObjects.SelectedIndex = selectedindex + 1;
             }
         }
     }

@@ -260,6 +260,7 @@
             this.butMoveDown.TabIndex = 8;
             this.butMoveDown.Text = "ˇ";
             this.butMoveDown.UseVisualStyleBackColor = true;
+            this.butMoveDown.Click += new System.EventHandler(this.butMoveDown_Click);
             // 
             // butMoveUp
             // 
