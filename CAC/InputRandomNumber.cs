@@ -17,8 +17,11 @@ namespace CAC
         public bool Decimal;
 
         public InputRandomNumber()
-        {
+        {            
             InitializeComponent();
+            min = numMin.Value;
+            max = numMax.Value;
+            Decimal = !cbNoDecimal.Checked;
         }
 
         private void numMax_ValueChanged(object sender, EventArgs e)
@@ -29,7 +32,11 @@ namespace CAC
                 labErr.Text = "MAX nemůže být menší než MIN!";
             }
             else
+            {
                 labErr.Text = "";
+                max = numMax.Value;
+            }
+
         }
 
         private void numMin_ValueChanged(object sender, EventArgs e)
@@ -40,7 +47,11 @@ namespace CAC
                 labErr.Text = "MIN nemůže být větší než MAX!";
             }
             else
+            {
                 labErr.Text = "";
+                min = numMin.Value;
+            }
+                
         }
 
         private void butDel_Click(object sender, EventArgs e)
@@ -62,29 +73,19 @@ namespace CAC
                 return "VSTUP: náhodné celé číslo od " + min + " do " + max;
         }
 
-        private void numMin_Validated(object sender, EventArgs e)
-        {
-            min = numMin.Value;
-        }
-
-        private void numMax_Validated(object sender, EventArgs e)
-        {
-            max = numMax.Value;
-        }
-
         private void cbNoDecimal_CheckedChanged(object sender, EventArgs e)
         {
             if(cbNoDecimal.Checked)
             {
                 Decimal = false;
                 numMin.DecimalPlaces = 0;
-                numMin.DecimalPlaces = 0;
+                numMax.DecimalPlaces = 0;
             }
             else
             {
                 Decimal = true;
                 numMin.DecimalPlaces = 3;
-                numMin.DecimalPlaces = 3;
+                numMax.DecimalPlaces = 3;
             }
 
         }

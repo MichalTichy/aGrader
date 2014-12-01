@@ -106,7 +106,6 @@
             this.numMin.TabIndex = 24;
             this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numMin.ValueChanged += new System.EventHandler(this.numMin_ValueChanged);
-            this.numMin.Validated += new System.EventHandler(this.numMin_Validated);
             // 
             // numMax
             // 
@@ -131,7 +130,6 @@
             0,
             0});
             this.numMax.ValueChanged += new System.EventHandler(this.numMax_ValueChanged);
-            this.numMax.Validated += new System.EventHandler(this.numMax_Validated);
             // 
             // labErr
             // 

@@ -82,6 +82,7 @@
             this.numeric.Size = new System.Drawing.Size(144, 20);
             this.numeric.TabIndex = 16;
             this.numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
             // 
             // InputNumber
             // 
@@ -97,7 +98,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Input";
-            this.Validated += new System.EventHandler(this.InputNumber_Validated);
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

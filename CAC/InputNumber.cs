@@ -14,8 +14,9 @@ namespace CAC
     {
         public decimal Value;
         public InputNumber()
-        {
-            InitializeComponent();            
+        {            
+            InitializeComponent();
+            Value = numeric.Value;
         }
 
         private void butDel_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace CAC
             return "VSTUP: číslo " + Value;
         }
 
-        private void InputNumber_Validated(object sender, EventArgs e)
+        private void numeric_ValueChanged(object sender, EventArgs e)
         {
             Value = numeric.Value;
         }
