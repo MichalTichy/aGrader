@@ -28,7 +28,7 @@ namespace CAC
             IOForms[index2] = temp;
         }
 
-        private static XmlDocument GenerateXMLDocument()
+        public static XmlDocument GenerateXMLDocument()
         {
             XmlDocument doc = new XmlDocument();
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -78,20 +78,6 @@ namespace CAC
             }
             doc.AppendChild(root);
             return doc;
-        }
-        public static void Import()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public static void Export()
-        {
-            SaveFileDialog saveXML = new SaveFileDialog();            
-            if (saveXML.ShowDialog() == DialogResult.OK)
-            {
-                XmlDocument doc = GenerateXMLDocument();
-                doc.Save(saveXML.FileName);
-            }
         }
 
     }
