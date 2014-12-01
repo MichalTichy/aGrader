@@ -36,6 +36,7 @@
             this.numMin = new System.Windows.Forms.NumericUpDown();
             this.numMax = new System.Windows.Forms.NumericUpDown();
             this.labErr = new System.Windows.Forms.Label();
+            this.cbNoDecimal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
             this.SuspendLayout();
@@ -45,13 +46,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Číslo";
+            this.label1.Text = "Náhodné číslo";
             // 
             // butDel
             // 
-            this.butDel.Location = new System.Drawing.Point(100, 128);
+            this.butDel.Location = new System.Drawing.Point(100, 148);
             this.butDel.Name = "butDel";
             this.butDel.Size = new System.Drawing.Size(58, 23);
             this.butDel.TabIndex = 17;
@@ -61,7 +62,7 @@
             // 
             // butAddOrChange
             // 
-            this.butAddOrChange.Location = new System.Drawing.Point(12, 128);
+            this.butAddOrChange.Location = new System.Drawing.Point(12, 148);
             this.butAddOrChange.Name = "butAddOrChange";
             this.butAddOrChange.Size = new System.Drawing.Size(60, 23);
             this.butAddOrChange.TabIndex = 16;
@@ -89,7 +90,6 @@
             // 
             // numMin
             // 
-            this.numMin.DecimalPlaces = 3;
             this.numMin.Location = new System.Drawing.Point(12, 50);
             this.numMin.Maximum = new decimal(new int[] {
             2000000000,
@@ -106,10 +106,10 @@
             this.numMin.TabIndex = 24;
             this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numMin.ValueChanged += new System.EventHandler(this.numMin_ValueChanged);
+            this.numMin.Validated += new System.EventHandler(this.numMin_Validated);
             // 
             // numMax
             // 
-            this.numMax.DecimalPlaces = 3;
             this.numMax.Location = new System.Drawing.Point(12, 102);
             this.numMax.Maximum = new decimal(new int[] {
             2000000000,
@@ -131,6 +131,7 @@
             0,
             0});
             this.numMax.ValueChanged += new System.EventHandler(this.numMax_ValueChanged);
+            this.numMax.Validated += new System.EventHandler(this.numMax_Validated);
             // 
             // labErr
             // 
@@ -142,11 +143,25 @@
             this.labErr.Size = new System.Drawing.Size(0, 13);
             this.labErr.TabIndex = 26;
             // 
+            // cbNoDecimal
+            // 
+            this.cbNoDecimal.AutoSize = true;
+            this.cbNoDecimal.Checked = true;
+            this.cbNoDecimal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbNoDecimal.Location = new System.Drawing.Point(43, 128);
+            this.cbNoDecimal.Name = "cbNoDecimal";
+            this.cbNoDecimal.Size = new System.Drawing.Size(89, 17);
+            this.cbNoDecimal.TabIndex = 27;
+            this.cbNoDecimal.Text = "jen celá čísla";
+            this.cbNoDecimal.UseVisualStyleBackColor = true;
+            this.cbNoDecimal.CheckedChanged += new System.EventHandler(this.cbNoDecimal_CheckedChanged);
+            // 
             // InputRandomNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(170, 160);
+            this.ClientSize = new System.Drawing.Size(170, 183);
+            this.Controls.Add(this.cbNoDecimal);
             this.Controls.Add(this.labErr);
             this.Controls.Add(this.numMax);
             this.Controls.Add(this.numMin);
@@ -177,5 +192,6 @@
         private System.Windows.Forms.NumericUpDown numMin;
         private System.Windows.Forms.NumericUpDown numMax;
         private System.Windows.Forms.Label labErr;
+        private System.Windows.Forms.CheckBox cbNoDecimal;
     }
 }

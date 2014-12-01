@@ -12,6 +12,7 @@ namespace CAC
 {
     public partial class InputNumber : Form
     {
+        public decimal Value;
         public InputNumber()
         {
             InitializeComponent();            
@@ -30,7 +31,12 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: číslo " + numeric.Value;
+            return "VSTUP: číslo " + Value;
+        }
+
+        private void InputNumber_Validated(object sender, EventArgs e)
+        {
+            Value = numeric.Value;
         }
     }
 }

@@ -12,6 +12,8 @@ namespace CAC
 {
     public partial class InputFile : Form
     {
+        public string path;
+        public string lineformat;
         public InputFile()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: soubor "+tbPath;
+            return "VSTUP: soubor "+path;
         }
     }
 }

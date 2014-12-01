@@ -12,6 +12,10 @@ namespace CAC
 {
     public partial class InputRandomNumber : Form
     {
+        public decimal max;
+        public decimal min;
+        public bool Decimal;
+
         public InputRandomNumber()
         {
             InitializeComponent();
@@ -52,7 +56,37 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: náhodné číslo od " + numMin.Value + " do " + numMax.Value;
+            if (Decimal)
+                return "VSTUP: náhodné desetiné číslo od " + min + " do " + max;
+            else
+                return "VSTUP: náhodné celé číslo od " + min + " do " + max;
+        }
+
+        private void numMin_Validated(object sender, EventArgs e)
+        {
+            min = numMin.Value;
+        }
+
+        private void numMax_Validated(object sender, EventArgs e)
+        {
+            max = numMax.Value;
+        }
+
+        private void cbNoDecimal_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbNoDecimal.Checked)
+            {
+                Decimal = false;
+                numMin.DecimalPlaces = 0;
+                numMin.DecimalPlaces = 0;
+            }
+            else
+            {
+                Decimal = true;
+                numMin.DecimalPlaces = 3;
+                numMin.DecimalPlaces = 3;
+            }
+
         }
     }
 }
