@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace CAC
 {
@@ -85,6 +86,12 @@ namespace CAC
 
         public static void Export()
         {
+            SaveFileDialog saveXML = new SaveFileDialog();            
+            if (saveXML.ShowDialog() == DialogResult.OK)
+            {
+                XmlDocument doc = GenerateXMLDocument();
+                doc.Save(saveXML.FileName);
+            }
         }
 
     }
