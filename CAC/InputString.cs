@@ -12,7 +12,7 @@ namespace CAC
 {
     public partial class InputString : Form
     {
-        private string text;
+        public string text;
         public InputString()
         {
             InitializeComponent();
