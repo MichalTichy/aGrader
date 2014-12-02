@@ -42,23 +42,23 @@ namespace CAC
                 {
                     case "InputString":
                         XmlElement stringvalue = doc.CreateElement("string");
-                        stringvalue.InnerText = IOForm.Text;
+                        stringvalue.InnerText = IOForm.text;
 
                         IOMethod.AppendChild(stringvalue);
                         break;
                     case "InputNumber":
                         XmlElement numericvalue = doc.CreateElement("numeric");
-                        numericvalue.InnerText = IOForm.Value;
+                        numericvalue.InnerText = IOForm.Value.ToString();
 
                         IOMethod.AppendChild(numericvalue);
                         break;
                     case "InputRandomNumber":
                         XmlElement minvalue = doc.CreateElement("minValue");
-                        minvalue.InnerText = IOForm.min;
+                        minvalue.InnerText = IOForm.min.ToString();
                         XmlElement maxvalue = doc.CreateElement("maxValue");
-                        maxvalue.InnerText = IOForm.max;
+                        maxvalue.InnerText = IOForm.max.ToString();
                         XmlElement isDecimal = doc.CreateElement("isDecimal");
-                        isDecimal.InnerText = IOForm.Decimal;
+                        isDecimal.InnerText = IOForm.Decimal.ToString();
 
                         IOMethod.AppendChild(minvalue);
                         IOMethod.AppendChild(maxvalue);
