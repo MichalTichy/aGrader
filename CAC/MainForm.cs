@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
 
 namespace CAC
 {
@@ -129,6 +130,23 @@ namespace CAC
                 UpdateLbObjects();
                 lbObjects.SelectedIndex = selectedindex + 1;
             }
+        }
+
+        private void butExport_Click(object sender, EventArgs e)
+        {
+
+            if (lbObjects.Items.Count > 0)
+            {
+                SaveFileDialog saveXML = new SaveFileDialog();
+                saveXML.Filter = "XML files (*.xml)|*.xml";
+                if (saveXML.ShowDialog() == DialogResult.OK)
+                {
+                    XmlDocument doc = IOs.GenerateXMLDocument();
+                    doc.Save(saveXML.FileName);
+                }
+            }
+            else
+                MessageBox.Show("Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup.");
         }
     }
 }

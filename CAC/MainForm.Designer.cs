@@ -242,6 +242,7 @@
             this.butExport.TabIndex = 10;
             this.butExport.Text = "Exportovat";
             this.butExport.UseVisualStyleBackColor = true;
+            this.butExport.Click += new System.EventHandler(this.butExport_Click);
             // 
             // butImport
             // 
