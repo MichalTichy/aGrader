@@ -313,6 +313,7 @@
             this.lbObjects.Name = "lbObjects";
             this.lbObjects.Size = new System.Drawing.Size(287, 147);
             this.lbObjects.TabIndex = 0;
+            this.lbObjects.SelectedIndexChanged += new System.EventHandler(this.lbObjects_SelectedIndexChanged);
             // 
             // CaC
             // 

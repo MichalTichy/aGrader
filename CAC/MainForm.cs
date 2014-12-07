@@ -148,5 +148,14 @@ namespace CAC
             else
                 MessageBox.Show("Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup.");
         }
+
+        private void lbObjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbObjects.SelectedIndex>=0)
+            {
+                IOs.getIOForm(lbObjects.SelectedIndex).exists = true;
+                SideFormManager.Show(IOs.getIOForm(lbObjects.SelectedIndex));
+            }
+        }
     }
 }

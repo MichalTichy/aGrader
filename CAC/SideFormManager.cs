@@ -42,7 +42,7 @@ namespace CAC
         {
             if(SideForm!=null)
             {
-                SideForm.Close();
+                SideForm.Hide();
                 SideForm = null;
             }
         }
