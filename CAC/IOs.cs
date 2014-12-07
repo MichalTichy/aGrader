@@ -15,11 +15,19 @@ namespace CAC
         {
             return IOForms;
         }
+        public static dynamic getIOForm(int id)
+        {
+            return IOForms[id];
+        }
 
         public static void Add(dynamic IOForm)
         {
             if (SideFormManager.IsValidDataType(IOForm.GetType()))
                 IOForms.Add(IOForm);
+        }
+        public static void Remove(dynamic IOForm)
+        {
+            IOForms.Remove(IOForm);
         }
         public static void Swap(int index1,int index2)
         {
