@@ -14,6 +14,8 @@ namespace CAC
     {
         public string path;
         public string lineformat;
+
+        public bool exists = false;
         public InputFile()
         {
             InitializeComponent();
@@ -21,17 +23,29 @@ namespace CAC
 
         private void butDel_Click(object sender, EventArgs e)
         {
+            SideFormManager.Close();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            IOs.Add(this);
+            if (!exists)
+                IOs.Add(this);
+            else
+                IOs.Remove(this);
             SideFormManager.Close();
         }
 
         public override string ToString()
         {
             return "VSTUP: soubor "+path;
+        }
+
+        private void InputFile_Activated(object sender, EventArgs e)
+        {
+            if (exists)
+            {
+                butAddOrDelete.Text = "Smazat";
+            }
         }
     }
 }

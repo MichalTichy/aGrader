@@ -16,6 +16,8 @@ namespace CAC
         public decimal min;
         public bool Decimal;
 
+        public bool exists = false;
+
         public InputRandomNumber()
         {            
             InitializeComponent();
@@ -61,7 +63,10 @@ namespace CAC
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            IOs.Add(this);
+            if (!exists)
+                IOs.Add(this);
+            else
+                IOs.Remove(this);
             SideFormManager.Close();
         }
 
@@ -88,6 +93,14 @@ namespace CAC
                 numMax.DecimalPlaces = 3;
             }
 
+        }
+
+        private void InputRandomNumber_Activated(object sender, EventArgs e)
+        {
+            if (exists)
+            {
+                butAddOrDelete.Text = "Smazat";
+            }
         }
     }
 }

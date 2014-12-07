@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.butDel = new System.Windows.Forms.Button();
-            this.butAddOrChange = new System.Windows.Forms.Button();
+            this.butAddOrDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numeric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).BeginInit();
@@ -45,15 +45,15 @@
             this.butDel.UseVisualStyleBackColor = true;
             this.butDel.Click += new System.EventHandler(this.butDel_Click);
             // 
-            // butAddOrChange
+            // butAddOrDelete
             // 
-            this.butAddOrChange.Location = new System.Drawing.Point(12, 55);
-            this.butAddOrChange.Name = "butAddOrChange";
-            this.butAddOrChange.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrChange.TabIndex = 12;
-            this.butAddOrChange.Text = "Přidat";
-            this.butAddOrChange.UseVisualStyleBackColor = true;
-            this.butAddOrChange.Click += new System.EventHandler(this.butAddOrChange_Click);
+            this.butAddOrDelete.Location = new System.Drawing.Point(12, 55);
+            this.butAddOrDelete.Name = "butAddOrDelete";
+            this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
+            this.butAddOrDelete.TabIndex = 12;
+            this.butAddOrDelete.Text = "Přidat";
+            this.butAddOrDelete.UseVisualStyleBackColor = true;
+            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // label1
             // 
@@ -92,12 +92,13 @@
             this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.butDel);
-            this.Controls.Add(this.butAddOrChange);
+            this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputNumber";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Input";
+            this.Activated += new System.EventHandler(this.InputNumber_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,7 +108,7 @@
         #endregion
 
         private System.Windows.Forms.Button butDel;
-        private System.Windows.Forms.Button butAddOrChange;
+        private System.Windows.Forms.Button butAddOrDelete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numeric;
 

@@ -13,6 +13,8 @@ namespace CAC
     public partial class InputNumber : Form
     {
         public decimal Value;
+
+        public bool exists = false;
         public InputNumber()
         {            
             InitializeComponent();
@@ -26,7 +28,10 @@ namespace CAC
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            IOs.Add(this);
+            if (!exists)
+                IOs.Add(this);
+            else
+                IOs.Remove(this);
             SideFormManager.Close();
         }
 
@@ -38,6 +43,14 @@ namespace CAC
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
             Value = numeric.Value;
+        }
+
+        private void InputNumber_Activated(object sender, EventArgs e)
+        {
+            if (exists)
+            {
+                butAddOrDelete.Text = "Smazat";
+            }
         }
     }
 }

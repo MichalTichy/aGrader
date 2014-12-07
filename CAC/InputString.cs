@@ -13,6 +13,7 @@ namespace CAC
     public partial class InputString : Form
     {
         public string text;
+        public bool exists = false;
         public InputString()
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace CAC
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            IOs.Add(this);
+            if (!exists)
+                IOs.Add(this);
+            else
+                IOs.Remove(this);
             SideFormManager.Close();
         }
 
@@ -34,7 +38,15 @@ namespace CAC
             return "VSTUP: text: \""+text+"\"";
         }
 
-        private void tbString_Validated(object sender, EventArgs e)
+        private void InputString_Activated(object sender, EventArgs e)
+        {
+            if (exists)
+            {
+                butAddOrDelete.Text = "Smazat";
+            }
+        }
+
+        private void tbString_TextChanged(object sender, EventArgs e)
         {
             text = tbString.Text;
         }

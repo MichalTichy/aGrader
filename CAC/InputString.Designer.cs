@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbString = new System.Windows.Forms.TextBox();
             this.butDel = new System.Windows.Forms.Button();
-            this.butAddOrChange = new System.Windows.Forms.Button();
+            this.butAddOrDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +49,7 @@
             this.tbString.Name = "tbString";
             this.tbString.Size = new System.Drawing.Size(144, 20);
             this.tbString.TabIndex = 18;
-            this.tbString.Validated += new System.EventHandler(this.tbString_Validated);
+            this.tbString.TextChanged += new System.EventHandler(this.tbString_TextChanged);
             // 
             // butDel
             // 
@@ -61,15 +61,15 @@
             this.butDel.UseVisualStyleBackColor = true;
             this.butDel.Click += new System.EventHandler(this.butDel_Click);
             // 
-            // butAddOrChange
+            // butAddOrDelete
             // 
-            this.butAddOrChange.Location = new System.Drawing.Point(14, 56);
-            this.butAddOrChange.Name = "butAddOrChange";
-            this.butAddOrChange.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrChange.TabIndex = 16;
-            this.butAddOrChange.Text = "Přidat";
-            this.butAddOrChange.UseVisualStyleBackColor = true;
-            this.butAddOrChange.Click += new System.EventHandler(this.butAddOrChange_Click);
+            this.butAddOrDelete.Location = new System.Drawing.Point(14, 56);
+            this.butAddOrDelete.Name = "butAddOrDelete";
+            this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
+            this.butAddOrDelete.TabIndex = 16;
+            this.butAddOrDelete.Text = "Přidat";
+            this.butAddOrDelete.UseVisualStyleBackColor = true;
+            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // InputString
             // 
@@ -79,12 +79,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbString);
             this.Controls.Add(this.butDel);
-            this.Controls.Add(this.butAddOrChange);
+            this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputString";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "InputString";
+            this.Activated += new System.EventHandler(this.InputString_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +96,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbString;
         private System.Windows.Forms.Button butDel;
-        private System.Windows.Forms.Button butAddOrChange;
+        private System.Windows.Forms.Button butAddOrDelete;
     }
 }

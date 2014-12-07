@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.butDel = new System.Windows.Forms.Button();
-            this.butAddOrChange = new System.Windows.Forms.Button();
+            this.butAddOrDelete = new System.Windows.Forms.Button();
             this.butBrowse = new System.Windows.Forms.Button();
             this.tBLineFormat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,15 +65,15 @@
             this.butDel.UseVisualStyleBackColor = true;
             this.butDel.Click += new System.EventHandler(this.butDel_Click);
             // 
-            // butAddOrChange
+            // butAddOrDelete
             // 
-            this.butAddOrChange.Location = new System.Drawing.Point(12, 111);
-            this.butAddOrChange.Name = "butAddOrChange";
-            this.butAddOrChange.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrChange.TabIndex = 20;
-            this.butAddOrChange.Text = "Přidat";
-            this.butAddOrChange.UseVisualStyleBackColor = true;
-            this.butAddOrChange.Click += new System.EventHandler(this.butAddOrChange_Click);
+            this.butAddOrDelete.Location = new System.Drawing.Point(12, 111);
+            this.butAddOrDelete.Name = "butAddOrDelete";
+            this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
+            this.butAddOrDelete.TabIndex = 20;
+            this.butAddOrDelete.Text = "Přidat";
+            this.butAddOrDelete.UseVisualStyleBackColor = true;
+            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // butBrowse
             // 
@@ -122,12 +122,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPath);
             this.Controls.Add(this.butDel);
-            this.Controls.Add(this.butAddOrChange);
+            this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputFile";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "InputFile";
+            this.Activated += new System.EventHandler(this.InputFile_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,7 +139,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPath;
         private System.Windows.Forms.Button butDel;
-        private System.Windows.Forms.Button butAddOrChange;
+        private System.Windows.Forms.Button butAddOrDelete;
         private System.Windows.Forms.Button butBrowse;
         private System.Windows.Forms.TextBox tBLineFormat;
         private System.Windows.Forms.Label label2;
