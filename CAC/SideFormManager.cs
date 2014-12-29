@@ -9,8 +9,13 @@ namespace CAC
     public static class SideFormManager
     {
         private static dynamic SideForm=null;
-        private static string[] ValidDatatypes = {"InputFile","InputNumber","InputRandomNumber","InputString"};
-
+        public enum SideForms
+        {
+            InputFile,
+            InputNumber,
+            InputRandomNumber,
+            InputString
+        }
         public static void Show(dynamic FormToShow)
         {
             Close();
@@ -31,12 +36,6 @@ namespace CAC
                 }
                 catch { }
             }
-        }
-        public static bool IsValidDataType(Type DataType)
-        {
-            if (ValidDatatypes.Contains(DataType.Name))
-                return true;
-            return false;
         }
         public static void Close()
         {

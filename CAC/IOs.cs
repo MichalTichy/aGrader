@@ -22,14 +22,13 @@ namespace CAC
 
         public static void Add(dynamic IOForm)
         {
-            if (SideFormManager.IsValidDataType(IOForm.GetType()))
-                IOForms.Add(IOForm);
+            IOForms.Add(IOForm);
         }
         public static void Remove(dynamic IOForm)
         {
             IOForms.Remove(IOForm);
         }
-        public static void Swap(int index1,int index2)
+        public static void Swap(int index1, int index2)
         {
             dynamic temp = IOForms[index1];
             IOForms[index1] = IOForms[index2];
