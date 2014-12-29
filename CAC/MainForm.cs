@@ -17,6 +17,24 @@ namespace CAC
         public CaC()
         {
             InitializeComponent();
+            PopulateCbObjects();
+        }
+
+        private void PopulateCbObjects()
+        {
+            Dictionary<string, int> SideFormsList = new Dictionary<string, int>();
+
+            foreach (SideFormManager.SideForms enumValue in
+                       Enum.GetValues(typeof(SideFormManager.SideForms)))
+            {
+                SideFormsList.Add(enumValue.GetDescription(), (int)enumValue);
+            }
+
+
+            cbobjects.DisplayMember = "Key";
+            cbobjects.ValueMember = "Value";
+            cbobjects.DataSource = new BindingSource(SideFormsList,null);
+            cbobjects.SelectedIndex = -1;
         }
 
         private void butBrowse_Click(object sender, EventArgs e)
@@ -41,7 +59,7 @@ namespace CAC
         private void UpdateLbObjects()
         {
             lbObjects.Items.Clear();
-            foreach(dynamic SideForm in IOs.getList())
+            foreach (dynamic SideForm in IOs.getList())
             {
                 lbObjects.Items.Add(SideForm.ToString());
             }
@@ -50,7 +68,7 @@ namespace CAC
         private void butReload_Click(object sender, EventArgs e)
         {
             if (SourceCodes.isdirectoryset())
-                UpdateLbCodes();                
+                UpdateLbCodes();
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
         }
@@ -79,7 +97,7 @@ namespace CAC
              * VSTUP: NÁHODNÉ ČÍSLO
              * VSTUP: SOUBOR
              */
-            
+
             switch (cbobjects.SelectedIndex)
             {
                 case 0:
@@ -151,7 +169,7 @@ namespace CAC
 
         private void lbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbObjects.SelectedIndex>=0)
+            if (lbObjects.SelectedIndex >= 0)
             {
                 IOs.getIOForm(lbObjects.SelectedIndex).exists = true;
                 SideFormManager.Show(IOs.getIOForm(lbObjects.SelectedIndex));

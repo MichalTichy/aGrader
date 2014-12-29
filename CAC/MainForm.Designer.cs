@@ -295,11 +295,6 @@
             // 
             this.cbobjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobjects.FormattingEnabled = true;
-            this.cbobjects.Items.AddRange(new object[] {
-            "VSTUP: TEXT",
-            "VSTUP: ČÍSLO",
-            "VSTUP: NÁHODNÉ ČÍSLO",
-            "VSTUP: SOUBOR"});
             this.cbobjects.Location = new System.Drawing.Point(0, 83);
             this.cbobjects.Name = "cbobjects";
             this.cbobjects.Size = new System.Drawing.Size(283, 21);
