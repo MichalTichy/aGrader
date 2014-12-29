@@ -14,7 +14,14 @@ namespace CAC
         {
             Close();
             SideForm = Activator.CreateInstance(Type.GetType("CAC." + FormName.ToString()));
+            UpdatePosition();
+            SideForm.Show();
 
+        }
+        public static void ShowExisting(dynamic FormToShow)
+        {
+            Close();
+            SideForm = FormToShow;
             UpdatePosition();
             SideForm.Show();
 
