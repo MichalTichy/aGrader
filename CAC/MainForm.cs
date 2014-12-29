@@ -33,7 +33,7 @@ namespace CAC
 
             cbobjects.DisplayMember = "Key";
             cbobjects.ValueMember = "Value";
-            cbobjects.DataSource = new BindingSource(SideFormsList,null);
+            cbobjects.DataSource = new BindingSource(SideFormsList, null);
             cbobjects.SelectedIndex = -1;
         }
 
@@ -91,31 +91,10 @@ namespace CAC
 
         private void cbobjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-             * VSTUP: TEXT
-             * VSTUP: ČÍSLO
-             * VSTUP: NÁHODNÉ ČÍSLO
-             * VSTUP: SOUBOR
-             */
-
-            switch (cbobjects.SelectedIndex)
-            {
-                case 0:
-                    SideFormManager.Show(SideFormManager.SideForms.InputString);
-                    break;
-                case 1:
-                    SideFormManager.Show(SideFormManager.SideForms.InputNumber);
-                    break;
-                case 2:
-                    SideFormManager.Show(SideFormManager.SideForms.InputRandomNumber);
-                    break;
-                case 3:
-                    SideFormManager.Show(SideFormManager.SideForms.InputFile);
-                    break;
-                default:
-                    SideFormManager.Close();
-                    break;
-            }
+            if (cbobjects.SelectedValue != null)
+                SideFormManager.Show((SideFormManager.SideForms)cbobjects.SelectedValue);
+            else
+                SideFormManager.Close();
         }
 
         private void CaC_LocationChanged(object sender, EventArgs e)
@@ -172,7 +151,7 @@ namespace CAC
             if (lbObjects.SelectedIndex >= 0)
             {
                 IOs.getIOForm(lbObjects.SelectedIndex).exists = true;
-                SideFormManager.Show(IOs.getIOForm(lbObjects.SelectedIndex));
+                SideFormManager.ShowExisting(IOs.getIOForm(lbObjects.SelectedIndex));
             }
         }
     }
