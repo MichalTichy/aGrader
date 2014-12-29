@@ -83,16 +83,16 @@ namespace CAC
             switch (cbobjects.SelectedIndex)
             {
                 case 0:
-                    SideFormManager.Show(new InputString());
+                    SideFormManager.Show(SideFormManager.SideForms.InputString);
                     break;
                 case 1:
-                    SideFormManager.Show(new InputNumber());
+                    SideFormManager.Show(SideFormManager.SideForms.InputNumber);
                     break;
                 case 2:
-                    SideFormManager.Show(new InputRandomNumber());
+                    SideFormManager.Show(SideFormManager.SideForms.InputRandomNumber);
                     break;
                 case 3:
-                    SideFormManager.Show(new InputFile());
+                    SideFormManager.Show(SideFormManager.SideForms.InputFile);
                     break;
                 default:
                     SideFormManager.Close();

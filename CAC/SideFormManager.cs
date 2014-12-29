@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,10 +17,11 @@ namespace CAC
             InputRandomNumber,
             InputString
         }
-        public static void Show(dynamic FormToShow)
+        public static void Show(SideForms FormName)
         {
             Close();
-            SideForm = FormToShow;
+            SideForm = Activator.CreateInstance(Type.GetType("CAC." + FormName.ToString()));
+            
             UpdatePosition();
             SideForm.Show();
             

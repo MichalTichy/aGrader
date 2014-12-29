@@ -16,15 +16,22 @@
   </Class>
   <Class Name="CAC.SideFormManager">
     <Position X="1.25" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CAC.SideFormManager.SideForms" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SideFormManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAACAQAAAAAAAAAgAEAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAQAAAAAAAAAAAEAAAAAAAAAACAAAA=</HashCode>
       <FileName>SideFormManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CAC.IOs">
     <Position X="8" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAIAAABAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAAACAAAABAAAAAABAAAAAAEAAgAAAAA=</HashCode>
       <FileName>IOs.cs</FileName>
     </TypeIdentifier>
   </Class>
