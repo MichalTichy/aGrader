@@ -77,12 +77,13 @@
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(164, 39);
+            this.butBrowse.Location = new System.Drawing.Point(164, 37);
             this.butBrowse.Name = "butBrowse";
             this.butBrowse.Size = new System.Drawing.Size(37, 23);
             this.butBrowse.TabIndex = 24;
             this.butBrowse.Text = "...";
             this.butBrowse.UseVisualStyleBackColor = true;
+            this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
             // 
             // tBLineFormat
             // 

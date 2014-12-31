@@ -47,5 +47,15 @@ namespace CAC
                 butAddOrDelete.Text = "Smazat";
             }
         }
+
+        private void butBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog selectFile = new OpenFileDialog();
+            if (selectFile.ShowDialog()==DialogResult.OK)
+            {
+                path = selectFile.FileName;
+                tbPath.Text = path;
+            }
+        }
     }
 }
