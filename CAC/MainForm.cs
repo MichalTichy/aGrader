@@ -140,6 +140,7 @@ namespace CAC
                 {
                     XmlDocument doc = IOs.GenerateXMLDocument();
                     doc.Save(saveXML.FileName);
+                    MessageBox.Show("Soubor byl úspěšně vyexportován.");
                 }
             }
             else

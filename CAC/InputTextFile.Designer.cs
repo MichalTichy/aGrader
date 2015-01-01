@@ -93,6 +93,7 @@
             this.tBLineFormat.Name = "tBLineFormat";
             this.tBLineFormat.Size = new System.Drawing.Size(187, 20);
             this.tBLineFormat.TabIndex = 25;
+            this.tBLineFormat.TextChanged += new System.EventHandler(this.tBLineFormat_TextChanged);
             // 
             // label2
             // 

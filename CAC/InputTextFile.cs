@@ -59,5 +59,10 @@ namespace CAC
                 FullPathToolTip.SetToolTip(tbPath, path);
             }
         }
+
+        private void tBLineFormat_TextChanged(object sender, EventArgs e)
+        {
+            lineformat = tBLineFormat.Text;
+        }
     }
 }
