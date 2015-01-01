@@ -51,8 +51,8 @@ namespace CAC
 
         public enum SideForms
         {
-            [Description("VSTUP: soubor")]
-            InputFile,
+            [Description("VSTUP: textový soubor")]
+            InputTextFile,
             [Description("VSTUP: číslo")]
             InputNumber,
             [Description("VSTUP: náhodné Číslo")]

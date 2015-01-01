@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputFile.cs">
+    <Compile Include="InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputFile.Designer.cs">
-      <DependentUpon>InputFile.cs</DependentUpon>
+    <Compile Include="InputTextFile.Designer.cs">
+      <DependentUpon>InputTextFile.cs</DependentUpon>
     </Compile>
     <Compile Include="InputNumber.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <Compile Include="SideFormManager.cs" />
     <Compile Include="SourceCode.cs" />
     <Compile Include="SourceCodes.cs" />
-    <EmbeddedResource Include="InputFile.resx">
-      <DependentUpon>InputFile.cs</DependentUpon>
+    <EmbeddedResource Include="InputTextFile.resx">
+      <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>

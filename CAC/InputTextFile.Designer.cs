@@ -1,6 +1,6 @@
 ﻿namespace CAC
 {
-    partial class InputFile
+    partial class InputTextFile
     {
         /// <summary>
         /// Required designer variable.

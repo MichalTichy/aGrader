@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,13 @@ using System.Windows.Forms;
 
 namespace CAC
 {
-    public partial class InputFile : Form
+    public partial class InputTextFile : Form
     {
         public string path;
         public string lineformat;
 
         public bool exists = false;
-        public InputFile()
+        public InputTextFile()
         {
             InitializeComponent();
         }
@@ -37,7 +38,7 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: soubor "+path;
+            return "VSTUP: soubor "+Path.GetFileName(path);
         }
 
         private void InputFile_Activated(object sender, EventArgs e)
