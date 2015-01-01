@@ -117,7 +117,7 @@
             // 
             this.FullPathToolTip.ShowAlways = true;
             // 
-            // InputFile
+            // InputTextFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,10 +131,10 @@
             this.Controls.Add(this.butDel);
             this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InputFile";
+            this.Name = "InputTextFile";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "InputFile";
+            this.Text = "InputTextFile";
             this.Activated += new System.EventHandler(this.InputFile_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();

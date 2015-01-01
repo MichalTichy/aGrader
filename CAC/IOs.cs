@@ -71,7 +71,7 @@ namespace CAC
                         IOMethod.AppendChild(maxvalue);
                         IOMethod.AppendChild(isDecimal);
                         break;
-                    case "InputFile":
+                    case "InputTextFile":
                         XmlElement path = doc.CreateElement("path");
                         path.InnerText = IOForm.path;
                         XmlElement lineformat = doc.CreateElement("lineformat");
