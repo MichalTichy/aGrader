@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.butDel = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.tBLineFormat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LabHelp = new System.Windows.Forms.LinkLabel();
+            this.FullPathToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +51,9 @@
             // 
             // tbPath
             // 
-            this.tbPath.Enabled = false;
             this.tbPath.Location = new System.Drawing.Point(14, 39);
             this.tbPath.Name = "tbPath";
+            this.tbPath.ReadOnly = true;
             this.tbPath.Size = new System.Drawing.Size(144, 20);
             this.tbPath.TabIndex = 22;
             // 
@@ -111,6 +113,10 @@
             this.LabHelp.TabStop = true;
             this.LabHelp.Text = "?";
             // 
+            // FullPathToolTip
+            // 
+            this.FullPathToolTip.ShowAlways = true;
+            // 
             // InputFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,5 +151,6 @@
         private System.Windows.Forms.TextBox tBLineFormat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel LabHelp;
+        private System.Windows.Forms.ToolTip FullPathToolTip;
     }
 }

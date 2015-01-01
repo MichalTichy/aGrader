@@ -55,6 +55,7 @@ namespace CAC
             {
                 path = selectFile.FileName;
                 tbPath.Text = path;
+                FullPathToolTip.SetToolTip(tbPath, path);
             }
         }
     }
