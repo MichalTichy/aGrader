@@ -34,20 +34,7 @@ namespace CAC
             IOForms[index1] = IOForms[index2];
             IOForms[index2] = temp;
         }
-        public static void LoadIOsFromXML(string path)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
 
-            XmlNode root = doc.DocumentElement;
-            if (root.Name == "Protocol")
-            {
-
-            }
-            else
-                MessageBox.Show("Nesprávný XML soubor.");
-
-        }
 
     }
 }
