@@ -34,58 +34,6 @@ namespace CAC
             IOForms[index1] = IOForms[index2];
             IOForms[index2] = temp;
         }
-
-        public static XmlDocument GenerateXMLDocument()
-        {
-            XmlDocument doc = new XmlDocument();
-            XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
-            doc.AppendChild(declaration);
-            XmlElement root = doc.CreateElement("Protocol");
-
-            foreach (dynamic IOForm in IOForms)
-            {
-                XmlElement IOMethod = doc.CreateElement(IOForm.Name);
-                switch (IOForm.Name as string)
-                {
-                    case "InputString":
-                        XmlElement stringvalue = doc.CreateElement("string");
-                        stringvalue.InnerText = IOForm.text;
-
-                        IOMethod.AppendChild(stringvalue);
-                        break;
-                    case "InputNumber":
-                        XmlElement numericvalue = doc.CreateElement("numeric");
-                        numericvalue.InnerText = IOForm.Value.ToString();
-
-                        IOMethod.AppendChild(numericvalue);
-                        break;
-                    case "InputRandomNumber":
-                        XmlElement minvalue = doc.CreateElement("minValue");
-                        minvalue.InnerText = IOForm.min.ToString();
-                        XmlElement maxvalue = doc.CreateElement("maxValue");
-                        maxvalue.InnerText = IOForm.max.ToString();
-                        XmlElement isDecimal = doc.CreateElement("isDecimal");
-                        isDecimal.InnerText = IOForm.Decimal.ToString();
-
-                        IOMethod.AppendChild(minvalue);
-                        IOMethod.AppendChild(maxvalue);
-                        IOMethod.AppendChild(isDecimal);
-                        break;
-                    case "InputTextFile":
-                        XmlElement path = doc.CreateElement("path");
-                        path.InnerText = IOForm.path;
-                        XmlElement lineformat = doc.CreateElement("lineformat");
-                        lineformat.InnerText = IOForm.lineformat;
-
-                        IOMethod.AppendChild(path);
-                        IOMethod.AppendChild(lineformat);
-                        break;
-                }
-                root.AppendChild(IOMethod);
-            }
-            doc.AppendChild(root);
-            return doc;
-        }
         public static void LoadIOsFromXML(string path)
         {
             XmlDocument doc = new XmlDocument();

@@ -138,8 +138,14 @@ namespace CAC
                 saveXML.Filter = "XML files (*.xml)|*.xml";
                 if (saveXML.ShowDialog() == DialogResult.OK)
                 {
-                    XmlDocument doc = IOs.GenerateXMLDocument();
-                    doc.Save(saveXML.FileName);
+                    try
+                    {
+                        IOsXmlManager.ExportToXML(saveXML.FileName);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Nepodařilo se exportovat data do XML souboru.");
+                    }
                     MessageBox.Show("Soubor byl úspěšně vyexportován.");
                 }
             }
