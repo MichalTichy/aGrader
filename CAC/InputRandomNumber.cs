@@ -26,6 +26,14 @@ namespace CAC
             Decimal = !cbNoDecimal.Checked;
         }
 
+        public InputRandomNumber(decimal min,decimal max,bool generateDecimal)
+        {
+            InitializeComponent();
+            this.min = min;
+            this.max = max;
+            this.Decimal = !generateDecimal;
+        }
+
         private void numMax_ValueChanged(object sender, EventArgs e)
         {
             if (numMax.Value <= numMin.Value)

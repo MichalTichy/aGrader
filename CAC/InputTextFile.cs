@@ -17,9 +17,19 @@ namespace CAC
         public string lineformat;
 
         public bool exists = false;
+
         public InputTextFile()
         {
             InitializeComponent();
+        }
+
+        public InputTextFile(string path,string lineformat)
+        {
+            InitializeComponent();
+            this.path = path;
+            this.lineformat = lineformat;
+            tbPath.Text = path;
+            tBLineFormat.Text = lineformat;
         }
 
         private void butDel_Click(object sender, EventArgs e)

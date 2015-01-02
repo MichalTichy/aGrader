@@ -18,6 +18,11 @@ namespace CAC
         {
             InitializeComponent();
         }
+        public InputString(string text)
+        {
+            InitializeComponent();
+            this.text = text;
+        }
 
         private void butDel_Click(object sender, EventArgs e)
         {

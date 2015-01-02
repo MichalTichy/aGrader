@@ -16,9 +16,15 @@ namespace CAC
 
         public bool exists = false;
         public InputNumber()
-        {            
+        {
             InitializeComponent();
             Value = numeric.Value;
+        }
+
+        public InputNumber(decimal value)
+        {
+            InitializeComponent();
+            this.Value = value;
         }
 
         private void butDel_Click(object sender, EventArgs e)
