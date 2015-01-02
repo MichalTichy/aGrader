@@ -78,5 +78,37 @@ namespace CAC
             return InTextFile;
         }
 
+        public static void AddIOsFromXML(string path)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+
+            XmlNode root = doc.DocumentElement;
+            if (root.Name == "Protocol")
+            {
+                foreach (XmlNode node in root.ChildNodes)
+                {
+                    XmlElement element=(XmlElement)node;
+                    switch (node.Name)
+                    {
+                        case "InputTextFile":
+                            IOs.Add(new InputTextFile(element.GetAttribute("path"), element.GetAttribute("lineformat")));
+                            break;
+                        case "InputNumber":
+                            IOs.Add(new InputNumber(decimal.Parse(element.GetAttribute("numeric"))));
+                            break;
+                        case "InputRandomNumber":
+                            IOs.Add(new InputRandomNumber(decimal.Parse(element.GetAttribute("minValue")),decimal.Parse(element.GetAttribute("minValue")),bool.Parse(element.GetAttribute("isDecimal"))));
+                            break;
+                        case "InputString":
+                            IOs.Add(new InputString(element.GetAttribute("string")));
+                            break;
+                    }
+                }
+            }
+            else
+                throw new FormatException();
+        }
+
     }
 }
