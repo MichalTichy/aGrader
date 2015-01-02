@@ -40,7 +40,7 @@ namespace CAC
             XmlDocument doc = new XmlDocument();
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
             doc.AppendChild(declaration);
-            XmlElement root = doc.CreateElement("TestProtocol");
+            XmlElement root = doc.CreateElement("Protocol");
 
             foreach (dynamic IOForm in IOForms)
             {
@@ -85,6 +85,20 @@ namespace CAC
             }
             doc.AppendChild(root);
             return doc;
+        }
+        public static void LoadIOsFromXML(string path)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+
+            XmlNode root = doc.DocumentElement;
+            if (root.Name == "Protocol")
+            {
+
+            }
+            else
+                MessageBox.Show("Nesprávný XML soubor.");
+
         }
 
     }
