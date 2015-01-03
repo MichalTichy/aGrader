@@ -11,9 +11,9 @@ namespace CAC
     {
         private static List<dynamic> IOForms = new List<dynamic>();
 
-        public static List<dynamic> getList()
+        public static IReadOnlyCollection<dynamic> getList()
         {
-            return IOForms;
+            return IOForms.AsReadOnly();
         }
         public static dynamic getIOForm(int id)
         {
@@ -33,6 +33,10 @@ namespace CAC
             dynamic temp = IOForms[index1];
             IOForms[index1] = IOForms[index2];
             IOForms[index2] = temp;
+        }
+        public static void Clear()
+        {
+            IOForms.Clear();
         }
 
 
