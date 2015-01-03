@@ -29,9 +29,14 @@ namespace CAC
         public InputRandomNumber(decimal min,decimal max,bool generateDecimal)
         {
             InitializeComponent();
+            numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa
+            numMax.Value = numMax.Maximum;
             this.min = min;
             this.max = max;
             this.Decimal = !generateDecimal;
+            numMin. Value = min;
+            numMax.Value = max;
+            Decimal = generateDecimal;
         }
 
         private void numMax_ValueChanged(object sender, EventArgs e)

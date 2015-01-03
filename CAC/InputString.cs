@@ -22,6 +22,7 @@ namespace CAC
         {
             InitializeComponent();
             this.text = text;
+            tbString.Text = text;
         }
 
         private void butDel_Click(object sender, EventArgs e)

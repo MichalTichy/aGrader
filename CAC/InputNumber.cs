@@ -25,6 +25,7 @@ namespace CAC
         {
             InitializeComponent();
             this.Value = value;
+            numeric.Value = value;
         }
 
         private void butDel_Click(object sender, EventArgs e)
