@@ -161,5 +161,22 @@ namespace CAC
                 SideFormManager.ShowExisting(IOs.getIOForm(lbObjects.SelectedIndex));
             }
         }
+
+        private void butImport_Click(object sender, EventArgs e)
+        {
+            if (lbObjects.Items.Count != 0)
+                if (MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+
+            IOs.Clear();
+
+            OpenFileDialog openXML=new OpenFileDialog();
+            openXML.Filter="XML soubory (*.xml)|*.xml";
+            if (openXML.ShowDialog() == DialogResult.OK)
+            {
+                IOsXmlManager.AddIOsFromXML(openXML.FileName);
+                UpdateLbObjects();
+            }
+        }
     }
 }

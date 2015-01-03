@@ -252,6 +252,7 @@
             this.butImport.TabIndex = 9;
             this.butImport.Text = "Importovat";
             this.butImport.UseVisualStyleBackColor = true;
+            this.butImport.Click += new System.EventHandler(this.butImport_Click);
             // 
             // butMoveDown
             // 
