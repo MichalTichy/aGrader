@@ -323,7 +323,6 @@
             this.MaximizeBox = false;
             this.Name = "CaC";
             this.Text = "C application Checker";
-            this.Activated += new System.EventHandler(this.CaC_Activated);
             this.LocationChanged += new System.EventHandler(this.CaC_LocationChanged);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
