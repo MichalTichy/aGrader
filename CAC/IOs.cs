@@ -26,7 +26,7 @@ namespace CAC
         {
             IOForms.Add(IOForm);
             lbIOs.Items.Add(IOForm.ToString());
-            
+
         }
         public static void Remove(dynamic IOForm)
         {
@@ -39,8 +39,8 @@ namespace CAC
             IOForms[index1] = IOForms[index2];
             IOForms[index2] = temp;
 
-            temp=lbIOs.Items[index1];
-            lbIOs.Items[index1]=lbIOs.Items[index2];
+            temp = lbIOs.Items[index1];
+            lbIOs.Items[index1] = lbIOs.Items[index2];
             lbIOs.Items[index2] = temp;
             lbIOs.SelectedIndex = index2;
         }
@@ -50,6 +50,12 @@ namespace CAC
             lbIOs.Items.Clear();
         }
 
+        public static void UpdateSelectedLBItem()
+        {
+            int selectedindex = lbIOs.SelectedIndex;
+            lbIOs.SelectedItem = null;
+            lbIOs.Items[selectedindex] = IOForms[selectedindex].ToString();
 
+        }
     }
 }

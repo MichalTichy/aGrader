@@ -35,6 +35,7 @@ namespace CAC
         private void butDel_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
+            IOs.UpdateSelectedLBItem();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
