@@ -38,6 +38,11 @@ namespace CAC
         {
             IOForms.Clear();
         }
+        public static void UpdateListBox()
+        {
+            CaC mainForm = (CaC)Application.OpenForms[0];
+            mainForm.UpdateLbObjects();
+        }
 
 
     }

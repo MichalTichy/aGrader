@@ -61,7 +61,7 @@ namespace CAC
             rtbCode.Clear();
         }
 
-        private void UpdateLbObjects()
+        public void UpdateLbObjects()
         {
             lbObjects.Items.Clear();
             foreach (dynamic SideForm in IOs.getList())
