@@ -17,7 +17,12 @@ namespace CAC
         public CaC()
         {
             InitializeComponent();
-            PopulateCbObjects();
+            FillCbObjects();
+        }
+
+        private void FillCbObjects()
+        {
+            throw new NotImplementedException();
         }
 
         private void PopulateCbObjects()
