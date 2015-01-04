@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.butDel = new System.Windows.Forms.Button();
+            this.butClose = new System.Windows.Forms.Button();
             this.butAddOrDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numeric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // butDel
+            // butClose
             // 
-            this.butDel.Location = new System.Drawing.Point(96, 55);
-            this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(60, 23);
-            this.butDel.TabIndex = 13;
-            this.butDel.Text = "Zavřít";
-            this.butDel.UseVisualStyleBackColor = true;
-            this.butDel.Click += new System.EventHandler(this.butDel_Click);
+            this.butClose.Location = new System.Drawing.Point(96, 55);
+            this.butClose.Name = "butClose";
+            this.butClose.Size = new System.Drawing.Size(60, 23);
+            this.butClose.TabIndex = 13;
+            this.butClose.Text = "Zavřít";
+            this.butClose.UseVisualStyleBackColor = true;
+            this.butClose.Click += new System.EventHandler(this.butDel_Click);
             // 
             // butAddOrDelete
             // 
@@ -91,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(170, 90);
             this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.butDel);
+            this.Controls.Add(this.butClose);
             this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputNumber";
@@ -107,7 +107,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button butDel;
+        private System.Windows.Forms.Button butClose;
         private System.Windows.Forms.Button butAddOrDelete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numeric;

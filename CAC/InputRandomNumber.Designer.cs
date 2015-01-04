@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.butDel = new System.Windows.Forms.Button();
+            this.butClose = new System.Windows.Forms.Button();
             this.butAddOrDelete = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,15 +50,15 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Náhodné číslo";
             // 
-            // butDel
+            // butClose
             // 
-            this.butDel.Location = new System.Drawing.Point(100, 148);
-            this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(58, 23);
-            this.butDel.TabIndex = 17;
-            this.butDel.Text = "Zavřít";
-            this.butDel.UseVisualStyleBackColor = true;
-            this.butDel.Click += new System.EventHandler(this.butDel_Click);
+            this.butClose.Location = new System.Drawing.Point(100, 148);
+            this.butClose.Name = "butClose";
+            this.butClose.Size = new System.Drawing.Size(58, 23);
+            this.butClose.TabIndex = 17;
+            this.butClose.Text = "Zavřít";
+            this.butClose.UseVisualStyleBackColor = true;
+            this.butClose.Click += new System.EventHandler(this.butDel_Click);
             // 
             // butAddOrDelete
             // 
@@ -166,7 +166,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.butDel);
+            this.Controls.Add(this.butClose);
             this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputRandomNumber";
@@ -184,7 +184,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button butDel;
+        private System.Windows.Forms.Button butClose;
         private System.Windows.Forms.Button butAddOrDelete;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
