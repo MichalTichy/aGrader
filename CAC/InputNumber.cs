@@ -28,7 +28,7 @@ namespace CAC
             numeric.Value = value;
         }
 
-        private void butDel_Click(object sender, EventArgs e)
+        private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
             IOs.UpdateSelectedLBItem();

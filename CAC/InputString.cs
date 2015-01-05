@@ -25,7 +25,7 @@ namespace CAC
             tbString.Text = text;
         }
 
-        private void butDel_Click(object sender, EventArgs e)
+        private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
             IOs.UpdateSelectedLBItem();

@@ -58,7 +58,7 @@
             this.butClose.TabIndex = 17;
             this.butClose.Text = "Zavřít";
             this.butClose.UseVisualStyleBackColor = true;
-            this.butClose.Click += new System.EventHandler(this.butDel_Click);
+            this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
             // 
