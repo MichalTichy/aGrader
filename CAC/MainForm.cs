@@ -49,10 +49,15 @@ namespace CAC
         private void UpdateLbCodes()
         {
             lbCodes.Items.Clear();
-            foreach (SourceCode code in SourceCodes.getSourceCodeFiles())
+            if (SourceCodes.getSourceCodeFiles().Count != 0)
             {
-                lbCodes.Items.Add(code);
+                foreach (SourceCode code in SourceCodes.getSourceCodeFiles())
+                {
+                    lbCodes.Items.Add(code);
+                }
             }
+            else
+                MessageBox.Show("Nebyly nalezeny žádné platné soubory.");
             rtbCode.Clear();
         }
 
