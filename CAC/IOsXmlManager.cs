@@ -9,6 +9,10 @@ namespace CAC
 {
     static class IOsXmlManager
     {
+        /// <summary>
+        /// Exports all IOs to xml file.
+        /// </summary>
+        /// <param name="path"></param>
         public static void ExportToXML(string path)
         {
             XmlDocument doc = new XmlDocument();
@@ -24,6 +28,12 @@ namespace CAC
             doc.Save(path);
         }
 
+        /// <summary>
+        /// Generate IONode for InputNumber.
+        /// </summary>
+        /// <param name="IOForm"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
         private static XmlNode GenerateIONode(InputNumber IOForm, XmlDocument doc)
         {
             XmlElement InNumber = doc.CreateElement(IOForm.Name);
@@ -32,9 +42,15 @@ namespace CAC
             numericvalue.InnerText = IOForm.Value.ToString();
 
             InNumber.AppendChild(numericvalue);
-
+            
             return InNumber;
         }
+        /// <summary>
+        /// Generate IONode for InputString.
+        /// </summary>
+        /// <param name="IOForm"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
         private static XmlNode GenerateIONode(InputString IOForm, XmlDocument doc)
         {
             XmlElement InString = doc.CreateElement(IOForm.Name);
@@ -46,6 +62,12 @@ namespace CAC
 
             return InString;
         }
+        /// <summary>
+        /// Generate IONode for InputRandomNumber
+        /// </summary>
+        /// <param name="IOForm"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
         private static XmlNode GenerateIONode(InputRandomNumber IOForm, XmlDocument doc)
         {
             XmlElement InRandomNumber = doc.CreateElement(IOForm.Name);
@@ -63,6 +85,12 @@ namespace CAC
 
             return InRandomNumber;
         }
+        /// <summary>
+        /// Generate IONode for InputTextFile.
+        /// </summary>
+        /// <param name="IOForm"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
         private static XmlNode GenerateIONode(InputTextFile IOForm, XmlDocument doc)
         {
             XmlElement InTextFile = doc.CreateElement(IOForm.Name);
@@ -78,6 +106,10 @@ namespace CAC
             return InTextFile;
         }
 
+        /// <summary>
+        /// Imports IOs from xml file.
+        /// </summary>
+        /// <param name="path"></param>
         public static void AddIOsFromXML(string path)
         {
             XmlDocument doc = new XmlDocument();
