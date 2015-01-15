@@ -44,28 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOs\Inputs\InputTextFile.cs">
+    <Compile Include="IO Forms\Inputs\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IOs\Inputs\InputTextFile.Designer.cs">
+    <Compile Include="IO Forms\Inputs\InputTextFile.Designer.cs">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOs\Inputs\InputNumber.cs">
+    <Compile Include="IO Forms\Inputs\InputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IOs\Inputs\InputNumber.Designer.cs">
+    <Compile Include="IO Forms\Inputs\InputNumber.Designer.cs">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOs\Inputs\InputRandomNumber.cs">
+    <Compile Include="IO Forms\Inputs\InputRandomNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IOs\Inputs\InputRandomNumber.Designer.cs">
+    <Compile Include="IO Forms\Inputs\InputRandomNumber.Designer.cs">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOs\Inputs\InputString.cs">
+    <Compile Include="IO Forms\Inputs\InputString.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IOs\Inputs\InputString.Designer.cs">
+    <Compile Include="IO Forms\Inputs\InputString.Designer.cs">
       <DependentUpon>InputString.cs</DependentUpon>
     </Compile>
     <Compile Include="IOs.cs" />
@@ -81,16 +81,16 @@
     <Compile Include="SideFormManager.cs" />
     <Compile Include="SourceCode.cs" />
     <Compile Include="SourceCodes.cs" />
-    <EmbeddedResource Include="IOs\Inputs\InputTextFile.resx">
+    <EmbeddedResource Include="IO Forms\Inputs\InputTextFile.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOs\Inputs\InputNumber.resx">
+    <EmbeddedResource Include="IO Forms\Inputs\InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOs\Inputs\InputRandomNumber.resx">
+    <EmbeddedResource Include="IO Forms\Inputs\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOs\Inputs\InputString.resx">
+    <EmbeddedResource Include="IO Forms\Inputs\InputString.resx">
       <DependentUpon>InputString.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
