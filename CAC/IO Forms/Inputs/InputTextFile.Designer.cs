@@ -1,11 +1,14 @@
-﻿namespace CAC
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms.Inputs
 {
     partial class InputTextFile
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -144,14 +147,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbPath;
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
-        private System.Windows.Forms.Button butBrowse;
-        private System.Windows.Forms.TextBox tBLineFormat;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel LabHelp;
-        private System.Windows.Forms.ToolTip FullPathToolTip;
+        private Label label1;
+        private TextBox tbPath;
+        private Button butClose;
+        private Button butAddOrDelete;
+        private Button butBrowse;
+        private TextBox tBLineFormat;
+        private Label label2;
+        private LinkLabel LabHelp;
+        private ToolTip FullPathToolTip;
     }
 }

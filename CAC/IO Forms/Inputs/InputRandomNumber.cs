@@ -1,28 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CAC
+namespace CAC.IO_Forms.Inputs
 {
     public partial class InputRandomNumber : Form
     {
-        public decimal max;
-        public decimal min;
+        public decimal Max;
+        public decimal Min;
         public bool Decimal;
 
-        public bool exists = false;
+        public bool Exists = false;
 
         public InputRandomNumber()
         {            
             InitializeComponent();
-            min = numMin.Value;
-            max = numMax.Value;
+            Min = numMin.Value;
+            Max = numMax.Value;
             Decimal = !cbNoDecimal.Checked;
         }
 
@@ -31,9 +24,9 @@ namespace CAC
             InitializeComponent();
             numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa
             numMax.Value = numMax.Maximum;
-            this.min = min;
-            this.max = max;
-            this.Decimal = !generateDecimal;
+            Min = min;
+            Max = max;
+            Decimal = !generateDecimal;
             numMin. Value = min;
             numMax.Value = max;
             Decimal = generateDecimal;
@@ -49,7 +42,7 @@ namespace CAC
             else
             {
                 labErr.Text = "";
-                max = numMax.Value;
+                Max = numMax.Value;
             }
 
         }
@@ -64,7 +57,7 @@ namespace CAC
             else
             {
                 labErr.Text = "";
-                min = numMin.Value;
+                Min = numMin.Value;
             }
                 
         }
@@ -72,12 +65,12 @@ namespace CAC
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            IOs.UpdateSelectedLBItem();
+            IOs.UpdateSelectedLbItem();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            if (!exists)
+            if (!Exists)
                 IOs.Add(this);
             else
                 IOs.Remove(this);
@@ -87,9 +80,8 @@ namespace CAC
         public override string ToString()
         {
             if (Decimal)
-                return "VSTUP: náhodné desetiné číslo od " + min + " do " + max;
-            else
-                return "VSTUP: náhodné celé číslo od " + min + " do " + max;
+                return "VSTUP: náhodné desetiné číslo od " + Min + " do " + Max;
+            return "VSTUP: náhodné celé číslo od " + Min + " do " + Max;
         }
 
         private void cbNoDecimal_CheckedChanged(object sender, EventArgs e)
@@ -111,7 +103,7 @@ namespace CAC
 
         private void InputRandomNumber_Activated(object sender, EventArgs e)
         {
-            if (exists)
+            if (Exists)
             {
                 butAddOrDelete.Text = "Smazat";
             }

@@ -1,50 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CAC
 {
     public static class SideFormManager
     {
-        private static dynamic SideForm = null;
-        public static void Show(SideForms FormName)
+        private static dynamic _sideForm = null;
+        public static void Show(SideForms formName)
         {
             Close();
-            SideForm = Activator.CreateInstance(Type.GetType("CAC." + FormName.ToString()));
+            _sideForm = Activator.CreateInstance(Type.GetType("CAC." + formName.ToString()));
             UpdatePosition();
-            SideForm.Show();
+            _sideForm.Show();
 
         }
-        public static void ShowExisting(dynamic FormToShow)
+        public static void ShowExisting(dynamic formToShow)
         {
             Close();
-            SideForm = FormToShow;
+            _sideForm = formToShow;
             UpdatePosition();
-            SideForm.Show();
+            _sideForm.Show();
 
         }
         public static void UpdatePosition()
         {
-            if (SideForm != null)
+            if (_sideForm != null)
             {
-
-                //HACK
                 try
                 {
-                    SideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y + 65);
+                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y + 65);
                 }
                 catch { }
             }
         }
         public static void Close()
         {
-            if (SideForm != null)
+            if (_sideForm != null)
             {
-                SideForm.Hide();
-                SideForm = null;
+                _sideForm.Hide();
+                _sideForm = null;
             }
         }
 
@@ -62,7 +57,7 @@ namespace CAC
         }
         public static string GetDescription(this Enum currentEnum)
         {
-            string description = String.Empty;
+            string description;
             DescriptionAttribute da;
 
             FieldInfo fi = currentEnum.GetType().
@@ -79,7 +74,7 @@ namespace CAC
 
     }
 
-    public class DescriptionAttribute : System.Attribute
+    public class DescriptionAttribute : Attribute
     {
 
         private string _value;

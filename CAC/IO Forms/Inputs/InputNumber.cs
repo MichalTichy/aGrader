@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CAC
+namespace CAC.IO_Forms.Inputs
 {
     public partial class InputNumber : Form
     {
         public decimal Value;
 
-        public bool exists = false;
+        public bool Exists = false;
         public InputNumber()
         {
             InitializeComponent();
@@ -24,19 +17,19 @@ namespace CAC
         public InputNumber(decimal value)
         {
             InitializeComponent();
-            this.Value = value;
+            Value = value;
             numeric.Value = value;
         }
 
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            IOs.UpdateSelectedLBItem();
+            IOs.UpdateSelectedLbItem();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            if (!exists)
+            if (!Exists)
                 IOs.Add(this);
             else
                 IOs.Remove(this);
@@ -55,7 +48,7 @@ namespace CAC
 
         private void InputNumber_Activated(object sender, EventArgs e)
         {
-            if (exists)
+            if (Exists)
             {
                 butAddOrDelete.Text = "Smazat";
             }

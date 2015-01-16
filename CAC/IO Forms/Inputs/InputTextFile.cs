@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CAC
+namespace CAC.IO_Forms.Inputs
 {
     public partial class InputTextFile : Form
     {
-        public string path;
-        public string lineformat;
+        public string Path;
+        public string Lineformat;
 
-        public bool exists = false;
+        public bool Exists = false;
 
         public InputTextFile()
         {
@@ -26,8 +18,8 @@ namespace CAC
         public InputTextFile(string path,string lineformat)
         {
             InitializeComponent();
-            this.path = path;
-            this.lineformat = lineformat;
+            Path = path;
+            Lineformat = lineformat;
             tbPath.Text = path;
             tBLineFormat.Text = lineformat;
         }
@@ -35,12 +27,12 @@ namespace CAC
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            IOs.UpdateSelectedLBItem();
+            IOs.UpdateSelectedLbItem();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            if (!exists)
+            if (!Exists)
                 IOs.Add(this);
             else
                 IOs.Remove(this);
@@ -49,12 +41,12 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: soubor "+Path.GetFileName(path);
+            return "VSTUP: soubor "+System.IO.Path.GetFileName(Path);
         }
 
         private void InputFile_Activated(object sender, EventArgs e)
         {
-            if (exists)
+            if (Exists)
             {
                 butAddOrDelete.Text = "Smazat";
             }
@@ -65,15 +57,15 @@ namespace CAC
             OpenFileDialog selectFile = new OpenFileDialog();
             if (selectFile.ShowDialog()==DialogResult.OK)
             {
-                path = selectFile.FileName;
-                tbPath.Text = path;
-                FullPathToolTip.SetToolTip(tbPath, path);
+                Path = selectFile.FileName;
+                tbPath.Text = Path;
+                FullPathToolTip.SetToolTip(tbPath, Path);
             }
         }
 
         private void tBLineFormat_TextChanged(object sender, EventArgs e)
         {
-            lineformat = tBLineFormat.Text;
+            Lineformat = tBLineFormat.Text;
         }
     }
 }

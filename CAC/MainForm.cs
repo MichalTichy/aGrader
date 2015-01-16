@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Xml;
 
 namespace CAC
 {
@@ -22,26 +14,26 @@ namespace CAC
 
         private void FillCbObjects()
         {
-            Dictionary<string, int> SideFormsList = new Dictionary<string, int>();
+            Dictionary<string, int> sideFormsList = new Dictionary<string, int>();
 
             foreach (SideFormManager.SideForms enumValue in
                        Enum.GetValues(typeof(SideFormManager.SideForms)))
             {
-                SideFormsList.Add(enumValue.GetDescription(), (int)enumValue);
+                sideFormsList.Add(enumValue.GetDescription(), (int)enumValue);
             }
 
 
             cbobjects.DisplayMember = "Key";
             cbobjects.ValueMember = "Value";
-            cbobjects.DataSource = new BindingSource(SideFormsList, null);
+            cbobjects.DataSource = new BindingSource(sideFormsList, null);
             cbobjects.SelectedIndex = -1;
         }
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.setPath()) //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
+            if (SourceCodes.SetPath()) //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
             {
-                tbpath.Text = SourceCodes.getPath();
+                tbpath.Text = SourceCodes.GetPath();
                 UpdateLbCodes();
             }
         }
@@ -49,9 +41,9 @@ namespace CAC
         private void UpdateLbCodes()
         {
             lbCodes.Items.Clear();
-            if (SourceCodes.getSourceCodeFiles().Count != 0)
+            if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {
-                foreach (SourceCode code in SourceCodes.getSourceCodeFiles())
+                foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
                 {
                     lbCodes.Items.Add(code);
                 }
@@ -63,7 +55,7 @@ namespace CAC
 
         private void butReload_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.isdirectoryset())
+            if (SourceCodes.IsDirectorySet())
                 UpdateLbCodes();
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
@@ -73,7 +65,7 @@ namespace CAC
         {
             if (lbCodes.SelectedIndex >= 0) //if no item is selected index would be -1
             {
-                SourceCode code = SourceCodes.getSourceCode(lbCodes.SelectedIndex);
+                SourceCode code = SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
                 if (code.Exists())
                     rtbCode.Text = code.GetSourceCode();
                 else
@@ -119,13 +111,13 @@ namespace CAC
 
             if (lbObjects.Items.Count > 0)
             {
-                SaveFileDialog saveXML = new SaveFileDialog();
-                saveXML.Filter = "XML files (*.xml)|*.xml";
-                if (saveXML.ShowDialog() == DialogResult.OK)
+                SaveFileDialog saveXml = new SaveFileDialog();
+                saveXml.Filter = "XML files (*.xml)|*.xml";
+                if (saveXml.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        IOsXmlManager.ExportToXML(saveXML.FileName);
+                        IOsXmlManager.ExportToXml(saveXml.FileName);
                     }
                     catch (Exception)
                     {
@@ -155,11 +147,11 @@ namespace CAC
 
             IOs.Clear();
 
-            OpenFileDialog openXML=new OpenFileDialog();
-            openXML.Filter="XML soubory (*.xml)|*.xml";
-            if (openXML.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openXml=new OpenFileDialog();
+            openXml.Filter="XML soubory (*.xml)|*.xml";
+            if (openXml.ShowDialog() == DialogResult.OK)
             {
-                IOsXmlManager.AddIOsFromXML(openXML.FileName);
+                IOsXmlManager.AddIOsFromXml(openXml.FileName);
             }
         }
     }

@@ -1,11 +1,14 @@
-﻿namespace CAC
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms.Inputs
 {
     partial class InputRandomNumber
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -183,14 +186,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numMin;
-        private System.Windows.Forms.NumericUpDown numMax;
-        private System.Windows.Forms.Label labErr;
-        private System.Windows.Forms.CheckBox cbNoDecimal;
+        private Label label1;
+        private Button butClose;
+        private Button butAddOrDelete;
+        private Label label3;
+        private Label label4;
+        private NumericUpDown numMin;
+        private NumericUpDown numMax;
+        private Label labErr;
+        private CheckBox cbNoDecimal;
     }
 }

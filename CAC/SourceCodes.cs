@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,20 +6,22 @@ namespace CAC
 {
     public static class SourceCodes
     {
-        private static DirectoryInfo SourceDir;
-        private static List<SourceCode> SourceCodeFiles=new List<SourceCode>();
+        private static DirectoryInfo _sourceDir;
+        private static List<SourceCode> _sourceCodeFiles=new List<SourceCode>();
 
 
-        public static bool setPath()
+        public static bool SetPath()
          {
-             FolderBrowserDialog dialog = new FolderBrowserDialog();
-             dialog.Description="Zvolte složku která obsahuje zdrojové kódy.";
+            FolderBrowserDialog dialog = new FolderBrowserDialog
+            {
+                Description = "Zvolte složku která obsahuje zdrojové kódy."
+            };
 
-             DialogResult dialogres = dialog.ShowDialog();
+            DialogResult dialogres = dialog.ShowDialog();
 
             if (dialogres==DialogResult.OK)
             {
-                SourceDir = new DirectoryInfo(dialog.SelectedPath);
+                _sourceDir = new DirectoryInfo(dialog.SelectedPath);
                 ReloadSourceCodeFiles();
                 return true;
             }
@@ -30,32 +29,29 @@ namespace CAC
             return false;
          }
 
-        public static string getPath()
+        public static string GetPath()
         {
-            return SourceDir.FullName;
+            return _sourceDir.FullName;
         }
 
-        public static bool isdirectoryset()
+        public static bool IsDirectorySet()
         {
-            if (SourceDir != null)
-                return true;
-            else
-                return false;
+            return _sourceDir != null;
         }
 
         public static void ReloadSourceCodeFiles()
         {
-            foreach (FileInfo file in SourceDir.GetFiles("*.c"))
-                SourceCodeFiles.Add(new SourceCode(file.FullName));
+            foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
+                _sourceCodeFiles.Add(new SourceCode(file.FullName));
         }
 
-        public static List<SourceCode> getSourceCodeFiles()
+        public static List<SourceCode> GetSourceCodeFiles()
         {
-            return SourceCodeFiles;
+            return _sourceCodeFiles;
         }
-        public static SourceCode getSourceCode(int index)
+        public static SourceCode GetSourceCode(int index)
         {
-            return SourceCodeFiles[index];
+            return _sourceCodeFiles[index];
         }
     }
 }

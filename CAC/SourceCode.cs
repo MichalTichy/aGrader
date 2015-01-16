@@ -1,43 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 
 namespace CAC
 {
     public class SourceCode
     {
-        private string path;
-        private string name;
+        private string _path;
+        private string _name;
 
         public SourceCode(string path)
         {
-            this.path = path;
-            this.name = Path.GetFileName(path);
+            _path = path;
+            _name = Path.GetFileName(path);
         }
 
         public override string ToString()
         {
-            return name;
+            return _name;
         }
 
         public string GetPath()
         {
-            return path;
+            return _path;
         }
 
         public string GetSourceCode()
         {
-            return File.ReadAllText(path);
+            return File.ReadAllText(_path);
         }
 
         public bool Exists()
         {
-            if (File.Exists(path))
+            if (File.Exists(_path))
                 return true;
-            else
-                return false;
+            return false;
         }
     }
 }

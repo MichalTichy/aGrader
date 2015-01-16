@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CAC
@@ -75,7 +71,7 @@ namespace CAC
         /// <summary>
         /// Updates selected item in lbIOs
         /// </summary>
-        public static void UpdateSelectedLBItem()
+        public static void UpdateSelectedLbItem()
         {
             int selectedindex = lbIOs.SelectedIndex;
             lbIOs.SelectedItem = null;

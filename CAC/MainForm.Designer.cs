@@ -1,11 +1,14 @@
-﻿namespace CAC
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC
 {
     partial class CaC
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -339,31 +342,31 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.RichTextBox rtbCode;
-        private System.Windows.Forms.RichTextBox rtbOutput;
-        private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
-        private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
-        private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
-        private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
-        private System.Windows.Forms.ToolStripContentPanel ContentPanel;
-        private System.Windows.Forms.Button butRunTest;
-        private System.Windows.Forms.TabControl Tabs;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox tbpath;
-        private System.Windows.Forms.Button butBrowse;
-        private System.Windows.Forms.ListBox lbCodes;
-        private System.Windows.Forms.TabPage tabProtocol;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labHelop;
-        private System.Windows.Forms.ComboBox cbobjects;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button butExport;
-        private System.Windows.Forms.Button butImport;
-        private System.Windows.Forms.Button butReload;
-        private System.Windows.Forms.Button butMoveDown;
-        private System.Windows.Forms.Button butMoveUp;
-        public System.Windows.Forms.ListBox lbObjects;
+        private SplitContainer splitContainer1;
+        private RichTextBox rtbCode;
+        private RichTextBox rtbOutput;
+        private ToolStripPanel BottomToolStripPanel;
+        private ToolStripPanel TopToolStripPanel;
+        private ToolStripPanel RightToolStripPanel;
+        private ToolStripPanel LeftToolStripPanel;
+        private ToolStripContentPanel ContentPanel;
+        private Button butRunTest;
+        private TabControl Tabs;
+        private TabPage tabPage1;
+        private TextBox tbpath;
+        private Button butBrowse;
+        private ListBox lbCodes;
+        private TabPage tabProtocol;
+        private Label label1;
+        private Label labHelop;
+        private ComboBox cbobjects;
+        private Label label3;
+        private Button butExport;
+        private Button butImport;
+        private Button butReload;
+        private Button butMoveDown;
+        private Button butMoveUp;
+        public ListBox lbObjects;
     }
 }
 

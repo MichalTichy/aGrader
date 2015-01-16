@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CAC
+namespace CAC.IO_Forms.Inputs
 {
     public partial class InputString : Form
     {
-        public string text;
-        public bool exists = false;
+        public new string Text;
+        public bool Exists = false;
         public InputString()
         {
             InitializeComponent();
@@ -21,19 +14,19 @@ namespace CAC
         public InputString(string text)
         {
             InitializeComponent();
-            this.text = text;
+            Text = text;
             tbString.Text = text;
         }
 
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            IOs.UpdateSelectedLBItem();
+            IOs.UpdateSelectedLbItem();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
-            if (!exists)
+            if (!Exists)
                 IOs.Add(this);
             else
                 IOs.Remove(this);
@@ -42,12 +35,12 @@ namespace CAC
 
         public override string ToString()
         {
-            return "VSTUP: text: \""+text+"\"";
+            return "VSTUP: text: \""+Text+"\"";
         }
 
         private void InputString_Activated(object sender, EventArgs e)
         {
-            if (exists)
+            if (Exists)
             {
                 butAddOrDelete.Text = "Smazat";
             }
@@ -55,7 +48,7 @@ namespace CAC
 
         private void tbString_TextChanged(object sender, EventArgs e)
         {
-            text = tbString.Text;
+            Text = tbString.Text;
         }
     }
 }

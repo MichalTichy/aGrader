@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
+using CAC.IO_Forms.Inputs;
 
 namespace CAC
 {
@@ -13,7 +10,7 @@ namespace CAC
         /// Exports all IOs to xml file.
         /// </summary>
         /// <param name="path"></param>
-        public static void ExportToXML(string path)
+        public static void ExportToXml(string path)
         {
             XmlDocument doc = new XmlDocument();
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -31,86 +28,86 @@ namespace CAC
         /// <summary>
         /// Generate IONode for InputNumber.
         /// </summary>
-        /// <param name="IOForm"></param>
+        /// <param name="ioForm"></param>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputNumber IOForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputNumber ioForm, XmlDocument doc)
         {
-            XmlElement InNumber = doc.CreateElement(IOForm.Name);
+            XmlElement inNumber = doc.CreateElement(ioForm.Name);
 
             XmlElement numericvalue = doc.CreateElement("numeric");
-            numericvalue.InnerText = IOForm.Value.ToString();
+            numericvalue.InnerText = ioForm.Value.ToString();
 
-            InNumber.AppendChild(numericvalue);
+            inNumber.AppendChild(numericvalue);
             
-            return InNumber;
+            return inNumber;
         }
         /// <summary>
         /// Generate IONode for InputString.
         /// </summary>
-        /// <param name="IOForm"></param>
+        /// <param name="ioForm"></param>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputString IOForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputString ioForm, XmlDocument doc)
         {
-            XmlElement InString = doc.CreateElement(IOForm.Name);
+            XmlElement inString = doc.CreateElement(ioForm.Name);
 
             XmlElement stringvalue = doc.CreateElement("string");
-            stringvalue.InnerText = IOForm.text;
+            stringvalue.InnerText = ioForm.text;
 
-            InString.AppendChild(stringvalue);
+            inString.AppendChild(stringvalue);
 
-            return InString;
+            return inString;
         }
         /// <summary>
         /// Generate IONode for InputRandomNumber
         /// </summary>
-        /// <param name="IOForm"></param>
+        /// <param name="ioForm"></param>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputRandomNumber IOForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputRandomNumber ioForm, XmlDocument doc)
         {
-            XmlElement InRandomNumber = doc.CreateElement(IOForm.Name);
+            XmlElement inRandomNumber = doc.CreateElement(ioForm.Name);
 
             XmlElement minvalue = doc.CreateElement("minValue");
-            minvalue.InnerText = IOForm.min.ToString();
+            minvalue.InnerText = ioForm.Min.ToString();
             XmlElement maxvalue = doc.CreateElement("maxValue");
-            maxvalue.InnerText = IOForm.max.ToString();
+            maxvalue.InnerText = ioForm.Max.ToString();
             XmlElement isDecimal = doc.CreateElement("isDecimal");
-            isDecimal.InnerText = IOForm.Decimal.ToString();
+            isDecimal.InnerText = ioForm.Decimal.ToString();
 
-            InRandomNumber.AppendChild(minvalue);
-            InRandomNumber.AppendChild(maxvalue);
-            InRandomNumber.AppendChild(isDecimal);
+            inRandomNumber.AppendChild(minvalue);
+            inRandomNumber.AppendChild(maxvalue);
+            inRandomNumber.AppendChild(isDecimal);
 
-            return InRandomNumber;
+            return inRandomNumber;
         }
         /// <summary>
         /// Generate IONode for InputTextFile.
         /// </summary>
-        /// <param name="IOForm"></param>
+        /// <param name="ioForm"></param>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputTextFile IOForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputTextFile ioForm, XmlDocument doc)
         {
-            XmlElement InTextFile = doc.CreateElement(IOForm.Name);
+            XmlElement inTextFile = doc.CreateElement(ioForm.Name);
 
             XmlElement path = doc.CreateElement("path");
-            path.InnerText = IOForm.path;
+            path.InnerText = ioForm.Path;
             XmlElement lineformat = doc.CreateElement("lineformat");
-            lineformat.InnerText = IOForm.lineformat;
+            lineformat.InnerText = ioForm.Lineformat;
 
-            InTextFile.AppendChild(path);
-            InTextFile.AppendChild(lineformat);
+            inTextFile.AppendChild(path);
+            inTextFile.AppendChild(lineformat);
 
-            return InTextFile;
+            return inTextFile;
         }
 
         /// <summary>
         /// Imports IOs from xml file.
         /// </summary>
         /// <param name="path"></param>
-        public static void AddIOsFromXML(string path)
+        public static void AddIOsFromXml(string path)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);

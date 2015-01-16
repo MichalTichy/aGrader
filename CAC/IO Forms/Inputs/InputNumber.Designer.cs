@@ -1,11 +1,14 @@
-﻿namespace CAC
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms.Inputs
 {
     partial class InputNumber
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -107,10 +110,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numeric;
+        private Button butClose;
+        private Button butAddOrDelete;
+        private Label label1;
+        private NumericUpDown numeric;
 
     }
 }
