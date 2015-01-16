@@ -44,28 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IO Forms\Inputs\InputTextFile.cs">
+    <Compile Include="IO Forms\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputTextFile.Designer.cs">
+    <Compile Include="IO Forms\InputTextFile.Designer.cs">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputNumber.cs">
+    <Compile Include="IO Forms\InputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputNumber.Designer.cs">
+    <Compile Include="IO Forms\InputNumber.Designer.cs">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputRandomNumber.cs">
+    <Compile Include="IO Forms\InputRandomNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputRandomNumber.Designer.cs">
+    <Compile Include="IO Forms\InputRandomNumber.Designer.cs">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputString.cs">
+    <Compile Include="IO Forms\InputString.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\Inputs\InputString.Designer.cs">
+    <Compile Include="IO Forms\InputString.Designer.cs">
       <DependentUpon>InputString.cs</DependentUpon>
     </Compile>
     <Compile Include="IOs.cs" />
@@ -81,16 +81,16 @@
     <Compile Include="SideFormManager.cs" />
     <Compile Include="SourceCode.cs" />
     <Compile Include="SourceCodes.cs" />
-    <EmbeddedResource Include="IO Forms\Inputs\InputTextFile.resx">
+    <EmbeddedResource Include="IO Forms\InputTextFile.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\Inputs\InputNumber.resx">
+    <EmbeddedResource Include="IO Forms\InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\Inputs\InputRandomNumber.resx">
+    <EmbeddedResource Include="IO Forms\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\Inputs\InputString.resx">
+    <EmbeddedResource Include="IO Forms\InputString.resx">
       <DependentUpon>InputString.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -121,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="codetestmethods.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IO Forms\Inputs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

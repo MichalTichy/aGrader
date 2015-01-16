@@ -6,34 +6,39 @@ namespace CAC
 {
     public static class SideFormManager
     {
-        private static dynamic _sideForm = null;
+        private static dynamic _sideForm;
+
         public static void Show(SideForms formName)
         {
             Close();
-            _sideForm = Activator.CreateInstance(Type.GetType("CAC." + formName.ToString()));
+            _sideForm = Activator.CreateInstance(Type.GetType("CAC.IO_Forms." + formName));
             UpdatePosition();
             _sideForm.Show();
-
         }
+
         public static void ShowExisting(dynamic formToShow)
         {
             Close();
             _sideForm = formToShow;
             UpdatePosition();
             _sideForm.Show();
-
         }
+
         public static void UpdatePosition()
         {
             if (_sideForm != null)
             {
                 try
                 {
-                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width, Form.ActiveForm.Location.Y + 65);
+                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,Form.ActiveForm.Location.Y + 65);
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
             }
         }
+
         public static void Close()
         {
             if (_sideForm != null)
@@ -46,24 +51,21 @@ namespace CAC
 
         public enum SideForms
         {
-            [Description("VSTUP: textový soubor")]
-            InputTextFile,
-            [Description("VSTUP: číslo")]
-            InputNumber,
-            [Description("VSTUP: náhodné Číslo")]
-            InputRandomNumber,
-            [Description("VSTUP: text")]
-            InputString
+            [Description("VSTUP: textový soubor")] InputTextFile,
+            [Description("VSTUP: číslo")] InputNumber,
+            [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
+            [Description("VSTUP: text")] InputString
         }
+
         public static string GetDescription(this Enum currentEnum)
         {
             string description;
             DescriptionAttribute da;
 
             FieldInfo fi = currentEnum.GetType().
-                        GetField(currentEnum.ToString());
-            da = (DescriptionAttribute)Attribute.GetCustomAttribute(fi,
-                        typeof(DescriptionAttribute));
+                GetField(currentEnum.ToString());
+            da = (DescriptionAttribute) Attribute.GetCustomAttribute(fi,
+                typeof (DescriptionAttribute));
             if (da != null)
                 description = da.Value;
             else
@@ -71,12 +73,10 @@ namespace CAC
 
             return description;
         }
-
     }
 
     public class DescriptionAttribute : Attribute
     {
-
         private string _value;
 
         public DescriptionAttribute(string value)
@@ -88,6 +88,5 @@ namespace CAC
         {
             get { return _value; }
         }
-
     }
 }

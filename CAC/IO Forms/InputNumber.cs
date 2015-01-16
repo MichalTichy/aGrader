@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace CAC.IO_Forms.Inputs
+namespace CAC.IO_Forms
 {
-    public partial class InputString : Form
+    public partial class InputNumber : Form
     {
-        public new string Text;
+        public decimal Value;
+
         public bool Exists = false;
-        public InputString()
+        public InputNumber()
         {
             InitializeComponent();
+            Value = numeric.Value;
         }
-        public InputString(string text)
+
+        public InputNumber(decimal value)
         {
             InitializeComponent();
-            Text = text;
-            tbString.Text = text;
+            Value = value;
+            numeric.Value = value;
         }
 
         private void butClose_Click(object sender, EventArgs e)
@@ -35,20 +38,20 @@ namespace CAC.IO_Forms.Inputs
 
         public override string ToString()
         {
-            return "VSTUP: text: \""+Text+"\"";
+            return "VSTUP: číslo " + Value;
         }
 
-        private void InputString_Activated(object sender, EventArgs e)
+        private void numeric_ValueChanged(object sender, EventArgs e)
+        {
+            Value = numeric.Value;
+        }
+
+        private void InputNumber_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
                 butAddOrDelete.Text = "Smazat";
             }
-        }
-
-        private void tbString_TextChanged(object sender, EventArgs e)
-        {
-            Text = tbString.Text;
         }
     }
 }

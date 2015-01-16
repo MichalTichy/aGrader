@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml;
-using CAC.IO_Forms.Inputs;
+using CAC.IO_Forms;
 
 namespace CAC
 {
@@ -53,7 +53,7 @@ namespace CAC
             XmlElement inString = doc.CreateElement(ioForm.Name);
 
             XmlElement stringvalue = doc.CreateElement("string");
-            stringvalue.InnerText = ioForm.text;
+            stringvalue.InnerText = ioForm.Text;
 
             inString.AppendChild(stringvalue);
 

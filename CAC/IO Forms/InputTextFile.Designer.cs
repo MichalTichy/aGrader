@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CAC.IO_Forms.Inputs
+namespace CAC.IO_Forms
 {
     partial class InputTextFile
     {

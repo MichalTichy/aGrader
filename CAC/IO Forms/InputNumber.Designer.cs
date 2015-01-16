@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CAC.IO_Forms.Inputs
+namespace CAC.IO_Forms
 {
-    partial class InputString
+    partial class InputNumber
     {
         /// <summary>
         /// Required designer variable.
@@ -31,64 +31,78 @@ namespace CAC.IO_Forms.Inputs
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbString = new System.Windows.Forms.TextBox();
             this.butClose = new System.Windows.Forms.Button();
             this.butAddOrDelete = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numeric = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Text";
-            // 
-            // tbString
-            // 
-            this.tbString.Location = new System.Drawing.Point(14, 30);
-            this.tbString.Name = "tbString";
-            this.tbString.Size = new System.Drawing.Size(144, 20);
-            this.tbString.TabIndex = 18;
-            this.tbString.TextChanged += new System.EventHandler(this.tbString_TextChanged);
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(98, 56);
+            this.butClose.Location = new System.Drawing.Point(96, 55);
             this.butClose.Name = "butClose";
             this.butClose.Size = new System.Drawing.Size(60, 23);
-            this.butClose.TabIndex = 17;
+            this.butClose.TabIndex = 13;
             this.butClose.Text = "Zavřít";
             this.butClose.UseVisualStyleBackColor = true;
             this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(14, 56);
+            this.butAddOrDelete.Location = new System.Drawing.Point(12, 55);
             this.butAddOrDelete.Name = "butAddOrDelete";
             this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrDelete.TabIndex = 16;
+            this.butAddOrDelete.TabIndex = 12;
             this.butAddOrDelete.Text = "Přidat";
             this.butAddOrDelete.UseVisualStyleBackColor = true;
             this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
-            // InputString
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Číslo";
+            // 
+            // numeric
+            // 
+            this.numeric.DecimalPlaces = 3;
+            this.numeric.Location = new System.Drawing.Point(12, 25);
+            this.numeric.Maximum = new decimal(new int[] {
+            2000000000,
+            0,
+            0,
+            0});
+            this.numeric.Minimum = new decimal(new int[] {
+            2000000000,
+            0,
+            0,
+            -2147483648});
+            this.numeric.Name = "numeric";
+            this.numeric.Size = new System.Drawing.Size(144, 20);
+            this.numeric.TabIndex = 16;
+            this.numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
+            // 
+            // InputNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(170, 90);
+            this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbString);
             this.Controls.Add(this.butClose);
             this.Controls.Add(this.butAddOrDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InputString";
+            this.Name = "InputNumber";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "InputString";
-            this.Activated += new System.EventHandler(this.InputString_Activated);
+            this.Text = "Input";
+            this.Activated += new System.EventHandler(this.InputNumber_Activated);
+            ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,9 +110,10 @@ namespace CAC.IO_Forms.Inputs
 
         #endregion
 
-        private Label label1;
-        private TextBox tbString;
         private Button butClose;
         private Button butAddOrDelete;
+        private Label label1;
+        private NumericUpDown numeric;
+
     }
 }

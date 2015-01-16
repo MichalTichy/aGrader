@@ -112,7 +112,7 @@ namespace CAC
             if (lbObjects.Items.Count > 0)
             {
                 SaveFileDialog saveXml = new SaveFileDialog();
-                saveXml.Filter = "XML files (*.xml)|*.xml";
+                saveXml.Filter = @"XML files (*.xml)|*.xml";
                 if (saveXml.ShowDialog() == DialogResult.OK)
                 {
                     try
