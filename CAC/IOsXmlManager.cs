@@ -152,6 +152,10 @@ namespace CAC
                         case "InputString":
                             IOs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
                             break;
+
+                        case "OutputNumber":
+                            IOs.Add(new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            break;
                     }
                 }
             }
