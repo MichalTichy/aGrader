@@ -134,7 +134,7 @@ namespace CAC
         {
             if (lbObjects.SelectedIndex >= 0)
             {
-                IOs.getIOForm(lbObjects.SelectedIndex).exists = true;
+                IOs.getIOForm(lbObjects.SelectedIndex).Exists = true;
                 SideFormManager.ShowExisting(IOs.getIOForm(lbObjects.SelectedIndex));
             }
         }
