@@ -4,7 +4,7 @@ using CAC.IO_Forms;
 
 namespace CAC
 {
-    static class IOsXmlManager
+    internal static class IOsXmlManager
     {
         /// <summary>
         /// Exports all IOs to xml file.
@@ -19,7 +19,7 @@ namespace CAC
 
             foreach (dynamic IOForm in IOs.getList())
             {
-                root.AppendChild(GenerateIONode(IOForm,doc));
+                root.AppendChild(GenerateIONode(IOForm, doc));
             }
             doc.AppendChild(root);
             doc.Save(path);
@@ -29,51 +29,53 @@ namespace CAC
         /// Generate IONode for InputNumber.
         /// </summary>
         /// <param name="ioForm"></param>
-        /// <param name="doc"></param>
+        /// <param name="document"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputNumber ioForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputNumber ioForm, XmlDocument document)
         {
-            XmlElement inNumber = doc.CreateElement(ioForm.Name);
+            XmlElement inNumber = document.CreateElement(ioForm.Name);
 
-            XmlElement numericvalue = doc.CreateElement("numeric");
+            XmlElement numericvalue = document.CreateElement("numeric");
             numericvalue.InnerText = ioForm.Value.ToString();
 
             inNumber.AppendChild(numericvalue);
-            
+
             return inNumber;
         }
+
         /// <summary>
         /// Generate IONode for InputString.
         /// </summary>
         /// <param name="ioForm"></param>
-        /// <param name="doc"></param>
+        /// <param name="document"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputString ioForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputString ioForm, XmlDocument document)
         {
-            XmlElement inString = doc.CreateElement(ioForm.Name);
+            XmlElement inString = document.CreateElement(ioForm.Name);
 
-            XmlElement stringvalue = doc.CreateElement("string");
+            XmlElement stringvalue = document.CreateElement("string");
             stringvalue.InnerText = ioForm.Text;
 
             inString.AppendChild(stringvalue);
 
             return inString;
         }
+
         /// <summary>
         /// Generate IONode for InputRandomNumber
         /// </summary>
         /// <param name="ioForm"></param>
-        /// <param name="doc"></param>
+        /// <param name="document"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputRandomNumber ioForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputRandomNumber ioForm, XmlDocument document)
         {
-            XmlElement inRandomNumber = doc.CreateElement(ioForm.Name);
+            XmlElement inRandomNumber = document.CreateElement(ioForm.Name);
 
-            XmlElement minvalue = doc.CreateElement("minValue");
+            XmlElement minvalue = document.CreateElement("minValue");
             minvalue.InnerText = ioForm.Min.ToString();
-            XmlElement maxvalue = doc.CreateElement("maxValue");
+            XmlElement maxvalue = document.CreateElement("maxValue");
             maxvalue.InnerText = ioForm.Max.ToString();
-            XmlElement isDecimal = doc.CreateElement("isDecimal");
+            XmlElement isDecimal = document.CreateElement("isDecimal");
             isDecimal.InnerText = ioForm.Decimal.ToString();
 
             inRandomNumber.AppendChild(minvalue);
@@ -82,25 +84,38 @@ namespace CAC
 
             return inRandomNumber;
         }
+
         /// <summary>
         /// Generate IONode for InputTextFile.
         /// </summary>
         /// <param name="ioForm"></param>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XmlNode GenerateIONode(InputTextFile ioForm, XmlDocument doc)
+        private static XmlNode GenerateIONode(InputTextFile ioForm, XmlDocument document)
         {
-            XmlElement inTextFile = doc.CreateElement(ioForm.Name);
+            XmlElement inTextFile = document.CreateElement(ioForm.Name);
 
-            XmlElement path = doc.CreateElement("path");
+            XmlElement path = document.CreateElement("path");
             path.InnerText = ioForm.Path;
-            XmlElement lineformat = doc.CreateElement("lineformat");
+            XmlElement lineformat = document.CreateElement("lineformat");
             lineformat.InnerText = ioForm.Lineformat;
 
             inTextFile.AppendChild(path);
             inTextFile.AppendChild(lineformat);
 
             return inTextFile;
+        }
+
+        private static XmlNode GenerateIONode(OutputNumber ioForm, XmlDocument document)
+        {
+            XmlElement outNumber = document.CreateElement(ioForm.Name);
+
+            XmlElement numericvalue = document.CreateElement("numeric");
+            numericvalue.InnerText = ioForm.Value.ToString();
+
+            outNumber.AppendChild(numericvalue);
+
+            return outNumber;
         }
 
         /// <summary>
@@ -117,17 +132,22 @@ namespace CAC
             {
                 foreach (XmlNode node in root.ChildNodes)
                 {
-                    XmlElement element=(XmlElement)node;
+                    XmlElement element = (XmlElement) node;
                     switch (node.Name)
                     {
                         case "InputTextFile":
-                            IOs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText, element.GetElementsByTagName("lineformat")[0].InnerText));
+                            IOs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
+                                element.GetElementsByTagName("lineformat")[0].InnerText));
                             break;
                         case "InputNumber":
                             IOs.Add(new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
                         case "InputRandomNumber":
-                            IOs.Add(new InputRandomNumber(decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText), decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText), bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText)));
+                            IOs.Add(
+                                new InputRandomNumber(
+                                    decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
+                                    decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
+                                    bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText)));
                             break;
                         case "InputString":
                             IOs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
@@ -138,6 +158,5 @@ namespace CAC
             else
                 throw new FormatException();
         }
-
     }
 }
