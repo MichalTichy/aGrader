@@ -5,9 +5,9 @@ namespace CAC.IO_Forms
 {
     public partial class InputNumber : Form
     {
+        public bool Exists = false;
         public decimal Value;
 
-        public bool Exists = false;
         public InputNumber()
         {
             InitializeComponent();

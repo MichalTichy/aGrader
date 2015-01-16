@@ -5,21 +5,20 @@ namespace CAC.IO_Forms
 {
     public partial class InputRandomNumber : Form
     {
+        public bool Decimal;
+        public bool Exists = false;
         public decimal Max;
         public decimal Min;
-        public bool Decimal;
-
-        public bool Exists = false;
 
         public InputRandomNumber()
-        {            
+        {
             InitializeComponent();
             Min = numMin.Value;
             Max = numMax.Value;
             Decimal = !cbNoDecimal.Checked;
         }
 
-        public InputRandomNumber(decimal min,decimal max,bool generateDecimal)
+        public InputRandomNumber(decimal min, decimal max, bool generateDecimal)
         {
             InitializeComponent();
             numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa
@@ -27,7 +26,7 @@ namespace CAC.IO_Forms
             Min = min;
             Max = max;
             Decimal = !generateDecimal;
-            numMin. Value = min;
+            numMin.Value = min;
             numMax.Value = max;
             Decimal = generateDecimal;
         }
@@ -44,7 +43,6 @@ namespace CAC.IO_Forms
                 labErr.Text = "";
                 Max = numMax.Value;
             }
-
         }
 
         private void numMin_ValueChanged(object sender, EventArgs e)
@@ -59,7 +57,6 @@ namespace CAC.IO_Forms
                 labErr.Text = "";
                 Min = numMin.Value;
             }
-                
         }
 
         private void butClose_Click(object sender, EventArgs e)
@@ -86,7 +83,7 @@ namespace CAC.IO_Forms
 
         private void cbNoDecimal_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbNoDecimal.Checked)
+            if (cbNoDecimal.Checked)
             {
                 Decimal = false;
                 numMin.DecimalPlaces = 0;
@@ -98,7 +95,6 @@ namespace CAC.IO_Forms
                 numMin.DecimalPlaces = 3;
                 numMax.DecimalPlaces = 3;
             }
-
         }
 
         private void InputRandomNumber_Activated(object sender, EventArgs e)

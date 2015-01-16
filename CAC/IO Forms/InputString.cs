@@ -5,12 +5,14 @@ namespace CAC.IO_Forms
 {
     public partial class InputString : Form
     {
-        public new string Text;
         public bool Exists = false;
+        public new string Text;
+
         public InputString()
         {
             InitializeComponent();
         }
+
         public InputString(string text)
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace CAC.IO_Forms
 
         public override string ToString()
         {
-            return "VSTUP: text: \""+Text+"\"";
+            return "VSTUP: text: \"" + Text + "\"";
         }
 
         private void InputString_Activated(object sender, EventArgs e)

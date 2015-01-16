@@ -5,17 +5,16 @@ namespace CAC.IO_Forms
 {
     public partial class InputTextFile : Form
     {
-        public string Path;
-        public string Lineformat;
-
         public bool Exists = false;
+        public string Lineformat;
+        public string Path;
 
         public InputTextFile()
         {
             InitializeComponent();
         }
 
-        public InputTextFile(string path,string lineformat)
+        public InputTextFile(string path, string lineformat)
         {
             InitializeComponent();
             Path = path;
@@ -41,7 +40,7 @@ namespace CAC.IO_Forms
 
         public override string ToString()
         {
-            return "VSTUP: soubor "+System.IO.Path.GetFileName(Path);
+            return "VSTUP: soubor " + System.IO.Path.GetFileName(Path);
         }
 
         private void InputFile_Activated(object sender, EventArgs e)
@@ -54,8 +53,8 @@ namespace CAC.IO_Forms
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog selectFile = new OpenFileDialog();
-            if (selectFile.ShowDialog()==DialogResult.OK)
+            var selectFile = new OpenFileDialog();
+            if (selectFile.ShowDialog() == DialogResult.OK)
             {
                 Path = selectFile.FileName;
                 tbPath.Text = Path;
