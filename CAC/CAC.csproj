@@ -68,6 +68,12 @@
     <Compile Include="IO Forms\InputString.Designer.cs">
       <DependentUpon>InputString.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO Forms\OutputNumberBasedOnRandomInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\OutputNumberBasedOnRandomInput.Designer.cs">
+      <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\OutputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\InputString.resx">
       <DependentUpon>InputString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\OutputNumberBasedOnRandomInput.resx">
+      <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\OutputNumber.resx">
       <DependentUpon>OutputNumber.cs</DependentUpon>
