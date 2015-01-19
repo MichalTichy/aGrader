@@ -39,7 +39,7 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(98, 269);
+            this.butClose.Location = new System.Drawing.Point(247, 269);
             this.butClose.Name = "butClose";
             this.butClose.Size = new System.Drawing.Size(60, 23);
             this.butClose.TabIndex = 15;
@@ -62,7 +62,7 @@
             this.lbNumbers.FormattingEnabled = true;
             this.lbNumbers.Location = new System.Drawing.Point(14, 129);
             this.lbNumbers.Name = "lbNumbers";
-            this.lbNumbers.Size = new System.Drawing.Size(144, 134);
+            this.lbNumbers.Size = new System.Drawing.Size(293, 134);
             this.lbNumbers.TabIndex = 16;
             // 
             // cbRanNumInputs
@@ -71,15 +71,16 @@
             this.cbRanNumInputs.FormattingEnabled = true;
             this.cbRanNumInputs.Location = new System.Drawing.Point(14, 42);
             this.cbRanNumInputs.Name = "cbRanNumInputs";
-            this.cbRanNumInputs.Size = new System.Drawing.Size(144, 21);
+            this.cbRanNumInputs.Size = new System.Drawing.Size(293, 21);
             this.cbRanNumInputs.TabIndex = 17;
+            this.cbRanNumInputs.DropDown += new System.EventHandler(this.cbRanNumInputs_DropDown);
             // 
             // tbProperities
             // 
             this.tbProperities.Enabled = false;
             this.tbProperities.Location = new System.Drawing.Point(14, 69);
             this.tbProperities.Name = "tbProperities";
-            this.tbProperities.Size = new System.Drawing.Size(144, 20);
+            this.tbProperities.Size = new System.Drawing.Size(293, 20);
             this.tbProperities.TabIndex = 18;
             // 
             // label1
@@ -95,7 +96,7 @@
             // 
             this.butRemove.Location = new System.Drawing.Point(14, 100);
             this.butRemove.Name = "butRemove";
-            this.butRemove.Size = new System.Drawing.Size(144, 23);
+            this.butRemove.Size = new System.Drawing.Size(293, 23);
             this.butRemove.TabIndex = 20;
             this.butRemove.Text = "Smazat vybraný";
             this.butRemove.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(170, 299);
+            this.ClientSize = new System.Drawing.Size(319, 299);
             this.Controls.Add(this.butRemove);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbProperities);
