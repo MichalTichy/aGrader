@@ -67,6 +67,7 @@
             // 
             // cbRanNumInputs
             // 
+            this.cbRanNumInputs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRanNumInputs.FormattingEnabled = true;
             this.cbRanNumInputs.Location = new System.Drawing.Point(14, 42);
             this.cbRanNumInputs.Name = "cbRanNumInputs";
