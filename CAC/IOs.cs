@@ -12,7 +12,7 @@ namespace CAC
         /// </summary>
         private static ListBox lbIOs = ((CaC)Application.OpenForms[1]).lbObjects;
 
-        public static IReadOnlyCollection<dynamic> getList()
+        public static IReadOnlyCollection<dynamic> GetList()
         {
             return IOForms.AsReadOnly();
         }
