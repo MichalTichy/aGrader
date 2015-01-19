@@ -17,7 +17,7 @@ namespace CAC
             doc.AppendChild(declaration);
             XmlElement root = doc.CreateElement("Protocol");
 
-            foreach (dynamic IOForm in IOs.getList())
+            foreach (dynamic IOForm in IOs.GetList())
             {
                 root.AppendChild(GenerateIONode(IOForm, doc));
             }
