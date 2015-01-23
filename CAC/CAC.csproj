@@ -80,7 +80,7 @@
     <Compile Include="IO Forms\OutputNumber.Designer.cs">
       <DependentUpon>OutputNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOs.cs" />
+    <Compile Include="InputsOutputs.cs" />
     <Compile Include="IOsXmlManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
