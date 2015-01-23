@@ -81,7 +81,7 @@
       <DependentUpon>OutputNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="InputsOutputs.cs" />
-    <Compile Include="IOsXmlManager.cs" />
+    <Compile Include="InOutXmlManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

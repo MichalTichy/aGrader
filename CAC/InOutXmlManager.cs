@@ -4,12 +4,8 @@ using CAC.IO_Forms;
 
 namespace CAC
 {
-    internal static class IOsXmlManager
+    internal static class InOutXmlManager
     {
-        /// <summary>
-        /// Exports all IOs to xml file.
-        /// </summary>
-        /// <param name="path"></param>
         public static void ExportToXml(string path)
         {
             XmlDocument doc = new XmlDocument();
@@ -17,20 +13,14 @@ namespace CAC
             doc.AppendChild(declaration);
             XmlElement root = doc.CreateElement("Protocol");
 
-            foreach (dynamic IOForm in InputsOutputs.GetList())
+            foreach (dynamic formIO in InputsOutputs.GetList())
             {
-                root.AppendChild(GenerateIONode(IOForm, doc));
+                root.AppendChild(GenerateIONode(formIO, doc));
             }
             doc.AppendChild(root);
             doc.Save(path);
         }
 
-        /// <summary>
-        /// Generate IONode for InputNumber.
-        /// </summary>
-        /// <param name="ioForm"></param>
-        /// <param name="document"></param>
-        /// <returns></returns>
         private static XmlNode GenerateIONode(InputNumber ioForm, XmlDocument document)
         {
             XmlElement inNumber = document.CreateElement(ioForm.Name);
@@ -43,12 +33,6 @@ namespace CAC
             return inNumber;
         }
 
-        /// <summary>
-        /// Generate IONode for InputString.
-        /// </summary>
-        /// <param name="ioForm"></param>
-        /// <param name="document"></param>
-        /// <returns></returns>
         private static XmlNode GenerateIONode(InputString ioForm, XmlDocument document)
         {
             XmlElement inString = document.CreateElement(ioForm.Name);
@@ -61,12 +45,6 @@ namespace CAC
             return inString;
         }
 
-        /// <summary>
-        /// Generate IONode for InputRandomNumber
-        /// </summary>
-        /// <param name="ioForm"></param>
-        /// <param name="document"></param>
-        /// <returns></returns>
         private static XmlNode GenerateIONode(InputRandomNumber ioForm, XmlDocument document)
         {
             XmlElement inRandomNumber = document.CreateElement(ioForm.Name);
@@ -85,12 +63,6 @@ namespace CAC
             return inRandomNumber;
         }
 
-        /// <summary>
-        /// Generate IONode for InputTextFile.
-        /// </summary>
-        /// <param name="ioForm"></param>
-        /// <param name="doc"></param>
-        /// <returns></returns>
         private static XmlNode GenerateIONode(InputTextFile ioForm, XmlDocument document)
         {
             XmlElement inTextFile = document.CreateElement(ioForm.Name);
@@ -118,10 +90,6 @@ namespace CAC
             return outNumber;
         }
 
-        /// <summary>
-        /// Imports IOs from xml file.
-        /// </summary>
-        /// <param name="path"></param>
         public static void AddIOsFromXml(string path)
         {
             XmlDocument doc = new XmlDocument();
@@ -140,7 +108,8 @@ namespace CAC
                                 element.GetElementsByTagName("lineformat")[0].InnerText));
                             break;
                         case "InputNumber":
-                            InputsOutputs.Add(new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
                         case "InputRandomNumber":
                             InputsOutputs.Add(
@@ -154,7 +123,8 @@ namespace CAC
                             break;
 
                         case "OutputNumber":
-                            InputsOutputs.Add(new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
                     }
                 }

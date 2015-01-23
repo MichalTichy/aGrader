@@ -117,7 +117,7 @@ namespace CAC
                 {
                     try
                     {
-                        IOsXmlManager.ExportToXml(saveXml.FileName);
+                        InOutXmlManager.ExportToXml(saveXml.FileName);
                     }
                     catch (Exception)
                     {
@@ -151,7 +151,7 @@ namespace CAC
             openXml.Filter="XML soubory (*.xml)|*.xml";
             if (openXml.ShowDialog() == DialogResult.OK)
             {
-                IOsXmlManager.AddIOsFromXml(openXml.FileName);
+                InOutXmlManager.AddIOsFromXml(openXml.FileName);
             }
         }
     }
