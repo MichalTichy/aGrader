@@ -132,7 +132,7 @@ namespace CAC
 
         private void lbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbObjects.SelectedIndex >= 0)
+            if (lbObjects.SelectedItem!=null)
             {
                 InputsOutputs.GetIOForm(lbObjects.SelectedIndex).Exists = true;
                 SideFormManager.ShowExisting(InputsOutputs.GetIOForm(lbObjects.SelectedIndex));
