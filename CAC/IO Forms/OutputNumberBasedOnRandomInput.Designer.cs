@@ -1,11 +1,14 @@
-﻿namespace CAC.IO_Forms
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms
 {
     partial class OutputNumberBasedOnRandomInput
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -126,12 +129,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
-        private System.Windows.Forms.ListBox lbNumbers;
-        private System.Windows.Forms.ComboBox cbRanNumInputs;
-        private System.Windows.Forms.TextBox tbProperities;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button butRemove;
+        private Button butClose;
+        private Button butAddOrDelete;
+        private ListBox lbNumbers;
+        private ComboBox cbRanNumInputs;
+        private TextBox tbProperities;
+        private Label label1;
+        private Button butRemove;
     }
 }
