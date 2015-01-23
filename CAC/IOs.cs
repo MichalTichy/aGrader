@@ -3,43 +3,43 @@ using System.Windows.Forms;
 
 namespace CAC
 {
-    public static class IOs
+    public static class InputsOutputs
     {
-        private static List<dynamic> IOForms = new List<dynamic>();
+        private static readonly List<dynamic> InOutList=new List<dynamic>();
 
         /// <summary>
         /// Contains reference to lbIOs which is at main form.
         /// </summary>
-        private static ListBox lbIOs = ((CaC)Application.OpenForms[1]).lbObjects;
+        private static readonly ListBox InOutListBox = ((CaC)Application.OpenForms[1]).lbObjects;
 
-        public static IReadOnlyCollection<dynamic> GetList()
+        public static IEnumerable<dynamic> GetList()
         {
-            return IOForms.AsReadOnly();
+            return InOutList.AsReadOnly();
         }
-        public static dynamic getIOForm(int id)
+        public static dynamic GetIOForm(int id)
         {
-            return IOForms[id];
+            return InOutList[id];
         }
 
         /// <summary>
         /// Adds IO Form to list.
         /// </summary>
-        /// <param name="IOForm"></param>
-        public static void Add(dynamic IOForm)
+        /// <param name="formIO"></param>
+        public static void Add(dynamic formIO)
         {
-            IOForms.Add(IOForm);
-            lbIOs.Items.Add(IOForm.ToString());
+            InOutList.Add(formIO);
+            InOutListBox.Items.Add(formIO.ToString());
 
         }
 
         /// <summary>
         /// Removes IO Form to list.
         /// </summary>
-        /// <param name="IOForm"></param>
-        public static void Remove(dynamic IOForm)
+        /// <param name="formIO"></param>
+        public static void Remove(dynamic formIO)
         {
-            lbIOs.Items.RemoveAt(IOForms.IndexOf(IOForm));
-            IOForms.Remove(IOForm);
+            InOutListBox.Items.RemoveAt(InOutList.IndexOf(formIO));
+            InOutList.Remove(formIO);
         }
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace CAC
         /// <param name="index2"></param>
         public static void Swap(int index1, int index2)
         {
-            dynamic temp = IOForms[index1];
-            IOForms[index1] = IOForms[index2];
-            IOForms[index2] = temp;
+            dynamic temp = InOutList[index1];
+            InOutList[index1] = InOutList[index2];
+            InOutList[index2] = temp;
 
-            temp = lbIOs.Items[index1];
-            lbIOs.Items[index1] = lbIOs.Items[index2];
-            lbIOs.Items[index2] = temp;
-            lbIOs.SelectedIndex = index2;
+            temp = InOutListBox.Items[index1];
+            InOutListBox.Items[index1] = InOutListBox.Items[index2];
+            InOutListBox.Items[index2] = temp;
+            InOutListBox.SelectedIndex = index2;
         }
 
         /// <summary>
@@ -64,8 +64,8 @@ namespace CAC
         /// </summary>
         public static void Clear()
         {
-            IOForms.Clear();
-            lbIOs.Items.Clear();
+            InOutList.Clear();
+            InOutListBox.Items.Clear();
         }
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace CAC
         /// </summary>
         public static void UpdateSelectedLbItem()
         {
-            int selectedindex = lbIOs.SelectedIndex;
-            lbIOs.SelectedItem = null;
-            lbIOs.Items[selectedindex] = IOForms[selectedindex].ToString();
+            int selectedindex = InOutListBox.SelectedIndex;
+            InOutListBox.SelectedItem = null;
+            InOutListBox.Items[selectedindex] = InOutList[selectedindex].ToString();
 
         }
     }

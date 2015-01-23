@@ -15,15 +15,15 @@ namespace CAC.IO_Forms
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            IOs.UpdateSelectedLbItem();
+            InputsOutputs.UpdateSelectedLbItem();
         }
 
         private void butAddOrDelete_Click(object sender, EventArgs e)
         {
             if (!Exists)
-                IOs.Add(this);
+                InputsOutputs.Add(this);
             else
-                IOs.Remove(this);
+                InputsOutputs.Remove(this);
             SideFormManager.Close();
         }
 
@@ -43,7 +43,7 @@ namespace CAC.IO_Forms
         private void cbRanNumInputs_DropDown(object sender, EventArgs e)
         {
             cbRanNumInputs.Items.Clear();
-            foreach (dynamic inputRandomNumber in IOs.GetList())
+            foreach (dynamic inputRandomNumber in InputsOutputs.GetList())
             {
                 cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
             }

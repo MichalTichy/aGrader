@@ -94,7 +94,7 @@ namespace CAC
         {
             if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != 0) //if theres any selected item and it isnt top one;
             {
-                IOs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex - 1);
+                InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex - 1);
             }
         }
 
@@ -102,7 +102,7 @@ namespace CAC
         {
             if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1) //if theres any selected item and it isnt bottom one;
             {
-                IOs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex + 1);
+                InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex + 1);
             }
         }
 
@@ -134,8 +134,8 @@ namespace CAC
         {
             if (lbObjects.SelectedIndex >= 0)
             {
-                IOs.getIOForm(lbObjects.SelectedIndex).Exists = true;
-                SideFormManager.ShowExisting(IOs.getIOForm(lbObjects.SelectedIndex));
+                InputsOutputs.GetIOForm(lbObjects.SelectedIndex).Exists = true;
+                SideFormManager.ShowExisting(InputsOutputs.GetIOForm(lbObjects.SelectedIndex));
             }
         }
 
@@ -145,7 +145,7 @@ namespace CAC
                 if (MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                     return;
 
-            IOs.Clear();
+            InputsOutputs.Clear();
 
             OpenFileDialog openXml=new OpenFileDialog();
             openXml.Filter="XML soubory (*.xml)|*.xml";

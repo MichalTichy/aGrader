@@ -17,7 +17,7 @@ namespace CAC
             doc.AppendChild(declaration);
             XmlElement root = doc.CreateElement("Protocol");
 
-            foreach (dynamic IOForm in IOs.GetList())
+            foreach (dynamic IOForm in InputsOutputs.GetList())
             {
                 root.AppendChild(GenerateIONode(IOForm, doc));
             }
@@ -136,25 +136,25 @@ namespace CAC
                     switch (node.Name)
                     {
                         case "InputTextFile":
-                            IOs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
+                            InputsOutputs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
                                 element.GetElementsByTagName("lineformat")[0].InnerText));
                             break;
                         case "InputNumber":
-                            IOs.Add(new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            InputsOutputs.Add(new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
                         case "InputRandomNumber":
-                            IOs.Add(
+                            InputsOutputs.Add(
                                 new InputRandomNumber(
                                     decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
                                     decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
                                     bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText)));
                             break;
                         case "InputString":
-                            IOs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
+                            InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
                             break;
 
                         case "OutputNumber":
-                            IOs.Add(new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            InputsOutputs.Add(new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
                     }
                 }
