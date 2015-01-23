@@ -17,9 +17,9 @@ namespace CAC
             Dictionary<string, int> sideFormsList = new Dictionary<string, int>();
 
             foreach (SideFormManager.SideForms enumValue in
-                       Enum.GetValues(typeof(SideFormManager.SideForms)))
+                Enum.GetValues(typeof (SideFormManager.SideForms)))
             {
-                sideFormsList.Add(enumValue.GetDescription(), (int)enumValue);
+                sideFormsList.Add(enumValue.GetDescription(), (int) enumValue);
             }
 
 
@@ -31,7 +31,8 @@ namespace CAC
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.SetPath()) //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
+            if (SourceCodes.SetPath())
+                //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
             {
                 tbpath.Text = SourceCodes.GetPath();
                 UpdateLbCodes();
@@ -80,7 +81,7 @@ namespace CAC
         private void cbobjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbobjects.SelectedValue != null)
-                SideFormManager.Show((SideFormManager.SideForms)cbobjects.SelectedValue);
+                SideFormManager.Show((SideFormManager.SideForms) cbobjects.SelectedValue);
             else
                 SideFormManager.Close();
         }
@@ -92,7 +93,8 @@ namespace CAC
 
         private void butMoveUp_Click(object sender, EventArgs e)
         {
-            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != 0) //if theres any selected item and it isnt top one;
+            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != 0)
+                //if theres any selected item and it isnt top one;
             {
                 InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex - 1);
             }
@@ -100,7 +102,8 @@ namespace CAC
 
         private void butMoveDown_Click(object sender, EventArgs e)
         {
-            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1) //if theres any selected item and it isnt bottom one;
+            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1)
+                //if theres any selected item and it isnt bottom one;
             {
                 InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex + 1);
             }
@@ -108,7 +111,6 @@ namespace CAC
 
         private void butExport_Click(object sender, EventArgs e)
         {
-
             if (lbObjects.Items.Count > 0)
             {
                 SaveFileDialog saveXml = new SaveFileDialog();
@@ -132,7 +134,7 @@ namespace CAC
 
         private void lbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbObjects.SelectedItem!=null)
+            if (lbObjects.SelectedItem != null)
             {
                 InputsOutputs.GetIOForm(lbObjects.SelectedIndex).Exists = true;
                 SideFormManager.ShowExisting(InputsOutputs.GetIOForm(lbObjects.SelectedIndex));
@@ -142,13 +144,15 @@ namespace CAC
         private void butImport_Click(object sender, EventArgs e)
         {
             if (lbObjects.Items.Count != 0)
-                if (MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                if (
+                    MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) ==
+                    DialogResult.Cancel)
                     return;
 
             InputsOutputs.Clear();
 
-            OpenFileDialog openXml=new OpenFileDialog();
-            openXml.Filter="XML soubory (*.xml)|*.xml";
+            OpenFileDialog openXml = new OpenFileDialog();
+            openXml.Filter = "XML soubory (*.xml)|*.xml";
             if (openXml.ShowDialog() == DialogResult.OK)
             {
                 InOutXmlManager.AddIOsFromXml(openXml.FileName);

@@ -7,11 +7,11 @@ namespace CAC
     public static class SourceCodes
     {
         private static DirectoryInfo _sourceDir;
-        private static List<SourceCode> _sourceCodeFiles=new List<SourceCode>();
+        private static List<SourceCode> _sourceCodeFiles = new List<SourceCode>();
 
 
         public static bool SetPath()
-         {
+        {
             FolderBrowserDialog dialog = new FolderBrowserDialog
             {
                 Description = "Zvolte složku která obsahuje zdrojové kódy."
@@ -19,7 +19,7 @@ namespace CAC
 
             DialogResult dialogres = dialog.ShowDialog();
 
-            if (dialogres==DialogResult.OK)
+            if (dialogres == DialogResult.OK)
             {
                 _sourceDir = new DirectoryInfo(dialog.SelectedPath);
                 ReloadSourceCodeFiles();
@@ -27,7 +27,7 @@ namespace CAC
             }
 
             return false;
-         }
+        }
 
         public static string GetPath()
         {
@@ -49,6 +49,7 @@ namespace CAC
         {
             return _sourceCodeFiles;
         }
+
         public static SourceCode GetSourceCode(int index)
         {
             return _sourceCodeFiles[index];

@@ -31,7 +31,8 @@ namespace CAC
             {
                 try
                 {
-                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,Form.ActiveForm.Location.Y + 65);
+                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,
+                        Form.ActiveForm.Location.Y + 65);
                 }
                 catch
                 {
@@ -52,8 +53,8 @@ namespace CAC
 
         public enum SideForms
         {
-            [Description("VÝSTUP: náhodné číslo")]OutputNumberBasedOnRandomInput,
-            [Description("VÝSTUP: číslo")]OutputNumber,
+            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput,
+            [Description("VÝSTUP: číslo")] OutputNumber,
             [Description("VSTUP: textový soubor")] InputTextFile,
             [Description("VSTUP: číslo")] InputNumber,
             [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
