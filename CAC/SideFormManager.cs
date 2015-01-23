@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -62,14 +63,14 @@ namespace CAC
         public static string GetDescription(this Enum currentEnum)
         {
             string description;
-            DescriptionAttribute da;
+            DescriptionAttribute descriptionAttribute;
 
             FieldInfo fi = currentEnum.GetType().
                 GetField(currentEnum.ToString());
-            da = (DescriptionAttribute) Attribute.GetCustomAttribute(fi,
+            descriptionAttribute = (DescriptionAttribute) Attribute.GetCustomAttribute(fi,
                 typeof (DescriptionAttribute));
-            if (da != null)
-                description = da.Value;
+            if (descriptionAttribute != null)
+                description = descriptionAttribute.Value;
             else
                 description = currentEnum.ToString();
 
