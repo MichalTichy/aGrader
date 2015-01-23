@@ -43,7 +43,7 @@ namespace CAC.IO_Forms
         private void cbRanNumInputs_DropDown(object sender, EventArgs e)
         {
             cbRanNumInputs.Items.Clear();
-            foreach (dynamic inputRandomNumber in InputsOutputs.GetList())
+            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof (InputRandomNumber)))
             {
                 cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
             }
