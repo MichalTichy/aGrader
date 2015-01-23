@@ -4,13 +4,13 @@ namespace CAC
 {
     public class SourceCode
     {
-        private string _path;
-        private string _name;
+        public readonly string Path;
+        private readonly string _name;
 
         public SourceCode(string path)
         {
-            _path = path;
-            _name = Path.GetFileName(path);
+            Path = path;
+            _name = System.IO.Path.GetFileName(path);
         }
 
         public override string ToString()
@@ -18,19 +18,14 @@ namespace CAC
             return _name;
         }
 
-        public string GetPath()
-        {
-            return _path;
-        }
-
         public string GetSourceCode()
         {
-            return File.ReadAllText(_path);
+            return File.ReadAllText(Path);
         }
 
         public bool Exists()
         {
-            if (File.Exists(_path))
+            if (File.Exists(Path))
                 return true;
             return false;
         }
