@@ -29,7 +29,7 @@ namespace CAC.IO_Forms
 
         public override string ToString()
         {
-            return ""; //TODO  doplnit
+            return "XXX"; //TODO  doplnit
         }
 
         private void OutputNumberBasedOnRandomInput_Activated(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace CAC.IO_Forms
             {
                 cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
             }
+            cbRanNumInputs.Items.Add("Rovnice");
         }
     }
 }
