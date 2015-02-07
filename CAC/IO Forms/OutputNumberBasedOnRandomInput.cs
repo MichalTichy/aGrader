@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CAC.IO_Forms
@@ -6,6 +7,7 @@ namespace CAC.IO_Forms
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
+        public List<string> Equation=new List<string>();
 
         public OutputNumberBasedOnRandomInput()
         {
@@ -48,6 +50,14 @@ namespace CAC.IO_Forms
                 cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
             }
             cbRanNumInputs.Items.Add("Rovnice");
+        }
+
+        private void butAddToList_Click(object sender, EventArgs e)
+        {
+            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count - 1 && tbProperities.Text.Length == 0)
+                MessageBox.Show("Musíte napsat rovnici!");
+            else
+                lbNumbers.Items.Add(tbProperities.Text);
         }
     }
 }

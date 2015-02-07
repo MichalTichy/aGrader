@@ -38,6 +38,7 @@ namespace CAC.IO_Forms
             this.tbProperities = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.butRemove = new System.Windows.Forms.Button();
+            this.butAddToList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // butClose
@@ -63,9 +64,9 @@ namespace CAC.IO_Forms
             // lbNumbers
             // 
             this.lbNumbers.FormattingEnabled = true;
-            this.lbNumbers.Location = new System.Drawing.Point(14, 129);
+            this.lbNumbers.Location = new System.Drawing.Point(14, 155);
             this.lbNumbers.Name = "lbNumbers";
-            this.lbNumbers.Size = new System.Drawing.Size(293, 134);
+            this.lbNumbers.Size = new System.Drawing.Size(293, 108);
             this.lbNumbers.TabIndex = 16;
             // 
             // cbRanNumInputs
@@ -97,18 +98,29 @@ namespace CAC.IO_Forms
             // 
             // butRemove
             // 
-            this.butRemove.Location = new System.Drawing.Point(14, 100);
+            this.butRemove.Location = new System.Drawing.Point(15, 126);
             this.butRemove.Name = "butRemove";
             this.butRemove.Size = new System.Drawing.Size(293, 23);
             this.butRemove.TabIndex = 20;
             this.butRemove.Text = "Smazat vybraný";
             this.butRemove.UseVisualStyleBackColor = true;
             // 
+            // butAddToList
+            // 
+            this.butAddToList.Location = new System.Drawing.Point(15, 95);
+            this.butAddToList.Name = "butAddToList";
+            this.butAddToList.Size = new System.Drawing.Size(293, 23);
+            this.butAddToList.TabIndex = 21;
+            this.butAddToList.Text = "Přidat";
+            this.butAddToList.UseVisualStyleBackColor = true;
+            this.butAddToList.Click += new System.EventHandler(this.butAddToList_Click);
+            // 
             // OutputNumberBasedOnRandomInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 299);
+            this.Controls.Add(this.butAddToList);
             this.Controls.Add(this.butRemove);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbProperities);
@@ -136,5 +148,6 @@ namespace CAC.IO_Forms
         private TextBox tbProperities;
         private Label label1;
         private Button butRemove;
+        private Button butAddToList;
     }
 }
