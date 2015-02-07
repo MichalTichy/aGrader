@@ -63,9 +63,10 @@ namespace CAC.IO_Forms
         private void cbRanNumInputs_SelectedIndexChanged(object sender, EventArgs e)
         {
             //TODO refaktorovat
+            tbProperities.Enabled = false;
             if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count-1)
                 tbProperities.Enabled = true;
-            else
+            else if(cbRanNumInputs.SelectedItem!=null)
                 tbProperities.Text = cbRanNumInputs.SelectedItem.ToString() + " ZN:X" +
                                 cbRanNumInputs.SelectedIndex.ToString();
         }
