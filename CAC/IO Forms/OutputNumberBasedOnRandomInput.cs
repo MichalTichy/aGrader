@@ -59,5 +59,15 @@ namespace CAC.IO_Forms
             else
                 lbNumbers.Items.Add(tbProperities.Text);
         }
+
+        private void cbRanNumInputs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO refaktorovat
+            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count-1)
+                tbProperities.Enabled = true;
+            else
+                tbProperities.Text = cbRanNumInputs.SelectedItem.ToString() + " ZN:X" +
+                                cbRanNumInputs.SelectedIndex.ToString();
+        }
     }
 }

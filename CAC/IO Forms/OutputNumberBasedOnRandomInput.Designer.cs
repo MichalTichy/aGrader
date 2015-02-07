@@ -78,6 +78,7 @@ namespace CAC.IO_Forms
             this.cbRanNumInputs.Size = new System.Drawing.Size(293, 21);
             this.cbRanNumInputs.TabIndex = 17;
             this.cbRanNumInputs.DropDown += new System.EventHandler(this.cbRanNumInputs_DropDown);
+            this.cbRanNumInputs.SelectedIndexChanged += new System.EventHandler(this.cbRanNumInputs_SelectedIndexChanged);
             // 
             // tbProperities
             // 
