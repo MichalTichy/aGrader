@@ -7,7 +7,7 @@ namespace CAC.IO_Forms
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
-        public List<string> Equation=new List<string>();
+        public List<string> Equation = new List<string>();
 
         public OutputNumberBasedOnRandomInput()
         {
@@ -64,11 +64,11 @@ namespace CAC.IO_Forms
         {
             //TODO refaktorovat
             tbProperities.Enabled = false;
-            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count-1)
+            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count - 1)
                 tbProperities.Enabled = true;
-            else if(cbRanNumInputs.SelectedItem!=null)
-                tbProperities.Text = cbRanNumInputs.SelectedItem.ToString() + " ZN:X" +
-                                cbRanNumInputs.SelectedIndex.ToString();
+            else if (cbRanNumInputs.SelectedItem != null)
+                tbProperities.Text = cbRanNumInputs.SelectedItem + " ZN:X" +
+                                     cbRanNumInputs.SelectedIndex;
         }
     }
 }

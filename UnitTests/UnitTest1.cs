@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CAC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAC;
 
 namespace UnitTests
 {

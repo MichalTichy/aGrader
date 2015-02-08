@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CAC
@@ -17,13 +18,7 @@ namespace CAC
 
         public static IEnumerable<dynamic> GetList(Type wantedType)
         {
-            List<dynamic> filteredInOutList = new List<dynamic>();
-            foreach (dynamic item in InOutList)
-            {
-                if (item.GetType() == wantedType)
-                    filteredInOutList.Add(item);
-            }
-            return filteredInOutList;
+            return InOutList.Where(item => item.GetType() == wantedType).ToList();
         }
 
         public static dynamic GetIOForm(int id)
