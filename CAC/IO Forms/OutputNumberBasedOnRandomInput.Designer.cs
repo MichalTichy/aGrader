@@ -105,6 +105,7 @@ namespace CAC.IO_Forms
             this.butRemove.TabIndex = 20;
             this.butRemove.Text = "Smazat vybraný";
             this.butRemove.UseVisualStyleBackColor = true;
+            this.butRemove.Click += new System.EventHandler(this.butRemove_Click);
             // 
             // butAddToList
             // 

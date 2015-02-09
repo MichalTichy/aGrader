@@ -70,5 +70,10 @@ namespace CAC.IO_Forms
                 tbProperities.Text = cbRanNumInputs.SelectedItem + " ZN:X" +
                                      cbRanNumInputs.SelectedIndex;
         }
+
+        private void butRemove_Click(object sender, EventArgs e)
+        {
+            lbNumbers.Items.Remove(lbNumbers.SelectedItem);
+        }
     }
 }
