@@ -9,7 +9,7 @@ namespace CAC
             decimal[] numbersForEquation = GenerateNumbersForEquation(equation);
             try
             {
-                Equation eq=new Equation(equation,numbersForEquation);
+                Equation eq = new Equation(equation, numbersForEquation);
                 eq.Evaluate();
                 return true;
             }
@@ -21,9 +21,8 @@ namespace CAC
 
         private static decimal[] GenerateNumbersForEquation(string equation)
         {
-
             int countOfUnknownNumbers = GetCountOfUnknownsInEquation(equation);
-            decimal[] numbersForEquation=new decimal[countOfUnknownNumbers];
+            decimal[] numbersForEquation = new decimal[countOfUnknownNumbers];
 
             for (int i = 0; i < countOfUnknownNumbers; i++)
             {
@@ -37,7 +36,7 @@ namespace CAC
             int i = 0;
             while (equation.Contains('X' + i.ToString()))
                 i++;
-            return i+1;
+            return i + 1;
         }
     }
 }

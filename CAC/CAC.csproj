@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Equation.cs" />
+    <Compile Include="EquationValidator.cs" />
     <Compile Include="IO Forms\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
