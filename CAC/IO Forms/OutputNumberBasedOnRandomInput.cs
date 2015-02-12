@@ -7,8 +7,8 @@ namespace CAC.IO_Forms
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
-        public List<string> Equation = new List<string>();
-
+        public List<string> RandomInputs = new List<string>();
+        public string jahoda;
         public OutputNumberBasedOnRandomInput()
         {
             InitializeComponent();
