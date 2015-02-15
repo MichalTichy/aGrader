@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace CAC.IO_Forms
 {
+    //todo přejmenovat tbjahoda
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
@@ -62,11 +63,7 @@ namespace CAC.IO_Forms
 
         private void cbRanNumInputs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TODO refaktorovat
-            tbProperities.Enabled = false;
-            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count - 1)
-                tbProperities.Enabled = true;
-            else if (cbRanNumInputs.SelectedItem != null)
+            if (cbRanNumInputs.SelectedItem != null)
                 tbProperities.Text = cbRanNumInputs.SelectedItem + " ZN:X" +
                                      cbRanNumInputs.SelectedIndex;
         }
