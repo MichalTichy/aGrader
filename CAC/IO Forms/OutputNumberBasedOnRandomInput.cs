@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CAC.IO_Forms
@@ -8,8 +8,8 @@ namespace CAC.IO_Forms
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
-        public List<string> RandomInputs = new List<string>();
-        public string jahoda;
+        public string jahoda; //todo prejmenovat
+        
         public OutputNumberBasedOnRandomInput()
         {
             InitializeComponent();
@@ -17,6 +17,14 @@ namespace CAC.IO_Forms
 
         private void butClose_Click(object sender, EventArgs e)
         {
+            if (!EquationValidator.IsValid(tbJahoda.Text) && Exists)
+            {
+                DialogResult msg = MessageBox.Show("Jahoda nemá správný formát! \n Pokud si přejete pokračovat objekt bude smazán.","Upozornění",MessageBoxButtons.OKCancel);
+                if (msg == DialogResult.Cancel) return;
+                InputsOutputs.Remove(this);
+                SideFormManager.Close();
+                return;
+            }
             SideFormManager.Close();
             InputsOutputs.UpdateSelectedLbItem();
         }
@@ -24,7 +32,15 @@ namespace CAC.IO_Forms
         private void butAddOrDelete_Click(object sender, EventArgs e)
         {
             if (!Exists)
-                InputsOutputs.Add(this);
+                if (EquationValidator.IsValid(tbJahoda.Text))
+                {
+                    InputsOutputs.Add(this);
+                }
+                else
+                {
+                    MessageBox.Show("Musíte zdat platnou jahodu."); //todo přepsat
+                    return;
+                }
             else
                 InputsOutputs.Remove(this);
             SideFormManager.Close();
@@ -32,15 +48,7 @@ namespace CAC.IO_Forms
 
         public override string ToString()
         {
-            return "XXX"; //TODO  doplnit
-        }
-
-        private void OutputNumberBasedOnRandomInput_Activated(object sender, EventArgs e)
-        {
-            if (Exists)
-            {
-                butAddOrDelete.Text = "Smazat";
-            }
+            return "VÝSTUP: Číslo závyslé na vygenerovaných hodnotách"; //možná předělat?
         }
 
         private void cbRanNumInputs_DropDown(object sender, EventArgs e)
@@ -50,27 +58,31 @@ namespace CAC.IO_Forms
             {
                 cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
             }
-            cbRanNumInputs.Items.Add("Rovnice");
         }
 
         private void butAddToList_Click(object sender, EventArgs e)
         {
-            if (cbRanNumInputs.SelectedIndex == cbRanNumInputs.Items.Count - 1 && tbProperities.Text.Length == 0)
-                MessageBox.Show("Musíte napsat rovnici!");
-            else
-                lbNumbers.Items.Add(tbProperities.Text);
-        }
-
-        private void cbRanNumInputs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbRanNumInputs.SelectedItem != null)
-                tbProperities.Text = cbRanNumInputs.SelectedItem + " ZN:X" +
-                                     cbRanNumInputs.SelectedIndex;
+                lbNumbers.Items.Add(cbRanNumInputs.SelectedText);
         }
 
         private void butRemove_Click(object sender, EventArgs e)
         {
             lbNumbers.Items.Remove(lbNumbers.SelectedItem);
+        }
+
+        private void tbJahoda_Leave(object sender, EventArgs e)
+        {
+            if (!EquationValidator.IsValid(tbJahoda.Text) && tbJahoda.Text.Length > 0)
+                tbJahoda.ForeColor = Color.Red;
+            else
+                tbJahoda.ResetForeColor();
+        }
+
+        private void OutputNumberBasedOnRandomInput_Shown(object sender, EventArgs e)
+        {
+            if (Exists)
+                butAddOrDelete.Text = "Smazat";
+            
         }
     }
 }

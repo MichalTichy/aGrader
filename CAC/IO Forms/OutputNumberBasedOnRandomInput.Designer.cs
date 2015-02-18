@@ -35,7 +35,6 @@ namespace CAC.IO_Forms
             this.butAddOrDelete = new System.Windows.Forms.Button();
             this.lbNumbers = new System.Windows.Forms.ListBox();
             this.cbRanNumInputs = new System.Windows.Forms.ComboBox();
-            this.tbProperities = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.butRemove = new System.Windows.Forms.Button();
             this.butAddToList = new System.Windows.Forms.Button();
@@ -44,7 +43,7 @@ namespace CAC.IO_Forms
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(247, 269);
+            this.butClose.Location = new System.Drawing.Point(247, 243);
             this.butClose.Name = "butClose";
             this.butClose.Size = new System.Drawing.Size(60, 23);
             this.butClose.TabIndex = 15;
@@ -54,7 +53,7 @@ namespace CAC.IO_Forms
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(14, 269);
+            this.butAddOrDelete.Location = new System.Drawing.Point(14, 243);
             this.butAddOrDelete.Name = "butAddOrDelete";
             this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
             this.butAddOrDelete.TabIndex = 14;
@@ -65,7 +64,7 @@ namespace CAC.IO_Forms
             // lbNumbers
             // 
             this.lbNumbers.FormattingEnabled = true;
-            this.lbNumbers.Location = new System.Drawing.Point(14, 155);
+            this.lbNumbers.Location = new System.Drawing.Point(14, 129);
             this.lbNumbers.Name = "lbNumbers";
             this.lbNumbers.Size = new System.Drawing.Size(293, 108);
             this.lbNumbers.TabIndex = 16;
@@ -79,15 +78,6 @@ namespace CAC.IO_Forms
             this.cbRanNumInputs.Size = new System.Drawing.Size(293, 21);
             this.cbRanNumInputs.TabIndex = 17;
             this.cbRanNumInputs.DropDown += new System.EventHandler(this.cbRanNumInputs_DropDown);
-            this.cbRanNumInputs.SelectedIndexChanged += new System.EventHandler(this.cbRanNumInputs_SelectedIndexChanged);
-            // 
-            // tbProperities
-            // 
-            this.tbProperities.Enabled = false;
-            this.tbProperities.Location = new System.Drawing.Point(14, 69);
-            this.tbProperities.Name = "tbProperities";
-            this.tbProperities.Size = new System.Drawing.Size(293, 20);
-            this.tbProperities.TabIndex = 18;
             // 
             // label1
             // 
@@ -100,7 +90,7 @@ namespace CAC.IO_Forms
             // 
             // butRemove
             // 
-            this.butRemove.Location = new System.Drawing.Point(167, 95);
+            this.butRemove.Location = new System.Drawing.Point(167, 69);
             this.butRemove.Name = "butRemove";
             this.butRemove.Size = new System.Drawing.Size(140, 23);
             this.butRemove.TabIndex = 20;
@@ -110,7 +100,7 @@ namespace CAC.IO_Forms
             // 
             // butAddToList
             // 
-            this.butAddToList.Location = new System.Drawing.Point(15, 95);
+            this.butAddToList.Location = new System.Drawing.Point(15, 69);
             this.butAddToList.Name = "butAddToList";
             this.butAddToList.Size = new System.Drawing.Size(140, 23);
             this.butAddToList.TabIndex = 21;
@@ -120,21 +110,21 @@ namespace CAC.IO_Forms
             // 
             // tbJahoda
             // 
-            this.tbJahoda.Location = new System.Drawing.Point(15, 124);
+            this.tbJahoda.Location = new System.Drawing.Point(15, 98);
             this.tbJahoda.Name = "tbJahoda";
             this.tbJahoda.Size = new System.Drawing.Size(292, 20);
             this.tbJahoda.TabIndex = 22;
+            this.tbJahoda.Leave += new System.EventHandler(this.tbJahoda_Leave);
             // 
             // OutputNumberBasedOnRandomInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 299);
+            this.ClientSize = new System.Drawing.Size(319, 273);
             this.Controls.Add(this.tbJahoda);
             this.Controls.Add(this.butAddToList);
             this.Controls.Add(this.butRemove);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbProperities);
             this.Controls.Add(this.cbRanNumInputs);
             this.Controls.Add(this.lbNumbers);
             this.Controls.Add(this.butClose);
@@ -144,7 +134,7 @@ namespace CAC.IO_Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Output";
-            this.Activated += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Activated);
+            this.Shown += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +146,6 @@ namespace CAC.IO_Forms
         private Button butAddOrDelete;
         private ListBox lbNumbers;
         private ComboBox cbRanNumInputs;
-        private TextBox tbProperities;
         private Label label1;
         private Button butRemove;
         private Button butAddToList;
