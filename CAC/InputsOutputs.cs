@@ -58,6 +58,8 @@ namespace CAC
 
         public static void UpdateSelectedLbItem()
         {
+            if (InOutListBox.SelectedItem == null) return;
+
             int selectedindex = InOutListBox.SelectedIndex;
             InOutListBox.SelectedItem = null;
             InOutListBox.Items[selectedindex] = InOutList[selectedindex].ToString();
