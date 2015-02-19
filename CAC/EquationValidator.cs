@@ -5,7 +5,7 @@ namespace CAC
     public static class EquationValidator
     {
         public static bool IsValid(string equation)
-        {
+        { //todo prejmenovat
             decimal[] numbersForEquation = GenerateNumbersForEquation(equation);
             try
             {

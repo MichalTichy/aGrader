@@ -4,7 +4,7 @@ using System.Linq;
 namespace CAC
 {
     public class Equation
-    {
+    { //todo prejmenovat
         private string _equation;
         private decimal[] _unknownNumbers;
 
