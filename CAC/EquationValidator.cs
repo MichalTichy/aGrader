@@ -31,7 +31,7 @@ namespace CAC
             return numbersForEquation;
         }
 
-        private static int GetCountOfUnknownsInEquation(string equation)
+        public static int GetCountOfUnknownsInEquation(string equation)
         {
             int i = 0;
             while (equation.Contains('X' + i.ToString()))
