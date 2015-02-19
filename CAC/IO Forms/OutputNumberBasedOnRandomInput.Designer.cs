@@ -134,7 +134,7 @@ namespace CAC.IO_Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Output";
-            this.Shown += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Shown);
+            this.Activated += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
