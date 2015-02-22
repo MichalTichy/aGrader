@@ -9,6 +9,8 @@ namespace CAC.IO_Forms
         public bool Exists = false;
         public decimal Max;
         public decimal Min;
+        private static int _idCounter=0;
+        public readonly int ID;
 
         public InputRandomNumber()
         {
@@ -16,6 +18,8 @@ namespace CAC.IO_Forms
             Min = numMin.Value;
             Max = numMax.Value;
             Decimal = !cbNoDecimal.Checked;
+            _idCounter++;
+            ID = _idCounter;
         }
 
         public InputRandomNumber(decimal min, decimal max, bool generateDecimal)
