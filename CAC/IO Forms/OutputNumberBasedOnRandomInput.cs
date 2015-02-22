@@ -11,8 +11,7 @@ namespace CAC.IO_Forms
     {
         public bool Exists = false;
         public readonly string jahoda; //todo prejmenovat
-        public string[] randomInputs;
-        
+
         public OutputNumberBasedOnRandomInput()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace CAC.IO_Forms
             }
             else if (EquationValidator.GetCountOfUnknownsInEquation(tbJahoda.Text)!=lbNumbers.Items.Count && Exists)
             {
-                DialogResult msg = MessageBox.Show("Nesouhlasí počet neznámých v jahodě. \nPokud si přejete pokračovat objekt bude smazán.", "Upozornění", MessageBoxButtons.OKCancel);
+                DialogResult msg = MessageBox.Show("V jahodě se nachází neexistující neznámé! \nPokud si přejete pokračovat objekt bude smazán.", "Upozornění", MessageBoxButtons.OKCancel);
                 if (msg == DialogResult.Cancel) return;
                 InputsOutputs.Remove(this);
             }
@@ -41,8 +40,6 @@ namespace CAC.IO_Forms
             if (!Exists)
                 if (EquationValidator.IsValid(tbJahoda.Text))
                 {
-                    randomInputs=new string[lbNumbers.Items.Count];
-                    lbNumbers.Items.CopyTo(randomInputs,0);
                     InputsOutputs.Add(this);
                 }
                 else
@@ -60,25 +57,6 @@ namespace CAC.IO_Forms
             return "VÝSTUP: Číslo závyslé na vygenerovaných hodnotách"; //možná předělat?
         }
 
-        private void cbRanNumInputs_DropDown(object sender, EventArgs e)
-        {
-            cbRanNumInputs.Items.Clear();
-            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof (InputRandomNumber)))
-            {
-                cbRanNumInputs.Items.Add(inputRandomNumber.ToString());
-            }
-        }
-
-        private void butAddToList_Click(object sender, EventArgs e)
-        {
-                lbNumbers.Items.Add(cbRanNumInputs.SelectedItem);
-        }
-
-        private void butRemove_Click(object sender, EventArgs e)
-        {
-            lbNumbers.Items.Remove(lbNumbers.SelectedItem);
-        }
-
         private void tbJahoda_Leave(object sender, EventArgs e)
         {
             if (!EquationValidator.IsValid(tbJahoda.Text) && tbJahoda.Text.Length > 0)
@@ -91,6 +69,16 @@ namespace CAC.IO_Forms
         {
             if (Exists)
                 butAddOrDelete.Text = "Smazat";
+            FillLbNumbers(); //todo prejmenovat
+        }
+
+        private void FillLbNumbers()
+        {
+            lbNumbers.Items.Clear();
+            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof(InputRandomNumber)))
+            {
+                lbNumbers.Items.Add(inputRandomNumber.ToString());
+            }
         }
     }
 }
