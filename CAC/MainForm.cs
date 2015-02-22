@@ -10,6 +10,7 @@ namespace CAC
         {
             InitializeComponent();
             FillCbObjects();
+            cbobjects.SelectedIndexChanged+=cbobjects_SelectedIndexChanged;
         }
 
         private void FillCbObjects()

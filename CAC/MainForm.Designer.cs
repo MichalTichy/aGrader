@@ -303,7 +303,6 @@ namespace CAC
             this.cbobjects.Name = "cbobjects";
             this.cbobjects.Size = new System.Drawing.Size(283, 21);
             this.cbobjects.TabIndex = 1;
-            this.cbobjects.SelectedIndexChanged += new System.EventHandler(this.cbobjects_SelectedIndexChanged);
             // 
             // lbObjects
             // 
