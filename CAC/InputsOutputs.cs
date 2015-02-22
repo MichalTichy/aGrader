@@ -7,9 +7,9 @@ namespace CAC
 {
     public static class InputsOutputs
     {
-        private static readonly List<dynamic> InOutList = new List<dynamic>();
+        private static List<dynamic> InOutList = new List<dynamic>();
 
-        private static readonly ListBox InOutListBox = ((CaC) Application.OpenForms[1]).lbObjects;
+        private static ListBox InOutListBox = ((CaC) Application.OpenForms[0]).lbObjects;
 
         public static IEnumerable<dynamic> GetList()
         {
