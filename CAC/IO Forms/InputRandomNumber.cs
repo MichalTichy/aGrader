@@ -22,7 +22,7 @@ namespace CAC.IO_Forms
             ID = _idCounter;
         }
 
-        public InputRandomNumber(decimal min, decimal max, bool generateDecimal)
+        public InputRandomNumber(decimal min, decimal max, bool generateDecimal,int id)
         {
             InitializeComponent();
             numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa
@@ -33,6 +33,7 @@ namespace CAC.IO_Forms
             numMin.Value = min;
             numMax.Value = max;
             Decimal = generateDecimal;
+            ID = id;
         }
 
         private void numMax_ValueChanged(object sender, EventArgs e)
