@@ -17,6 +17,11 @@ namespace CAC.IO_Forms
             InitializeComponent();
         }
 
+        public OutputNumberBasedOnRandomInput(string jahoda)
+        {
+            this.jahoda = jahoda;
+        }
+
         private void butClose_Click(object sender, EventArgs e)
         {
             if (!EquationValidator.IsValid(tbJahoda.Text) && Exists)

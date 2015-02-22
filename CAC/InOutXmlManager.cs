@@ -145,6 +145,11 @@ namespace CAC
                             InputsOutputs.Add(
                                 new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
                             break;
+
+                        case "OutputNumberBasedOnRandomInput":
+                            InputsOutputs.Add(
+                                new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
+                            break;
                     }
                 }
             }
