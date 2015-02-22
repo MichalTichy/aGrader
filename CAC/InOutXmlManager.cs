@@ -90,6 +90,18 @@ namespace CAC
             return outNumber;
         }
 
+        private static XmlNode GenerateIONode(OutputNumberBasedOnRandomInput ioForm, XmlDocument document)
+        {
+            XmlElement outRandom = document.CreateElement(ioForm.Name);
+
+            XmlElement jahoda = document.CreateElement("jahoda"); //todo jahoda found
+            jahoda.InnerText = ioForm.jahoda;
+
+            outRandom.AppendChild(jahoda);
+
+            return outRandom;
+        }
+
         public static void AddIOsFromXml(string path)
         {
             XmlDocument doc = new XmlDocument();
