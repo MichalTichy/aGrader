@@ -34,16 +34,13 @@ namespace CAC.IO_Forms
             this.butClose = new System.Windows.Forms.Button();
             this.butAddOrDelete = new System.Windows.Forms.Button();
             this.lbNumbers = new System.Windows.Forms.ListBox();
-            this.cbRanNumInputs = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.butRemove = new System.Windows.Forms.Button();
-            this.butAddToList = new System.Windows.Forms.Button();
             this.tbJahoda = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(247, 243);
+            this.butClose.Location = new System.Drawing.Point(247, 199);
             this.butClose.Name = "butClose";
             this.butClose.Size = new System.Drawing.Size(60, 23);
             this.butClose.TabIndex = 15;
@@ -53,7 +50,7 @@ namespace CAC.IO_Forms
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(14, 243);
+            this.butAddOrDelete.Location = new System.Drawing.Point(14, 199);
             this.butAddOrDelete.Name = "butAddOrDelete";
             this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
             this.butAddOrDelete.TabIndex = 14;
@@ -64,20 +61,11 @@ namespace CAC.IO_Forms
             // lbNumbers
             // 
             this.lbNumbers.FormattingEnabled = true;
-            this.lbNumbers.Location = new System.Drawing.Point(14, 129);
+            this.lbNumbers.Location = new System.Drawing.Point(14, 38);
             this.lbNumbers.Name = "lbNumbers";
+            this.lbNumbers.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbNumbers.Size = new System.Drawing.Size(293, 108);
             this.lbNumbers.TabIndex = 16;
-            // 
-            // cbRanNumInputs
-            // 
-            this.cbRanNumInputs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRanNumInputs.FormattingEnabled = true;
-            this.cbRanNumInputs.Location = new System.Drawing.Point(14, 42);
-            this.cbRanNumInputs.Name = "cbRanNumInputs";
-            this.cbRanNumInputs.Size = new System.Drawing.Size(293, 21);
-            this.cbRanNumInputs.TabIndex = 17;
-            this.cbRanNumInputs.DropDown += new System.EventHandler(this.cbRanNumInputs_DropDown);
             // 
             // label1
             // 
@@ -88,29 +76,9 @@ namespace CAC.IO_Forms
             this.label1.TabIndex = 19;
             this.label1.Text = "Číslo závislé na\r\nnáhodném vstupu";
             // 
-            // butRemove
-            // 
-            this.butRemove.Location = new System.Drawing.Point(167, 69);
-            this.butRemove.Name = "butRemove";
-            this.butRemove.Size = new System.Drawing.Size(140, 23);
-            this.butRemove.TabIndex = 20;
-            this.butRemove.Text = "Smazat vybraný";
-            this.butRemove.UseVisualStyleBackColor = true;
-            this.butRemove.Click += new System.EventHandler(this.butRemove_Click);
-            // 
-            // butAddToList
-            // 
-            this.butAddToList.Location = new System.Drawing.Point(15, 69);
-            this.butAddToList.Name = "butAddToList";
-            this.butAddToList.Size = new System.Drawing.Size(140, 23);
-            this.butAddToList.TabIndex = 21;
-            this.butAddToList.Text = "Přidat";
-            this.butAddToList.UseVisualStyleBackColor = true;
-            this.butAddToList.Click += new System.EventHandler(this.butAddToList_Click);
-            // 
             // tbJahoda
             // 
-            this.tbJahoda.Location = new System.Drawing.Point(15, 98);
+            this.tbJahoda.Location = new System.Drawing.Point(14, 173);
             this.tbJahoda.Name = "tbJahoda";
             this.tbJahoda.Size = new System.Drawing.Size(292, 20);
             this.tbJahoda.TabIndex = 22;
@@ -120,12 +88,9 @@ namespace CAC.IO_Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 273);
+            this.ClientSize = new System.Drawing.Size(319, 228);
             this.Controls.Add(this.tbJahoda);
-            this.Controls.Add(this.butAddToList);
-            this.Controls.Add(this.butRemove);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbRanNumInputs);
             this.Controls.Add(this.lbNumbers);
             this.Controls.Add(this.butClose);
             this.Controls.Add(this.butAddOrDelete);
@@ -145,10 +110,7 @@ namespace CAC.IO_Forms
         private Button butClose;
         private Button butAddOrDelete;
         private ListBox lbNumbers;
-        private ComboBox cbRanNumInputs;
         private Label label1;
-        private Button butRemove;
-        private Button butAddToList;
         private TextBox tbJahoda;
     }
 }
