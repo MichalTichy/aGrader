@@ -77,7 +77,7 @@ namespace CAC.IO_Forms
             lbNumbers.Items.Clear();
             foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof(InputRandomNumber)))
             {
-                lbNumbers.Items.Add(inputRandomNumber.ToString());
+                lbNumbers.Items.Add(inputRandomNumber.ToString()+" ZN: X"+inputRandomNumber.ID);
             }
         }
     }
