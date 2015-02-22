@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="codetestmethods.txt" />
+    <Content Include="poznamky.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
