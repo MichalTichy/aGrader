@@ -51,11 +51,17 @@ namespace CAC
 
             XmlElement minvalue = document.CreateElement("minValue");
             minvalue.InnerText = ioForm.Min.ToString();
+
             XmlElement maxvalue = document.CreateElement("maxValue");
             maxvalue.InnerText = ioForm.Max.ToString();
+
             XmlElement isDecimal = document.CreateElement("isDecimal");
             isDecimal.InnerText = ioForm.Decimal.ToString();
 
+            XmlElement ID = document.CreateElement("ID");
+            ID.InnerText = ioForm.ID.ToString();
+
+            inRandomNumber.AppendChild(ID);
             inRandomNumber.AppendChild(minvalue);
             inRandomNumber.AppendChild(maxvalue);
             inRandomNumber.AppendChild(isDecimal);
@@ -128,7 +134,8 @@ namespace CAC
                                 new InputRandomNumber(
                                     decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
                                     decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
-                                    bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText)));
+                                    bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText),
+                                    int.Parse(element.GetElementsByTagName("ID")[0].InnerText)));
                             break;
                         case "InputString":
                             InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
