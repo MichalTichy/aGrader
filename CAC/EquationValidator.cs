@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace CAC
 {
@@ -33,10 +35,7 @@ namespace CAC
 
         public static int GetCountOfUnknownsInEquation(string equation)
         {
-            int i = 0;
-            while (equation.Contains('X' + i.ToString()))
-                i++;
-            return i + 1;
+            return Regex.Matches(equation, @"X\d*").Count;
         }
     }
 }
