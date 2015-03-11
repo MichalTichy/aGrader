@@ -10,7 +10,7 @@ namespace CAC.IO_Forms
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         public bool Exists = false;
-        public readonly string jahoda; //todo prejmenovat
+        public string jahoda; //todo prejmenovat
 
         public OutputNumberBasedOnRandomInput()
         {
@@ -19,7 +19,8 @@ namespace CAC.IO_Forms
 
         public OutputNumberBasedOnRandomInput(string jahoda)
         {
-            this.jahoda = jahoda;
+            InitializeComponent();
+            tbJahoda.Text = jahoda;
         }
 
         private void butClose_Click(object sender, EventArgs e)
@@ -67,7 +68,10 @@ namespace CAC.IO_Forms
             if (!EquationValidator.IsValid(tbJahoda.Text) && tbJahoda.Text.Length > 0)
                 tbJahoda.ForeColor = Color.Red;
             else
+            {
                 tbJahoda.ResetForeColor();
+                jahoda = tbJahoda.Text;
+            }
         }
 
         private void OutputNumberBasedOnRandomInput_Activated(object sender, EventArgs e)
