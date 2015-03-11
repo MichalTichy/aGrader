@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -8,7 +9,7 @@ namespace CAC
     {
         public static bool IsValid(string equation)
         { //todo prejmenovat
-            decimal[] numbersForEquation = GenerateNumbersForEquation(equation);
+            Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation);
             try
             {
                 Equation eq = new Equation(equation, numbersForEquation);
@@ -21,21 +22,23 @@ namespace CAC
             }
         }
 
-        private static decimal[] GenerateNumbersForEquation(string equation)
+        private static Dictionary<string, decimal> GenerateNumbersForEquation(string equation)
         {
-            int countOfUnknownNumbers = GetCountOfUnknownsInEquation(equation);
-            decimal[] numbersForEquation = new decimal[countOfUnknownNumbers];
-
-            for (int i = 0; i < countOfUnknownNumbers; i++)
+            Dictionary<string, decimal> numbersForEquation = new Dictionary<string, decimal>();
+            int i = 0;
+            foreach (string unknownId in GetUnknownsFromEquation(equation))
             {
-                numbersForEquation[i] = i + 1; //+1 kvůli zamezení případného dělení nulou
+                i++;
+                numbersForEquation.Add(unknownId,i);
             }
             return numbersForEquation;
         }
 
-        public static int GetCountOfUnknownsInEquation(string equation)
+        public static List<string> GetUnknownsFromEquation(string equation)
         {
-            return Regex.Matches(equation, @"X\d*").Count;
+            return Regex.Matches(equation, @"X\d*").Cast<Match>()
+                .Select(m => m.Groups[0].Value)
+                .ToList();
         }
     }
 }

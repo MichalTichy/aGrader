@@ -30,7 +30,7 @@ namespace CAC.IO_Forms
                 if (msg == DialogResult.Cancel) return;
                 InputsOutputs.Remove(this);
             }
-            else if (EquationValidator.GetCountOfUnknownsInEquation(tbJahoda.Text)!=lbNumbers.Items.Count && Exists)
+            else if (EquationValidator.GetUnknownsFromEquation(tbJahoda.Text).Count!=lbNumbers.Items.Count && Exists)
             {
                 DialogResult msg = MessageBox.Show("V jahodě se nachází neexistující neznámé! \nPokud si přejete pokračovat objekt bude smazán.", "Upozornění", MessageBoxButtons.OKCancel);
                 if (msg == DialogResult.Cancel) return;

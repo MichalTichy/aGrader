@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace CAC
@@ -6,9 +7,9 @@ namespace CAC
     public class Equation
     { //todo prejmenovat
         private string _equation;
-        private decimal[] _unknownNumbers;
+        private Dictionary<string,decimal> _unknownNumbers;
 
-        public Equation(string equation, decimal[] unknownNumbers)
+        public Equation(string equation, Dictionary<string, decimal> unknownNumbers)
         {
             _equation = equation;
             _unknownNumbers = unknownNumbers;
@@ -17,10 +18,9 @@ namespace CAC
 
         private void InsertUnkownNumbersIntoEquation()
         {
-            //nezname v rovnici musi byt oznaceny jako X+index (X0,X1,...)
-            for (int i = 0; i < _unknownNumbers.Count(); i++)
+            foreach (KeyValuePair<string, decimal> x in _unknownNumbers)
             {
-                _equation = _equation.Replace("X" + i, _unknownNumbers[i].ToString());
+                _equation=_equation.Replace(x.Key, x.Value.ToString());
             }
         }
 
