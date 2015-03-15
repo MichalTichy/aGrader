@@ -95,6 +95,7 @@
     <Compile Include="SideFormManager.cs" />
     <Compile Include="SourceCodes\SourceCode.cs" />
     <Compile Include="SourceCodes\SourceCodes.cs" />
+    <Compile Include="TestedCode.cs" />
     <EmbeddedResource Include="IO Forms\InputTextFile.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
