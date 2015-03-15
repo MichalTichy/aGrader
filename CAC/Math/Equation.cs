@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
-namespace CAC
+namespace CAC.Math
 {
     public class Equation
     { //todo prejmenovat

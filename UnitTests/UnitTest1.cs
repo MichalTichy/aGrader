@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CAC;
+using CAC.Math;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests

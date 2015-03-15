@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace CAC
+namespace CAC.SourceCodes
 {
     public static class SourceCodes
     {

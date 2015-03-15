@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using CAC.SourceCodes;
 
 namespace CAC
 {
@@ -32,10 +33,10 @@ namespace CAC
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.SetPath())
+            if (SourceCodes.SourceCodes.SetPath())
                 //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
             {
-                tbpath.Text = SourceCodes.GetPath();
+                tbpath.Text = SourceCodes.SourceCodes.GetPath();
                 UpdateLbCodes();
             }
         }
@@ -43,9 +44,9 @@ namespace CAC
         private void UpdateLbCodes()
         {
             lbCodes.Items.Clear();
-            if (SourceCodes.GetSourceCodeFiles().Count != 0)
+            if (SourceCodes.SourceCodes.GetSourceCodeFiles().Count != 0)
             {
-                foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
+                foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
                 {
                     lbCodes.Items.Add(code);
                 }
@@ -57,7 +58,7 @@ namespace CAC
 
         private void butReload_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.IsDirectorySet())
+            if (SourceCodes.SourceCodes.IsDirectorySet())
                 UpdateLbCodes();
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
@@ -67,13 +68,13 @@ namespace CAC
         {
             if (lbCodes.SelectedIndex >= 0) //if no item is selected index would be -1
             {
-                SourceCode code = SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
+                SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
                 if (code.Exists())
                     rtbCode.Text = code.GetSourceCode();
                 else
                 {
                     MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
-                    SourceCodes.ReloadSourceCodeFiles();
+                    SourceCodes.SourceCodes.ReloadSourceCodeFiles();
                     UpdateLbCodes();
                 }
             }
