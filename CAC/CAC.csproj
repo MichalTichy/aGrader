@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Equation.cs" />
-    <Compile Include="EquationValidator.cs" />
+    <Compile Include="Math\Equation.cs" />
+    <Compile Include="Math\EquationValidator.cs" />
     <Compile Include="IO Forms\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>

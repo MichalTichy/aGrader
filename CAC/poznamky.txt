@@ -1,2 +1,0 @@
-﻿22.2.
-	snad vyresen problem s pristupem k public vecem na main formu
