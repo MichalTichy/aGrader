@@ -66,17 +66,15 @@ namespace CAC
 
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbCodes.SelectedIndex >= 0) //if no item is selected index would be -1
+            if (lbCodes.SelectedItem==null) return;
+            SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
+            if (code.Exists())
+                rtbCode.Text = code.GetSourceCode();
+            else
             {
-                SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
-                if (code.Exists())
-                    rtbCode.Text = code.GetSourceCode();
-                else
-                {
-                    MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
-                    SourceCodes.SourceCodes.ReloadSourceCodeFiles();
-                    UpdateLbCodes();
-                }
+                MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
+                SourceCodes.SourceCodes.ReloadSourceCodeFiles();
+                UpdateLbCodes();
             }
         }
 
@@ -159,6 +157,10 @@ namespace CAC
             {
                 InOutXmlManager.AddIOsFromXml(openXml.FileName);
             }
+        }
+
+        private void butRunTest_Click(object sender, EventArgs e)
+        {
         }
     }
 }

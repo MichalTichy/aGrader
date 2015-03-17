@@ -146,6 +146,7 @@ namespace CAC
             this.butRunTest.TabIndex = 5;
             this.butRunTest.Text = "Spustit test";
             this.butRunTest.UseVisualStyleBackColor = true;
+            this.butRunTest.Click += new System.EventHandler(this.butRunTest_Click);
             // 
             // Tabs
             // 
