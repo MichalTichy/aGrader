@@ -11,7 +11,7 @@ namespace UnitTests
         [TestMethod]
         public void RovniceScitaniOdcitani()
         {
-            Dictionary<string,decimal> test=new Dictionary<string, decimal>()
+            Dictionary<string, decimal> test = new Dictionary<string, decimal>()
             {
                 {"X0",10},
                 {"X1",15},
@@ -54,5 +54,19 @@ namespace UnitTests
             Assert.IsFalse(EquationValidator.IsValid("invalidstring"));
             Assert.IsTrue(EquationValidator.IsValid("X2+X3+X5+X8"));
         }
+    }
+
+    [TestClass]
+    public class TestedCode
+    {
+        [TestMethod]
+        public void IsCompilable()
+        {
+            CAC.TestedCode test = new CAC.TestedCode(@"D:\testbad.c");
+            Assert.IsNotNull(test.GetError());
+            CAC.TestedCode test2 = new CAC.TestedCode(@"D:\test.c");
+            Assert.IsNull(test2.GetError());
+        }
+
     }
 }
