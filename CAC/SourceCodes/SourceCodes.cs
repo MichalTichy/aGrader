@@ -41,6 +41,8 @@ namespace CAC.SourceCodes
 
         public static void ReloadSourceCodeFiles()
         {
+            //todo spouští se 2x při prvním zvolení cesty
+            _sourceCodeFiles.Clear();
             foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
         }
