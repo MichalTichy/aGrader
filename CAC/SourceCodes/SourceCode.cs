@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text.RegularExpressions;
 
 namespace CAC.SourceCodes
 {
@@ -6,11 +7,13 @@ namespace CAC.SourceCodes
     {
         public readonly string Path;
         private readonly string _name;
+        private string _errorMSG;
 
         public SourceCode(string path)
         {
             Path = path;
             _name = System.IO.Path.GetFileName(path);
+            _errorMSG = new TestedCode(path).GetError();
         }
 
         public override string ToString()
@@ -21,6 +24,19 @@ namespace CAC.SourceCodes
         public string GetSourceCode()
         {
             return File.ReadAllText(Path);
+        }
+
+        public string GetErrorMessage()
+        {
+            return _errorMSG;
+        }
+        public int GetIdOfLineWithError()
+        {
+            if (_errorMSG == null)
+                return -1;
+            Regex newRegex= new Regex(@":(\d):");
+            string TEST=newRegex.Match(_errorMSG).ToString();
+            return int.Parse(TEST.Replace(":", ""))-2;
         }
 
         public bool Exists()
