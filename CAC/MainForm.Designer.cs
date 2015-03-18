@@ -56,6 +56,7 @@ namespace CAC
             this.labHelop = new System.Windows.Forms.Label();
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
+            this.lErrorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -314,11 +315,21 @@ namespace CAC
             this.lbObjects.TabIndex = 0;
             this.lbObjects.SelectedIndexChanged += new System.EventHandler(this.lbObjects_SelectedIndexChanged);
             // 
+            // lErrorMessage
+            // 
+            this.lErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.lErrorMessage.Location = new System.Drawing.Point(240, 12);
+            this.lErrorMessage.Name = "lErrorMessage";
+            this.lErrorMessage.Size = new System.Drawing.Size(271, 23);
+            this.lErrorMessage.TabIndex = 8;
+            this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 368);
+            this.Controls.Add(this.lErrorMessage);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.butRunTest);
             this.Controls.Add(this.splitContainer1);
@@ -367,6 +378,7 @@ namespace CAC
         private Button butMoveDown;
         private Button butMoveUp;
         public ListBox lbObjects;
+        private Label lErrorMessage;
     }
 }
 

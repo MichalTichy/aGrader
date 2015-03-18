@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using CAC.SourceCodes;
 
@@ -43,6 +44,7 @@ namespace CAC
 
         private void UpdateLbCodes()
         {
+            SourceCodes.SourceCodes.ReloadSourceCodeFiles();
             lbCodes.Items.Clear();
             if (SourceCodes.SourceCodes.GetSourceCodeFiles().Count != 0)
             {
@@ -66,10 +68,20 @@ namespace CAC
 
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lErrorMessage.Text = "";
             if (lbCodes.SelectedItem==null) return;
             SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
             if (code.Exists())
-                rtbCode.Text = code.GetSourceCode();
+            {
+                rtbCode.Text = code.GetSourceCode()+"\n";
+                if (code.GetErrorMessage()!=null)
+                {
+                    int lineWithError = code.GetIdOfLineWithError();
+                    rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
+                    rtbCode.SelectionBackColor = Color.Red;
+                    lErrorMessage.Text = "Kód nemůže být zkompilován! "+code.GetErrorMessage();
+                }
+            }
             else
             {
                 MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
