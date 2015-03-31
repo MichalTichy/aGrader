@@ -39,7 +39,7 @@ namespace CAC.IO_Forms
                 InputsOutputs.Remove(this);
             }
             SideFormManager.Close();
-            InputsOutputs.UpdateSelectedLbItem();
+            InputsOutputs.OnInOutListChanged();
         }
 
         private void butAddOrDelete_Click(object sender, EventArgs e)

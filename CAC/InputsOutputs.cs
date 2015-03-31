@@ -5,11 +5,18 @@ using System.Windows.Forms;
 
 namespace CAC
 {
+
     public static class InputsOutputs
     {
-        private static List<dynamic> InOutList = new List<dynamic>();
+        public static event EventHandler<EventArgs> InOutListChanged;
 
-        private static ListBox InOutListBox = ((CaC) Application.OpenForms[0]).lbObjects;
+        public static void OnInOutListChanged()
+        {
+            if (InOutListChanged != null)
+                InOutListChanged(typeof (InputsOutputs),EventArgs.Empty);
+        }
+
+        private static List<dynamic> InOutList = new List<dynamic>();
 
         public static IEnumerable<dynamic> GetList()
         {
@@ -29,13 +36,13 @@ namespace CAC
         public static void Add(dynamic formIO)
         {
             InOutList.Add(formIO);
-            InOutListBox.Items.Add(formIO.ToString());
+            OnInOutListChanged();
         }
 
         public static void Remove(dynamic formIO)
         {
-            InOutListBox.Items.RemoveAt(InOutList.IndexOf(formIO));
             InOutList.Remove(formIO);
+            OnInOutListChanged();
         }
 
         public static void Swap(int index1, int index2)
@@ -43,26 +50,12 @@ namespace CAC
             dynamic temp = InOutList[index1];
             InOutList[index1] = InOutList[index2];
             InOutList[index2] = temp;
-
-            temp = InOutListBox.Items[index1];
-            InOutListBox.Items[index1] = InOutListBox.Items[index2];
-            InOutListBox.Items[index2] = temp;
-            InOutListBox.SelectedIndex = index2;
         }
 
         public static void Clear()
         {
             InOutList.Clear();
-            InOutListBox.Items.Clear();
-        }
-
-        public static void UpdateSelectedLbItem()
-        {
-            if (InOutListBox.SelectedItem == null) return;
-
-            int selectedindex = InOutListBox.SelectedIndex;
-            InOutListBox.SelectedItem = null;
-            InOutListBox.Items[selectedindex] = InOutList[selectedindex].ToString();
+            OnInOutListChanged();
         }
     }
 }

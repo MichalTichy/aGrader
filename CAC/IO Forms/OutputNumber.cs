@@ -24,7 +24,7 @@ namespace CAC.IO_Forms
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
-            InputsOutputs.UpdateSelectedLbItem();
+            InputsOutputs.OnInOutListChanged();
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)

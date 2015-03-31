@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using CAC.SourceCodes;
 
@@ -8,11 +9,19 @@ namespace CAC
 {
     public partial class CaC : Form
     {
+        //todo dát související věci k sobě
         public CaC()
         {
             InitializeComponent();
             FillCbObjects();
             cbobjects.SelectedIndexChanged+=cbobjects_SelectedIndexChanged;
+            InputsOutputs.InOutListChanged +=InputsOutputsOnInOutListChanged;
+        }
+
+        private void InputsOutputsOnInOutListChanged(object sender, EventArgs eventArgs)
+        {
+            lbObjects.Items.Clear();
+            InputsOutputs.GetList().ToList().ForEach(i=> lbObjects.Items.Add(i.ToString()));
         }
 
         private void FillCbObjects()
@@ -35,7 +44,6 @@ namespace CAC
         private void butBrowse_Click(object sender, EventArgs e)
         {
             if (SourceCodes.SourceCodes.SetPath())
-                //shows folder browser dialog and if dialog result is OK than it will change path to sourcecodes and reloads list of them.
             {
                 tbpath.Text = SourceCodes.SourceCodes.GetPath();
                 UpdateLbCodes();
