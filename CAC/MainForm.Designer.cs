@@ -377,8 +377,8 @@ namespace CAC
         private Button butReload;
         private Button butMoveDown;
         private Button butMoveUp;
-        public ListBox lbObjects;
         private Label lErrorMessage;
+        private ListBox lbObjects;
     }
 }
 
