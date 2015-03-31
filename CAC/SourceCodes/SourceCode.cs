@@ -35,8 +35,7 @@ namespace CAC.SourceCodes
             if (_errorMSG == null)
                 return -1;
             Regex newRegex= new Regex(@":(\d):");
-            string TEST=newRegex.Match(_errorMSG).ToString();
-            return int.Parse(TEST.Replace(":", ""))-2;
+            return int.Parse(newRegex.Match(_errorMSG).ToString().Replace(":", "")) - 2;
         }
 
         public bool Exists()
