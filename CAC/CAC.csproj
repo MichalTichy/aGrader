@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO Forms\OutputString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\OutputString.Designer.cs">
+      <DependentUpon>OutputString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Equation.cs" />
     <Compile Include="Math\EquationValidator.cs" />
     <Compile Include="IO Forms\InputTextFile.cs">
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\OutputNumber.resx">
       <DependentUpon>OutputNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\OutputString.resx">
+      <DependentUpon>OutputString.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

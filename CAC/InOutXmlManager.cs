@@ -108,8 +108,22 @@ namespace CAC
             return outRandom;
         }
 
+        private static XmlNode GenerateIONode(OutputString ioForm, XmlDocument document)
+        {
+            XmlElement inString = document.CreateElement(ioForm.Name);
+
+            XmlElement stringvalue = document.CreateElement("string");
+            stringvalue.InnerText = ioForm.Text;
+
+            inString.AppendChild(stringvalue);
+
+            return inString;
+            
+        }
+
         public static void AddIOsFromXml(string path)
         {
+            //TODO REFAKTOROVAT!!!!!!!!
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
@@ -149,6 +163,9 @@ namespace CAC
                         case "OutputNumberBasedOnRandomInput":
                             InputsOutputs.Add(
                                 new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
+                            break;
+                        case "OutputString":
+                            InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
                             break;
                     }
                 }

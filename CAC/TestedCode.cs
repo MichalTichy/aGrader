@@ -126,5 +126,9 @@ namespace CAC
             Equation equation=new Equation(output.jahoda,_randomNumbers);
             _outputs.Add(equation.Evaluate().ToString());
         }
+        private void GetData(OutputString output)
+        {
+            _outputs.Add(output.Text);
+        }
     }
 }

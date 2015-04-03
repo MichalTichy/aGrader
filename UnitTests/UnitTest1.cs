@@ -93,16 +93,14 @@ namespace UnitTests
         {
             CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
             PrivateObject privateObject = new PrivateObject(test);
-            var correctValues = new List<string>();
 
             InputsOutputs.Add(new OutputNumber(10));
-            correctValues.Add("10");
 
             InputsOutputs.Add(new InputRandomNumber(1,100,false,1));
             InputsOutputs.Add(new InputRandomNumber(1, 100, false, 2));
             InputsOutputs.Add(new InputRandomNumber(1, 100, false, 3));
             InputsOutputs.Add(new OutputNumberBasedOnRandomInput("X1+X2+X3"));
-
+            InputsOutputs.Add(new OutputString("TEST"));
             privateObject.Invoke("GetInputsAndOutputs");
             Dictionary<string, decimal> randomNumbers = (Dictionary<string, decimal>) privateObject.GetFieldOrProperty("_randomNumbers");
 
@@ -111,6 +109,7 @@ namespace UnitTests
 
             Assert.IsTrue(outputs[0]=="10");
             Assert.IsTrue(outputs[1] == (randomNumbers["X1"] + randomNumbers["X2"] + randomNumbers["X3"]).ToString());
+            Assert.IsTrue(outputs[2] == "TEST");
         }
 
     }
