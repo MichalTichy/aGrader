@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CAC;
+using CAC.IO_Forms;
 using CAC.Math;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -49,10 +50,11 @@ namespace UnitTests
         [TestMethod]
         public void ValidatorRovnice()
         {
-            Assert.IsTrue(EquationValidator.IsValid("X0+1*X1"));
-            Assert.IsTrue(EquationValidator.IsValid("25+3"));
-            Assert.IsFalse(EquationValidator.IsValid("invalidstring"));
-            Assert.IsTrue(EquationValidator.IsValid("X2+X3+X5+X8"));
+            Assert.IsTrue(EquationValidator.IsValid("X0+1*X1", new List<string>() { "X0", "X1" }));
+            Assert.IsTrue(EquationValidator.IsValid("25+3", new List<string>()));
+            Assert.IsFalse(EquationValidator.IsValid("invalidstring", new List<string>()));
+            Assert.IsTrue(EquationValidator.IsValid("X2+X3+X5+X8", new List<string>() { "X2", "X3", "X5", "X8" }));
+            Assert.IsFalse(EquationValidator.IsValid("X2+X3+X5+X8", new List<string>() { "X9999", "X3", "X5", "X8" }));
         }
     }
 
@@ -62,10 +64,53 @@ namespace UnitTests
         [TestMethod]
         public void IsCompilable()
         {
-            CAC.TestedCode test = new CAC.TestedCode(@"D:\testbad.c");
-            Assert.IsNotNull(test.GetError());
-            CAC.TestedCode test2 = new CAC.TestedCode(@"D:\test.c");
-            Assert.IsNull(test2.GetError());
+            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
+            Assert.IsNull(test.GetError());
+            CAC.TestedCode test2 = new CAC.TestedCode(@"D:\CAC\Hello-World-BAD.c");
+            Assert.IsNotNull(test2.GetError());
+        }
+
+        [TestMethod]
+        public void Inputs()
+        {
+            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
+            PrivateObject privateObject = new PrivateObject(test);
+            List<string> correctValues = new List<string>();
+
+            InputsOutputs.Add(new InputNumber(10));
+            correctValues.Add("10");
+            InputsOutputs.Add(new InputString("test"));
+            correctValues.Add("test");
+
+            privateObject.Invoke("GetInputsAndOutputs");
+            List<string> inputs = (List<string>)privateObject.GetField("_inputs");
+
+            CollectionAssert.IsSubsetOf(inputs, correctValues);
+        }
+
+        [TestMethod]
+        public void Outputs()
+        {
+            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
+            PrivateObject privateObject = new PrivateObject(test);
+            var correctValues = new List<string>();
+
+            InputsOutputs.Add(new OutputNumber(10));
+            correctValues.Add("10");
+
+            InputsOutputs.Add(new InputRandomNumber(1,100,false,1));
+            InputsOutputs.Add(new InputRandomNumber(1, 100, false, 2));
+            InputsOutputs.Add(new InputRandomNumber(1, 100, false, 3));
+            InputsOutputs.Add(new OutputNumberBasedOnRandomInput("X1+X2+X3"));
+
+            privateObject.Invoke("GetInputsAndOutputs");
+            Dictionary<string, decimal> randomNumbers = (Dictionary<string, decimal>) privateObject.GetFieldOrProperty("_randomNumbers");
+
+
+            List<string> outputs = (List<string>)privateObject.GetField("_outputs");
+
+            Assert.IsTrue(outputs[0]=="10");
+            Assert.IsTrue(outputs[1] == (randomNumbers["X1"] + randomNumbers["X2"] + randomNumbers["X3"]).ToString());
         }
 
     }
