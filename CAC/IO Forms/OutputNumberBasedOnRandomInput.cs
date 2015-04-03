@@ -24,6 +24,7 @@ namespace CAC.IO_Forms
         {
             InitializeComponent();
             tbJahoda.Text = jahoda;
+            this.jahoda = jahoda;
             FillLbNumbers();
         }
 
