@@ -6,7 +6,7 @@ namespace CAC.IO_Forms
     public partial class InputString : Form
     {
         public bool Exists = false;
-        public new string Text;
+        public string Text;
 
         public InputString()
         {

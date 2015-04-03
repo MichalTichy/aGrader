@@ -87,7 +87,6 @@ namespace CAC.IO_Forms
             this.Name = "InputString";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "InputString";
             this.Activated += new System.EventHandler(this.InputString_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
