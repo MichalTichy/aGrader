@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CAC.IO_Forms;
+using CAC.Math;
 
 namespace CAC
 {
@@ -119,6 +120,11 @@ namespace CAC
         private void GetData(OutputNumber output)
         {
             _outputs.Add(output.Value.ToString());
+        }
+        private void GetData(OutputNumberBasedOnRandomInput output)
+        {
+            Equation equation=new Equation(output.jahoda,_randomNumbers);
+            _outputs.Add(equation.Evaluate().ToString());
         }
     }
 }
