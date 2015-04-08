@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows.Forms;
 
@@ -29,6 +30,18 @@ namespace CAC.SourceCodes
             return false;
         }
 
+        public static bool SetPath(string path)
+        {
+            DirectoryInfo directoryInfo=new DirectoryInfo(path);
+            if (directoryInfo.Exists)
+            {
+                _sourceDir = directoryInfo;
+                ReloadSourceCodeFiles();
+                return true;
+            }
+            return false;
+        }
+
         public static string GetPath()
         {
             return _sourceDir.FullName;
@@ -47,9 +60,9 @@ namespace CAC.SourceCodes
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
         }
 
-        public static List<SourceCode> GetSourceCodeFiles()
+        public static ReadOnlyCollection<SourceCode> GetSourceCodeFiles()
         {
-            return _sourceCodeFiles;
+            return _sourceCodeFiles.AsReadOnly();
         }
 
         public static SourceCode GetSourceCode(int index)

@@ -181,6 +181,13 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
+            TestManager.TestFinished += CodeTestFinished;
+            TestManager.TestAllSourceCodes();
+        }
+
+        private void CodeTestFinished(object sender, TestResultArgs testResultArgs)
+        {
+
         }
     }
 }

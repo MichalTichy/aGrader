@@ -99,9 +99,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SideFormManager.cs" />
-    <Compile Include="SourceCodes\SourceCode.cs" />
-    <Compile Include="SourceCodes\SourceCodes.cs" />
-    <Compile Include="TestedCode.cs" />
+    <Compile Include="sourceCodes\SourceCode.cs" />
+    <Compile Include="sourceCodes\SourceCodes.cs" />
+    <Compile Include="TestManager.cs" />
+    <Compile Include="TestResult.cs" />
     <EmbeddedResource Include="IO Forms\InputTextFile.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
