@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using CAC;
 using CAC.IO_Forms;
 using CAC.Math;
+using CAC.SourceCodes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -64,53 +68,49 @@ namespace UnitTests
         [TestMethod]
         public void IsCompilable()
         {
-            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
-            Assert.IsNull(test.GetError());
-            CAC.TestedCode test2 = new CAC.TestedCode(@"D:\CAC\Hello-World-BAD.c");
-            Assert.IsNotNull(test2.GetError());
+            SourceCode test = new SourceCode(@"D:\CAC\Hello-World.c");
+            Assert.IsNull(test.GetErrorMessage());
+            SourceCode test2 = new SourceCode(@"D:\CAC\Hello-World-BAD.c");
+            Assert.IsNotNull(test2.GetErrorMessage());
         }
 
         [TestMethod]
-        public void Inputs()
+        public void TestProgram1InputNumber()
         {
-            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
-            PrivateObject privateObject = new PrivateObject(test);
-            List<string> correctValues = new List<string>();
+            InputsOutputs.Clear();
+            InputsOutputs.Add(new InputNumber(25));
+            InputsOutputs.Add(new OutputNumber(25));
+            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameNum");
 
-            InputsOutputs.Add(new InputNumber(10));
-            correctValues.Add("10");
+            Assert.IsTrue(pathSetSuccesfully);
+
+            TestManager.TestAllSourceCodes();
+            int i = 0;
+            Thread.Sleep(5000);
+            TestResult result = SourceCodes.GetSourceCode(0).GetResult();
+            Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
+            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
+
+        }
+
+        [TestMethod]
+        public void TestProgram2InputString()
+        {
+            InputsOutputs.Clear();
             InputsOutputs.Add(new InputString("test"));
-            correctValues.Add("test");
+            InputsOutputs.Add(new OutputString("test"));
+            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameString");
 
-            privateObject.Invoke("GetInputsAndOutputs");
-            List<string> inputs = (List<string>)privateObject.GetField("_inputs");
+            Assert.IsTrue(pathSetSuccesfully);
+            
+            TestManager.TestAllSourceCodes();
+            Thread.Sleep(5000);
+            TestResult result = SourceCodes.GetSourceCode(0).GetResult();
+            Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
+            Assert.IsTrue(result.LinesWithBadOutputs.Count()==0); //all outputs matched
 
-            CollectionAssert.IsSubsetOf(inputs, correctValues);
         }
 
-        [TestMethod]
-        public void Outputs()
-        {
-            CAC.TestedCode test = new CAC.TestedCode(@"D:\CAC\Hello-World.c");
-            PrivateObject privateObject = new PrivateObject(test);
-
-            InputsOutputs.Add(new OutputNumber(10));
-
-            InputsOutputs.Add(new InputRandomNumber(1,100,false,1));
-            InputsOutputs.Add(new InputRandomNumber(1, 100, false, 2));
-            InputsOutputs.Add(new InputRandomNumber(1, 100, false, 3));
-            InputsOutputs.Add(new OutputNumberBasedOnRandomInput("X1+X2+X3"));
-            InputsOutputs.Add(new OutputString("TEST"));
-            privateObject.Invoke("GetInputsAndOutputs");
-            Dictionary<string, decimal> randomNumbers = (Dictionary<string, decimal>) privateObject.GetFieldOrProperty("_randomNumbers");
-
-
-            List<string> outputs = (List<string>)privateObject.GetField("_outputs");
-
-            Assert.IsTrue(outputs[0]=="10");
-            Assert.IsTrue(outputs[1] == (randomNumbers["X1"] + randomNumbers["X2"] + randomNumbers["X3"]).ToString());
-            Assert.IsTrue(outputs[2] == "TEST");
-        }
 
     }
 }
