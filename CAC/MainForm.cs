@@ -79,6 +79,9 @@ namespace CAC
             lErrorMessage.Text = "";
             if (lbCodes.SelectedItem==null) return;
             SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
+            
+            SetListViewToBananaMode(code.GetResult());
+
             if (code.Exists())
             {
                 rtbCode.Text = code.GetSourceCode()+"\n";
@@ -181,13 +184,72 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
+            //todo mozna vypnout UI?
             TestManager.TestFinished += CodeTestFinished;
+            SetListViewToGrepMode(); //todo GREP!
+
+            lbCodes.ClearSelected();
+            rtbCode.Clear();
+
             TestManager.TestAllSourceCodes();
+        }
+
+        private void SetListViewToGrepMode() //todo GREP!
+        {
+            lV.Items.Clear();
+            lV.Columns.Clear();
+
+            lV.Columns.Add("Jméno souboru",250);
+            lV.Columns.Add("Stav",249);
+
+            foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
+            {
+                ListViewItem line = new ListViewItem(new[] {code.Name, code.GetResult().status});
+                line.UseItemStyleForSubItems = false;
+                line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().status);
+                lV.Items.Add(line);
+            }
+        }
+
+        private void SetListViewToBananaMode(TestResult result) //todo BANANA!
+        {
+            lV.Items.Clear();
+            lV.Columns.Clear();
+            lV.Groups.Clear();
+
+            lV.Groups.Add(new ListViewGroup("Vstup"));
+            lV.Groups.Add(new ListViewGroup("Výstup"));
+
+            lV.Columns.Add("",250);
+            lV.Columns.Add("Očekávaný",249);
+
         }
 
         private void CodeTestFinished(object sender, TestResultArgs testResultArgs)
         {
+            ListViewItem line = lV.FindItemWithText(testResultArgs.Result.FileName);
+            line.SubItems[1].Text = testResultArgs.Result.status;
 
+            Color color=GetStatusColor(testResultArgs.Result.status);
+
+            line.SubItems[1].ForeColor = color;
+        }
+
+        private static Color GetStatusColor(string status)
+        {
+            Color color;
+            if (status == "OK")
+                color = Color.Green;
+            else if (status == "testuje se")
+                color = Color.Orange;
+            else
+                color = Color.Red;
+            return color;
+        }
+
+        private void butShowTestProgress_Click(object sender, EventArgs e)
+        {
+            SetListViewToGrepMode();
         }
     }
 }

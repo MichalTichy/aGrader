@@ -13,6 +13,8 @@ namespace CAC
         public readonly int ProcessorTime;
         public string Errors { get; private set; }
         public int[] LinesWithBadOutputs;
+        public string[] expectedOutputs;
+        public string status="testuje se";
 
         public TestResult(string outputs, string errors, int processorTime, string fileName)
         {

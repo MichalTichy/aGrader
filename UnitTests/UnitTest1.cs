@@ -80,8 +80,8 @@ namespace UnitTests
             InputsOutputs.Clear();
             InputsOutputs.Add(new InputNumber(25));
             InputsOutputs.Add(new OutputNumber(25));
-            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameNum");
 
+            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameNum");
             Assert.IsTrue(pathSetSuccesfully);
 
             TestManager.TestAllSourceCodes();
@@ -99,16 +99,36 @@ namespace UnitTests
             InputsOutputs.Clear();
             InputsOutputs.Add(new InputString("test"));
             InputsOutputs.Add(new OutputString("test"));
-            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameString");
 
+            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\returnSameString");
             Assert.IsTrue(pathSetSuccesfully);
-            
+
             TestManager.TestAllSourceCodes();
             Thread.Sleep(5000);
             TestResult result = SourceCodes.GetSourceCode(0).GetResult();
             Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
-            Assert.IsTrue(result.LinesWithBadOutputs.Count()==0); //all outputs matched
+            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
 
+        }
+
+        [TestMethod]
+        public void TestProgram2ComplexProgramWithoutRandomNumbers()
+        {
+            InputsOutputs.Clear();
+            InputsOutputs.Add(new InputString("test1"));
+            InputsOutputs.Add(new InputNumber(250));
+            InputsOutputs.Add(new OutputNumber(250));
+            InputsOutputs.Add(new InputString("test2"));
+            InputsOutputs.Add(new OutputString("test1 test2"));
+
+            bool pathSetSuccesfully = SourceCodes.SetPath(@"D:\CAC\tests\ComplexProgramWithoutRandom");
+            Assert.IsTrue(pathSetSuccesfully);
+
+            TestManager.TestAllSourceCodes();
+            Thread.Sleep(5000);
+            TestResult result = SourceCodes.GetSourceCode(0).GetResult();
+            Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
+            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
         }
 
 

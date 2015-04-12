@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -9,12 +7,13 @@ namespace CAC.SourceCodes
 {
     public class SourceCode
     {
+        //todo seradit public a private
         public readonly string Path;
         private TestResult testResult;
 
         private Process _app;
         private const int timeout = 45000;
-        private readonly string _name;
+        public readonly string Name;
         private string _errorMSG;
         public SourceCode(string path)
         {
@@ -33,13 +32,13 @@ namespace CAC.SourceCodes
                 }
             };
             Path = path;
-            _name = System.IO.Path.GetFileName(path);
+            Name = System.IO.Path.GetFileName(path);
             _errorMSG = GetError();
         }
 
         public override string ToString()
         {
-            return _name;
+            return Name;
         }
         public string GetSourceCode()
         {
@@ -97,8 +96,9 @@ namespace CAC.SourceCodes
             output += outputReader.ReadToEnd();
             error += errorReader.ReadToEnd();
             int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
-            TestResult result=new TestResult(output,error,processorTime,_name);
+            TestResult result=new TestResult(output,error,processorTime,Name);
             testResult = result;
+            TestManager.EvaluateResult(testResult);
             return result;
         }
 

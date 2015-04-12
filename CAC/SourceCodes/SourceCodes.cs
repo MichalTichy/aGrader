@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CAC.SourceCodes
@@ -68,6 +69,11 @@ namespace CAC.SourceCodes
         public static SourceCode GetSourceCode(int index)
         {
             return _sourceCodeFiles[index];
+        }
+
+        public static SourceCode GetSourceCode(string filename)
+        {
+            return _sourceCodeFiles.First(h => h.Name == filename);
         }
     }
 }

@@ -33,7 +33,6 @@ namespace CAC
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtbCode = new System.Windows.Forms.RichTextBox();
-            this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -57,6 +56,8 @@ namespace CAC
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
             this.lErrorMessage = new System.Windows.Forms.Label();
+            this.lV = new System.Windows.Forms.ListView();
+            this.butShowTestProgress = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,7 +79,7 @@ namespace CAC
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.rtbOutput);
+            this.splitContainer1.Panel2.Controls.Add(this.lV);
             this.splitContainer1.Size = new System.Drawing.Size(499, 314);
             this.splitContainer1.SplitterDistance = 157;
             this.splitContainer1.TabIndex = 3;
@@ -92,16 +93,6 @@ namespace CAC
             this.rtbCode.Size = new System.Drawing.Size(499, 157);
             this.rtbCode.TabIndex = 0;
             this.rtbCode.Text = "";
-            // 
-            // rtbOutput
-            // 
-            this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbOutput.Location = new System.Drawing.Point(0, 0);
-            this.rtbOutput.Name = "rtbOutput";
-            this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(499, 153);
-            this.rtbOutput.TabIndex = 1;
-            this.rtbOutput.Text = "";
             // 
             // BottomToolStripPanel
             // 
@@ -324,11 +315,33 @@ namespace CAC
             this.lErrorMessage.TabIndex = 8;
             this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lV
+            // 
+            this.lV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lV.Location = new System.Drawing.Point(0, 0);
+            this.lV.Name = "lV";
+            this.lV.Size = new System.Drawing.Size(499, 153);
+            this.lV.TabIndex = 0;
+            this.lV.UseCompatibleStateImageBehavior = false;
+            this.lV.View = System.Windows.Forms.View.Details;
+            // 
+            // butShowTestProgress
+            // 
+            this.butShowTestProgress.Location = new System.Drawing.Point(118, 11);
+            this.butShowTestProgress.Name = "butShowTestProgress";
+            this.butShowTestProgress.Size = new System.Drawing.Size(75, 23);
+            this.butShowTestProgress.TabIndex = 9;
+            this.butShowTestProgress.Text = "průběh testu";
+            this.butShowTestProgress.UseVisualStyleBackColor = true;
+            this.butShowTestProgress.Visible = false;
+            this.butShowTestProgress.Click += new System.EventHandler(this.butShowTestProgress_Click);
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 368);
+            this.Controls.Add(this.butShowTestProgress);
             this.Controls.Add(this.lErrorMessage);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.butRunTest);
@@ -355,7 +368,6 @@ namespace CAC
 
         private SplitContainer splitContainer1;
         private RichTextBox rtbCode;
-        private RichTextBox rtbOutput;
         private ToolStripPanel BottomToolStripPanel;
         private ToolStripPanel TopToolStripPanel;
         private ToolStripPanel RightToolStripPanel;
@@ -379,6 +391,8 @@ namespace CAC
         private Button butMoveUp;
         private Label lErrorMessage;
         private ListBox lbObjects;
+        private ListView lV;
+        private Button butShowTestProgress;
     }
 }
 
