@@ -14,7 +14,7 @@ namespace CAC
     
     public static class TestManager
     {
-        private static double _deviation = 0.001;
+        private static double _deviation = 0.001; //default deviation
         private static List<string> _inputs = new List<string>();
         private static List<string> _outputs = new List<string>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
