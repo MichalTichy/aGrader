@@ -85,12 +85,12 @@ namespace CAC
             if (code.Exists())
             {
                 rtbCode.Text = code.GetSourceCode()+"\n";
-                if (code.GetErrorMessage()!=null)
+                if (code.GetCompilationErrorMessage()!=null)
                 {
                     int lineWithError = code.GetIdOfLineWithError();
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
-                    lErrorMessage.Text = "Kód nemůže být zkompilován! "+code.GetErrorMessage();
+                    lErrorMessage.Text = "Kód nemůže být zkompilován! "+code.GetCompilationErrorMessage();
                 }
             }
             else
@@ -248,6 +248,7 @@ namespace CAC
             lV.Columns.Clear();
             lV.Groups.Clear();
 
+            
             lV.Groups.Add(new ListViewGroup("Vstup"));
             lV.Groups.Add(new ListViewGroup("Výstup"));
 
@@ -266,6 +267,17 @@ namespace CAC
                 if (result.LinesWithBadOutput.Contains(lV.Items.Count-result.inputs.Count))
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
+            }
+
+            if (result.Errors.Length!=0)
+            {
+                lV.Groups.Add(new ListViewGroup("Errory"));
+                foreach (string s in result.Errors.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
+                {
+                    ListViewItem line=new ListViewItem(s,lV.Groups[2]);
+                    line.BackColor = Color.Red;
+                    lV.Items.Add(line);
+                }
             }
         }
 

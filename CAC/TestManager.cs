@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using CAC.IO_Forms;
 using CAC.Math;
 using CAC.SourceCodes;
@@ -18,6 +16,7 @@ namespace CAC
         private static List<string> _inputs = new List<string>();
         private static List<string> _outputs = new List<string>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
+        private static List<string> _prohibitedCommnads=new List<string>(); 
 
         public static double Deviation
         {
@@ -31,8 +30,18 @@ namespace CAC
             foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
             {
                 var code1 = code;
+                CheckSourceCodeForProhibitedCommands(code1);
                 Thread thread = new Thread(delegate() { code1.RunTest(_inputs,_outputs); });
                 thread.Start(); //todo dodelat moznost zastavit praci
+            }
+        }
+
+        private static void CheckSourceCodeForProhibitedCommands(SourceCode code1)
+        {
+            string sourceCode = File.ReadAllText(code1.Path);
+            foreach (string prohibitedCommnad in _prohibitedCommnads.Where(prohibitedCommnad => sourceCode.Contains(prohibitedCommnad)))
+            {
+                code1.AddTestError("Nalezen nepovolený příkaz: "+prohibitedCommnad);
             }
         }
 
@@ -93,6 +102,12 @@ namespace CAC
         private static void ProcessData(SettingsDeviation deviation)
         {
             _deviation = deviation.deviation;
+        }
+
+        private static void ProcessData(SettingsProhibitedCommand prohibitedCommand)
+        {
+            if (!_prohibitedCommnads.Contains(prohibitedCommand.Text))
+                _prohibitedCommnads.Add(prohibitedCommand.Text);
         }
     }
 }

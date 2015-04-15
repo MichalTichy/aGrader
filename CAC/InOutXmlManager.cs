@@ -133,6 +133,18 @@ namespace CAC
             return SettDeviation;
         }
 
+        private static XmlNode GenerateIONode(SettingsProhibitedCommand ioForm, XmlDocument document)
+        {
+            XmlElement settProhibitedCommand = document.CreateElement(ioForm.Name);
+
+            XmlElement stringvalue = document.CreateElement("prohibitedCommand");
+            stringvalue.InnerText = ioForm.Text;
+
+            settProhibitedCommand.AppendChild(stringvalue);
+
+            return settProhibitedCommand;
+        }
+
         public static void AddIOsFromXml(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
@@ -181,6 +193,9 @@ namespace CAC
                             break;
                         case "SettingsDeviation":
                             InputsOutputs.Add(new SettingsDeviation(Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
+                            break;
+                        case "SettingsProhibitedCommand":
+                            InputsOutputs.Add(new SettingsProhibitedCommand((element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
                             break;
                     }
                 }

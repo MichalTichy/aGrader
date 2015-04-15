@@ -52,14 +52,24 @@ namespace CAC
 
         public enum SideForms
         {
-            [Description("VSTUP: textový soubor")] InputTextFile,
-            [Description("VSTUP: číslo")] InputNumber,
-            [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
-            [Description("VSTUP: text")] InputString,
-            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput, //todo přepsat popisek
-            [Description("VÝSTUP: číslo")] OutputNumber,
-            [Description("VÝSTUP: text")] OutputString,
-            [Description("NASTAVENÍ: odchylka")] SettingsDeviation
+            [Description("VSTUP: textový soubor")]
+            InputTextFile,
+            [Description("VSTUP: číslo")]
+            InputNumber,
+            [Description("VSTUP: náhodné Číslo")]
+            InputRandomNumber,
+            [Description("VSTUP: text")]
+            InputString,
+            [Description("VÝSTUP: náhodné číslo")]
+            OutputNumberBasedOnRandomInput, //todo přepsat popisek
+            [Description("VÝSTUP: číslo")]
+            OutputNumber,
+            [Description("VÝSTUP: text")]
+            OutputString,
+            [Description("NASTAVENÍ: odchylka")]
+            SettingsDeviation,
+            [Description("NASTAVENÍ: zakázaný příkaz")]
+            SettingsProhibitedCommand,
         }
 
         public static string GetDescription(this Enum currentEnum)

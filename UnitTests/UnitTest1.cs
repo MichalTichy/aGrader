@@ -78,9 +78,9 @@ namespace UnitTests
         public void IsCompilable()
         {
             SourceCode test = new SourceCode(@"D:\CAC\Hello-World.c");
-            Assert.IsNull(test.GetErrorMessage());
+            Assert.IsNull(test.GetCompilationErrorMessage());
             SourceCode test2 = new SourceCode(@"D:\CAC\Hello-World-BAD.c");
-            Assert.IsNotNull(test2.GetErrorMessage());
+            Assert.IsNotNull(test2.GetCompilationErrorMessage());
         }
 
         [TestMethod]

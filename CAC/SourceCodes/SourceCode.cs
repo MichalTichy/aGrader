@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace CAC.SourceCodes
 {
@@ -14,7 +15,9 @@ namespace CAC.SourceCodes
         private Process _app;
         private const int timeout = 45000;
         public readonly string Name;
-        private string _errorMSG;
+        private string _CompilationErrorMSG;
+        private List<string> _testErrors=new List<string>(); 
+
         public SourceCode(string path)
         {
             string pathToTCC = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
@@ -33,7 +36,7 @@ namespace CAC.SourceCodes
             };
             Path = path;
             Name = System.IO.Path.GetFileName(path);
-            _errorMSG = GetError();
+            _CompilationErrorMSG = GetError();
         }
 
         public override string ToString()
@@ -55,17 +58,17 @@ namespace CAC.SourceCodes
             
             return errors;
         }
-        public string GetErrorMessage()
+        public string GetCompilationErrorMessage()
         {
-            return _errorMSG;
+            return _CompilationErrorMSG;
         }
         public int GetIdOfLineWithError()
         {
             //todo remove magic numbers
-            if (_errorMSG == null)
+            if (_CompilationErrorMSG == null)
                 return -1;
             Regex newRegex= new Regex(@":(\d):");
-            return int.Parse(newRegex.Match(_errorMSG).ToString().Replace(":", "")) - 2;
+            return int.Parse(newRegex.Match(_CompilationErrorMSG).ToString().Replace(":", "")) - 2;
         }
 
         public bool Exists()
@@ -98,12 +101,21 @@ namespace CAC.SourceCodes
             int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
             TestResult result=new TestResult(inputs,output,expectedOutputs,error,processorTime,Name);
             testResult = result;
+            foreach (string testError in _testErrors)
+            {
+                testResult.AddError(testError);
+            }
             return result;
         }
 
         public TestResult GetResult()
         {
             return testResult;
+        }
+
+        public void AddTestError(string error)
+        {
+            _testErrors.Add(error);
         }
     }
 }
