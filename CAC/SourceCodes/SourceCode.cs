@@ -75,7 +75,7 @@ namespace CAC.SourceCodes
             return false;
         }
 
-        public TestResult RunTest(List<string> inputs)
+        public TestResult RunTest(List<string> inputs,List<string> expectedOutputs)
         {
             _app.Start();
 
@@ -96,9 +96,8 @@ namespace CAC.SourceCodes
             output += outputReader.ReadToEnd();
             error += errorReader.ReadToEnd();
             int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
-            TestResult result=new TestResult(output,error,processorTime,Name);
+            TestResult result=new TestResult(inputs,output,expectedOutputs,error,processorTime,Name);
             testResult = result;
-            TestManager.EvaluateResult(testResult);
             return result;
         }
 

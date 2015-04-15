@@ -89,7 +89,7 @@ namespace UnitTests
             Thread.Sleep(5000);
             TestResult result = SourceCodes.GetSourceCode(0).GetResult();
             Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
-            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
+            Assert.IsTrue(result.LinesWithBadOutput.Count == 0); //all outputs matched
 
         }
 
@@ -107,7 +107,7 @@ namespace UnitTests
             Thread.Sleep(5000);
             TestResult result = SourceCodes.GetSourceCode(0).GetResult();
             Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
-            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
+            Assert.IsTrue(result.LinesWithBadOutput.Count == 0); //all outputs matched
 
         }
 
@@ -128,7 +128,7 @@ namespace UnitTests
             Thread.Sleep(5000);
             TestResult result = SourceCodes.GetSourceCode(0).GetResult();
             Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
-            Assert.IsTrue(result.LinesWithBadOutputs.Count() == 0); //all outputs matched
+            Assert.IsTrue(result.LinesWithBadOutput.Count == 0); //all outputs matched
         }
 
 

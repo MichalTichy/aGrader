@@ -110,14 +110,14 @@ namespace CAC
 
         private static XmlNode GenerateIONode(OutputString ioForm, XmlDocument document)
         {
-            XmlElement inString = document.CreateElement(ioForm.Name);
+            XmlElement outString = document.CreateElement(ioForm.Name);
 
             XmlElement stringvalue = document.CreateElement("string");
             stringvalue.InnerText = ioForm.Text;
 
-            inString.AppendChild(stringvalue);
+            outString.AppendChild(stringvalue);
 
-            return inString;
+            return outString;
             
         }
 
@@ -165,7 +165,7 @@ namespace CAC
                                 new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
                             break;
                         case "OutputString":
-                            InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
+                            InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
                             break;
                     }
                 }

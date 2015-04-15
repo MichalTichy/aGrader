@@ -185,7 +185,6 @@ namespace CAC
         private void butRunTest_Click(object sender, EventArgs e)
         {
             //todo mozna vypnout UI?
-            TestManager.TestFinished += CodeTestFinished;
             SetListViewToGrepMode(); //todo GREP!
 
             lbCodes.ClearSelected();
@@ -196,6 +195,7 @@ namespace CAC
 
         private void SetListViewToGrepMode() //todo GREP!
         {
+            TestResult.ResultReady += ResultReady; //otestovat!
             lV.Items.Clear();
             lV.Columns.Clear();
 
@@ -204,10 +204,21 @@ namespace CAC
 
             foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
             {
-                ListViewItem line = new ListViewItem(new[] {code.Name, code.GetResult().status});
-                line.UseItemStyleForSubItems = false;
-                line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().status);
-                lV.Items.Add(line);
+                //todo refaktorovat
+                if (code.GetResult() != null)
+                {
+                    ListViewItem line = new ListViewItem(new[] { code.Name, code.GetResult().status });
+                    line.UseItemStyleForSubItems = false;
+                    line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().status);
+                    lV.Items.Add(line);
+                }
+                else
+                {
+                    ListViewItem line = new ListViewItem(new[] { code.Name, "testuje se" });
+                    line.UseItemStyleForSubItems = false;
+                    line.SubItems[1].ForeColor = Color.Orange;
+                    lV.Items.Add(line);
+                }
             }
         }
 
@@ -220,17 +231,37 @@ namespace CAC
             lV.Groups.Add(new ListViewGroup("Vstup"));
             lV.Groups.Add(new ListViewGroup("Výstup"));
 
-            lV.Columns.Add("",250);
-            lV.Columns.Add("Očekávaný",249);
+            lV.Columns.Add("Vstup/Výstup",250);
+            lV.Columns.Add("Očekávaný výstup",249);
 
+            if (result == null)
+                return;
+
+            foreach (string input in result.inputs)
+                lV.Items.Add(new ListViewItem(new[] {input, ""}));
+
+            foreach (KeyValuePair<string, string> output in result.Outputs)
+            {
+                ListViewItem line=new ListViewItem(new[] {output.Key, output.Value});
+                if (output.Key != output.Value)
+                    line.BackColor = Color.Red;
+                lV.Items.Add(line);
+            }
         }
 
-        private void CodeTestFinished(object sender, TestResultArgs testResultArgs)
-        {
-            ListViewItem line = lV.FindItemWithText(testResultArgs.Result.FileName);
-            line.SubItems[1].Text = testResultArgs.Result.status;
+        private delegate void UpdateResultInvoker(TestResult result);
 
-            Color color=GetStatusColor(testResultArgs.Result.status);
+        private void ResultReady(object sender, TestResultArgs testResultArgs)
+        {
+            Invoke(new UpdateResultInvoker(UpdateRusult), testResultArgs.Result);
+        }
+
+        private void UpdateRusult(TestResult result)
+        {
+            ListViewItem line = lV.FindItemWithText(result.FileName);
+            line.SubItems[1].Text = result.status;
+
+            Color color = GetStatusColor(result.status);
 
             line.SubItems[1].ForeColor = color;
         }
