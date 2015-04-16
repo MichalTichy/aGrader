@@ -70,6 +70,8 @@ namespace CAC
             SettingsDeviation,
             [Description("NASTAVENÍ: zakázaný příkaz")]
             SettingsProhibitedCommand,
+            [Description("NASTAVENÍ: vyžadovaný příkaz")]
+            SettingsRequiedCommand,
         }
 
         public static string GetDescription(this Enum currentEnum)

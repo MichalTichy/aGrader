@@ -98,6 +98,7 @@ namespace CAC
             if (Errors.Length != 0)
                 Errors += "\n";
             Errors += errorMsg;
+            EvaluateResult();
         }
     }
 }

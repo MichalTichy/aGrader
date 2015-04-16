@@ -62,6 +62,12 @@
     <Compile Include="IO Forms\SettingsProhibitedCommand.Designer.cs">
       <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO Forms\SettingsRequiedCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
+      <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Equation.cs" />
     <Compile Include="Math\EquationValidator.cs" />
     <Compile Include="IO Forms\InputTextFile.cs">
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\SettingsProhibitedCommand.resx">
       <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\SettingsRequiedCommand.resx">
+      <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -16,7 +16,8 @@ namespace CAC
         private static List<string> _inputs = new List<string>();
         private static List<string> _outputs = new List<string>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
-        private static List<string> _prohibitedCommnads=new List<string>(); 
+        private static List<string> _prohibitedCommnads=new List<string>();
+        private static List<string> _requiedCommnads=new List<string>();
 
         public static double Deviation
         {
@@ -31,8 +32,18 @@ namespace CAC
             {
                 var code1 = code;
                 CheckSourceCodeForProhibitedCommands(code1);
+                CheckSourceCodeForRequiedCommands(code1);
                 Thread thread = new Thread(delegate() { code1.RunTest(_inputs,_outputs); });
                 thread.Start(); //todo dodelat moznost zastavit praci
+            }
+        }
+
+        private static void CheckSourceCodeForRequiedCommands(SourceCode code1)
+        {
+            string sourceCode = File.ReadAllText(code1.Path);
+            foreach (string requiedCommnad in _requiedCommnads.Where(requiedCommnad => sourceCode.Contains(requiedCommnad)))
+            {
+                code1.AddTestError("Nenalezen vyžadovaný příkaz: " + requiedCommnad);
             }
         }
 
@@ -108,6 +119,11 @@ namespace CAC
         {
             if (!_prohibitedCommnads.Contains(prohibitedCommand.Text))
                 _prohibitedCommnads.Add(prohibitedCommand.Text);
+        }
+        private static void ProcessData(SettingsRequiedCommand requiedCommand)
+        {
+            if (!_requiedCommnads.Contains(requiedCommand.Text))
+                _requiedCommnads.Add(requiedCommand.Text);
         }
     }
 }

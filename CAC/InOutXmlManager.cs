@@ -145,6 +145,18 @@ namespace CAC
             return settProhibitedCommand;
         }
 
+        private static XmlNode GenerateIONode(SettingsRequiedCommand ioForm, XmlDocument document)
+        {
+            XmlElement settRequiedCommand = document.CreateElement(ioForm.Name);
+
+            XmlElement stringvalue = document.CreateElement("requiedCommand");
+            stringvalue.InnerText = ioForm.Text;
+
+            settRequiedCommand.AppendChild(stringvalue);
+
+            return settRequiedCommand;
+        }
+
         public static void AddIOsFromXml(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
@@ -196,6 +208,9 @@ namespace CAC
                             break;
                         case "SettingsProhibitedCommand":
                             InputsOutputs.Add(new SettingsProhibitedCommand((element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
+                            break;
+                        case "SettingsRequiedCommand":
+                            InputsOutputs.Add(new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
                             break;
                     }
                 }
