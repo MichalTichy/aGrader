@@ -33,6 +33,7 @@ namespace CAC
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtbCode = new System.Windows.Forms.RichTextBox();
+            this.lV = new System.Windows.Forms.ListView();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -56,7 +57,6 @@ namespace CAC
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
             this.lErrorMessage = new System.Windows.Forms.Label();
-            this.lV = new System.Windows.Forms.ListView();
             this.butShowTestProgress = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -93,6 +93,16 @@ namespace CAC
             this.rtbCode.Size = new System.Drawing.Size(499, 157);
             this.rtbCode.TabIndex = 0;
             this.rtbCode.Text = "";
+            // 
+            // lV
+            // 
+            this.lV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lV.Location = new System.Drawing.Point(0, 0);
+            this.lV.Name = "lV";
+            this.lV.Size = new System.Drawing.Size(499, 153);
+            this.lV.TabIndex = 0;
+            this.lV.UseCompatibleStateImageBehavior = false;
+            this.lV.View = System.Windows.Forms.View.Details;
             // 
             // BottomToolStripPanel
             // 
@@ -315,19 +325,9 @@ namespace CAC
             this.lErrorMessage.TabIndex = 8;
             this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lV
-            // 
-            this.lV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lV.Location = new System.Drawing.Point(0, 0);
-            this.lV.Name = "lV";
-            this.lV.Size = new System.Drawing.Size(499, 153);
-            this.lV.TabIndex = 0;
-            this.lV.UseCompatibleStateImageBehavior = false;
-            this.lV.View = System.Windows.Forms.View.Details;
-            // 
             // butShowTestProgress
             // 
-            this.butShowTestProgress.Location = new System.Drawing.Point(118, 11);
+            this.butShowTestProgress.Location = new System.Drawing.Point(117, 12);
             this.butShowTestProgress.Name = "butShowTestProgress";
             this.butShowTestProgress.Size = new System.Drawing.Size(75, 23);
             this.butShowTestProgress.TabIndex = 9;
