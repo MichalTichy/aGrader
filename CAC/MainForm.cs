@@ -296,5 +296,10 @@ namespace CAC
         {
             SetListViewToGrepMode();
         }
+
+        private void lV_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) //no selections for this listView
+        {
+            if (e.IsSelected) e.Item.Selected = false;
+        }
     }
 }

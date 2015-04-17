@@ -97,12 +97,14 @@ namespace CAC
             // lV
             // 
             this.lV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lV.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lV.Location = new System.Drawing.Point(0, 0);
             this.lV.Name = "lV";
             this.lV.Size = new System.Drawing.Size(499, 153);
             this.lV.TabIndex = 0;
             this.lV.UseCompatibleStateImageBehavior = false;
             this.lV.View = System.Windows.Forms.View.Details;
+            this.lV.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lV_ItemSelectionChanged);
             // 
             // BottomToolStripPanel
             // 
