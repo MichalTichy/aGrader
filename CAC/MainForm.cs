@@ -294,6 +294,7 @@ namespace CAC
 
         private void butShowTestProgress_Click(object sender, EventArgs e)
         {
+            lbCodes.ClearSelected();
             SetListViewToGrepMode();
         }
 
