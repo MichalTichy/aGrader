@@ -184,9 +184,23 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
+            if (!SourceCodes.SourceCodes.GetSourceCodeFiles().Any())
+            {
+                MessageBox.Show("Ve zvolené složce nejsou žádné zdrojové kódy!");
+                Tabs.SelectedIndex = 0;
+                return;
+            }
+
+            if (!InputsOutputs.GetList().Any())
+            {
+                MessageBox.Show("Musíte nejdříve vytvořit testovací protokol!");
+                Tabs.SelectedIndex = 0;
+                return;
+            }
+
             //todo mozna vypnout UI?
             SetListViewToGrepMode(); //todo GREP!
-
+            butShowTestProgress.Visible = true;
             lbCodes.ClearSelected();
             rtbCode.Clear();
 
@@ -238,11 +252,11 @@ namespace CAC
                 return;
 
             foreach (string input in result.inputs)
-                lV.Items.Add(new ListViewItem(new[] {input, ""}));
+                lV.Items.Add(new ListViewItem(new[] {input, ""},lV.Groups[0]));
 
             foreach (KeyValuePair<string, string> output in result.Outputs)
             {
-                ListViewItem line=new ListViewItem(new[] {output.Key, output.Value});
+                ListViewItem line=new ListViewItem(new[] {output.Key, output.Value},lV.Groups[1]);
                 if (output.Key != output.Value)
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
