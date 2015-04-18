@@ -257,7 +257,7 @@ namespace CAC
             foreach (KeyValuePair<string, string> output in result.Outputs)
             {
                 ListViewItem line=new ListViewItem(new[] {output.Key, output.Value},lV.Groups[1]);
-                if (output.Key != output.Value)
+                if (result.LinesWithBadOutput.Contains(lV.Items.Count-result.inputs.Count))
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
             }
