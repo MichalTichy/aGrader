@@ -119,7 +119,10 @@ namespace CAC
             if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != 0)
                 //if theres any selected item and it isnt top one;
             {
-                InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex - 1);
+                int newIndex = lbObjects.SelectedIndex - 1;
+                InputsOutputs.Swap(lbObjects.SelectedIndex, newIndex);
+                InputsOutputsOnInOutListChanged(this, new EventArgs());
+                lbObjects.SelectedIndex = newIndex;
             }
         }
 
@@ -128,7 +131,10 @@ namespace CAC
             if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1)
                 //if theres any selected item and it isnt bottom one;
             {
-                InputsOutputs.Swap(lbObjects.SelectedIndex, lbObjects.SelectedIndex + 1);
+                int newIndex = lbObjects.SelectedIndex + 1;
+                InputsOutputs.Swap(lbObjects.SelectedIndex, newIndex);
+                InputsOutputsOnInOutListChanged(this, new EventArgs());
+                lbObjects.SelectedIndex = newIndex;
             }
         }
 
