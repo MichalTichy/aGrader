@@ -62,11 +62,11 @@ namespace CAC
             for (int a = 0; a < i; a++)
             {//-1 to get index from count
                 if (expectedOutputs.Count >i)
-                    outDictionary.Add(new KeyValuePair<string, string>(outputs[i-1], ""));
+                    outDictionary.Add(new KeyValuePair<string, string>(outputs[a], ""));
                 else if (outputs.Count() >i)
-                    outDictionary.Add(new KeyValuePair<string, string>("", expectedOutputs[i-1]));
+                    outDictionary.Add(new KeyValuePair<string, string>("", expectedOutputs[a]));
                 else
-                    outDictionary.Add(new KeyValuePair<string, string>(outputs[i-1], expectedOutputs[i-1]));
+                    outDictionary.Add(new KeyValuePair<string, string>(outputs[a], expectedOutputs[a]));
             }
 
             return outDictionary;
@@ -75,8 +75,22 @@ namespace CAC
         private void FindLinesWithBadOutputs()
         {
             foreach (KeyValuePair<string, string> output in Outputs)
+            {
+                try
+                {
+                    string value1 = output.Key.Replace('.', ',');
+                    string value2 = output.Value.Replace('.', ',');
+                    if (System.Math.Abs(decimal.Parse(value1) - decimal.Parse(value2))>(decimal)TestManager.Deviation)
+                        LinesWithBadOutput.Add(Outputs.IndexOf(output));
+                    continue;
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
                 if (output.Key != output.Value)
                     LinesWithBadOutput.Add(Outputs.IndexOf(output));
+            }
         }
 
         public void AddError(string errorMsg)

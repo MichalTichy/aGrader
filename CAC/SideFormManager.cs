@@ -58,7 +58,8 @@ namespace CAC
             [Description("VSTUP: text")] InputString,
             [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput, //todo přepsat popisek
             [Description("VÝSTUP: číslo")] OutputNumber,
-            [Description("VÝSTUP: text")] OutputString
+            [Description("VÝSTUP: text")] OutputString,
+            [Description("NASTAVENÍ: odchylka")] SettingsDeviation
         }
 
         public static string GetDescription(this Enum currentEnum)

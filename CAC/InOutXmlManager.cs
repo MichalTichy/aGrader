@@ -121,6 +121,18 @@ namespace CAC
             
         }
 
+        private static XmlNode GenerateIONode(SettingsDeviation ioForm, XmlDocument document)
+        {
+            XmlElement SettDeviation = document.CreateElement(ioForm.Name);
+
+            XmlElement Deviation = document.CreateElement("deviation");
+            Deviation.InnerText = ioForm.deviation.ToString();
+
+            SettDeviation.AppendChild(Deviation);
+
+            return SettDeviation;
+        }
+
         public static void AddIOsFromXml(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
@@ -166,6 +178,9 @@ namespace CAC
                             break;
                         case "OutputString":
                             InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
+                            break;
+                        case "SettingsDeviation":
+                            InputsOutputs.Add(new SettingsDeviation(Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
                             break;
                     }
                 }
