@@ -24,6 +24,15 @@ namespace UnitTests
             };
             Assert.AreEqual(new Equation("X0+X1-X2", test).Evaluate(), 5);
         }
+        [TestMethod]
+        public void RovniceNasobeniDesetinych()
+        {
+            Dictionary<string, decimal> test = new Dictionary<string, decimal>()
+            {
+                {"X0",(decimal) 27.94271145385820580}
+            };
+            new Equation("X0*4", test).Evaluate();
+        }
 
         [TestMethod]
         public void RovniceNasobeniDeleni()

@@ -21,6 +21,7 @@ namespace CAC.Math
             {
                 _equation=_equation.Replace(x.Key, x.Value.ToString());
             }
+           _equation = _equation.Replace(',', '.');
         }
 
         public double Evaluate()
