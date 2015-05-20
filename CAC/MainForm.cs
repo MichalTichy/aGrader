@@ -203,11 +203,12 @@ namespace CAC
             if (!InputsOutputs.GetList().Any())
             {
                 MessageBox.Show("Musíte nejdříve vytvořit testovací protokol!");
-                Tabs.SelectedIndex = 0;
+                Tabs.SelectedIndex = 1;
                 return;
             }
 
             //todo mozna vypnout UI?
+            Tabs.SelectedIndex = 0;
             SetListViewToGrepMode(); //todo GREP!
             butShowTestProgress.Visible = true;
             lbCodes.ClearSelected();
