@@ -7,6 +7,7 @@ using CAC.Math;
 
 namespace CAC.IO_Forms
 {
+    //todo validovani nefunguje tak jak by melo.
     //todo přejmenovat tbjahoda
     public partial class OutputNumberBasedOnRandomInput : Form
     {
