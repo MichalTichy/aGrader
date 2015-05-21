@@ -24,6 +24,16 @@ namespace UnitTests
             };
             Assert.AreEqual(new Equation("X0+X1-X2", test).Evaluate(), 5);
         }
+
+        [TestMethod]
+        public void RovniceZbytekPoDeleni()
+        {
+            Dictionary<string, decimal> test = new Dictionary<string, decimal>()
+            {
+                {"X0",11}
+            };
+            Assert.AreEqual(new Equation("X0%2", test).Evaluate(), 1);
+        }
         [TestMethod]
         public void RovniceNasobeniDesetinych()
         {

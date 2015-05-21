@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO Forms\OutputNumberMatchingConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\OutputNumberMatchingConditions.Designer.cs">
+      <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\SettingsDeviation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="sourceCodes\SourceCodes.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="TestResult.cs" />
+    <EmbeddedResource Include="IO Forms\OutputNumberMatchingConditions.resx">
+      <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\SettingsDeviation.resx">
       <DependentUpon>SettingsDeviation.cs</DependentUpon>
     </EmbeddedResource>

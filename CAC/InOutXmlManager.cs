@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using CAC.IO_Forms;
 
@@ -108,6 +110,19 @@ namespace CAC
             return outRandom;
         }
 
+        private static XmlNode GenerateIONode(OutputNumberMatchingConditions ioForm, XmlDocument document)
+        {
+            XmlElement outNum = document.CreateElement(ioForm.Name);
+
+            foreach (string condition in ioForm.Conditions)
+            {
+                XmlElement conditionElement = document.CreateElement("condition");
+                conditionElement.InnerText = condition;
+                outNum.AppendChild(conditionElement);
+            }
+            return outNum;
+        }
+
         private static XmlNode GenerateIONode(OutputString ioForm, XmlDocument document)
         {
             XmlElement outString = document.CreateElement(ioForm.Name);
@@ -199,6 +214,10 @@ namespace CAC
                         case "OutputNumberBasedOnRandomInput":
                             InputsOutputs.Add(
                                 new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
+                            break;
+                        case "OutputNumberMatchingConditions":
+                            List<string> conditions= (from XmlElement condition in element.GetElementsByTagName("condition") select condition.InnerText).ToList();
+                            InputsOutputs.Add(new OutputNumberMatchingConditions(conditions));
                             break;
                         case "OutputString":
                             InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
