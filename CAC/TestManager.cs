@@ -12,9 +12,9 @@ namespace CAC
     
     public static class TestManager
     {
-        private static double _deviation = 0.001; //default deviation
+        private static double _deviation = 0.001; //default deviatio
         private static List<string> _inputs = new List<string>();
-        private static List<string> _outputs = new List<string>();
+        private static List<KeyValuePair<string, OutputType>> _outputs = new List<KeyValuePair<string,OutputType>>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
         private static List<string> _prohibitedCommnads=new List<string>();
         private static List<string> _requiedCommnads=new List<string>();
@@ -23,7 +23,6 @@ namespace CAC
         {
             get { return _deviation; }
         }
-
 
         public static void TestAllSourceCodes()
         {
@@ -98,23 +97,33 @@ namespace CAC
 
         private static void ProcessData(OutputNumber output)
         {
-            _outputs.Add(output.Value.ToString());
+            _outputs.Add(new KeyValuePair<string, OutputType>(output.Value.ToString(),OutputType.Number));
         }
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
             Equation equation = new Equation(output.jahoda, _randomNumbers);
-            _outputs.Add(equation.Evaluate().ToString());
+            _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(),OutputType.Number));
         }
         private static void ProcessData(OutputString output)
         {
-            _outputs.Add(output.Text);
+            _outputs.Add(new KeyValuePair<string,OutputType>(output.Text,OutputType.Text));
+        }
+        private static void ProcessData(OutputNumberMatchingConditions output)
+        {
+            string conditions="";
+            foreach (string condition in output.Conditions)
+            {
+                if (conditions != "")
+                    conditions += '\n';
+                conditions += condition;
+            }
+            _outputs.Add(new KeyValuePair<string, OutputType>(conditions,OutputType.Math));
         }
 
         private static void ProcessData(SettingsDeviation deviation)
         {
             _deviation = deviation.deviation;
         }
-
         private static void ProcessData(SettingsProhibitedCommand prohibitedCommand)
         {
             if (!_prohibitedCommnads.Contains(prohibitedCommand.Text))
@@ -125,5 +134,13 @@ namespace CAC
             if (!_requiedCommnads.Contains(requiedCommand.Text))
                 _requiedCommnads.Add(requiedCommand.Text);
         }
+    }
+
+    public enum OutputType
+    {
+        Number,
+        Text,
+        Math,
+        None
     }
 }

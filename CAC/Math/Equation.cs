@@ -15,6 +15,13 @@ namespace CAC.Math
             InsertUnkownNumbersIntoEquation();
         }
 
+        public Equation(string equation, decimal number)
+        {
+            _equation = equation;
+            _unknownNumbers = new Dictionary<string, decimal> {{"X", number}};
+            InsertUnkownNumbersIntoEquation();
+        }
+
         private void InsertUnkownNumbersIntoEquation()
         {
             foreach (KeyValuePair<string, decimal> x in _unknownNumbers)
@@ -31,7 +38,7 @@ namespace CAC.Math
             table.Columns.Add("myExpression", string.Empty.GetType(), _equation);
             DataRow row = table.NewRow();
             table.Rows.Add(row);
-            return double.Parse((string) row["myExpression"]);
+            return double.Parse((string)row["myExpression"]);
         }
     }
 }

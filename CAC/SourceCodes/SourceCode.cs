@@ -78,7 +78,7 @@ namespace CAC.SourceCodes
             return false;
         }
 
-        public TestResult RunTest(List<string> inputs,List<string> expectedOutputs)
+        public TestResult RunTest(List<string> inputs,List<KeyValuePair<string, OutputType>> expectedOutputs)
         {
             _app.Start();
 
