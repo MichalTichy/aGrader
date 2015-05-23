@@ -129,7 +129,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "OutputNumberMatchingConditions";
-            this.Click += new System.EventHandler(this.OutputNumber_Activated);
+            this.Activated += new System.EventHandler(this.OutputNumber_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
