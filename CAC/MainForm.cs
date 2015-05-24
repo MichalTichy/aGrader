@@ -305,12 +305,18 @@ namespace CAC
         private static Color GetStatusColor(string status)
         {
             Color color;
-            if (status == "OK")
-                color = Color.Green;
-            else if (status == "testuje se")
-                color = Color.Orange;
-            else
-                color = Color.Red;
+            switch (status)
+            {
+                case "OK":
+                    color = Color.Green;
+                    break;
+                case "testuje se":
+                    color = Color.Orange;
+                    break;
+                default:
+                    color = Color.Red;
+                    break;
+            }
             return color;
         }
 
@@ -320,7 +326,7 @@ namespace CAC
             SetListViewToGrepMode();
         }
 
-        private void lV_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) //no selections for this listView
+        private void DissableListViewSelection(object sender, ListViewItemSelectionChangedEventArgs e) //no selections for this listView
         {
             if (e.IsSelected) e.Item.Selected = false;
         }

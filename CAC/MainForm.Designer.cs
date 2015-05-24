@@ -104,7 +104,7 @@ namespace CAC
             this.lV.TabIndex = 0;
             this.lV.UseCompatibleStateImageBehavior = false;
             this.lV.View = System.Windows.Forms.View.Details;
-            this.lV.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lV_ItemSelectionChanged);
+            this.lV.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.DissableListViewSelection);
             // 
             // BottomToolStripPanel
             // 
