@@ -88,7 +88,7 @@ namespace CAC
             if (code.Exists())
             {
                 rtbCode.Text = code.GetSourceCode()+"\n";
-                if (code.GetCompilationErrorMessage()!=null)
+                if (code.GetCompilationErrorMessage()!=null) //todo BUG?
                 {
                     int lineWithError = code.GetIdOfLineWithError();
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
@@ -219,7 +219,8 @@ namespace CAC
 
         private void SetListViewToGrepMode() //todo GREP!
         {
-            TestResult.ResultReady += ResultReady; //otestovat!
+            TestResult.ResultReady += ResultReady;
+            lV.ItemSelectionChanged+=lV_ItemSelectionChanged;
             lV.Items.Clear();
             lV.Columns.Clear();
 
@@ -244,6 +245,12 @@ namespace CAC
                     lV.Items.Add(line);
                 }
             }
+        }
+
+        private void lV_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            lV.ItemSelectionChanged -= lV_ItemSelectionChanged;
+            lbCodes.SelectedIndex = e.ItemIndex;
         }
 
         private void SetListViewToBananaMode(TestResult result) //todo BANANA!
@@ -324,11 +331,6 @@ namespace CAC
         {
             lbCodes.ClearSelected();
             SetListViewToGrepMode();
-        }
-
-        private void DissableListViewSelection(object sender, ListViewItemSelectionChangedEventArgs e) //no selections for this listView
-        {
-            if (e.IsSelected) e.Item.Selected = false;
         }
     }
 }
