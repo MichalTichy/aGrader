@@ -11,23 +11,23 @@ namespace CAC.SourceCodes
 {
     public class SourceCode
     {
-        private const int timeout = 45000;
+        private const int Timeout = 45000;
         public readonly string Name;
         //todo seradit public a private
         public readonly string Path;
         private Process _app;
-        private string _CompilationErrorMSG;
+        private string _compilationErrorMsg;
         private List<string> _testErrors = new List<string>();
-        private TestResult testResult;
+        private TestResult _testResult;
 
         public SourceCode(string path)
         {
-            string pathToTCC = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
+            string pathToTcc = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
             _app = new Process
             {
                 StartInfo =
                 {
-                    FileName = pathToTCC,
+                    FileName = pathToTcc,
                     UseShellExecute = false,
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
@@ -38,7 +38,7 @@ namespace CAC.SourceCodes
             };
             Path = path;
             Name = System.IO.Path.GetFileName(path);
-            _CompilationErrorMSG = GetError();
+            _compilationErrorMsg = GetError();
         }
 
         public override string ToString()
@@ -63,16 +63,16 @@ namespace CAC.SourceCodes
 
         public string GetCompilationErrorMessage()
         {
-            return _CompilationErrorMSG;
+            return _compilationErrorMsg;
         }
 
         public int GetIdOfLineWithError()
         {
             //todo remove magic numbers
-            if (_CompilationErrorMSG == null)
+            if (_compilationErrorMsg == null)
                 return -1;
             var newRegex = new Regex(@":(\d):");
-            return int.Parse(newRegex.Match(_CompilationErrorMSG).ToString().Replace(":", "")) - 2;
+            return int.Parse(newRegex.Match(_compilationErrorMsg).ToString().Replace(":", "")) - 2;
         }
 
         public bool Exists()
@@ -95,26 +95,26 @@ namespace CAC.SourceCodes
 
             string output = "";
             string error = "";
-            if (!_app.WaitForExit(timeout))
+            if (!_app.WaitForExit(Timeout))
             {
                 _app.Kill();
-                error += "Aplikace nebyla ukonžena před timeoutem (" + timeout/1000 + "s)\n";
+                error += "Aplikace nebyla ukonžena před timeoutem (" + Timeout/1000 + "s)\n";
             }
             output += outputReader.ReadToEnd();
             error += errorReader.ReadToEnd();
             int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
             var result = new TestResult(inputs, output, expectedOutputs, error, processorTime, Name);
-            testResult = result;
+            _testResult = result;
             foreach (string testError in _testErrors)
             {
-                testResult.AddError(testError);
+                _testResult.AddError(testError);
             }
             return result;
         }
 
         public TestResult GetResult()
         {
-            return testResult;
+            return _testResult;
         }
 
         public void AddTestError(string error)

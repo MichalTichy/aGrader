@@ -11,10 +11,10 @@ namespace CAC.Math
 {
     public static class EquationValidator
     {
-        public static bool IsValid(string equation, List<string> ExistingUnknowns)
+        public static bool IsValid(string equation, List<string> existingUnknowns)
         {
             //todo prejmenovat
-            Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation, ExistingUnknowns);
+            Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation, existingUnknowns);
 
             foreach (KeyValuePair<string, decimal> pair in numbersForEquation)
                 equation = equation.Replace(pair.Key, pair.Value.ToString());

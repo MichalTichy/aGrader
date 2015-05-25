@@ -10,7 +10,7 @@ namespace CAC
 {
     public static class InputsOutputs
     {
-        private static List<dynamic> InOutList = new List<dynamic>();
+        private static List<dynamic> _inOutList = new List<dynamic>();
         //todo refaktorovat
         public static event EventHandler<EventArgs> InOutListChanged;
 
@@ -22,46 +22,46 @@ namespace CAC
 
         public static IEnumerable<dynamic> GetList()
         {
-            return InOutList.AsReadOnly();
+            return _inOutList.AsReadOnly();
         }
 
         public static IEnumerable<dynamic> GetList(Type wantedType)
         {
-            return InOutList.Where(item => item.GetType() == wantedType).ToList();
+            return _inOutList.Where(item => item.GetType() == wantedType).ToList();
         }
 
         public static dynamic GetIOForm(int id)
         {
-            return InOutList[id];
+            return _inOutList[id];
         }
 
         public static int GetIdOfForm(dynamic form)
         {
-            return InOutList.IndexOf(form);
+            return _inOutList.IndexOf(form);
         }
 
         public static void Add(dynamic formIO)
         {
-            InOutList.Add(formIO);
+            _inOutList.Add(formIO);
             OnInOutListChanged();
         }
 
         public static void Remove(dynamic formIO)
         {
-            InOutList.Remove(formIO);
+            _inOutList.Remove(formIO);
             OnInOutListChanged();
         }
 
         public static void Swap(int index1, int index2)
         {
-            dynamic temp = InOutList[index1];
-            InOutList[index1] = InOutList[index2];
-            InOutList[index2] = temp;
+            dynamic temp = _inOutList[index1];
+            _inOutList[index1] = _inOutList[index2];
+            _inOutList[index2] = temp;
         }
 
         public static void Clear()
         {
-            InOutList.Clear();
+            _inOutList.Clear();
             OnInOutListChanged();
         }
     }

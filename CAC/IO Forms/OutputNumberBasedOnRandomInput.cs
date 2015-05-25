@@ -11,13 +11,13 @@ using CAC.Math;
 namespace CAC.IO_Forms
 {
     //todo validovani nefunguje tak jak by melo.
-    //todo přejmenovat tbjahoda
+    //todo přejmenovat tbMath
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         private List<string> _existingUnknowns = new List<string>();
         public bool Exists = false;
-        private bool isJahodaValid; //todo prejmenovat
-        public string jahoda; //todo prejmenovat
+        private bool _isJahodaValid; //todo prejmenovat
+        public string Math; //todo prejmenovat
 
         public OutputNumberBasedOnRandomInput()
         {
@@ -25,17 +25,17 @@ namespace CAC.IO_Forms
             FillLbNumbers();
         }
 
-        public OutputNumberBasedOnRandomInput(string jahoda)
+        public OutputNumberBasedOnRandomInput(string math)
         {
             InitializeComponent();
-            tbJahoda.Text = jahoda;
-            this.jahoda = jahoda;
+            tbJahoda.Text = math;
+            Math = math;
             FillLbNumbers();
         }
 
         private void butClose_Click(object sender, EventArgs e)
         {
-            if (!isJahodaValid && Exists)
+            if (!_isJahodaValid && Exists)
             {
                 DialogResult msg =
                     MessageBox.Show("Jahoda nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
@@ -50,7 +50,7 @@ namespace CAC.IO_Forms
         private void butAddOrDelete_Click(object sender, EventArgs e)
         {
             if (!Exists)
-                if (isJahodaValid)
+                if (_isJahodaValid)
                 {
                     InputsOutputs.Add(this);
                 }
@@ -71,17 +71,17 @@ namespace CAC.IO_Forms
 
         private void tbJahoda_Leave(object sender, EventArgs e)
         {
-            isJahodaValid = EquationValidator.IsValid(tbJahoda.Text, _existingUnknowns);
-            if (!isJahodaValid)
+            _isJahodaValid = EquationValidator.IsValid(tbJahoda.Text, _existingUnknowns);
+            if (!_isJahodaValid)
             {
                 tbJahoda.ForeColor = Color.Red;
-                isJahodaValid = false;
+                _isJahodaValid = false;
             }
             else
             {
                 tbJahoda.ResetForeColor();
-                jahoda = tbJahoda.Text;
-                isJahodaValid = true;
+                Math = tbJahoda.Text;
+                _isJahodaValid = true;
             }
         }
 
@@ -96,8 +96,8 @@ namespace CAC.IO_Forms
             lbNumbers.Items.Clear();
             foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof (InputRandomNumber)))
             {
-                lbNumbers.Items.Add(inputRandomNumber + " ZN: X" + inputRandomNumber.ID);
-                _existingUnknowns.Add('X' + inputRandomNumber.ID.ToString());
+                lbNumbers.Items.Add(inputRandomNumber + " ZN: X" + inputRandomNumber.Id);
+                _existingUnknowns.Add('X' + inputRandomNumber.Id.ToString());
             }
         }
     }

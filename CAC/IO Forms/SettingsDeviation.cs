@@ -10,19 +10,19 @@ namespace CAC.IO_Forms
 {
     public partial class SettingsDeviation : Form
     {
-        public double deviation;
+        public double Deviation;
         public bool Exists = false;
 
         public SettingsDeviation()
         {
             InitializeComponent();
-            deviation = (double) numeric.Value;
+            Deviation = (double) numeric.Value;
         }
 
         public SettingsDeviation(double deviation)
         {
             InitializeComponent();
-            this.deviation = deviation;
+            Deviation = deviation;
             numeric.Value = (decimal) deviation;
         }
 
@@ -50,12 +50,12 @@ namespace CAC.IO_Forms
 
         public override string ToString()
         {
-            return "NASTAVENÍ: maximální odchylka " + deviation;
+            return "NASTAVENÍ: maximální odchylka " + Deviation;
         }
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-            deviation = (double) numeric.Value;
+            Deviation = (double) numeric.Value;
         }
 
         private void InputNumber_Activated(object sender, EventArgs e)

@@ -64,10 +64,10 @@ namespace CAC
             XmlElement isDecimal = document.CreateElement("isDecimal");
             isDecimal.InnerText = ioForm.Decimal.ToString();
 
-            XmlElement ID = document.CreateElement("ID");
-            ID.InnerText = ioForm.ID.ToString();
+            XmlElement id = document.CreateElement("ID");
+            id.InnerText = ioForm.Id.ToString();
 
-            inRandomNumber.AppendChild(ID);
+            inRandomNumber.AppendChild(id);
             inRandomNumber.AppendChild(minvalue);
             inRandomNumber.AppendChild(maxvalue);
             inRandomNumber.AppendChild(isDecimal);
@@ -106,10 +106,10 @@ namespace CAC
         {
             XmlElement outRandom = document.CreateElement(ioForm.Name);
 
-            XmlElement jahoda = document.CreateElement("jahoda"); //todo jahoda found
-            jahoda.InnerText = ioForm.jahoda;
+            XmlElement math = document.CreateElement("Math"); //todo Math found
+            math.InnerText = ioForm.Math;
 
-            outRandom.AppendChild(jahoda);
+            outRandom.AppendChild(math);
 
             return outRandom;
         }
@@ -141,14 +141,14 @@ namespace CAC
 
         private static XmlNode GenerateIONode(SettingsDeviation ioForm, XmlDocument document)
         {
-            XmlElement SettDeviation = document.CreateElement(ioForm.Name);
+            XmlElement settDeviation = document.CreateElement(ioForm.Name);
 
-            XmlElement Deviation = document.CreateElement("deviation");
-            Deviation.InnerText = ioForm.deviation.ToString();
+            XmlElement deviation = document.CreateElement("deviation");
+            deviation.InnerText = ioForm.Deviation.ToString();
 
-            SettDeviation.AppendChild(Deviation);
+            settDeviation.AppendChild(deviation);
 
-            return SettDeviation;
+            return settDeviation;
         }
 
         private static XmlNode GenerateIONode(SettingsProhibitedCommand ioForm, XmlDocument document)
@@ -177,14 +177,14 @@ namespace CAC
 
         private static XmlNode GenerateIONode(ActionRepeatLast ioForm, XmlDocument document)
         {
-            XmlElement ActionRepeatLast = document.CreateElement(ioForm.Name);
+            XmlElement actionRepeatLast = document.CreateElement(ioForm.Name);
 
             XmlElement repetitions = document.CreateElement("repetitions");
             repetitions.InnerText = ioForm.Repetitions.ToString();
 
-            ActionRepeatLast.AppendChild(repetitions);
+            actionRepeatLast.AppendChild(repetitions);
 
-            return ActionRepeatLast;
+            return actionRepeatLast;
         }
 
         public static void AddIOsFromXml(string path)
@@ -228,7 +228,7 @@ namespace CAC
 
                         case "OutputNumberBasedOnRandomInput":
                             InputsOutputs.Add(
-                                new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
+                                new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("Math")[0].InnerText));
                             break;
                         case "OutputNumberMatchingConditions":
                             List<string> conditions =

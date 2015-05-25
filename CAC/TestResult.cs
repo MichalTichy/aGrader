@@ -18,20 +18,20 @@ namespace CAC
     {
         public readonly string FileName;
         public readonly int ProcessorTime;
-        public List<string> inputs;
+        public List<string> Inputs;
         public List<int> LinesWithBadOutput = new List<int>();
         public List<KeyValuePair<string, string>> Outputs;
-        public string status = "testuje se";
+        public string Status = "testuje se";
 
         public TestResult(List<string> inputs, string outputs, List<KeyValuePair<string, OutputType>> expectedOutputs,
             string errors, int processorTime, string fileName)
         {
             //todo refaktorovat
-            Outputs = parseOutputs(outputs, expectedOutputs);
+            Outputs = ParseOutputs(outputs, expectedOutputs);
             Errors = errors;
             ProcessorTime = processorTime;
             FileName = fileName;
-            this.inputs = inputs;
+            Inputs = inputs;
 
             EvaluateResult();
         }
@@ -48,13 +48,13 @@ namespace CAC
         private void EvaluateResult()
         {
             if (LinesWithBadOutput.Count == 0 && Errors.Length == 0)
-                status = "OK";
+                Status = "OK";
             else
-                status = "Test neproběhl úspěšně";
+                Status = "Test neproběhl úspěšně";
             OnResultReady(this);
         }
 
-        private List<KeyValuePair<string, string>> parseOutputs(string output,
+        private List<KeyValuePair<string, string>> ParseOutputs(string output,
             List<KeyValuePair<string, OutputType>> expectedOutputs)
         {
             //todo asi refaktor

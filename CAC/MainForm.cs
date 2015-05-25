@@ -236,9 +236,9 @@ namespace CAC
                 //todo refaktorovat
                 if (code.GetResult() != null)
                 {
-                    var line = new ListViewItem(new[] {code.Name, code.GetResult().status});
+                    var line = new ListViewItem(new[] {code.Name, code.GetResult().Status});
                     line.UseItemStyleForSubItems = false;
-                    line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().status);
+                    line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().Status);
                     lV.Items.Add(line);
                 }
                 else
@@ -273,13 +273,13 @@ namespace CAC
             if (result == null)
                 return;
 
-            foreach (string input in result.inputs)
+            foreach (string input in result.Inputs)
                 lV.Items.Add(new ListViewItem(new[] {input, ""}, lV.Groups[0]));
 
             foreach (KeyValuePair<string, string> output in result.Outputs)
             {
                 var line = new ListViewItem(new[] {output.Key, output.Value}, lV.Groups[1]);
-                if (result.LinesWithBadOutput.Contains(lV.Items.Count - result.inputs.Count))
+                if (result.LinesWithBadOutput.Contains(lV.Items.Count - result.Inputs.Count))
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
             }
@@ -304,9 +304,9 @@ namespace CAC
         private void UpdateRusult(TestResult result)
         {
             ListViewItem line = lV.FindItemWithText(result.FileName);
-            line.SubItems[1].Text = result.status;
+            line.SubItems[1].Text = result.Status;
 
-            Color color = GetStatusColor(result.status);
+            Color color = GetStatusColor(result.Status);
 
             line.SubItems[1].ForeColor = color;
         }

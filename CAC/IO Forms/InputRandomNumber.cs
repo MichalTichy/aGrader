@@ -10,7 +10,7 @@ namespace CAC.IO_Forms
     public partial class InputRandomNumber : Form
     {
         private static int _idCounter;
-        public readonly int ID;
+        public readonly int Id;
         public bool Decimal;
         public bool Exists = false;
         public decimal Max;
@@ -23,7 +23,7 @@ namespace CAC.IO_Forms
             Max = numMax.Value;
             Decimal = !cbNoDecimal.Checked;
             _idCounter++;
-            ID = _idCounter;
+            Id = _idCounter;
         }
 
         public InputRandomNumber(decimal min, decimal max, bool generateDecimal, int id)
@@ -37,7 +37,7 @@ namespace CAC.IO_Forms
             numMin.Value = min;
             numMax.Value = max;
             Decimal = generateDecimal;
-            ID = id;
+            Id = id;
         }
 
         private void numMax_ValueChanged(object sender, EventArgs e)

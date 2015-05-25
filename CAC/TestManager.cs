@@ -95,7 +95,7 @@ namespace CAC
                 num = random.Next((int) input.Min, (int) input.Max);
             }
             _inputs.Add(num.ToString().Replace(',', '.'));
-            _randomNumbers.Add('X' + input.ID.ToString(), num);
+            _randomNumbers.Add('X' + input.Id.ToString(), num);
             Thread.Sleep(1); //to ensure random numbers
         }
 
@@ -111,7 +111,7 @@ namespace CAC
 
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            var equation = new Equation(output.jahoda, _randomNumbers);
+            var equation = new Equation(output.Math, _randomNumbers);
             _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(), OutputType.Number));
         }
 
@@ -134,7 +134,7 @@ namespace CAC
 
         private static void ProcessData(SettingsDeviation deviation)
         {
-            _deviation = deviation.deviation;
+            _deviation = deviation.Deviation;
         }
 
         private static void ProcessData(SettingsProhibitedCommand prohibitedCommand)
