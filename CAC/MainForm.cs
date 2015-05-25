@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CAC.SourceCodes;
+
+#endregion
 
 namespace CAC
 {
@@ -17,19 +21,19 @@ namespace CAC
         {
             InitializeComponent();
             FillCbObjects();
-            cbobjects.SelectedIndexChanged+=cbobjects_SelectedIndexChanged;
-            InputsOutputs.InOutListChanged +=InputsOutputsOnInOutListChanged;
+            cbobjects.SelectedIndexChanged += cbobjects_SelectedIndexChanged;
+            InputsOutputs.InOutListChanged += InputsOutputsOnInOutListChanged;
         }
 
         private void InputsOutputsOnInOutListChanged(object sender, EventArgs eventArgs)
         {
             lbObjects.Items.Clear();
-            InputsOutputs.GetList().ToList().ForEach(i=> lbObjects.Items.Add(i.ToString()));
+            InputsOutputs.GetList().ToList().ForEach(i => lbObjects.Items.Add(i.ToString()));
         }
 
         private void FillCbObjects()
         {
-            Dictionary<string, int> sideFormsList = new Dictionary<string, int>();
+            var sideFormsList = new Dictionary<string, int>();
 
             foreach (SideFormManager.SideForms enumValue in
                 Enum.GetValues(typeof (SideFormManager.SideForms)))
@@ -80,20 +84,20 @@ namespace CAC
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
             lErrorMessage.Text = "";
-            if (lbCodes.SelectedItem==null) return;
+            if (lbCodes.SelectedItem == null) return;
             SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
-            
+
             SetListViewToBananaMode(code.GetResult());
 
             if (code.Exists())
             {
-                rtbCode.Text = code.GetSourceCode()+"\n";
-                if (code.GetCompilationErrorMessage()!=null) //todo BUG?
+                rtbCode.Text = code.GetSourceCode() + "\n";
+                if (code.GetCompilationErrorMessage() != null) //todo BUG?
                 {
                     int lineWithError = code.GetIdOfLineWithError();
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
-                    lErrorMessage.Text = "Kód nemůže být zkompilován! "+code.GetCompilationErrorMessage();
+                    lErrorMessage.Text = "Kód nemůže být zkompilován! " + code.GetCompilationErrorMessage();
                 }
             }
             else
@@ -145,7 +149,7 @@ namespace CAC
         {
             if (lbObjects.Items.Count > 0)
             {
-                SaveFileDialog saveXml = new SaveFileDialog();
+                var saveXml = new SaveFileDialog();
                 saveXml.Filter = @"XML files (*.xml)|*.xml";
                 if (saveXml.ShowDialog() == DialogResult.OK)
                 {
@@ -183,7 +187,7 @@ namespace CAC
 
             InputsOutputs.Clear();
 
-            OpenFileDialog openXml = new OpenFileDialog();
+            var openXml = new OpenFileDialog();
             openXml.Filter = "XML soubory (*.xml)|*.xml";
             if (openXml.ShowDialog() == DialogResult.OK)
             {
@@ -220,26 +224,26 @@ namespace CAC
         private void SetListViewToGrepMode() //todo GREP!
         {
             TestResult.ResultReady += ResultReady;
-            lV.ItemSelectionChanged+=lV_ItemSelectionChanged;
+            lV.ItemSelectionChanged += lV_ItemSelectionChanged;
             lV.Items.Clear();
             lV.Columns.Clear();
 
-            lV.Columns.Add("Jméno souboru",250);
-            lV.Columns.Add("Stav",249);
+            lV.Columns.Add("Jméno souboru", 250);
+            lV.Columns.Add("Stav", 249);
 
             foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
             {
                 //todo refaktorovat
                 if (code.GetResult() != null)
                 {
-                    ListViewItem line = new ListViewItem(new[] { code.Name, code.GetResult().status });
+                    var line = new ListViewItem(new[] {code.Name, code.GetResult().status});
                     line.UseItemStyleForSubItems = false;
                     line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().status);
                     lV.Items.Add(line);
                 }
                 else
                 {
-                    ListViewItem line = new ListViewItem(new[] { code.Name, "testuje se" });
+                    var line = new ListViewItem(new[] {code.Name, "testuje se"});
                     line.UseItemStyleForSubItems = false;
                     line.SubItems[1].ForeColor = Color.Orange;
                     lV.Items.Add(line);
@@ -259,40 +263,38 @@ namespace CAC
             lV.Columns.Clear();
             lV.Groups.Clear();
 
-            
+
             lV.Groups.Add(new ListViewGroup("Vstup"));
             lV.Groups.Add(new ListViewGroup("Výstup"));
 
-            lV.Columns.Add("Vstup/Výstup",250);
-            lV.Columns.Add("Očekávaný výstup",249);
+            lV.Columns.Add("Vstup/Výstup", 250);
+            lV.Columns.Add("Očekávaný výstup", 249);
 
             if (result == null)
                 return;
 
             foreach (string input in result.inputs)
-                lV.Items.Add(new ListViewItem(new[] {input, ""},lV.Groups[0]));
+                lV.Items.Add(new ListViewItem(new[] {input, ""}, lV.Groups[0]));
 
             foreach (KeyValuePair<string, string> output in result.Outputs)
             {
-                ListViewItem line=new ListViewItem(new[] {output.Key, output.Value},lV.Groups[1]);
-                if (result.LinesWithBadOutput.Contains(lV.Items.Count-result.inputs.Count))
+                var line = new ListViewItem(new[] {output.Key, output.Value}, lV.Groups[1]);
+                if (result.LinesWithBadOutput.Contains(lV.Items.Count - result.inputs.Count))
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
             }
 
-            if (result.Errors.Length!=0)
+            if (result.Errors.Length != 0)
             {
                 lV.Groups.Add(new ListViewGroup("Errory"));
-                foreach (string s in result.Errors.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
+                foreach (string s in result.Errors.Split(new[] {Environment.NewLine}, StringSplitOptions.None))
                 {
-                    ListViewItem line=new ListViewItem(s,lV.Groups[2]);
+                    var line = new ListViewItem(s, lV.Groups[2]);
                     line.BackColor = Color.Red;
                     lV.Items.Add(line);
                 }
             }
         }
-
-        private delegate void UpdateResultInvoker(TestResult result);
 
         private void ResultReady(object sender, TestResultArgs testResultArgs)
         {
@@ -332,5 +334,7 @@ namespace CAC
             lbCodes.ClearSelected();
             SetListViewToGrepMode();
         }
+
+        private delegate void UpdateResultInvoker(TestResult result);
     }
 }

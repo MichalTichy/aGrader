@@ -1,11 +1,31 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Reflection;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC
 {
     public static class SideFormManager
     {
+        public enum SideForms
+        {
+            [Description("VSTUP: textový soubor")] InputTextFile,
+            [Description("VSTUP: číslo")] InputNumber,
+            [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
+            [Description("VSTUP: text")] InputString,
+            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput, //todo přepsat popisek
+            [Description("VÝSTUP: číslo splňující podmínky")] OutputNumberMatchingConditions,
+            [Description("VÝSTUP: číslo")] OutputNumber,
+            [Description("VÝSTUP: text")] OutputString,
+            [Description("NASTAVENÍ: odchylka")] SettingsDeviation,
+            [Description("NASTAVENÍ: zakázaný příkaz")] SettingsProhibitedCommand,
+            [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
+            [Description("AKCE: opakování poslední akce")] ActionRepeatLast
+        }
+
         private static dynamic _sideForm;
 
         public static void Show(SideForms formName)
@@ -49,35 +69,6 @@ namespace CAC
             }
         }
 
-
-        public enum SideForms
-        {
-            [Description("VSTUP: textový soubor")]
-            InputTextFile,
-            [Description("VSTUP: číslo")]
-            InputNumber,
-            [Description("VSTUP: náhodné Číslo")]
-            InputRandomNumber,
-            [Description("VSTUP: text")]
-            InputString,
-            [Description("VÝSTUP: náhodné číslo")]
-            OutputNumberBasedOnRandomInput, //todo přepsat popisek
-            [Description("VÝSTUP: číslo splňující podmínky")]
-            OutputNumberMatchingConditions,
-            [Description("VÝSTUP: číslo")]
-            OutputNumber,
-            [Description("VÝSTUP: text")]
-            OutputString,
-            [Description("NASTAVENÍ: odchylka")]
-            SettingsDeviation,
-            [Description("NASTAVENÍ: zakázaný příkaz")]
-            SettingsProhibitedCommand,
-            [Description("NASTAVENÍ: vyžadovaný příkaz")]
-            SettingsRequiedCommand,
-            [Description("AKCE: opakování poslední akce")]
-            ActionRepeatLast
-        }
-
         public static string GetDescription(this Enum currentEnum)
         {
             string description;
@@ -98,16 +89,11 @@ namespace CAC
 
     public class DescriptionAttribute : Attribute
     {
-        private string _value;
-
         public DescriptionAttribute(string value)
         {
-            _value = value;
+            Value = value;
         }
 
-        public string Value
-        {
-            get { return _value; }
-        }
+        public string Value { get; private set; }
     }
 }

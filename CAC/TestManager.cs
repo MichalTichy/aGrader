@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,17 +9,18 @@ using CAC.IO_Forms;
 using CAC.Math;
 using CAC.SourceCodes;
 
+#endregion
+
 namespace CAC
 {
-    
     public static class TestManager
     {
         private static double _deviation = 0.001; //default deviatio
         private static List<string> _inputs = new List<string>();
-        private static List<KeyValuePair<string, OutputType>> _outputs = new List<KeyValuePair<string,OutputType>>();
+        private static List<KeyValuePair<string, OutputType>> _outputs = new List<KeyValuePair<string, OutputType>>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
-        private static List<string> _prohibitedCommnads=new List<string>();
-        private static List<string> _requiedCommnads=new List<string>();
+        private static List<string> _prohibitedCommnads = new List<string>();
+        private static List<string> _requiedCommnads = new List<string>();
 
         public static double Deviation
         {
@@ -29,10 +32,10 @@ namespace CAC
             GetInputsAndOutputs();
             foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
             {
-                var code1 = code;
+                SourceCode code1 = code;
                 CheckSourceCodeForProhibitedCommands(code1);
                 CheckSourceCodeForRequiedCommands(code1);
-                Thread thread = new Thread(delegate() { code1.RunTest(_inputs,_outputs); });
+                var thread = new Thread(delegate() { code1.RunTest(_inputs, _outputs); });
                 thread.Start(); //todo dodelat moznost zastavit praci
             }
         }
@@ -40,7 +43,8 @@ namespace CAC
         private static void CheckSourceCodeForRequiedCommands(SourceCode code1)
         {
             string sourceCode = File.ReadAllText(code1.Path);
-            foreach (string requiedCommnad in _requiedCommnads.Where(requiedCommnad => sourceCode.Contains(requiedCommnad)))
+            foreach (
+                string requiedCommnad in _requiedCommnads.Where(requiedCommnad => sourceCode.Contains(requiedCommnad)))
             {
                 code1.AddTestError("Nenalezen vyžadovaný příkaz: " + requiedCommnad);
             }
@@ -49,9 +53,11 @@ namespace CAC
         private static void CheckSourceCodeForProhibitedCommands(SourceCode code1)
         {
             string sourceCode = File.ReadAllText(code1.Path);
-            foreach (string prohibitedCommnad in _prohibitedCommnads.Where(prohibitedCommnad => sourceCode.Contains(prohibitedCommnad)))
+            foreach (
+                string prohibitedCommnad in
+                    _prohibitedCommnads.Where(prohibitedCommnad => sourceCode.Contains(prohibitedCommnad)))
             {
-                code1.AddTestError("Nalezen nepovolený příkaz: "+prohibitedCommnad);
+                code1.AddTestError("Nalezen nepovolený příkaz: " + prohibitedCommnad);
             }
         }
 
@@ -60,7 +66,7 @@ namespace CAC
             _inputs.Clear();
             _outputs.Clear();
             _randomNumbers.Clear();
-            foreach (var data in InputsOutputs.GetList())
+            foreach (dynamic data in InputsOutputs.GetList())
                 ProcessData(data);
         }
 
@@ -68,67 +74,75 @@ namespace CAC
         {
             _inputs.Add(input.Text);
         }
+
         private static void ProcessData(InputNumber input)
         {
             _inputs.Add(input.Value.ToString().Replace(',', '.'));
         }
+
         private static void ProcessData(InputRandomNumber input)
         {
-            Random random = new Random(DateTime.Now.Millisecond);
+            var random = new Random(DateTime.Now.Millisecond);
             decimal num;
             if (input.Decimal)
             {
-                decimal next = (decimal)random.NextDouble();
-                num = input.Min + (next * (input.Max - input.Min));
+                decimal next = (decimal) random.NextDouble();
+                num = input.Min + (next*(input.Max - input.Min));
                 num = System.Math.Round(num, 3);
             }
             else
             {
-                num = random.Next((int)input.Min, (int)input.Max);
+                num = random.Next((int) input.Min, (int) input.Max);
             }
-            _inputs.Add(num.ToString().Replace(',','.'));
+            _inputs.Add(num.ToString().Replace(',', '.'));
             _randomNumbers.Add('X' + input.ID.ToString(), num);
             Thread.Sleep(1); //to ensure random numbers
         }
-        private static void ProcessData(InputTextFile input)//todo dodělat
+
+        private static void ProcessData(InputTextFile input) //todo dodělat
         {
             throw new NotImplementedException();
         }
 
         private static void ProcessData(OutputNumber output)
         {
-            _outputs.Add(new KeyValuePair<string, OutputType>(output.Value.ToString(),OutputType.Number));
+            _outputs.Add(new KeyValuePair<string, OutputType>(output.Value.ToString(), OutputType.Number));
         }
+
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            Equation equation = new Equation(output.jahoda, _randomNumbers);
-            _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(),OutputType.Number));
+            var equation = new Equation(output.jahoda, _randomNumbers);
+            _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(), OutputType.Number));
         }
+
         private static void ProcessData(OutputString output)
         {
-            _outputs.Add(new KeyValuePair<string,OutputType>(output.Text,OutputType.Text));
+            _outputs.Add(new KeyValuePair<string, OutputType>(output.Text, OutputType.Text));
         }
+
         private static void ProcessData(OutputNumberMatchingConditions output)
         {
-            string conditions="";
+            string conditions = "";
             foreach (string condition in output.Conditions)
             {
                 if (conditions != "")
                     conditions += '\n';
                 conditions += condition;
             }
-            _outputs.Add(new KeyValuePair<string, OutputType>(conditions,OutputType.Math));
+            _outputs.Add(new KeyValuePair<string, OutputType>(conditions, OutputType.Math));
         }
 
         private static void ProcessData(SettingsDeviation deviation)
         {
             _deviation = deviation.deviation;
         }
+
         private static void ProcessData(SettingsProhibitedCommand prohibitedCommand)
         {
             if (!_prohibitedCommnads.Contains(prohibitedCommand.Text))
                 _prohibitedCommnads.Add(prohibitedCommand.Text);
         }
+
         private static void ProcessData(SettingsRequiedCommand requiedCommand)
         {
             if (!_requiedCommnads.Contains(requiedCommand.Text))

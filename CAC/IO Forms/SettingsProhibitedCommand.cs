@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.IO_Forms
 {

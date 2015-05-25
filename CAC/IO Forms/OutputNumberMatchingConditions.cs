@@ -1,19 +1,17 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.IO_Forms
 {
     public partial class OutputNumberMatchingConditions : Form
     {
+        public List<string> Conditions = new List<string>();
         public bool Exists = false;
-        public List<string> Conditions=new List<string>();
 
         public OutputNumberMatchingConditions()
         {
@@ -46,7 +44,7 @@ namespace CAC.IO_Forms
         {
             if (Conditions.Count == 1)
                 return "VÝSTUP: číslo splňující 1 podmínku.";
-            return "VÝSTUP: číslo splňující "+Conditions.Count+" podmínek.";
+            return "VÝSTUP: číslo splňující " + Conditions.Count + " podmínek.";
         }
 
         private void OutputNumber_Activated(object sender, EventArgs e)
@@ -72,7 +70,7 @@ namespace CAC.IO_Forms
 
         private void butRemoveConditon_Click(object sender, EventArgs e)
         {
-            if (lbConditions.SelectedItem==null)
+            if (lbConditions.SelectedItem == null)
             {
                 MessageBox.Show("Musíte zvolit kterou podmínku chcete vymazat.");
                 return;

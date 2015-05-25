@@ -1,22 +1,24 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
+#endregion
+
 namespace CAC
 {
-
     public static class InputsOutputs
     {
+        private static List<dynamic> InOutList = new List<dynamic>();
         //todo refaktorovat
         public static event EventHandler<EventArgs> InOutListChanged;
 
         public static void OnInOutListChanged()
         {
             if (InOutListChanged != null)
-                InOutListChanged(typeof (InputsOutputs),EventArgs.Empty);
+                InOutListChanged(typeof (InputsOutputs), EventArgs.Empty);
         }
-
-        private static List<dynamic> InOutList = new List<dynamic>();
 
         public static IEnumerable<dynamic> GetList()
         {

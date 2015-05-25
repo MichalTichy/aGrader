@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.SourceCodes
 {
@@ -11,10 +15,9 @@ namespace CAC.SourceCodes
         private static DirectoryInfo _sourceDir;
         private static List<SourceCode> _sourceCodeFiles = new List<SourceCode>();
 
-
         public static bool SetPath()
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog
+            var dialog = new FolderBrowserDialog
             {
                 Description = "Zvolte složku která obsahuje zdrojové kódy."
             };
@@ -33,7 +36,7 @@ namespace CAC.SourceCodes
 
         public static bool SetPath(string path)
         {
-            DirectoryInfo directoryInfo=new DirectoryInfo(path);
+            var directoryInfo = new DirectoryInfo(path);
             if (directoryInfo.Exists)
             {
                 _sourceDir = directoryInfo;

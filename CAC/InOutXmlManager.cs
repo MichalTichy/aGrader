@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using CAC.IO_Forms;
+
+#endregion
 
 namespace CAC
 {
@@ -10,7 +14,7 @@ namespace CAC
     {
         public static void ExportToXml(string path)
         {
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
             doc.AppendChild(declaration);
             XmlElement root = doc.CreateElement("Protocol");
@@ -133,7 +137,6 @@ namespace CAC
             outString.AppendChild(stringvalue);
 
             return outString;
-            
         }
 
         private static XmlNode GenerateIONode(SettingsDeviation ioForm, XmlDocument document)
@@ -187,7 +190,7 @@ namespace CAC
         public static void AddIOsFromXml(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
             doc.Load(path);
 
             XmlNode root = doc.DocumentElement;
@@ -195,7 +198,7 @@ namespace CAC
             {
                 foreach (XmlNode node in root.ChildNodes)
                 {
-                    XmlElement element = (XmlElement) node;
+                    var element = (XmlElement) node;
                     switch (node.Name)
                     {
                         case "InputTextFile":
@@ -228,23 +231,31 @@ namespace CAC
                                 new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("jahoda")[0].InnerText));
                             break;
                         case "OutputNumberMatchingConditions":
-                            List<string> conditions= (from XmlElement condition in element.GetElementsByTagName("condition") select condition.InnerText).ToList();
+                            List<string> conditions =
+                                (from XmlElement condition in element.GetElementsByTagName("condition")
+                                    select condition.InnerText).ToList();
                             InputsOutputs.Add(new OutputNumberMatchingConditions(conditions));
                             break;
                         case "OutputString":
                             InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
                             break;
                         case "SettingsDeviation":
-                            InputsOutputs.Add(new SettingsDeviation(Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new SettingsDeviation(
+                                    Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
                             break;
                         case "SettingsProhibitedCommand":
-                            InputsOutputs.Add(new SettingsProhibitedCommand((element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new SettingsProhibitedCommand(
+                                    (element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
                             break;
                         case "SettingsRequiedCommand":
-                            InputsOutputs.Add(new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
                             break;
                         case "ActionRepeatLast":
-                            InputsOutputs.Add(new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
+                            InputsOutputs.Add(
+                                new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
                             break;
                     }
                 }

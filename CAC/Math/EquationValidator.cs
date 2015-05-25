@@ -1,19 +1,23 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.Math
 {
     public static class EquationValidator
     {
-        public static bool IsValid(string equation,List<string> ExistingUnknowns)
-        { //todo prejmenovat
-            Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation,ExistingUnknowns);
+        public static bool IsValid(string equation, List<string> ExistingUnknowns)
+        {
+            //todo prejmenovat
+            Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation, ExistingUnknowns);
 
             foreach (KeyValuePair<string, decimal> pair in numbersForEquation)
-               equation= equation.Replace(pair.Key, pair.Value.ToString());
+                equation = equation.Replace(pair.Key, pair.Value.ToString());
 
             if (equation.Contains('X'))
             {
@@ -23,7 +27,7 @@ namespace CAC.Math
 
             try
             {
-                Equation eq = new Equation(equation, numbersForEquation);
+                var eq = new Equation(equation, numbersForEquation);
                 eq.Evaluate();
                 return true;
             }
@@ -34,14 +38,15 @@ namespace CAC.Math
             }
         }
 
-        private static Dictionary<string, decimal> GenerateNumbersForEquation(string equation, List<string> existingUnknowns)
+        private static Dictionary<string, decimal> GenerateNumbersForEquation(string equation,
+            List<string> existingUnknowns)
         {
-            Dictionary<string, decimal> numbersForEquation = new Dictionary<string, decimal>();
+            var numbersForEquation = new Dictionary<string, decimal>();
             int i = 0;
             foreach (string unknownId in existingUnknowns)
             {
                 i++;
-                numbersForEquation.Add(unknownId,i);
+                numbersForEquation.Add(unknownId, i);
             }
             return numbersForEquation;
         }

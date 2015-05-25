@@ -1,9 +1,12 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using CAC.Math;
+
+#endregion
 
 namespace CAC.IO_Forms
 {
@@ -11,10 +14,11 @@ namespace CAC.IO_Forms
     //todo přejmenovat tbjahoda
     public partial class OutputNumberBasedOnRandomInput : Form
     {
+        private List<string> _existingUnknowns = new List<string>();
         public bool Exists = false;
+        private bool isJahodaValid; //todo prejmenovat
         public string jahoda; //todo prejmenovat
-        private bool isJahodaValid;//todo prejmenovat
-        private List<string> _existingUnknowns=new List<string>(); 
+
         public OutputNumberBasedOnRandomInput()
         {
             InitializeComponent();
@@ -33,7 +37,9 @@ namespace CAC.IO_Forms
         {
             if (!isJahodaValid && Exists)
             {
-                DialogResult msg = MessageBox.Show("Jahoda nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.","Upozornění",MessageBoxButtons.OKCancel);
+                DialogResult msg =
+                    MessageBox.Show("Jahoda nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
+                        "Upozornění", MessageBoxButtons.OKCancel);
                 if (msg == DialogResult.Cancel) return;
                 InputsOutputs.Remove(this);
             }
@@ -65,9 +71,9 @@ namespace CAC.IO_Forms
 
         private void tbJahoda_Leave(object sender, EventArgs e)
         {
-            isJahodaValid = EquationValidator.IsValid(tbJahoda.Text,_existingUnknowns);
+            isJahodaValid = EquationValidator.IsValid(tbJahoda.Text, _existingUnknowns);
             if (!isJahodaValid)
-            {  
+            {
                 tbJahoda.ForeColor = Color.Red;
                 isJahodaValid = false;
             }
@@ -88,10 +94,10 @@ namespace CAC.IO_Forms
         private void FillLbNumbers()
         {
             lbNumbers.Items.Clear();
-            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof(InputRandomNumber)))
+            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof (InputRandomNumber)))
             {
-                lbNumbers.Items.Add(inputRandomNumber+" ZN: X"+inputRandomNumber.ID);
-                _existingUnknowns.Add('X'+inputRandomNumber.ID.ToString());
+                lbNumbers.Items.Add(inputRandomNumber + " ZN: X" + inputRandomNumber.ID);
+                _existingUnknowns.Add('X' + inputRandomNumber.ID.ToString());
             }
         }
     }

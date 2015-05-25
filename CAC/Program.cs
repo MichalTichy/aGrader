@@ -1,12 +1,16 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC
 {
     internal static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main()

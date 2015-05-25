@@ -1,10 +1,11 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
-using System.Threading.Tasks;
 using CAC.Math;
+
+#endregion
 
 namespace CAC
 {
@@ -16,23 +17,14 @@ namespace CAC
     public class TestResult
     {
         public readonly string FileName;
-        public List<KeyValuePair<string, string>> Outputs;
-        public List<string> inputs; 
         public readonly int ProcessorTime;
-        public string Errors { get; private set; }
-        public List<int> LinesWithBadOutput=new List<int>(); 
-        public string status="testuje se";
+        public List<string> inputs;
+        public List<int> LinesWithBadOutput = new List<int>();
+        public List<KeyValuePair<string, string>> Outputs;
+        public string status = "testuje se";
 
-
-        public static event EventHandler<TestResultArgs> ResultReady;
-
-        protected virtual void OnResultReady(TestResult result)
-        {
-            if (ResultReady != null)
-                ResultReady(this, new TestResultArgs() {Result = result});
-        }
-
-        public TestResult(List<string> inputs,string outputs, List<KeyValuePair<string, OutputType>> expectedOutputs, string errors, int processorTime, string fileName)
+        public TestResult(List<string> inputs, string outputs, List<KeyValuePair<string, OutputType>> expectedOutputs,
+            string errors, int processorTime, string fileName)
         {
             //todo refaktorovat
             Outputs = parseOutputs(outputs, expectedOutputs);
@@ -44,6 +36,15 @@ namespace CAC
             EvaluateResult();
         }
 
+        public string Errors { get; private set; }
+        public static event EventHandler<TestResultArgs> ResultReady;
+
+        protected virtual void OnResultReady(TestResult result)
+        {
+            if (ResultReady != null)
+                ResultReady(this, new TestResultArgs {Result = result});
+        }
+
         private void EvaluateResult()
         {
             if (LinesWithBadOutput.Count == 0 && Errors.Length == 0)
@@ -53,29 +54,33 @@ namespace CAC
             OnResultReady(this);
         }
 
-        private List<KeyValuePair<string, string>> parseOutputs(string output, List<KeyValuePair<string, OutputType>> expectedOutputs)
+        private List<KeyValuePair<string, string>> parseOutputs(string output,
+            List<KeyValuePair<string, OutputType>> expectedOutputs)
         {
             //todo asi refaktor
-            string[]outputs=output.Replace("\r","").Split('\n');
-            List<KeyValuePair<string, string>> outDictionary = new List<KeyValuePair<string, string>>();
+            string[] outputs = output.Replace("\r", "").Split('\n');
+            var outDictionary = new List<KeyValuePair<string, string>>();
 
             int i = ((expectedOutputs.Count >= outputs.Count()) ? expectedOutputs.Count : outputs.Count());
             for (int a = 0; a < i; a++)
-            {//-1 to get index from count
-                if (expectedOutputs.Count >i)
-                    outDictionary.Add(EvaluateOutput(outputs[a], new KeyValuePair<string, OutputType>("",OutputType.None),a));
-                else if (outputs.Count() >i)
-                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a],a));
+            {
+//-1 to get index from count
+                if (expectedOutputs.Count > i)
+                    outDictionary.Add(EvaluateOutput(outputs[a],
+                        new KeyValuePair<string, OutputType>("", OutputType.None), a));
+                else if (outputs.Count() > i)
+                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a));
                 else
-                    outDictionary.Add(EvaluateOutput(outputs[a], expectedOutputs[a],a));
+                    outDictionary.Add(EvaluateOutput(outputs[a], expectedOutputs[a], a));
             }
 
             return outDictionary;
         }
 
-        private KeyValuePair<string, string> EvaluateOutput(string output, KeyValuePair<string,OutputType> expectedOutput,int line)
+        private KeyValuePair<string, string> EvaluateOutput(string output,
+            KeyValuePair<string, OutputType> expectedOutput, int line)
         {
-            if (output=="")
+            if (output == "")
             {
                 LinesWithBadOutput.Add(line);
                 return new KeyValuePair<string, string>("", expectedOutput.Key);
@@ -85,16 +90,16 @@ namespace CAC
             {
                 case OutputType.None:
                     LinesWithBadOutput.Add(line);
-                    return new KeyValuePair<string, string>(output,"");
+                    return new KeyValuePair<string, string>(output, "");
                 case OutputType.Number:
-                    EvaluateNumericOutput(output, expectedOutput.Key,line);
+                    EvaluateNumericOutput(output, expectedOutput.Key, line);
                     break;
                 case OutputType.Text:
-                    EvaluateTextOutput(output, expectedOutput.Key,line);
+                    EvaluateTextOutput(output, expectedOutput.Key, line);
                     break;
                 case OutputType.Math:
-                    EvaluateMathOutput(output, expectedOutput.Key.Replace("X",output), line);
-                    return new KeyValuePair<string, string>(output,expectedOutput.Key.Replace("\n"," && "));
+                    EvaluateMathOutput(output, expectedOutput.Key.Replace("X", output), line);
+                    return new KeyValuePair<string, string>(output, expectedOutput.Key.Replace("\n", " && "));
                 default:
                     LinesWithBadOutput.Add(line);
                     break;
@@ -107,7 +112,7 @@ namespace CAC
             bool ok = true;
             foreach (string condition in expectedOutput.Split('\n'))
             {
-                Equation math = new Equation(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
+                var math = new Equation(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
                 double d1 = math.Evaluate();
                 double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
 
@@ -119,9 +124,9 @@ namespace CAC
                 LinesWithBadOutput.Add(line);
         }
 
-        private void EvaluateTextOutput(string output, string expectedOutput,int line)
+        private void EvaluateTextOutput(string output, string expectedOutput, int line)
         {
-            if (output!=expectedOutput)
+            if (output != expectedOutput)
             {
                 LinesWithBadOutput.Add(line);
             }
@@ -131,7 +136,7 @@ namespace CAC
         {
             output = output.Replace('.', ',');
             expectedOutput = expectedOutput.Replace('.', ',');
-            if (System.Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal)TestManager.Deviation)
+            if (System.Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
                 LinesWithBadOutput.Add(line);
         }
 

@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿#region
+
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.IO_Forms
 {
     public partial class SettingsDeviation : Form
     {
-        public bool Exists = false;
         public double deviation;
+        public bool Exists = false;
 
         public SettingsDeviation()
         {
@@ -38,7 +36,7 @@ namespace CAC.IO_Forms
         {
             if (!Exists)
             {
-                if (InputsOutputs.GetList(typeof(SettingsDeviation)).Any())
+                if (InputsOutputs.GetList(typeof (SettingsDeviation)).Any())
                 {
                     MessageBox.Show("Odchylka je již nastavena!");
                     return;

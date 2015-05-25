@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿#region
+
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.IO_Forms
 {
@@ -26,7 +24,7 @@ namespace CAC.IO_Forms
             Repetitions = (int) numeric.Value;
             labLastAction.Text = InputsOutputs.GetList().Last().ToString();
         }
-        
+
         public ActionRepeatLast(int numberOfRepetitions)
         {
             InitializeComponent();
@@ -37,7 +35,11 @@ namespace CAC.IO_Forms
 
         private bool CheckIfPreviousActionIsRepeatable()
         {
-            string[] nonRepetable = { "ActionRepeatLast", "SettingsDeviation", "SettingsProhibitedCommand", "SettingsRequiedCommand" };
+            string[] nonRepetable =
+            {
+                "ActionRepeatLast", "SettingsDeviation", "SettingsProhibitedCommand",
+                "SettingsRequiedCommand"
+            };
             if (!InputsOutputs.GetList().Any())
             {
                 MessageBox.Show("Není co opakovat.");
@@ -53,6 +55,7 @@ namespace CAC.IO_Forms
 
             return true;
         }
+
         private void butClose_Click(object sender, EventArgs e)
         {
             SideFormManager.Close();
@@ -67,6 +70,7 @@ namespace CAC.IO_Forms
                 InputsOutputs.Remove(this);
             SideFormManager.Close();
         }
+
         public override string ToString()
         {
             return "AKCE: opakuj předešlý krok " + Repetitions + "x";
@@ -74,7 +78,7 @@ namespace CAC.IO_Forms
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-            Repetitions = (int)numeric.Value;
+            Repetitions = (int) numeric.Value;
         }
 
         private void InputNumber_Activated(object sender, EventArgs e)

@@ -1,16 +1,20 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.IO_Forms
 {
     public partial class InputRandomNumber : Form
     {
+        private static int _idCounter;
+        public readonly int ID;
         public bool Decimal;
         public bool Exists = false;
         public decimal Max;
         public decimal Min;
-        private static int _idCounter=0;
-        public readonly int ID;
 
         public InputRandomNumber()
         {
@@ -22,7 +26,7 @@ namespace CAC.IO_Forms
             ID = _idCounter;
         }
 
-        public InputRandomNumber(decimal min, decimal max, bool generateDecimal,int id)
+        public InputRandomNumber(decimal min, decimal max, bool generateDecimal, int id)
         {
             InitializeComponent();
             numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa

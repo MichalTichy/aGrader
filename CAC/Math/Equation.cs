@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Data;
+
+#endregion
 
 namespace CAC.Math
 {
     public class Equation
-    { //todo prejmenovat
+    {
+        //todo prejmenovat
         private string _equation;
-        private Dictionary<string,decimal> _unknownNumbers;
+        private Dictionary<string, decimal> _unknownNumbers;
 
         public Equation(string equation, Dictionary<string, decimal> unknownNumbers)
         {
@@ -26,19 +31,19 @@ namespace CAC.Math
         {
             foreach (KeyValuePair<string, decimal> x in _unknownNumbers)
             {
-                _equation=_equation.Replace(x.Key, x.Value.ToString());
+                _equation = _equation.Replace(x.Key, x.Value.ToString());
             }
-           _equation = _equation.Replace(',', '.');
+            _equation = _equation.Replace(',', '.');
         }
 
         public double Evaluate()
         {
             //Vypujceno z WEBU
-            DataTable table = new DataTable();
+            var table = new DataTable();
             table.Columns.Add("myExpression", string.Empty.GetType(), _equation);
             DataRow row = table.NewRow();
             table.Rows.Add(row);
-            return double.Parse((string)row["myExpression"]);
+            return double.Parse((string) row["myExpression"]);
         }
     }
 }

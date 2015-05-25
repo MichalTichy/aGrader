@@ -1,22 +1,24 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+
+#endregion
 
 namespace CAC.SourceCodes
 {
     public class SourceCode
     {
-        //todo seradit public a private
-        public readonly string Path;
-        private TestResult testResult;
-
-        private Process _app;
         private const int timeout = 45000;
         public readonly string Name;
+        //todo seradit public a private
+        public readonly string Path;
+        private Process _app;
         private string _CompilationErrorMSG;
-        private List<string> _testErrors=new List<string>(); 
+        private List<string> _testErrors = new List<string>();
+        private TestResult testResult;
 
         public SourceCode(string path)
         {
@@ -43,11 +45,11 @@ namespace CAC.SourceCodes
         {
             return Name;
         }
+
         public string GetSourceCode()
         {
             return File.ReadAllText(Path);
         }
-
 
         private string GetError()
         {
@@ -55,19 +57,21 @@ namespace CAC.SourceCodes
             if (!_app.WaitForExit(300))
                 _app.Kill();
             string errors = _app.StandardError.ReadLine();
-            
+
             return errors;
         }
+
         public string GetCompilationErrorMessage()
         {
             return _CompilationErrorMSG;
         }
+
         public int GetIdOfLineWithError()
         {
             //todo remove magic numbers
             if (_CompilationErrorMSG == null)
                 return -1;
-            Regex newRegex= new Regex(@":(\d):");
+            var newRegex = new Regex(@":(\d):");
             return int.Parse(newRegex.Match(_CompilationErrorMSG).ToString().Replace(":", "")) - 2;
         }
 
@@ -78,7 +82,7 @@ namespace CAC.SourceCodes
             return false;
         }
 
-        public TestResult RunTest(List<string> inputs,List<KeyValuePair<string, OutputType>> expectedOutputs)
+        public TestResult RunTest(List<string> inputs, List<KeyValuePair<string, OutputType>> expectedOutputs)
         {
             _app.Start();
 
@@ -89,7 +93,7 @@ namespace CAC.SourceCodes
             foreach (string input in inputs)
                 inputWriter.WriteLine(input);
 
-            string output="";
+            string output = "";
             string error = "";
             if (!_app.WaitForExit(timeout))
             {
@@ -99,7 +103,7 @@ namespace CAC.SourceCodes
             output += outputReader.ReadToEnd();
             error += errorReader.ReadToEnd();
             int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
-            TestResult result=new TestResult(inputs,output,expectedOutputs,error,processorTime,Name);
+            var result = new TestResult(inputs, output, expectedOutputs, error, processorTime, Name);
             testResult = result;
             foreach (string testError in _testErrors)
             {
