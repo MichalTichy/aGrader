@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
 {
+    //todo usporadat
     [TestClass]
     public class Rovnice
     {
@@ -149,7 +150,5 @@ namespace UnitTests
             Assert.IsTrue(result.Errors.Length == 0); //no errors ocured
             Assert.IsTrue(result.LinesWithBadOutput.Count == 0); //all outputs matched
         }
-
-
     }
 }

@@ -134,6 +134,12 @@ namespace CAC
             if (!_requiedCommnads.Contains(requiedCommand.Text))
                 _requiedCommnads.Add(requiedCommand.Text);
         }
+
+        private static void ProcessData(ActionRepeatLast repeatLast)
+        {
+            for (int i = 0; i < repeatLast.Repetitions; i++)
+                ProcessData(InputsOutputs.GetIOForm(InputsOutputs.GetIdOfForm(repeatLast) - 1));
+        }
     }
 
     public enum OutputType

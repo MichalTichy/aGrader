@@ -43,6 +43,7 @@
             this.numeric.Name = "numeric";
             this.numeric.Size = new System.Drawing.Size(143, 20);
             this.numeric.TabIndex = 0;
+            this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
             // 
             // label1
             // 
@@ -80,6 +81,7 @@
             this.butClose.TabIndex = 15;
             this.butClose.Text = "Zavřít";
             this.butClose.UseVisualStyleBackColor = true;
+            this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
             // 
@@ -89,6 +91,7 @@
             this.butAddOrDelete.TabIndex = 14;
             this.butAddOrDelete.Text = "Přidat";
             this.butAddOrDelete.UseVisualStyleBackColor = true;
+            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // ActionRepeatLast
             // 
@@ -106,6 +109,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ActionRepeatLast";
+            this.Activated += new System.EventHandler(this.InputNumber_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

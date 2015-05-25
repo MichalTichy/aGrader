@@ -74,6 +74,8 @@ namespace CAC
             SettingsProhibitedCommand,
             [Description("NASTAVENÍ: vyžadovaný příkaz")]
             SettingsRequiedCommand,
+            [Description("AKCE: opakování poslední akce")]
+            ActionRepeatLast
         }
 
         public static string GetDescription(this Enum currentEnum)

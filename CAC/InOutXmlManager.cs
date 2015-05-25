@@ -172,6 +172,18 @@ namespace CAC
             return settRequiedCommand;
         }
 
+        private static XmlNode GenerateIONode(ActionRepeatLast ioForm, XmlDocument document)
+        {
+            XmlElement ActionRepeatLast = document.CreateElement(ioForm.Name);
+
+            XmlElement repetitions = document.CreateElement("repetitions");
+            repetitions.InnerText = ioForm.Repetitions.ToString();
+
+            ActionRepeatLast.AppendChild(repetitions);
+
+            return ActionRepeatLast;
+        }
+
         public static void AddIOsFromXml(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
@@ -230,6 +242,9 @@ namespace CAC
                             break;
                         case "SettingsRequiedCommand":
                             InputsOutputs.Add(new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
+                            break;
+                        case "ActionRepeatLast":
+                            InputsOutputs.Add(new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
                             break;
                     }
                 }
