@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO Forms\ActionRepeatLast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\ActionRepeatLast.Designer.cs">
+      <DependentUpon>ActionRepeatLast.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\OutputNumberMatchingConditions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="sourceCodes\SourceCodes.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="TestResult.cs" />
+    <EmbeddedResource Include="IO Forms\ActionRepeatLast.resx">
+      <DependentUpon>ActionRepeatLast.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\OutputNumberMatchingConditions.resx">
       <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
