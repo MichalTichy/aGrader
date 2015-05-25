@@ -21,7 +21,7 @@ namespace CAC.Mathematic
 
             if (equation.Contains('X'))
             {
-                MessageBox.Show("Jahoda obsahuje neexistující neznámou.");
+                MessageBox.Show("Matematický příklad obsahuje neexistující neznámou.");
                 return false;
             }
 
@@ -33,7 +33,7 @@ namespace CAC.Mathematic
             }
             catch (Exception)
             {
-                MessageBox.Show("Nezprávný tvar jahody!");
+                MessageBox.Show("Nezprávný tvar matematického příkladu!");
                 return false;
             }
         }
