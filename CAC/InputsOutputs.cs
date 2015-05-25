@@ -7,6 +7,7 @@ namespace CAC
 
     public static class InputsOutputs
     {
+        //todo refaktorovat
         public static event EventHandler<EventArgs> InOutListChanged;
 
         public static void OnInOutListChanged()
@@ -30,6 +31,11 @@ namespace CAC
         public static dynamic GetIOForm(int id)
         {
             return InOutList[id];
+        }
+
+        public static int GetIdOfForm(dynamic form)
+        {
+            return InOutList.IndexOf(form);
         }
 
         public static void Add(dynamic formIO)
