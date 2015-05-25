@@ -16,7 +16,7 @@ namespace CAC.IO_Forms
     {
         private List<string> _existingUnknowns = new List<string>();
         public bool Exists = false;
-        private bool _isJahodaValid; //todo prejmenovat
+        private bool _isMathValid; //todo prejmenovat
         public string Math; //todo prejmenovat
 
         public OutputNumberBasedOnRandomInput()
@@ -35,10 +35,10 @@ namespace CAC.IO_Forms
 
         private void butClose_Click(object sender, EventArgs e)
         {
-            if (!_isJahodaValid && Exists)
+            if (!_isMathValid && Exists)
             {
                 DialogResult msg =
-                    MessageBox.Show("Jahoda nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
+                    MessageBox.Show("Matematický příklad nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
                         "Upozornění", MessageBoxButtons.OKCancel);
                 if (msg == DialogResult.Cancel) return;
                 InputsOutputs.Remove(this);
@@ -50,7 +50,7 @@ namespace CAC.IO_Forms
         private void butAddOrDelete_Click(object sender, EventArgs e)
         {
             if (!Exists)
-                if (_isJahodaValid)
+                if (_isMathValid)
                 {
                     InputsOutputs.Add(this);
                 }
@@ -71,17 +71,17 @@ namespace CAC.IO_Forms
 
         private void tbJahoda_Leave(object sender, EventArgs e)
         {
-            _isJahodaValid = MathValidator.IsValid(tbJahoda.Text, _existingUnknowns);
-            if (!_isJahodaValid)
+            _isMathValid = MathValidator.IsValid(tbJahoda.Text, _existingUnknowns);
+            if (!_isMathValid)
             {
                 tbJahoda.ForeColor = Color.Red;
-                _isJahodaValid = false;
+                _isMathValid = false;
             }
             else
             {
                 tbJahoda.ResetForeColor();
                 Math = tbJahoda.Text;
-                _isJahodaValid = true;
+                _isMathValid = true;
             }
         }
 
