@@ -5,22 +5,22 @@ using System.Data;
 
 #endregion
 
-namespace CAC.Math
+namespace CAC.Mathematic
 {
-    public class Equation
+    public class Math
     {
         //todo prejmenovat
         private string _equation;
         private Dictionary<string, decimal> _unknownNumbers;
 
-        public Equation(string equation, Dictionary<string, decimal> unknownNumbers)
+        public Math(string equation, Dictionary<string, decimal> unknownNumbers)
         {
             _equation = equation;
             _unknownNumbers = unknownNumbers;
             InsertUnkownNumbersIntoEquation();
         }
 
-        public Equation(string equation, decimal number)
+        public Math(string equation, decimal number)
         {
             _equation = equation;
             _unknownNumbers = new Dictionary<string, decimal> {{"X", number}};

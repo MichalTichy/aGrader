@@ -80,8 +80,8 @@
     <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Math\Equation.cs" />
-    <Compile Include="Math\EquationValidator.cs" />
+    <Compile Include="Mathematic\Math.cs" />
+    <Compile Include="Mathematic\MathValidator.cs" />
     <Compile Include="IO Forms\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -6,8 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using CAC.IO_Forms;
-using CAC.Math;
-using CAC.SourceCodes;
+using CAC.Mathematic;
+using CAC.sourceCodes;
+using Math = CAC.Mathematic.Math;
 
 #endregion
 
@@ -30,7 +31,7 @@ namespace CAC
         public static void TestAllSourceCodes()
         {
             GetInputsAndOutputs();
-            foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
+            foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
             {
                 SourceCode code1 = code;
                 CheckSourceCodeForProhibitedCommands(code1);
@@ -111,7 +112,7 @@ namespace CAC
 
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            var equation = new Equation(output.Math, _randomNumbers);
+            var equation = new Math(output.Math, _randomNumbers);
             _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(), OutputType.Number));
         }
 

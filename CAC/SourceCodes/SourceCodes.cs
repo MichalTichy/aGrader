@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace CAC.SourceCodes
+namespace CAC.sourceCodes
 {
     public static class SourceCodes
     {

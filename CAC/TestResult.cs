@@ -3,7 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CAC.Math;
+using CAC.Mathematic;
+using Math = CAC.Mathematic.Math;
 
 #endregion
 
@@ -112,7 +113,7 @@ namespace CAC
             bool ok = true;
             foreach (string condition in expectedOutput.Split('\n'))
             {
-                var math = new Equation(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
+                var math = new Math(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
                 double d1 = math.Evaluate();
                 double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
 

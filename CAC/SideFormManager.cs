@@ -16,7 +16,7 @@ namespace CAC
             [Description("VSTUP: číslo")] InputNumber,
             [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
             [Description("VSTUP: text")] InputString,
-            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput, //todo přepsat popisek
+            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput,
             [Description("VÝSTUP: číslo splňující podmínky")] OutputNumberMatchingConditions,
             [Description("VÝSTUP: číslo")] OutputNumber,
             [Description("VÝSTUP: text")] OutputString,

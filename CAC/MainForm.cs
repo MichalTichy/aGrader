@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using CAC.SourceCodes;
+using CAC.sourceCodes;
 
 #endregion
 
@@ -50,20 +50,20 @@ namespace CAC
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.SourceCodes.SetPath())
+            if (SourceCodes.SetPath())
             {
-                tbpath.Text = SourceCodes.SourceCodes.GetPath();
+                tbpath.Text = SourceCodes.GetPath();
                 UpdateLbCodes();
             }
         }
 
         private void UpdateLbCodes()
         {
-            SourceCodes.SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles();
             lbCodes.Items.Clear();
-            if (SourceCodes.SourceCodes.GetSourceCodeFiles().Count != 0)
+            if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {
-                foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
+                foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
                 {
                     lbCodes.Items.Add(code);
                 }
@@ -75,7 +75,7 @@ namespace CAC
 
         private void butReload_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.SourceCodes.IsDirectorySet())
+            if (SourceCodes.IsDirectorySet())
                 UpdateLbCodes();
             else
                 MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
@@ -85,7 +85,7 @@ namespace CAC
         {
             lErrorMessage.Text = "";
             if (lbCodes.SelectedItem == null) return;
-            SourceCode code = SourceCodes.SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
+            SourceCode code = SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
 
             SetListViewToBananaMode(code.GetResult());
 
@@ -103,7 +103,7 @@ namespace CAC
             else
             {
                 MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
-                SourceCodes.SourceCodes.ReloadSourceCodeFiles();
+                SourceCodes.ReloadSourceCodeFiles();
                 UpdateLbCodes();
             }
         }
@@ -197,7 +197,7 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
-            if (!SourceCodes.SourceCodes.GetSourceCodeFiles().Any())
+            if (!SourceCodes.GetSourceCodeFiles().Any())
             {
                 MessageBox.Show("Ve zvolené složce nejsou žádné zdrojové kódy!");
                 Tabs.SelectedIndex = 0;
@@ -231,7 +231,7 @@ namespace CAC
             lV.Columns.Add("Jméno souboru", 250);
             lV.Columns.Add("Stav", 249);
 
-            foreach (SourceCode code in SourceCodes.SourceCodes.GetSourceCodeFiles())
+            foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
             {
                 //todo refaktorovat
                 if (code.GetResult() != null)

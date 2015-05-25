@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using CAC;
 using CAC.IO_Forms;
-using CAC.Math;
-using CAC.SourceCodes;
+using CAC.Mathematic;
+using CAC.sourceCodes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
@@ -25,7 +25,7 @@ namespace UnitTests
                 {"X1", 15},
                 {"X2", 20}
             };
-            Assert.AreEqual(new Equation("X0+X1-X2", test).Evaluate(), 5);
+            Assert.AreEqual(new Math("X0+X1-X2", test).Evaluate(), 5);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace UnitTests
             {
                 {"X0", 11}
             };
-            Assert.AreEqual(new Equation("X0%2", test).Evaluate(), 1);
+            Assert.AreEqual(new Math("X0%2", test).Evaluate(), 1);
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace UnitTests
             {
                 {"X0", (decimal) 27.94271145385820580}
             };
-            new Equation("X0*4", test).Evaluate();
+            new Math("X0*4", test).Evaluate();
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace UnitTests
                 {"X1", 15},
                 {"X2", 20}
             };
-            Assert.AreEqual(new Equation("X0*X1/X2", test).Evaluate(), 7.5);
+            Assert.AreEqual(new Math("X0*X1/X2", test).Evaluate(), 7.5);
         }
 
         [TestMethod]
@@ -71,17 +71,17 @@ namespace UnitTests
                 {"X3", 12},
                 {"X4", 3}
             };
-            Assert.AreEqual(new Equation("(20+X0)/X1+X2*X3-X4", test).Evaluate(), 239);
+            Assert.AreEqual(new Math("(20+X0)/X1+X2*X3-X4", test).Evaluate(), 239);
         }
 
         [TestMethod]
         public void ValidatorRovnice()
         {
-            Assert.IsTrue(EquationValidator.IsValid("X0+1*X1", new List<string> {"X0", "X1"}));
-            Assert.IsTrue(EquationValidator.IsValid("25+3", new List<string>()));
-            Assert.IsFalse(EquationValidator.IsValid("invalidstring", new List<string>()));
-            Assert.IsTrue(EquationValidator.IsValid("X2+X3+X5+X8", new List<string> {"X2", "X3", "X5", "X8"}));
-            Assert.IsFalse(EquationValidator.IsValid("X2+X3+X5+X8", new List<string> {"X9999", "X3", "X5", "X8"}));
+            Assert.IsTrue(MathValidator.IsValid("X0+1*X1", new List<string> {"X0", "X1"}));
+            Assert.IsTrue(MathValidator.IsValid("25+3", new List<string>()));
+            Assert.IsFalse(MathValidator.IsValid("invalidstring", new List<string>()));
+            Assert.IsTrue(MathValidator.IsValid("X2+X3+X5+X8", new List<string> {"X2", "X3", "X5", "X8"}));
+            Assert.IsFalse(MathValidator.IsValid("X2+X3+X5+X8", new List<string> {"X9999", "X3", "X5", "X8"}));
         }
     }
 

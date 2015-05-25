@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using CAC.Math;
+using CAC.Mathematic;
 
 #endregion
 
@@ -56,7 +56,7 @@ namespace CAC.IO_Forms
                 }
                 else
                 {
-                    MessageBox.Show("Musíte zdat platnou jahodu."); //todo přepsat
+                    MessageBox.Show("Musíte zadat platný matematický příklad.");
                     return;
                 }
             else
@@ -71,7 +71,7 @@ namespace CAC.IO_Forms
 
         private void tbJahoda_Leave(object sender, EventArgs e)
         {
-            _isJahodaValid = EquationValidator.IsValid(tbJahoda.Text, _existingUnknowns);
+            _isJahodaValid = MathValidator.IsValid(tbJahoda.Text, _existingUnknowns);
             if (!_isJahodaValid)
             {
                 tbJahoda.ForeColor = Color.Red;

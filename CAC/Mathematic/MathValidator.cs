@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace CAC.Math
+namespace CAC.Mathematic
 {
-    public static class EquationValidator
+    public static class MathValidator
     {
         public static bool IsValid(string equation, List<string> existingUnknowns)
         {
@@ -27,7 +27,7 @@ namespace CAC.Math
 
             try
             {
-                var eq = new Equation(equation, numbersForEquation);
+                var eq = new Math(equation, numbersForEquation);
                 eq.Evaluate();
                 return true;
             }
