@@ -10,9 +10,9 @@ using CAC.IO_Forms;
 
 namespace CAC
 {
-    internal static class InOutXmlManager
+    internal static class XmlManager
     {
-        public static void ExportToXml(string path)
+        public static void Export(string path)
         {
             var doc = new XmlDocument();
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -26,6 +26,7 @@ namespace CAC
             doc.AppendChild(root);
             doc.Save(path);
         }
+        #region generation of XML nodes
 
         private static XmlNode GenerateIONode(InputNumber ioForm, XmlDocument document)
         {
@@ -186,8 +187,9 @@ namespace CAC
 
             return actionRepeatLast;
         }
+        #endregion
 
-        public static void AddIOsFromXml(string path)
+        public static void Import(string path)
         {
             //TODO REFAKTOROVAT!!!!!!!!
             var doc = new XmlDocument();
