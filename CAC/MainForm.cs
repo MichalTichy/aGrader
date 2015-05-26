@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using CAC.sourceCodes;
@@ -189,10 +190,32 @@ namespace CAC
 
             var openXml = new OpenFileDialog();
             openXml.Filter = "XML soubory (*.xml)|*.xml";
-            if (openXml.ShowDialog() == DialogResult.OK)
+            if (openXml.ShowDialog() != DialogResult.OK)
+                return;
+            try
             {
                 XmlManager.Import(openXml.FileName);
             }
+            #region expetion handling
+            catch (FormatException)
+            {
+                MessageBox.Show("Zvolený XML soubor není podporován.");
+            }
+            catch (InvalidDataException exception)
+            {
+                MessageBox.Show(exception.Message + "není podporován a nebyl importován.");
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Soubor nebyl nalezen");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Během importu se vyskytla chyba!");
+                InputsOutputs.Clear();
+            }
+            #endregion
+
         }
 
         private void butRunTest_Click(object sender, EventArgs e)
