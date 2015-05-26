@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using CAC.IO_Forms;
@@ -196,7 +197,7 @@ namespace CAC
 
             XmlNode root = doc.DocumentElement;
             if (root.Name != "Protocol")
-                throw new FormatException("Bad format of XML");
+                throw new FormatException();
             foreach (XmlNode node in root.ChildNodes)
             {
                 #region import logic
@@ -259,6 +260,8 @@ namespace CAC
                         InputsOutputs.Add(
                             new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
                         break;
+                    default:
+                        throw new InvalidDataException(node.Name);
                 }
                 #endregion
             }
