@@ -1,4 +1,5 @@
 **Application for automatic testing if C source codes meet the assignment.**
+
 Assignments can contain many different inputs (numbers, random numbers, strings,...) and outputs.
 
 *planned features:*
