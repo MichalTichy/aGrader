@@ -16,7 +16,7 @@ namespace CAC
 {
     public static class TestManager
     {
-        private static double _deviation = 0.001; //default deviatio
+        private static double _deviation = 0.001; //default deviation
         private static List<string> _inputs = new List<string>();
         private static List<KeyValuePair<string, OutputType>> _outputs = new List<KeyValuePair<string, OutputType>>();
         private static Dictionary<string, decimal> _randomNumbers = new Dictionary<string, decimal>();
@@ -71,6 +71,7 @@ namespace CAC
                 ProcessData(data);
         }
 
+        #region processingData
         private static void ProcessData(InputString input)
         {
             _inputs.Add(input.Text);
@@ -155,6 +156,7 @@ namespace CAC
             for (int i = 0; i < repeatLast.Repetitions; i++)
                 ProcessData(InputsOutputs.GetIOForm(InputsOutputs.GetIdOfForm(repeatLast) - 1));
         }
+        #endregion
     }
 
     public enum OutputType
