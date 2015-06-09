@@ -70,7 +70,7 @@ namespace CAC
                     outDictionary.Add(EvaluateOutput(outputs[a],
                         new KeyValuePair<string, OutputType>("", OutputType.None), a));
                 else if (outputs.Count() > i)
-                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a));
+                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a)); //todo bug pri neshodnem poctu vstupu ocekavanych a skutecnych
                 else
                     outDictionary.Add(EvaluateOutput(outputs[a], expectedOutputs[a], a));
             }
