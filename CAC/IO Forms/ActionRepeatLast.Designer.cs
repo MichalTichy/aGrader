@@ -1,11 +1,14 @@
-﻿namespace CAC.IO_Forms
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms
 {
     partial class ActionRepeatLast
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -118,11 +121,11 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown numeric;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labLastAction;
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
+        private NumericUpDown numeric;
+        private Label label1;
+        private Label label2;
+        private Label labLastAction;
+        private Button butClose;
+        private Button butAddOrDelete;
     }
 }

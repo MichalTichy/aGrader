@@ -6,9 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using CAC.IO_Forms;
-using CAC.Mathematic;
 using CAC.sourceCodes;
-using Math = CAC.Mathematic.Math;
 
 #endregion
 
@@ -90,7 +88,7 @@ namespace CAC
             {
                 decimal next = (decimal) random.NextDouble();
                 num = input.Min + (next*(input.Max - input.Min));
-                num = System.Math.Round(num, 3);
+                num = Math.Round(num, 3);
             }
             else
             {
@@ -113,7 +111,7 @@ namespace CAC
 
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            var equation = new Math(output.Math, _randomNumbers);
+            var equation = new Mathematic.Math(output.Math, _randomNumbers);
             _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(), OutputType.Number));
         }
 

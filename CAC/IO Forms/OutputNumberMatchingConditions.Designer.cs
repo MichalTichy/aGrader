@@ -1,11 +1,14 @@
-﻿namespace CAC.IO_Forms
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms
 {
     partial class OutputNumberMatchingConditions
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -137,13 +140,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbConditions;
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
-        private System.Windows.Forms.TextBox tbCondition;
-        private System.Windows.Forms.Button butAddCondition;
-        private System.Windows.Forms.Button butRemoveConditon;
-        private System.Windows.Forms.Label label2;
+        private Label label1;
+        private ListBox lbConditions;
+        private Button butClose;
+        private Button butAddOrDelete;
+        private TextBox tbCondition;
+        private Button butAddCondition;
+        private Button butRemoveConditon;
+        private Label label2;
     }
 }

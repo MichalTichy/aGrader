@@ -1,11 +1,14 @@
-﻿namespace CAC.IO_Forms
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CAC.IO_Forms
 {
     partial class SettingsProhibitedCommand
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -92,9 +95,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbString;
-        private System.Windows.Forms.Button butClose;
-        private System.Windows.Forms.Button butAddOrDelete;
+        private Label label1;
+        private TextBox tbString;
+        private Button butClose;
+        private Button butAddOrDelete;
     }
 }

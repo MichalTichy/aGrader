@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CAC.Mathematic;
 using Math = CAC.Mathematic.Math;
 
 #endregion
