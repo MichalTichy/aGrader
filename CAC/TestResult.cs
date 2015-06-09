@@ -62,15 +62,14 @@ namespace CAC
             string[] outputs = output.Replace("\r", "").Split('\n');
             var outDictionary = new List<KeyValuePair<string, string>>();
 
-            int i = ((expectedOutputs.Count >= outputs.Count()) ? expectedOutputs.Count : outputs.Count());
+            int i = (expectedOutputs.Count >= outputs.Count()) ? expectedOutputs.Count : outputs.Count();
             for (int a = 0; a < i; a++)
             {
-//-1 to get index from count
-                if (expectedOutputs.Count > i)
+                if (expectedOutputs.Count <= a)
                     outDictionary.Add(EvaluateOutput(outputs[a],
                         new KeyValuePair<string, OutputType>("", OutputType.None), a));
-                else if (outputs.Count() > i)
-                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a)); //todo bug pri neshodnem poctu vstupu ocekavanych a skutecnych
+                else if (outputs.Count() <= a)
+                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a));
                 else
                     outDictionary.Add(EvaluateOutput(outputs[a], expectedOutputs[a], a));
             }
