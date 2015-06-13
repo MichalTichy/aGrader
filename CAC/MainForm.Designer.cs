@@ -333,7 +333,7 @@ namespace CAC
             this.butShowTestProgress.Name = "butShowTestProgress";
             this.butShowTestProgress.Size = new System.Drawing.Size(75, 23);
             this.butShowTestProgress.TabIndex = 9;
-            this.butShowTestProgress.Text = "průběh testu";
+            this.butShowTestProgress.Text = "průběh testů";
             this.butShowTestProgress.UseVisualStyleBackColor = true;
             this.butShowTestProgress.Visible = false;
             this.butShowTestProgress.Click += new System.EventHandler(this.butShowTestProgress_Click);
