@@ -58,6 +58,7 @@ namespace CAC
             this.lbObjects = new System.Windows.Forms.ListBox();
             this.lErrorMessage = new System.Windows.Forms.Label();
             this.butShowTestProgress = new System.Windows.Forms.Button();
+            this.butOpenFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -321,9 +322,9 @@ namespace CAC
             // lErrorMessage
             // 
             this.lErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lErrorMessage.Location = new System.Drawing.Point(240, 12);
+            this.lErrorMessage.Location = new System.Drawing.Point(287, 12);
             this.lErrorMessage.Name = "lErrorMessage";
-            this.lErrorMessage.Size = new System.Drawing.Size(271, 23);
+            this.lErrorMessage.Size = new System.Drawing.Size(224, 23);
             this.lErrorMessage.TabIndex = 8;
             this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -338,11 +339,23 @@ namespace CAC
             this.butShowTestProgress.Visible = false;
             this.butShowTestProgress.Click += new System.EventHandler(this.butShowTestProgress_Click);
             // 
+            // butOpenFile
+            // 
+            this.butOpenFile.Location = new System.Drawing.Point(198, 12);
+            this.butOpenFile.Name = "butOpenFile";
+            this.butOpenFile.Size = new System.Drawing.Size(83, 23);
+            this.butOpenFile.TabIndex = 10;
+            this.butOpenFile.Text = "otevřít soubor";
+            this.butOpenFile.UseVisualStyleBackColor = true;
+            this.butOpenFile.Visible = false;
+            this.butOpenFile.Click += new System.EventHandler(this.butOpenFile_Click);
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 368);
+            this.Controls.Add(this.butOpenFile);
             this.Controls.Add(this.butShowTestProgress);
             this.Controls.Add(this.lErrorMessage);
             this.Controls.Add(this.Tabs);
@@ -395,6 +408,7 @@ namespace CAC
         private ListBox lbObjects;
         private ListView lV;
         private Button butShowTestProgress;
+        private Button butOpenFile;
     }
 }
 

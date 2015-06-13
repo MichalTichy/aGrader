@@ -246,6 +246,8 @@ namespace CAC
 
         private void SetListViewToGrepMode() //todo GREP!
         {
+            butOpenFile.Visible = false;
+
             TestResult.ResultReady += ResultReady;
             lV.ItemSelectionChanged += lV_ItemSelectionChanged;
             lV.Items.Clear();
@@ -282,6 +284,8 @@ namespace CAC
 
         private void SetListViewToBananaMode(TestResult result) //todo BANANA!
         {
+            butOpenFile.Visible = true;
+
             lV.Items.Clear();
             lV.Columns.Clear();
             lV.Groups.Clear();
@@ -359,5 +363,10 @@ namespace CAC
         }
 
         private delegate void UpdateResultInvoker(TestResult result);
+
+        private void butOpenFile_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(SourceCodes.GetSourceCode(lbCodes.SelectedIndex).Path);
+        }
     }
 }
