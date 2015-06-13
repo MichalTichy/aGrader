@@ -98,7 +98,7 @@ namespace CAC
                     int lineWithError = code.GetIdOfLineWithError();
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
-                    lErrorMessage.Text = "Kód nemůže být zkompilován! " + code.GetCompilationErrorMessage();
+                    lErrorMessage.Text = "Kód nemůže být zkompilován!";
                 }
             }
             else

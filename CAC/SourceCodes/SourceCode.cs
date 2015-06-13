@@ -71,7 +71,7 @@ namespace CAC.sourceCodes
             //todo remove magic numbers
             if (_compilationErrorMsg == null)
                 return -1;
-            var newRegex = new Regex(@":(\d):");
+            var newRegex = new Regex(@":(\d*):");
             return int.Parse(newRegex.Match(_compilationErrorMsg).ToString().Replace(":", "")) - 2;
         }
 
