@@ -68,10 +68,25 @@ namespace CAC
                 {
                     lbCodes.Items.Add(code);
                 }
+                CheckForIllegalFilenames();
             }
             else
                 MessageBox.Show("Nebyly nalezeny žádné platné soubory.");
             rtbCode.Clear();
+        }
+
+        private void CheckForIllegalFilenames()
+        {
+            char[] illegalChars = {'-',' ','_'}; //todo doplnit
+            foreach (object name in lbCodes.Items)
+            {
+                if (name.ToString().IndexOfAny(illegalChars)!=-1)
+                {
+                    MessageBox.Show(name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
+                    lbCodes.Items.Clear();
+                    return;
+                }
+            }
         }
 
         private void butReload_Click(object sender, EventArgs e)
