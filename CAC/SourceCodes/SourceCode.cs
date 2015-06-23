@@ -98,11 +98,11 @@ namespace CAC.sourceCodes
             if (!_app.WaitForExit(Timeout))
             {
                 _app.Kill();
-                error += "Aplikace nebyla ukonžena před timeoutem (" + Timeout/1000 + "s)\n";
+                error += "Aplikace nebyla ukonžena před timeoutem (" + Timeout / 1000 + "s)\n";
             }
             output += outputReader.ReadToEnd();
             error += errorReader.ReadToEnd();
-            int processorTime = (int) _app.TotalProcessorTime.TotalMilliseconds;
+            int processorTime = (int)_app.TotalProcessorTime.TotalMilliseconds;
             var result = new TestResult(inputs, output, expectedOutputs, error, processorTime, Name);
             _testResult = result;
             foreach (string testError in _testErrors)
