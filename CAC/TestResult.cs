@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Math = CAC.Mathematic.Math;
 
@@ -135,7 +136,13 @@ namespace CAC
         {
             output = output.Replace('.', ',');
             expectedOutput = expectedOutput.Replace('.', ',');
-            if (System.Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
+            NumberFormatInfo numberFormats = CultureInfo.CurrentCulture.NumberFormat;
+
+            if (expectedOutput.Contains(numberFormats.PositiveInfinitySymbol) ||
+                expectedOutput.Contains(numberFormats.NegativeInfinitySymbol))
+                LinesWithBadOutput.Add(line);
+
+            else if (System.Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
                 LinesWithBadOutput.Add(line);
         }
 
