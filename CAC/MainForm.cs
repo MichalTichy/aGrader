@@ -17,8 +17,6 @@ namespace CAC
     public partial class CaC : Form
     {
         //todo grafy
-        //todo JSON misto XML?
-        //todo použít indexery
         //todo dát související věci k sobě
         public CaC()
         {
