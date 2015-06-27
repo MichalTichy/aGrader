@@ -27,7 +27,6 @@ namespace CAC.sourceCodes
             if (dialogres == DialogResult.OK)
             {
                 _sourceDir = new DirectoryInfo(dialog.SelectedPath);
-                ReloadSourceCodeFiles();
                 return true;
             }
 
@@ -40,7 +39,6 @@ namespace CAC.sourceCodes
             if (directoryInfo.Exists)
             {
                 _sourceDir = directoryInfo;
-                ReloadSourceCodeFiles();
                 return true;
             }
             return false;
@@ -58,7 +56,6 @@ namespace CAC.sourceCodes
 
         public static void ReloadSourceCodeFiles()
         {
-            //todo spouští se 2x při prvním zvolení cesty
             _sourceCodeFiles.Clear();
             foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
