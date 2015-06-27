@@ -6,6 +6,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using CAC.IO_Forms;
+using CAC.Mathematic;
 using CAC.sourceCodes;
 
 #endregion
@@ -147,6 +149,17 @@ namespace CAC
                 InputsOutputsOnInOutListChanged(this, new EventArgs());
                 lbObjects.SelectedIndex = newIndex;
             }
+            CheckIfMathInOutputRandomNumbersIsValid();
+        }
+
+        private void CheckIfMathInOutputRandomNumbersIsValid()
+        {
+            foreach (OutputNumberBasedOnRandomInput form in InputsOutputs.GetList(typeof(OutputNumberBasedOnRandomInput)))
+            {
+                if (form.IsMathValid()) continue;
+                MessageBox.Show("Požadovaná náhodná čísla nelze nadále použít!");
+                SideFormManager.ShowExisting(form);
+            }
         }
 
         private void butMoveDown_Click(object sender, EventArgs e)
@@ -159,6 +172,7 @@ namespace CAC
                 InputsOutputsOnInOutListChanged(this, new EventArgs());
                 lbObjects.SelectedIndex = newIndex;
             }
+            CheckIfMathInOutputRandomNumbersIsValid();
         }
 
         private void butExport_Click(object sender, EventArgs e)
@@ -175,7 +189,7 @@ namespace CAC
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Nepodařilo se exportovat data do XML souboru.");
+                        MessageBox.Show("Nepodařilo se exportovat data do XML souboru."); //todo catching general Exception is bad idea
                     }
                     MessageBox.Show("Soubor byl úspěšně vyexportován.");
                 }
