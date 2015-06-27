@@ -108,7 +108,7 @@ namespace CAC
         {
             XmlElement outRandom = document.CreateElement(ioForm.Name);
 
-            XmlElement math = document.CreateElement("Math"); //todo Math found
+            XmlElement math = document.CreateElement("Math");
             math.InnerText = ioForm.Math;
 
             outRandom.AppendChild(math);

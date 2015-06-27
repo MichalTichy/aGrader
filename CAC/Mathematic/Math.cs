@@ -9,7 +9,6 @@ namespace CAC.Mathematic
 {
     public class Math
     {
-        //todo prejmenovat
         private string _equation;
         private Dictionary<string, decimal> _unknownNumbers;
 
