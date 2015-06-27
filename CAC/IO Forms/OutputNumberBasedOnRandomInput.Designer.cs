@@ -35,7 +35,7 @@ namespace CAC.IO_Forms
             this.butAddOrDelete = new System.Windows.Forms.Button();
             this.lbNumbers = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbJahoda = new System.Windows.Forms.TextBox();
+            this.tbMath = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // butClose
@@ -76,20 +76,20 @@ namespace CAC.IO_Forms
             this.label1.TabIndex = 19;
             this.label1.Text = "Číslo závislé na\r\nnáhodném vstupu";
             // 
-            // tbJahoda
+            // tbMath
             // 
-            this.tbJahoda.Location = new System.Drawing.Point(14, 173);
-            this.tbJahoda.Name = "tbJahoda";
-            this.tbJahoda.Size = new System.Drawing.Size(292, 20);
-            this.tbJahoda.TabIndex = 22;
-            this.tbJahoda.Leave += new System.EventHandler(this.tbJahoda_Leave);
+            this.tbMath.Location = new System.Drawing.Point(14, 173);
+            this.tbMath.Name = "tbMath";
+            this.tbMath.Size = new System.Drawing.Size(292, 20);
+            this.tbMath.TabIndex = 22;
+            this.tbMath.Leave += new System.EventHandler(this.tbMath_Leave);
             // 
             // OutputNumberBasedOnRandomInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 228);
-            this.Controls.Add(this.tbJahoda);
+            this.Controls.Add(this.tbMath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbNumbers);
             this.Controls.Add(this.butClose);
@@ -111,6 +111,6 @@ namespace CAC.IO_Forms
         private Button butAddOrDelete;
         private ListBox lbNumbers;
         private Label label1;
-        private TextBox tbJahoda;
+        private TextBox tbMath;
     }
 }

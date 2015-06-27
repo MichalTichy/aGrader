@@ -1,8 +1,10 @@
 ﻿#region
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using CAC.Mathematic;
 
@@ -11,31 +13,27 @@ using CAC.Mathematic;
 namespace CAC.IO_Forms
 {
     //todo validovani nefunguje tak jak by melo.
-    //todo přejmenovat tbMath
     public partial class OutputNumberBasedOnRandomInput : Form
     {
         private List<string> _existingUnknowns = new List<string>();
         public bool Exists = false;
-        private bool _isMathValid; //todo prejmenovat
-        public string Math; //todo prejmenovat
+        public string Math;
 
         public OutputNumberBasedOnRandomInput()
         {
             InitializeComponent();
-            FillLbNumbers();
         }
 
         public OutputNumberBasedOnRandomInput(string math)
         {
             InitializeComponent();
-            tbJahoda.Text = math;
+            tbMath.Text = math;
             Math = math;
-            FillLbNumbers();
         }
 
         private void butClose_Click(object sender, EventArgs e)
         {
-            if (!_isMathValid && Exists)
+            if (!IsMathValid() && Exists)
             {
                 DialogResult msg =
                     MessageBox.Show("Matematický příklad nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
@@ -50,7 +48,7 @@ namespace CAC.IO_Forms
         private void butAddOrDelete_Click(object sender, EventArgs e)
         {
             if (!Exists)
-                if (_isMathValid)
+                if (IsMathValid())
                 {
                     InputsOutputs.Add(this);
                 }
@@ -69,24 +67,27 @@ namespace CAC.IO_Forms
             return "VÝSTUP: Číslo závyslé na vygenerovaných hodnotách"; //možná předělat?
         }
 
-        private void tbJahoda_Leave(object sender, EventArgs e)
+        private void tbMath_Leave(object sender, EventArgs e)
         {
-            _isMathValid = MathValidator.IsValid(tbJahoda.Text, _existingUnknowns);
-            if (!_isMathValid)
+            IsMathValid();
+        }
+
+        public bool IsMathValid()
+        {
+            if (!MathValidator.IsValid(tbMath.Text, _existingUnknowns))
             {
-                tbJahoda.ForeColor = Color.Red;
-                _isMathValid = false;
+                tbMath.ForeColor = Color.Red;
+                return false;
             }
-            else
-            {
-                tbJahoda.ResetForeColor();
-                Math = tbJahoda.Text;
-                _isMathValid = true;
-            }
+            tbMath.ResetForeColor();
+            Math = tbMath.Text;
+            return true;
         }
 
         private void OutputNumberBasedOnRandomInput_Activated(object sender, EventArgs e)
         {
+            _existingUnknowns.Clear();
+            FillLbNumbers();
             if (Exists)
                 butAddOrDelete.Text = "Smazat";
         }
@@ -94,7 +95,11 @@ namespace CAC.IO_Forms
         private void FillLbNumbers()
         {
             lbNumbers.Items.Clear();
-            foreach (InputRandomNumber inputRandomNumber in InputsOutputs.GetList(typeof (InputRandomNumber)))
+            var formId=InputsOutputs.GetIdOfForm(this);
+            var countOfPrecedingInputsOutputs = (formId == -1) ? InputsOutputs.GetList().Count() : formId;
+            IEnumerable<dynamic> inputsOutputs = InputsOutputs.GetList().Take(countOfPrecedingInputsOutputs);
+
+            foreach (InputRandomNumber inputRandomNumber in inputsOutputs.Where(item => item.GetType() == typeof(InputRandomNumber)))
             {
                 lbNumbers.Items.Add(inputRandomNumber + " ZN: X" + inputRandomNumber.Id);
                 _existingUnknowns.Add('X' + inputRandomNumber.Id.ToString());
