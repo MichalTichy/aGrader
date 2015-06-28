@@ -46,7 +46,7 @@ namespace CAC.sourceCodes
 
         public static string GetPath()
         {
-            return _sourceDir.FullName;
+            return _sourceDir==null ? null : _sourceDir.FullName;
         }
 
         public static bool IsDirectorySet()
