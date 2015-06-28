@@ -12,9 +12,10 @@ namespace CAC.sourceCodes
     public class SourceCode
     {
         private const int Timeout = 45000;
+
         public readonly string Name;
-        //todo seradit public a private
         public readonly string Path;
+        
         private Process _app;
         private string _compilationErrorMsg;
         private List<string> _testErrors = new List<string>();
