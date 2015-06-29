@@ -17,6 +17,7 @@ namespace CAC
     public partial class CaC : Form
     {
         //todo grafy
+        //todo pocet cisel splnujicich podminky
         //todo dát související věci k sobě
         public CaC()
         {
