@@ -60,6 +60,7 @@ namespace CAC
 
         private void UpdateLbCodes()
         {
+            lErrorMessage.Text = "";
             SourceCodes.ReloadSourceCodeFiles();
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
@@ -352,13 +353,13 @@ namespace CAC
 
         private void ResultReady(object sender, TestResultArgs testResultArgs)
         {
-            Invoke(new UpdateResultInvoker(UpdateRusult), testResultArgs.Result);
+            Invoke(new UpdateResultInvoker(UpdateRusult), testResultArgs.Result); //todo neprehledna sracka, refaktorofat a zbavit se toho, pouzit tasks
         }
 
         private void UpdateRusult(TestResult result)
         {
             ListViewItem line = lV.FindItemWithText(result.FileName);
-            line.SubItems[1].Text = result.Status;
+            line.SubItems[1].Text = result.Status; //bug pri timeoutu hodi asi exception
 
             Color color = GetStatusColor(result.Status);
 
