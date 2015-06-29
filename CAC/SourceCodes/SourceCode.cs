@@ -11,7 +11,7 @@ namespace CAC.sourceCodes
 {
     public class SourceCode
     {
-        private const int Timeout = 45000;
+        private const int Timeout = 20000;
 
         public readonly string Name;
         public readonly string Path;
@@ -78,9 +78,7 @@ namespace CAC.sourceCodes
 
         public bool Exists()
         {
-            if (File.Exists(Path))
-                return true;
-            return false;
+            return File.Exists(Path);
         }
 
         public TestResult RunTest(List<string> inputs, List<KeyValuePair<string, OutputType>> expectedOutputs)
