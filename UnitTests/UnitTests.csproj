@@ -51,7 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="sourceCodes.cs" />
+    <Compile Include="sourceCodesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
