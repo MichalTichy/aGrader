@@ -116,7 +116,7 @@ namespace CAC
                 double d1 = math.Evaluate();
                 double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
 
-                if ((System.Math.Abs(d1 - d2) < TestManager.Deviation)) continue;
+                if ((Math.Abs(d1 - d2) < TestManager.Deviation)) continue;
                 ok = false;
                 break;
             }
@@ -142,7 +142,7 @@ namespace CAC
                 expectedOutput.Contains(numberFormats.NegativeInfinitySymbol))
                 LinesWithBadOutput.Add(line);
 
-            else if (System.Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
+            else if (Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
                 LinesWithBadOutput.Add(line);
         }
 
