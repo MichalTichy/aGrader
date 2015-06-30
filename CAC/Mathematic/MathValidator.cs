@@ -27,7 +27,7 @@ namespace CAC.Mathematic
 
             try
             {
-                var eq = new Math(equation, numbersForEquation);
+                var eq = new MathExpresion(equation, numbersForEquation);
                 eq.Evaluate();
                 return true;
             }

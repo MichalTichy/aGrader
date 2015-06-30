@@ -7,21 +7,21 @@ using System.Data;
 
 namespace CAC.Mathematic
 {
-    public class Math
+    public class MathExpresion
     {
-        private string _equation;
+        private string _mathExpresion;
         private Dictionary<string, decimal> _unknownNumbers;
 
-        public Math(string equation, Dictionary<string, decimal> unknownNumbers)
+        public MathExpresion(string mathExpresion, Dictionary<string, decimal> unknownNumbers)
         {
-            _equation = equation;
+            _mathExpresion = mathExpresion;
             _unknownNumbers = unknownNumbers;
             InsertUnkownNumbersIntoEquation();
         }
 
-        public Math(string equation, decimal number)
+        public MathExpresion(string mathExpresion, decimal number)
         {
-            _equation = equation;
+            _mathExpresion = mathExpresion;
             _unknownNumbers = new Dictionary<string, decimal> {{"X", number}};
             InsertUnkownNumbersIntoEquation();
         }
@@ -30,16 +30,16 @@ namespace CAC.Mathematic
         {
             foreach (KeyValuePair<string, decimal> x in _unknownNumbers)
             {
-                _equation = _equation.Replace(x.Key, x.Value.ToString());
+                _mathExpresion = _mathExpresion.Replace(x.Key, x.Value.ToString());
             }
-            _equation = _equation.Replace(',', '.');
+            _mathExpresion = _mathExpresion.Replace(',', '.');
         }
 
         public double Evaluate()
         {
             //Vypujceno z WEBU
             var table = new DataTable();
-            table.Columns.Add("myExpression", string.Empty.GetType(), _equation);
+            table.Columns.Add("myExpression", string.Empty.GetType(), _mathExpresion);
             DataRow row = table.NewRow();
             table.Rows.Add(row);
             return double.Parse((string) row["myExpression"]);

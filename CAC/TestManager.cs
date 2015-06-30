@@ -111,7 +111,7 @@ namespace CAC
 
         private static void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            var equation = new Mathematic.Math(output.Math, _randomNumbers);
+            var equation = new Mathematic.MathExpresion(output.Math, _randomNumbers);
             _outputs.Add(new KeyValuePair<string, OutputType>(equation.Evaluate().ToString(), OutputType.Number));
         }
 
@@ -129,7 +129,7 @@ namespace CAC
                     conditions += '\n';
                 conditions += condition;
             }
-            _outputs.Add(new KeyValuePair<string, OutputType>(conditions, OutputType.Math));
+            _outputs.Add(new KeyValuePair<string, OutputType>(conditions, OutputType.Equation));
         }
 
         private static void ProcessData(SettingsDeviation deviation)
@@ -161,7 +161,7 @@ namespace CAC
     {
         Number,
         Text,
-        Math,
+        Equation,
         None
     }
 }

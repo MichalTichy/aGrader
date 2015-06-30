@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Math = CAC.Mathematic.Math;
+using CAC.Mathematic;
 
 #endregion
 
@@ -97,8 +97,8 @@ namespace CAC
                 case OutputType.Text:
                     EvaluateTextOutput(output, expectedOutput.Key, line);
                     break;
-                case OutputType.Math:
-                    EvaluateMathOutput(output, expectedOutput.Key.Replace("X", output), line);
+                case OutputType.Equation:
+                    EvaluateEquationOutput(output, expectedOutput.Key.Replace("X", output), line);
                     return new KeyValuePair<string, string>(output, expectedOutput.Key.Replace("\n", " && "));
                 default:
                     LinesWithBadOutput.Add(line);
@@ -107,12 +107,12 @@ namespace CAC
             return new KeyValuePair<string, string>(output, expectedOutput.Key);
         }
 
-        private void EvaluateMathOutput(string output, string expectedOutput, int line)
+        private void EvaluateEquationOutput(string output, string expectedOutput, int line)
         {
             bool ok = true;
             foreach (string condition in expectedOutput.Split('\n'))
             {
-                var math = new Math(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
+                var math = new MathExpresion(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
                 double d1 = math.Evaluate();
                 double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
 
