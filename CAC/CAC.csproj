@@ -50,6 +50,12 @@
     <Compile Include="IO Forms\ActionRepeatLast.Designer.cs">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO Forms\OutputCountOfNumbersMatchingConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\OutputCountOfNumbersMatchingConditions.Designer.cs">
+      <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\OutputNumberMatchingConditions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="TestResult.cs" />
     <EmbeddedResource Include="IO Forms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\OutputCountOfNumbersMatchingConditions.resx">
+      <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\OutputNumberMatchingConditions.resx">
       <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
