@@ -150,6 +150,18 @@ namespace CAC
                 lbObjects.SelectedIndex = newIndex;
             }
             CheckIfMathInOutputRandomNumbersIsValid();
+            CheckIfRequestedCountOfNumbersIsPossible();
+            CheckIfLastActionInRepeatersIsValid();
+        }
+
+        private void CheckIfRequestedCountOfNumbersIsPossible()
+        {
+            foreach (OutputCountOfNumbersMatchingConditions form in InputsOutputs.GetList(typeof(OutputCountOfNumbersMatchingConditions)))
+            {
+                if (form.IsRequestedCountOfNumbersValid()) continue;
+                SideFormManager.ShowExisting(form);
+                return;
+            }
         }
 
         private void CheckIfMathInOutputRandomNumbersIsValid()
@@ -159,6 +171,7 @@ namespace CAC
                 if (form.IsMathValid()) continue;
                 MessageBox.Show("Požadovaná náhodná čísla nelze nadále použít!");
                 SideFormManager.ShowExisting(form);
+                return;
             }
         }
 
@@ -173,6 +186,20 @@ namespace CAC
                 lbObjects.SelectedIndex = newIndex;
             }
             CheckIfMathInOutputRandomNumbersIsValid();
+            CheckIfRequestedCountOfNumbersIsPossible();
+            CheckIfLastActionInRepeatersIsValid();
+        }
+
+        private void CheckIfLastActionInRepeatersIsValid()
+        {
+            foreach (ActionRepeatLast repeater in InputsOutputs.GetList(typeof(ActionRepeatLast)))
+            {
+                if (!repeater.CheckIfPreviousActionIsRepeatable())
+                {
+                    SideFormManager.ShowExisting(repeater);
+                    return;
+                }
+            }
         }
 
         private void butExport_Click(object sender, EventArgs e)

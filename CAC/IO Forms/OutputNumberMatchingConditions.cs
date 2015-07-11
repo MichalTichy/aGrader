@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using CAC.Mathematic;
 
 #endregion
 
@@ -62,7 +63,13 @@ namespace CAC.IO_Forms
                 MessageBox.Show("Tato podmínka již existuje.");
                 return;
             }
-            //todo validace podminky
+            var unknown=new List<string>(1){"X"};
+            if (!MathValidator.IsValid(tbCondition.Text.Split('=')[0], unknown) ||
+                !MathValidator.IsValid(tbCondition.Text.Split('=')[1], unknown))
+            {
+                MessageBox.Show("Podmínka není validní.");
+                return;
+            }
             Conditions.Add(tbCondition.Text);
             lbConditions.Items.Add(tbCondition.Text);
             tbCondition.Clear();

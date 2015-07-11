@@ -128,6 +128,23 @@ namespace CAC
             }
             return outNum;
         }
+        private static XmlNode GenerateIONode(OutputCountOfNumbersMatchingConditions ioForm, XmlDocument document)
+        {
+            XmlElement outNum = document.CreateElement(ioForm.Name);
+
+            foreach (string condition in ioForm.Conditions)
+            {
+                XmlElement conditionElement = document.CreateElement("condition");
+                conditionElement.InnerText = condition;
+                outNum.AppendChild(conditionElement);
+            }
+            XmlElement countOfNumberElement = document.CreateElement("countOfNumbers");
+            countOfNumberElement.InnerText = ioForm.CountOfNumbers.ToString();
+
+            XmlElement takeInputs = document.CreateElement("takeInputs");
+            takeInputs.InnerText = ioForm.TakesInputs().ToString();
+            return outNum;
+        }
 
         private static XmlNode GenerateIONode(OutputString ioForm, XmlDocument document)
         {
@@ -238,6 +255,15 @@ namespace CAC
                             (from XmlElement condition in element.GetElementsByTagName("condition")
                                 select condition.InnerText).ToList();
                         InputsOutputs.Add(new OutputNumberMatchingConditions(conditions));
+                        break;
+                    case "OutputCountOfNumbersMatchingConditions":
+                        List<string> conditions2 =
+                            (from XmlElement condition in element.GetElementsByTagName("condition")
+                                select condition.InnerText).ToList();
+
+                        bool takeInputs = Convert.ToBoolean(element.GetElementsByTagName("takeInputs")[0].InnerText);
+                        int countOfNumbers = int.Parse(element.GetElementsByTagName("countOfNumbers")[0].InnerText);
+                        InputsOutputs.Add(new OutputCountOfNumbersMatchingConditions(conditions2, countOfNumbers,takeInputs));
                         break;
                     case "OutputString":
                         InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));

@@ -18,6 +18,7 @@ namespace CAC
             [Description("VSTUP: text")] InputString,
             [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput,
             [Description("VÝSTUP: číslo splňující podmínky")] OutputNumberMatchingConditions,
+            [Description("VÝSTUP: počet čísel splňujících podmínky")] OutputCountOfNumbersMatchingConditions,
             [Description("VÝSTUP: číslo")] OutputNumber,
             [Description("VÝSTUP: text")] OutputString,
             [Description("NASTAVENÍ: odchylka")] SettingsDeviation,
