@@ -113,6 +113,7 @@ namespace CAC.IO_Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ActionRepeatLast";
             this.Activated += new System.EventHandler(this.InputNumber_Activated);
+            this.Shown += new System.EventHandler(this.ActionRepeatLast_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
