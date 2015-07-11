@@ -14,6 +14,7 @@ namespace CAC.Mathematic
     {
         public static bool IsValid(string equation, List<string> existingUnknowns)
         {
+            //todo vyhazovat exception kdyz neni validni
             Dictionary<string, decimal> numbersForEquation = GenerateNumbersForEquation(equation, existingUnknowns);
 
             foreach (KeyValuePair<string, decimal> pair in numbersForEquation)

@@ -132,6 +132,23 @@ namespace CAC
             _outputs.Add(new KeyValuePair<string, OutputType>(conditions, OutputType.Equation));
         }
 
+        private static void ProcessData(OutputCountOfNumbersMatchingConditions output)
+        {
+            if (output.TakesInputs())
+            {
+                decimal number;
+                var numericInputs = _inputs.Where(i => decimal.TryParse(i, out number));
+                IEnumerable<string> enumerable = numericInputs as IList<string> ?? numericInputs.ToList();
+                _outputs.Add(new KeyValuePair<string, OutputType>(enumerable.Skip(enumerable.Count() - output.CountOfNumbers).Count().ToString(), OutputType.Number));
+            }
+            else
+            {
+                var numericOutputs = _outputs.Where(o => o.Value == OutputType.Number);
+                IEnumerable<KeyValuePair<string, OutputType>> keyValuePairs = numericOutputs as IList<KeyValuePair<string, OutputType>> ?? numericOutputs.ToList();
+                _outputs.Add(new KeyValuePair<string, OutputType>(keyValuePairs.Skip(keyValuePairs.Count() - output.CountOfNumbers).Count().ToString(), OutputType.Number));
+            }
+        }
+
         private static void ProcessData(SettingsDeviation deviation)
         {
             _deviation = deviation.Deviation;
