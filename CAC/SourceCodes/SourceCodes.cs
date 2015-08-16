@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 #endregion
@@ -46,7 +47,7 @@ namespace CAC.sourceCodes
 
         public static string GetPath()
         {
-            return _sourceDir==null ? null : _sourceDir.FullName;
+            return _sourceDir?.FullName;
         }
 
         public static bool IsDirectorySet()
@@ -59,7 +60,32 @@ namespace CAC.sourceCodes
             _sourceCodeFiles.Clear();
             foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
+
+            CheckForInvalidFileNames();
         }
+
+        private static void CheckForInvalidFileNames()
+        {
+            char[] illegalChars = { '-', ' ', '_' }; //todo doplnit
+            foreach (SourceCode code in _sourceCodeFiles)
+            {
+                if (code.Name.IndexOfAny(illegalChars) != -1)
+                {
+                    MessageBox.Show(code.Name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
+                    _sourceCodeFiles.Clear();
+                    return;
+                }
+            }
+        }
+
+        public static void GetCompilationErrorsAsync()
+        {
+            IEnumerable<Task> compilationErrorTaskQuary =
+    from sourceCode in SourceCodes.GetSourceCodeFiles() select new Task(sourceCode.GetCompilationError);
+            List<Task> testTasks = compilationErrorTaskQuary.ToList();
+            testTasks.ForEach(t => t.Start());
+        }
+
 
         public static ReadOnlyCollection<SourceCode> GetSourceCodeFiles()
         {

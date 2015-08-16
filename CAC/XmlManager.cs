@@ -11,7 +11,7 @@ using CAC.IO_Forms;
 
 namespace CAC
 {
-    internal static class XmlManager
+    public static class XmlManager
     {
         public static void Export(string path)
         {

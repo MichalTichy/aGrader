@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -11,35 +12,34 @@ namespace CAC.sourceCodes
 {
     public class SourceCode
     {
-        private const int Timeout = 20000;
 
         public readonly string Name;
         public readonly string Path;
-        
-        private Process _app;
-        private string _compilationErrorMsg;
-        private List<string> _testErrors = new List<string>();
-        private TestResult _testResult;
+        public string CompilationErrorMsg;
+        public int? NumberOfLineWithError;
 
+        private Process _app;
+        private TestResult _testResult;
+        
+        public TestResult TestResult
+        {
+            get { return _testResult; }
+        }
         public SourceCode(string path)
         {
-            string pathToTcc = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
-            _app = new Process
-            {
-                StartInfo =
-                {
-                    FileName = pathToTcc,
-                    UseShellExecute = false,
-                    RedirectStandardInput = true,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    CreateNoWindow = true,
-                    Arguments = "-run " + path
-                }
-            };
             Path = path;
-            Name = System.IO.Path.GetFileName(path);
-            _compilationErrorMsg = GetError();
+            Name = System.IO.Path.GetFileName(path); //todo exception on IO fail
+        }
+
+        public void GetCompilationError()
+        {
+            Tuple<string, int?> compilationError = Test.GetCompilationError(this);
+
+            if (compilationError.Item1 != null)
+            {
+                CompilationErrorMsg = compilationError.Item1;
+                NumberOfLineWithError = compilationError.Item2;
+            }
         }
 
         public override string ToString()
@@ -52,73 +52,14 @@ namespace CAC.sourceCodes
             return File.ReadAllText(Path);
         }
 
-        private string GetError()
-        {
-            _app.Start(); //todo narvat do jineho vlakna (background workeru)
-            if (!_app.WaitForExit(300))
-                _app.Kill();
-            string errors = _app.StandardError.ReadLine();
-
-            return errors;
-        }
-
-        public string GetCompilationErrorMessage()
-        {
-            return _compilationErrorMsg;
-        }
-
-        public int GetIdOfLineWithError()
-        {
-            //todo remove magic numbers
-            if (_compilationErrorMsg == null)
-                return -1;
-            var newRegex = new Regex(@":(\d*):");
-            return int.Parse(newRegex.Match(_compilationErrorMsg).ToString().Replace(":", "")) - 2;
-        }
-
         public bool Exists()
         {
             return File.Exists(Path);
         }
 
-        public TestResult RunTest(List<string> inputs, List<KeyValuePair<string, OutputType>> expectedOutputs)
+        public void AddTestResult(TestResult result)
         {
-            _app.Start();
-
-            StreamWriter inputWriter = _app.StandardInput;
-            StreamReader outputReader = _app.StandardOutput;
-            StreamReader errorReader = _app.StandardError;
-
-            foreach (string input in inputs)
-                inputWriter.WriteLine(input);
-
-            string output = "";
-            string error = "";
-            if (!_app.WaitForExit(Timeout))
-            {
-                _app.Kill();
-                error += "Aplikace nebyla ukonžena před timeoutem (" + Timeout / 1000 + "s)\n";
-            }
-            output += outputReader.ReadToEnd();
-            error += errorReader.ReadToEnd();
-            int processorTime = (int)_app.TotalProcessorTime.TotalMilliseconds;
-            var result = new TestResult(inputs, output, expectedOutputs, error, processorTime, Name);
             _testResult = result;
-            foreach (string testError in _testErrors)
-            {
-                _testResult.AddError(testError);
-            }
-            return result;
-        }
-
-        public TestResult GetResult()
-        {
-            return _testResult;
-        }
-
-        public void AddTestError(string error)
-        {
-            _testErrors.Add(error);
         }
     }
 }

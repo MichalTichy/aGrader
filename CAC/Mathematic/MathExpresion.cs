@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -33,6 +34,20 @@ namespace CAC.Mathematic
                 _mathExpresion = _mathExpresion.Replace(x.Key, x.Value.ToString());
             }
             _mathExpresion = _mathExpresion.Replace(',', '.');
+        }
+
+        public static bool AreAllConditionsTrue(decimal number, List<string> conditions, double maximumDeviation)
+        {
+            foreach (string condition in conditions)
+            {
+                var math = new MathExpresion(condition.Split('=')[0].Replace(" ", ""), number);
+                double d1 = math.Evaluate();
+                double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
+
+                if ((Math.Abs(d1 - d2) < maximumDeviation)) continue;
+                return false;
+            }
+            return true;
         }
 
         public double Evaluate()

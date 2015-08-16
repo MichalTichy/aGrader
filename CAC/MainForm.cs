@@ -25,6 +25,7 @@ namespace CAC
             FillCbObjects();
             cbobjects.SelectedIndexChanged += cbobjects_SelectedIndexChanged;
             InputsOutputs.InOutListChanged += InputsOutputsOnInOutListChanged;
+            
         }
 
         private void InputsOutputsOnInOutListChanged(object sender, EventArgs eventArgs)
@@ -63,6 +64,7 @@ namespace CAC
         {
             lErrorMessage.Text = "";
             SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.GetCompilationErrorsAsync();
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {
@@ -70,25 +72,10 @@ namespace CAC
                 {
                     lbCodes.Items.Add(code);
                 }
-                CheckForIllegalFilenames();
             }
             else
                 MessageBox.Show("Nebyly nalezeny žádné platné soubory.");
             rtbCode.Clear();
-        }
-
-        private void CheckForIllegalFilenames()
-        {
-            char[] illegalChars = {'-',' ','_'}; //todo doplnit
-            foreach (object name in lbCodes.Items)
-            {
-                if (name.ToString().IndexOfAny(illegalChars)!=-1)
-                {
-                    MessageBox.Show(name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
-                    lbCodes.Items.Clear();
-                    return;
-                }
-            }
         }
 
         private void butReload_Click(object sender, EventArgs e)
@@ -105,17 +92,21 @@ namespace CAC
             if (lbCodes.SelectedItem == null) return;
             SourceCode code = SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
 
-            SetListViewToBananaMode(code.GetResult());
+            SetListViewToCodeMode(code);
 
             if (code.Exists())
             {
                 rtbCode.Text = code.GetSourceCode() + "\n";
-                if (code.GetCompilationErrorMessage() != null) //todo BUG?
+                if (code.NumberOfLineWithError!=null)
                 {
-                    int lineWithError = code.GetIdOfLineWithError();
+                    int lineWithError = (int)code.NumberOfLineWithError;
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
                     lErrorMessage.Text = "Kód nemůže být zkompilován!";
+                }
+                else if (code.CompilationErrorMsg!=null)
+                {
+                    lErrorMessage.Text = code.CompilationErrorMsg;
                 }
             }
             else
@@ -304,7 +295,7 @@ namespace CAC
         {
             butOpenFile.Visible = false;
 
-            TestResult.ResultReady += ResultReady;
+            TestManager.ResultReady += ResultReady;
             lV.ItemSelectionChanged += lV_ItemSelectionChanged;
             lV.Items.Clear();
             lV.Columns.Clear();
@@ -315,11 +306,11 @@ namespace CAC
             foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
             {
                 //todo refaktorovat
-                if (code.GetResult() != null)
+                if (code.TestResult != null)
                 {
-                    var line = new ListViewItem(new[] {code.Name, code.GetResult().Status});
+                    var line = new ListViewItem(new[] {code.Name, (code.TestResult.IsOk != null && (bool)code.TestResult.IsOk) ? "OK" : "Error"});
                     line.UseItemStyleForSubItems = false;
-                    line.SubItems[1].ForeColor = GetStatusColor(code.GetResult().Status);
+                    line.SubItems[1].ForeColor = GetStatusColor(code.TestResult.IsOk);
                     lV.Items.Add(line);
                 }
                 else
@@ -338,7 +329,7 @@ namespace CAC
             lbCodes.SelectedIndex = e.ItemIndex;
         }
 
-        private void SetListViewToBananaMode(TestResult result) //todo BANANA!
+        private void SetListViewToCodeMode(SourceCode code)
         {
             butOpenFile.Visible = true;
 
@@ -353,59 +344,51 @@ namespace CAC
             lV.Columns.Add("Vstup/Výstup", 250);
             lV.Columns.Add("Očekávaný výstup", 249);
 
-            if (result == null)
+            if (code.TestResult == null)
                 return;
 
-            foreach (string input in result.Inputs)
+            foreach (string input in code.TestResult.Protocol.Inputs)
                 lV.Items.Add(new ListViewItem(new[] {input, ""}, lV.Groups[0]));
 
-            foreach (KeyValuePair<string, string> output in result.Outputs)
+            for (int i = 0; i < code.TestResult.Outputs.Count; i++)
             {
-                var line = new ListViewItem(new[] {output.Key, output.Value}, lV.Groups[1]);
-                if (result.LinesWithBadOutput.Contains(lV.Items.Count - result.Inputs.Count))
+                var line=new ListViewItem(new[] { code.TestResult.Outputs[i], code.TestResult.ExpectedOutputs[i].ToString() }, lV.Groups[1]);
+                if (code.TestResult.BadOutputs.Contains(i))
                     line.BackColor = Color.Red;
                 lV.Items.Add(line);
             }
 
-            if (result.Errors.Length != 0)
+            if (code.TestResult.Errors.Count == 0) return;
+            lV.Groups.Add(new ListViewGroup("Errory"));
+            foreach (string error in code.TestResult.Errors)
             {
-                lV.Groups.Add(new ListViewGroup("Errory"));
-                foreach (string s in result.Errors.Split(new[] {Environment.NewLine}, StringSplitOptions.None))
-                {
-                    var line = new ListViewItem(s, lV.Groups[2]);
-                    line.BackColor = Color.Red;
-                    lV.Items.Add(line);
-                }
+                var line = new ListViewItem(error, lV.Groups[2]) {BackColor = Color.Red};
+                lV.Items.Add(line);
             }
         }
 
-        private void ResultReady(object sender, TestResultArgs testResultArgs)
+        private void ResultReady(object sender, ResultReadyArgs testResultArgs)
         {
-            Invoke(new UpdateResultInvoker(UpdateRusult), testResultArgs.Result); //todo neprehledna sracka, refaktorofat a zbavit se toho, pouzit tasks
-        }
+            ListViewItem line = lV.FindItemWithText(testResultArgs.Result.FileName);
+            line.SubItems[1].Text = (testResultArgs.Result.IsOk != null && (bool)testResultArgs.Result.IsOk) ? "OK" : "Error";
 
-        private void UpdateRusult(TestResult result)
-        {
-            ListViewItem line = lV.FindItemWithText(result.FileName);
-            line.SubItems[1].Text = result.Status; //bug pri timeoutu hodi asi exception
-
-            Color color = GetStatusColor(result.Status);
+            Color color = GetStatusColor(testResultArgs.Result.IsOk);
 
             line.SubItems[1].ForeColor = color;
         }
 
-        private static Color GetStatusColor(string status)
+        private static Color GetStatusColor(bool? status)
         {
-            Color color;
+            Color color=new Color();
             switch (status)
             {
-                case "OK":
+                case true:
                     color = Color.Green;
                     break;
-                case "testuje se":
+                case null:
                     color = Color.Orange;
                     break;
-                default:
+                case false:
                     color = Color.Red;
                     break;
             }

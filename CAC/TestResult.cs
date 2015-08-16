@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using CAC.Mathematic;
@@ -17,141 +18,116 @@ namespace CAC
 
     public class TestResult
     {
+        private List<string> _errors;
+        private List<string> _outputs;
+        private List<object> _expectedOutputs;
+        private List<int> _badOutputs=new List<int>();
+        public ReadOnlyCollection<string> Errors
+
+        {
+            get { return _errors.AsReadOnly(); }
+        }
+        public ReadOnlyCollection<string> Outputs
+        {
+            get { return _outputs.AsReadOnly(); }
+        }
+
+        public ReadOnlyCollection<object> ExpectedOutputs
+        {
+            get { return _expectedOutputs.AsReadOnly(); }
+        }
+        public ReadOnlyCollection<int> BadOutputs
+        {
+            get { return _badOutputs.AsReadOnly(); }
+        }
+
         public readonly string FileName;
-        public readonly int ProcessorTime;
-        public List<string> Inputs;
-        public List<int> LinesWithBadOutput = new List<int>();
-        public List<KeyValuePair<string, string>> Outputs;
-        public string Status = "testuje se";
+        public bool? IsOk { get; private set; }
+        public readonly double ProcessorTime;
+        public readonly TestProtocol Protocol;
 
-        public TestResult(List<string> inputs, string outputs, List<KeyValuePair<string, OutputType>> expectedOutputs,
-            string errors, int processorTime, string fileName)
+        public TestResult(string fileName, TestProtocol protocol, List<string> outputs, List<string> errors, double procesorTime)
         {
-            //todo refaktorovat
-            Outputs = ParseOutputs(outputs, expectedOutputs);
-            Errors = errors;
-            ProcessorTime = processorTime;
             FileName = fileName;
-            Inputs = inputs;
+            Protocol = protocol;
+            _outputs = outputs;
+            _errors = errors;
+            _expectedOutputs=new List<object>();
+            _expectedOutputs.AddRange(protocol.Outputs);
+            ProcessorTime = procesorTime;
 
-            EvaluateResult();
+            EvaluateResults();
         }
 
-        public string Errors { get; private set; }
-        public static event EventHandler<TestResultArgs> ResultReady;
-
-        protected virtual void OnResultReady(TestResult result)
+        private void EvaluateResults()
         {
-            if (ResultReady != null)
-                ResultReady(this, new TestResultArgs {Result = result});
-        }
-
-        private void EvaluateResult()
-        {
-            if (LinesWithBadOutput.Count == 0 && Errors.Length == 0)
-                Status = "OK";
-            else
-                Status = "Test neproběhl úspěšně";
-            OnResultReady(this);
-        }
-
-        private List<KeyValuePair<string, string>> ParseOutputs(string output,
-            List<KeyValuePair<string, OutputType>> expectedOutputs)
-        {
-            //todo asi refaktor
-            string[] outputs = output.Replace("\r", "").Split('\n');
-            var outDictionary = new List<KeyValuePair<string, string>>();
-
-            int i = (expectedOutputs.Count >= outputs.Count()) ? expectedOutputs.Count : outputs.Count();
-            for (int a = 0; a < i; a++)
+            Jahodovnik(); //todo prejmenovat
+            var realOutputs=new Queue<string>(_outputs);
+            
+            foreach (dynamic expectedOutput in _expectedOutputs)
             {
-                if (expectedOutputs.Count <= a)
-                    outDictionary.Add(EvaluateOutput(outputs[a],
-                        new KeyValuePair<string, OutputType>("", OutputType.None), a));
-                else if (outputs.Count() <= a)
-                    outDictionary.Add(EvaluateOutput("", expectedOutputs[a], a));
-                else
-                    outDictionary.Add(EvaluateOutput(outputs[a], expectedOutputs[a], a));
+                var realOutput = realOutputs.Dequeue();
+                if (string.IsNullOrEmpty(realOutput) || !CompareRealAndExpectedOutput(realOutput,expectedOutput))
+                {
+                    _badOutputs.Add(_outputs.Count-realOutputs.Count-1); //add id of last deleted item
+                }
             }
 
-            return outDictionary;
+            IsOk = (_errors == null || _errors.Count == 0) && (_badOutputs == null || _badOutputs.Count == 0);
         }
 
-        private KeyValuePair<string, string> EvaluateOutput(string output,
-            KeyValuePair<string, OutputType> expectedOutput, int line)
+        private void Jahodovnik()
         {
-            if (output == "")
+            while (_outputs.Count>_expectedOutputs.Count)
             {
-                LinesWithBadOutput.Add(line);
-                return new KeyValuePair<string, string>("", expectedOutput.Key);
+                _expectedOutputs.Add(new ErrorData());
             }
-
-            switch (expectedOutput.Value)
+            while (_expectedOutputs.Count>_outputs.Count)
             {
-                case OutputType.None:
-                    LinesWithBadOutput.Add(line);
-                    return new KeyValuePair<string, string>(output, "");
-                case OutputType.Number:
-                    EvaluateNumericOutput(output, expectedOutput.Key, line);
-                    break;
-                case OutputType.Text:
-                    EvaluateTextOutput(output, expectedOutput.Key, line);
-                    break;
-                case OutputType.Equation:
-                    EvaluateEquationOutput(output, expectedOutput.Key.Replace("X", output), line);
-                    return new KeyValuePair<string, string>(output, expectedOutput.Key.Replace("\n", " && "));
-                default:
-                    LinesWithBadOutput.Add(line);
-                    break;
+                _outputs.Add(null);
             }
-            return new KeyValuePair<string, string>(output, expectedOutput.Key);
         }
 
-        private void EvaluateEquationOutput(string output, string expectedOutput, int line)
+        private bool CompareRealAndExpectedOutput(string realOutput, TextData expectedOutput)
+        {
+            return realOutput == expectedOutput.Data;
+        }
+        private bool CompareRealAndExpectedOutput(string realOutput, NumberData expectedOutput)
+        {
+            //removes formating
+            realOutput = realOutput.Replace('.', ',');
+            string expectedFormatedOutput = expectedOutput.Data.ToString().Replace('.', ',');
+
+
+            NumberFormatInfo numberFormats = CultureInfo.CurrentCulture.NumberFormat;
+
+            if (expectedFormatedOutput.Contains(numberFormats.PositiveInfinitySymbol) ||
+                expectedFormatedOutput.Contains(numberFormats.NegativeInfinitySymbol))
+                return false;
+
+            return Math.Abs(decimal.Parse(realOutput) - decimal.Parse(expectedFormatedOutput)) <= (decimal) Protocol.MaximumDeviation;
+        }
+
+        private bool CompareRealAndExpectedOutput(string realOutput, NumberMatchingConditionsData expectedOutput)
         {
             bool ok = true;
-            foreach (string condition in expectedOutput.Split('\n'))
+            foreach (string condition in expectedOutput.Conditions)
             {
-                var math = new MathExpresion(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(output));
+                var math = new MathExpresion(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(realOutput));
                 double d1 = math.Evaluate();
                 double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
 
-                if ((Math.Abs(d1 - d2) < TestManager.Deviation)) continue;
+                if ((Math.Abs(d1 - d2) < Protocol.MaximumDeviation)) continue;
                 ok = false;
                 break;
             }
-            if (!ok)
-                LinesWithBadOutput.Add(line);
-        }
+            return ok;
 
-        private void EvaluateTextOutput(string output, string expectedOutput, int line)
+        }
+        private bool CompareRealAndExpectedOutput(string realOutput, ErrorData expectedOutput)
         {
-            if (output != expectedOutput)
-            {
-                LinesWithBadOutput.Add(line);
-            }
+            return false;
         }
 
-        private void EvaluateNumericOutput(string output, string expectedOutput, int line)
-        {
-            output = output.Replace('.', ',');
-            expectedOutput = expectedOutput.Replace('.', ',');
-            NumberFormatInfo numberFormats = CultureInfo.CurrentCulture.NumberFormat;
-
-            if (expectedOutput.Contains(numberFormats.PositiveInfinitySymbol) ||
-                expectedOutput.Contains(numberFormats.NegativeInfinitySymbol))
-                LinesWithBadOutput.Add(line);
-
-            else if (Math.Abs(decimal.Parse(output) - decimal.Parse(expectedOutput)) > (decimal) TestManager.Deviation)
-                LinesWithBadOutput.Add(line);
-        }
-
-        public void AddError(string errorMsg)
-        {
-            if (Errors.Length != 0)
-                Errors += "\n";
-            Errors += errorMsg;
-            EvaluateResult();
-        }
     }
 }
