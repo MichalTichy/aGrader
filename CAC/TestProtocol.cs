@@ -81,7 +81,7 @@ namespace CAC
             }
 
             _inputs.Add(num.ToString().Replace(',', '.'));
-            _generatedRandomNumbers.Add('X' + input.Id.ToString(), num);
+            _generatedRandomNumbers.Add('X' + input.Id, num);
         }
         private void ProcessData(InputTextFile input) //todo dodělat
         {
@@ -142,7 +142,14 @@ namespace CAC
         {
             dynamic repeatedForm = repeatLast.GetRepeatedForm();
             for (int i = 0; i < repeatLast.Repetitions; i++)
+            {
+                if (repeatedForm is InputRandomNumber)
+                {
+
+                    repeatedForm.Id = Guid.NewGuid();
+                }
                 ProcessData(repeatedForm);
+            }
         }
     }
 }

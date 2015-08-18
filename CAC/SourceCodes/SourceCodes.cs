@@ -58,7 +58,7 @@ namespace CAC.sourceCodes
         public static void ReloadSourceCodeFiles()
         {
             _sourceCodeFiles.Clear();
-            foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
+            foreach (FileInfo file in _sourceDir.GetFiles("*.c")) //todo do try catche
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
 
             CheckForInvalidFileNames();

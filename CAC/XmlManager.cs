@@ -67,7 +67,7 @@ namespace CAC
             isDecimal.InnerText = ioForm.Decimal.ToString();
 
             XmlElement id = document.CreateElement("ID");
-            id.InnerText = ioForm.Id.ToString();
+            id.InnerText = ioForm.Id;
 
             inRandomNumber.AppendChild(id);
             inRandomNumber.AppendChild(minvalue);
@@ -143,6 +143,9 @@ namespace CAC
 
             XmlElement takeInputs = document.CreateElement("takeInputs");
             takeInputs.InnerText = ioForm.TakesInputs().ToString();
+
+            outNum.AppendChild(countOfNumberElement);
+            outNum.AppendChild(takeInputs);
             return outNum;
         }
 
@@ -235,7 +238,7 @@ namespace CAC
                                 decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
                                 decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
                                 bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText),
-                                int.Parse(element.GetElementsByTagName("ID")[0].InnerText)));
+                                element.GetElementsByTagName("ID")[0].InnerText));
                         break;
                     case "InputString":
                         InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));

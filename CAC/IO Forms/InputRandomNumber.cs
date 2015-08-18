@@ -9,8 +9,8 @@ namespace CAC.IO_Forms
 {
     public partial class InputRandomNumber : Form
     {
-        private static int _idCounter;
-        public readonly int Id;
+        public static int IdCounter { get; private set; }
+        public string Id;
         public bool Decimal;
         public bool Exists = false;
         public decimal Max;
@@ -22,11 +22,11 @@ namespace CAC.IO_Forms
             Min = numMin.Value;
             Max = numMax.Value;
             Decimal = !cbNoDecimal.Checked;
-            _idCounter++;
-            Id = _idCounter;
+            IdCounter++;
+            Id = "X"+IdCounter;
         }
 
-        public InputRandomNumber(decimal min, decimal max, bool generateDecimal, int id)
+        public InputRandomNumber(decimal min, decimal max, bool generateDecimal, string id)
         {
             InitializeComponent();
             numMin.Value = numMin.Minimum; //HACK to bypass control for min>max and visaversa
