@@ -57,7 +57,7 @@ namespace CAC
 
         public static IEnumerable<dynamic> GetList(Type wantedType, int maxIndex=-1)
         {
-            var itemWithinRequestedIndexRange= maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex - 1);
+            var itemWithinRequestedIndexRange= maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex);
             return itemWithinRequestedIndexRange.Where(item => item.GetType() == wantedType);
         }
 
