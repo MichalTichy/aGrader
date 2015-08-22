@@ -66,6 +66,9 @@ namespace CAC
 
         private void UpdateLbCodes()
         {
+            butShowTestProgress.Visible = false;
+            lV.Clear();
+            ResetProgressBar();
             lErrorMessage.Text = "";
             SourceCodes.ReloadSourceCodeFiles();
             SourceCodes.GetCompilationErrorsAsync();
@@ -287,15 +290,20 @@ namespace CAC
 
             //todo mozna vypnout UI?
             Tabs.SelectedIndex = 0;
-            SetListViewToGrepMode(); //todo GREP!
+            SetListViewToTestMode();
             butShowTestProgress.Visible = true;
             lbCodes.ClearSelected();
             rtbCode.Clear();
-            progressBar.Maximum = SourceCodes.GetSourceCodeFiles().Count;
-            progressBar.Value = 0;
+            ResetProgressBar();
             AddLineToLog("Zahajuji testy!");
             AddLineToLog("Počet souborů: "+SourceCodes.GetSourceCodeFiles().Count);
             TestManager.TestAllSourceCodes();
+        }
+
+        private void ResetProgressBar()
+        {
+            progressBar.Maximum = SourceCodes.GetSourceCodeFiles().Count;
+            progressBar.Value = 0;
         }
 
         private void AddLineToLog(string text)
@@ -303,7 +311,7 @@ namespace CAC
             rtbCode.AppendText("\n"+ DateTime.Now.ToLongTimeString()+" | "+ text);
         }
 
-        private void SetListViewToGrepMode() //todo GREP!
+        private void SetListViewToTestMode()
         {
             butOpenFile.Visible = false;
             TestManager.ResultReady -= ResultReady;
@@ -422,10 +430,8 @@ namespace CAC
         {
             rtbCode.Text = _lastTestLog;
             lbCodes.ClearSelected();
-            SetListViewToGrepMode();
+            SetListViewToTestMode();
         }
-
-        private delegate void UpdateResultInvoker(TestResult result);
 
         private void butOpenFile_Click(object sender, EventArgs e)
         {
