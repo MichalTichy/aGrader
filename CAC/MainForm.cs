@@ -271,7 +271,6 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(DateTime.Now.Millisecond);
             if (!SourceCodes.GetSourceCodeFiles().Any())
             {
                 MessageBox.Show("Ve zvolené složce nejsou žádné zdrojové kódy!");
@@ -292,6 +291,8 @@ namespace CAC
             butShowTestProgress.Visible = true;
             lbCodes.ClearSelected();
             rtbCode.Clear();
+            progressBar.Maximum = SourceCodes.GetSourceCodeFiles().Count;
+            progressBar.Value = 0;
             AddLineToLog("Zahajuji testy!");
             AddLineToLog("Počet souborů: "+SourceCodes.GetSourceCodeFiles().Count);
             TestManager.TestAllSourceCodes();
@@ -386,14 +387,14 @@ namespace CAC
             Color color = GetStatusColor(testResultArgs.Result.IsOk);
 
             line.SubItems[1].ForeColor = color;
-
+            progressBar.PerformStep();
             AddLineToLog("Soubor " + testResultArgs.Result.FileName + " byl  úspěšně otestován!");
             CheckIfAllTestsAreDone();
         }
 
         private void CheckIfAllTestsAreDone()
         {
-            if (SourceCodes.GetSourceCodeFiles().All(c=>c.TestResult!=null))
+            if (progressBar.Value==progressBar.Maximum)
             {
                 AddLineToLog("Všechny testy byli dokončeny!");
             }

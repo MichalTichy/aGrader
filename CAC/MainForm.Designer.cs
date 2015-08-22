@@ -59,6 +59,8 @@ namespace CAC
             this.lErrorMessage = new System.Windows.Forms.Label();
             this.butShowTestProgress = new System.Windows.Forms.Button();
             this.butOpenFile = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,6 +68,7 @@ namespace CAC
             this.Tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabProtocol.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -350,11 +353,30 @@ namespace CAC
             this.butOpenFile.Visible = false;
             this.butOpenFile.Click += new System.EventHandler(this.butOpenFile_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.progressBar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 355);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(812, 22);
+            this.statusStrip1.TabIndex = 11;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // progressBar
+            // 
+            this.progressBar.AutoSize = false;
+            this.progressBar.Margin = new System.Windows.Forms.Padding(11, 4, 1, 3);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(500, 15);
+            this.progressBar.Step = 1;
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 368);
+            this.ClientSize = new System.Drawing.Size(812, 377);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.butOpenFile);
             this.Controls.Add(this.butShowTestProgress);
             this.Controls.Add(this.lErrorMessage);
@@ -375,7 +397,10 @@ namespace CAC
             this.tabPage1.PerformLayout();
             this.tabProtocol.ResumeLayout(false);
             this.tabProtocol.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -383,11 +408,6 @@ namespace CAC
 
         private SplitContainer splitContainer1;
         private RichTextBox rtbCode;
-        private ToolStripPanel BottomToolStripPanel;
-        private ToolStripPanel TopToolStripPanel;
-        private ToolStripPanel RightToolStripPanel;
-        private ToolStripPanel LeftToolStripPanel;
-        private ToolStripContentPanel ContentPanel;
         private Button butRunTest;
         private TabControl Tabs;
         private TabPage tabPage1;
@@ -409,6 +429,13 @@ namespace CAC
         private ListView lV;
         private Button butShowTestProgress;
         private Button butOpenFile;
+        private ToolStripPanel BottomToolStripPanel;
+        private ToolStripPanel TopToolStripPanel;
+        private ToolStripPanel RightToolStripPanel;
+        private ToolStripPanel LeftToolStripPanel;
+        private ToolStripContentPanel ContentPanel;
+        private StatusStrip statusStrip1;
+        private ToolStripProgressBar progressBar;
     }
 }
 
