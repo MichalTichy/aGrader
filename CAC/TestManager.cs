@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -27,11 +28,8 @@ namespace CAC
         {
             _protocol = new TestProtocol();
 
-            IEnumerable<Task<TestResult>> testTaskQuary =
-                from sourceCode in SourceCodes.GetSourceCodeFiles() select new Task<TestResult>(() =>new Test(sourceCode,_protocol).RunTest());
-            List<Task<TestResult>> testTasks = testTaskQuary.ToList();
+            var testTasks= SourceCodes.GetSourceCodeFiles().Select(sourceCode => new Task<TestResult>(new Test(sourceCode, _protocol).RunTest)).ToList();
             testTasks.ForEach(t=>t.Start());
-
             while (testTasks.Count>0)
             {
                 Task<TestResult> firstFinishedTask = await Task.WhenAny(testTasks);

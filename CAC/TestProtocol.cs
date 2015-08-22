@@ -146,7 +146,7 @@ namespace CAC
                 if (repeatedForm is InputRandomNumber)
                 {
 
-                    repeatedForm.Id = Guid.NewGuid();
+                    repeatedForm.Id = Guid.NewGuid().ToString();
                 }
                 ProcessData(repeatedForm);
             }

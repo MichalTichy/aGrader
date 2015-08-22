@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using CAC.IO_Forms;
 using CAC.Mathematic;
@@ -19,6 +21,8 @@ namespace CAC
         //todo grafy
         //todo pocet cisel splnujicich podminky
         //todo dát související věci k sobě
+
+        private string _lastTestLog = "";
         public CaC()
         {
             InitializeComponent();
@@ -267,6 +271,7 @@ namespace CAC
 
         private void butRunTest_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine(DateTime.Now.Millisecond);
             if (!SourceCodes.GetSourceCodeFiles().Any())
             {
                 MessageBox.Show("Ve zvolené složce nejsou žádné zdrojové kódy!");
@@ -287,14 +292,20 @@ namespace CAC
             butShowTestProgress.Visible = true;
             lbCodes.ClearSelected();
             rtbCode.Clear();
-
+            AddLineToLog("Zahajuji testy!");
+            AddLineToLog("Počet souborů: "+SourceCodes.GetSourceCodeFiles().Count);
             TestManager.TestAllSourceCodes();
+        }
+
+        private void AddLineToLog(string text)
+        {
+            rtbCode.AppendText("\n"+ DateTime.Now.ToLongTimeString()+" | "+ text);
         }
 
         private void SetListViewToGrepMode() //todo GREP!
         {
             butOpenFile.Visible = false;
-
+            TestManager.ResultReady -= ResultReady;
             TestManager.ResultReady += ResultReady;
             lV.ItemSelectionChanged += lV_ItemSelectionChanged;
             lV.Items.Clear();
@@ -375,6 +386,17 @@ namespace CAC
             Color color = GetStatusColor(testResultArgs.Result.IsOk);
 
             line.SubItems[1].ForeColor = color;
+
+            AddLineToLog("Soubor " + testResultArgs.Result.FileName + " byl  úspěšně otestován!");
+            CheckIfAllTestsAreDone();
+        }
+
+        private void CheckIfAllTestsAreDone()
+        {
+            if (SourceCodes.GetSourceCodeFiles().All(c=>c.TestResult!=null))
+            {
+                AddLineToLog("Všechny testy byli dokončeny!");
+            }
         }
 
         private static Color GetStatusColor(bool? status)
@@ -397,6 +419,7 @@ namespace CAC
 
         private void butShowTestProgress_Click(object sender, EventArgs e)
         {
+            rtbCode.Text = _lastTestLog;
             lbCodes.ClearSelected();
             SetListViewToGrepMode();
         }
