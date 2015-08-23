@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionsLog.cs" />
     <Compile Include="InputsOutpusStructs.cs" />
     <Compile Include="IO Forms\ActionRepeatLast.cs">
       <SubType>Form</SubType>
