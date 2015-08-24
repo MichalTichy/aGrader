@@ -16,7 +16,7 @@ namespace CAC.sourceCodes
         private static DirectoryInfo _sourceDir;
         private static List<SourceCode> _sourceCodeFiles = new List<SourceCode>();
 
-        public static bool SetPath()
+        public static void SetPath()
         {
             var dialog = new FolderBrowserDialog
             {
@@ -28,26 +28,22 @@ namespace CAC.sourceCodes
             if (dialogres == DialogResult.OK)
             {
                 _sourceDir = new DirectoryInfo(dialog.SelectedPath);
-                return true;
             }
-
-            return false;
         }
 
-        public static bool SetPath(string path)
+        public static void SetPath(string path)
         {
             var directoryInfo = new DirectoryInfo(path);
-            if (directoryInfo.Exists)
+            if (!directoryInfo.Exists)
             {
-                _sourceDir = directoryInfo;
-                return true;
+                throw new DirectoryNotFoundException(path);
             }
-            return false;
+            _sourceDir = directoryInfo;
         }
 
         public static string GetPath()
         {
-            return _sourceDir?.FullName;
+            return _sourceDir?.FullName ?? "...";
         }
 
         public static bool IsDirectorySet()
@@ -55,33 +51,33 @@ namespace CAC.sourceCodes
             return _sourceDir != null;
         }
 
-        public static void ReloadSourceCodeFiles()
+        public static void ReloadSourceCodeFiles(string extension)
         {
             _sourceCodeFiles.Clear();
-            foreach (FileInfo file in _sourceDir.GetFiles("*.c")) //todo do try catche
+            foreach (FileInfo file in _sourceDir.GetFiles("*."+ extension))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
-
-            CheckForInvalidFileNames();
+            
+            if (AreAllFileNamesValid())
+            {
+                _sourceCodeFiles.Clear();
+            }
         }
 
-        private static void CheckForInvalidFileNames()
+        private static bool AreAllFileNamesValid()
         {
             char[] illegalChars = { '-', ' ', '_' }; //todo doplnit
-            foreach (SourceCode code in _sourceCodeFiles)
+            foreach (SourceCode code in _sourceCodeFiles.Where(code => code.Name.IndexOfAny(illegalChars) != -1))
             {
-                if (code.Name.IndexOfAny(illegalChars) != -1)
-                {
-                    MessageBox.Show(code.Name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
-                    _sourceCodeFiles.Clear();
-                    return;
-                }
+                MessageBox.Show(code.Name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
+                return false;
             }
+            return true;
         }
 
         public static void GetCompilationErrorsAsync()
         {
             IEnumerable<Task> compilationErrorTaskQuary =
-    from sourceCode in SourceCodes.GetSourceCodeFiles() select new Task(sourceCode.GetCompilationError);
+    from sourceCode in _sourceCodeFiles select new Task(sourceCode.GetCompilationError);
             List<Task> testTasks = compilationErrorTaskQuary.ToList();
             testTasks.ForEach(t => t.Start());
         }

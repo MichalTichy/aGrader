@@ -15,9 +15,17 @@ namespace CAC
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CaC());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new CaC());
+            }
+            catch (Exception exception)
+            {
+                ExceptionsLog.LogException(exception.ToString());
+                throw;
+            }
         }
     }
 }

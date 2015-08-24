@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CAC.sourceCodes;
 
 namespace CAC
@@ -31,6 +32,11 @@ namespace CAC
         private static Process CreateProcess(SourceCode code)
         {
             string pathToTcc = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
+            if (!File.Exists(pathToTcc))
+            {
+                MessageBox.Show("Kompilátor nebyl nalezen! \n {0}", pathToTcc);
+                throw new FileNotFoundException("TCC not found! {0}",pathToTcc);
+            }
             var app = new Process
             {
                 StartInfo =
@@ -68,7 +74,7 @@ namespace CAC
             }
             catch
             {
-                // ignored
+                // error is does not contain line number
             }
 
             return new Tuple<string,int?>(msg,lineWithError);
@@ -94,7 +100,7 @@ namespace CAC
             if (!_app.WaitForExit(Timeout))
             {
                 _app.Kill();
-                error += "Aplikace nebyla ukonžena před timeoutem (" + Timeout / 1000 + "s)\n"; 
+                error += "Aplikace nebyla ukončena před timeoutem (" + Timeout / 1000 + "s)\n"; 
             }
 
             output += outputReader.ReadToEnd();

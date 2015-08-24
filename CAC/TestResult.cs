@@ -61,7 +61,7 @@ namespace CAC
 
         private void EvaluateResults()
         {
-            Jahodovnik(); //todo prejmenovat
+            BalanceNumberOfExpectedAndRealOutputs(); 
             var realOutputs=new Queue<string>(_outputs);
             
             foreach (dynamic expectedOutput in _expectedOutputs)
@@ -76,7 +76,7 @@ namespace CAC
             IsOk = (_errors == null || _errors.Count == 0) && (_badOutputs == null || _badOutputs.Count == 0);
         }
 
-        private void Jahodovnik()
+        private void BalanceNumberOfExpectedAndRealOutputs()
         {
             while (_outputs.Count>_expectedOutputs.Count)
             {

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using System.Xml;
 using CAC.IO_Forms;
 
@@ -25,7 +26,16 @@ namespace CAC
                 root.AppendChild(GenerateIONode(formIO, doc));
             }
             doc.AppendChild(root);
-            doc.Save(path);
+            try
+            {
+                doc.Save(path);
+            }
+            catch (Exception exception)
+            {
+                ExceptionsLog.LogException(exception.ToString());
+                MessageBox.Show("Protokol se nepodařilo exportovat.");
+            }
+            MessageBox.Show("Protokol byl úspěšně vyexportován.");
         }
         #region generation of XML nodes
 
@@ -213,87 +223,111 @@ namespace CAC
         public static void Import(string path)
         {
             var doc = new XmlDocument();
-            doc.Load(path);
-
-            XmlNode root = doc.DocumentElement;
-            if (root.Name != "Protocol")
-                throw new FormatException();
-            foreach (XmlNode node in root.ChildNodes)
+            try
             {
-                #region import logic
-                var element = (XmlElement) node;
-                switch (node.Name)
+                if (!File.Exists(path))
+                    throw new FileNotFoundException("File not found! {0}", path);
+                doc.Load(path);
+                XmlNode root = doc.DocumentElement;
+                if (root.Name != "Protocol")
+                    throw new FormatException();
+                foreach (XmlNode node in root.ChildNodes)
                 {
-                    case "InputTextFile":
-                        InputsOutputs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
-                            element.GetElementsByTagName("lineformat")[0].InnerText));
-                        break;
-                    case "InputNumber":
-                        InputsOutputs.Add(
-                            new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
-                        break;
-                    case "InputRandomNumber":
-                        InputsOutputs.Add(
-                            new InputRandomNumber(
-                                decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
-                                decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
-                                bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText),
-                                element.GetElementsByTagName("ID")[0].InnerText));
-                        break;
-                    case "InputString":
-                        InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
-                        break;
+                    #region import logic
+                    var element = (XmlElement)node;
+                    switch (node.Name)
+                    {
+                        case "InputTextFile":
+                            InputsOutputs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
+                                element.GetElementsByTagName("lineformat")[0].InnerText));
+                            break;
+                        case "InputNumber":
+                            InputsOutputs.Add(
+                                new InputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            break;
+                        case "InputRandomNumber":
+                            InputsOutputs.Add(
+                                new InputRandomNumber(
+                                    decimal.Parse(element.GetElementsByTagName("minValue")[0].InnerText),
+                                    decimal.Parse(element.GetElementsByTagName("maxValue")[0].InnerText),
+                                    bool.Parse(element.GetElementsByTagName("isDecimal")[0].InnerText),
+                                    element.GetElementsByTagName("ID")[0].InnerText));
+                            break;
+                        case "InputString":
+                            InputsOutputs.Add(new InputString(element.GetElementsByTagName("string")[0].InnerText));
+                            break;
 
-                    case "OutputNumber":
-                        InputsOutputs.Add(
-                            new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
-                        break;
+                        case "OutputNumber":
+                            InputsOutputs.Add(
+                                new OutputNumber(decimal.Parse(element.GetElementsByTagName("numeric")[0].InnerText)));
+                            break;
 
-                    case "OutputNumberBasedOnRandomInput":
-                        InputsOutputs.Add(
-                            new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("Math")[0].InnerText));
-                        break;
-                    case "OutputNumberMatchingConditions":
-                        List<string> conditions =
-                            (from XmlElement condition in element.GetElementsByTagName("condition")
-                                select condition.InnerText).ToList();
-                        InputsOutputs.Add(new OutputNumberMatchingConditions(conditions));
-                        break;
-                    case "OutputCountOfNumbersMatchingConditions":
-                        List<string> conditions2 =
-                            (from XmlElement condition in element.GetElementsByTagName("condition")
-                                select condition.InnerText).ToList();
+                        case "OutputNumberBasedOnRandomInput":
+                            InputsOutputs.Add(
+                                new OutputNumberBasedOnRandomInput(element.GetElementsByTagName("Math")[0].InnerText));
+                            break;
+                        case "OutputNumberMatchingConditions":
+                            List<string> conditions =
+                                (from XmlElement condition in element.GetElementsByTagName("condition")
+                                 select condition.InnerText).ToList();
+                            InputsOutputs.Add(new OutputNumberMatchingConditions(conditions));
+                            break;
+                        case "OutputCountOfNumbersMatchingConditions":
+                            List<string> conditions2 =
+                                (from XmlElement condition in element.GetElementsByTagName("condition")
+                                 select condition.InnerText).ToList();
 
-                        bool takeInputs = Convert.ToBoolean(element.GetElementsByTagName("takeInputs")[0].InnerText);
-                        int countOfNumbers = int.Parse(element.GetElementsByTagName("countOfNumbers")[0].InnerText);
-                        InputsOutputs.Add(new OutputCountOfNumbersMatchingConditions(conditions2, countOfNumbers,takeInputs));
-                        break;
-                    case "OutputString":
-                        InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
-                        break;
-                    case "SettingsDeviation":
-                        InputsOutputs.Add(
-                            new SettingsDeviation(
-                                Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
-                        break;
-                    case "SettingsProhibitedCommand":
-                        InputsOutputs.Add(
-                            new SettingsProhibitedCommand(
-                                (element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
-                        break;
-                    case "SettingsRequiedCommand":
-                        InputsOutputs.Add(
-                            new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
-                        break;
-                    case "ActionRepeatLast":
-                        InputsOutputs.Add(
-                            new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
-                        break;
-                    default:
-                        throw new InvalidDataException(node.Name);
+                            bool takeInputs = Convert.ToBoolean(element.GetElementsByTagName("takeInputs")[0].InnerText);
+                            int countOfNumbers = int.Parse(element.GetElementsByTagName("countOfNumbers")[0].InnerText);
+                            InputsOutputs.Add(new OutputCountOfNumbersMatchingConditions(conditions2, countOfNumbers, takeInputs));
+                            break;
+                        case "OutputString":
+                            InputsOutputs.Add(new OutputString(element.GetElementsByTagName("string")[0].InnerText));
+                            break;
+                        case "SettingsDeviation":
+                            InputsOutputs.Add(
+                                new SettingsDeviation(
+                                    Double.Parse(element.GetElementsByTagName("deviation")[0].InnerText)));
+                            break;
+                        case "SettingsProhibitedCommand":
+                            InputsOutputs.Add(
+                                new SettingsProhibitedCommand(
+                                    (element.GetElementsByTagName("prohibitedCommand")[0].InnerText)));
+                            break;
+                        case "SettingsRequiedCommand":
+                            InputsOutputs.Add(
+                                new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
+                            break;
+                        case "ActionRepeatLast":
+                            InputsOutputs.Add(
+                                new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
+                            break;
+                        default:
+                            throw new InvalidDataException(node.Name);
+                    }
+                    #endregion
                 }
-                #endregion
             }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Soubor nebyl nalezen");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Zvolený XML soubor není podporován.");
+            }
+            catch (InvalidDataException exception)
+            {
+                MessageBox.Show(exception.Message + "není podporován a nebyl importován.");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Během importu se vyskytla chyba!");
+                InputsOutputs.Clear();
+                ExceptionsLog.LogException(exception.ToString());
+            }
+
+            
         }
     }
 }

@@ -20,7 +20,7 @@ namespace UnitTests
         public void ReturnSameNum3X()
         {
             SourceCodes.SetPath(@"D:\CAC\tests\returnSameNum3x\");
-            SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles("c");
             XmlManager.Import(@"D:\CAC\tests\returnSameNum3x\SameNum3x.xml");
 
             TestManager.TestAllSourceCodes();

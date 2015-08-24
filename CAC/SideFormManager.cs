@@ -40,6 +40,7 @@ namespace CAC
         public static void ShowExisting(dynamic formToShow)
         {
             Close();
+            formToShow.Exists = true;
             _sideForm = formToShow;
             UpdatePosition();
             _sideForm.Show();
@@ -47,17 +48,15 @@ namespace CAC
 
         public static void UpdatePosition()
         {
-            if (_sideForm != null)
+            if (_sideForm == null) return;
+            try
             {
-                try
-                {
-                    _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,
-                        Form.ActiveForm.Location.Y + 65);
-                }
-                catch
-                {
-                    // ignored
-                }
+                _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,
+                    Form.ActiveForm.Location.Y + 65);
+            }
+            catch
+            {
+                // ignored
             }
         }
 

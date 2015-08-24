@@ -57,9 +57,10 @@ namespace CAC
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            if (SourceCodes.SetPath())
+            SourceCodes.SetPath();
+            tbpath.Text = SourceCodes.GetPath();
+            if (SourceCodes.IsDirectorySet())
             {
-                tbpath.Text = SourceCodes.GetPath();
                 UpdateLbCodes();
             }
         }
@@ -70,8 +71,7 @@ namespace CAC
             lV.Clear();
             ResetProgressBar();
             lErrorMessage.Text = "";
-            SourceCodes.ReloadSourceCodeFiles();
-            SourceCodes.GetCompilationErrorsAsync();
+            SourceCodes.ReloadSourceCodeFiles("c");
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {
@@ -79,6 +79,7 @@ namespace CAC
                 {
                     lbCodes.Items.Add(code);
                 }
+                SourceCodes.GetCompilationErrorsAsync();
             }
             else
                 MessageBox.Show("Nebyly nalezeny žádné platné soubory.");
@@ -119,7 +120,7 @@ namespace CAC
             else
             {
                 MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
-                SourceCodes.ReloadSourceCodeFiles();
+                SourceCodes.ReloadSourceCodeFiles("c");
                 UpdateLbCodes();
             }
         }
@@ -152,6 +153,20 @@ namespace CAC
             CheckIfLastActionInRepeatersIsValid();
         }
 
+        private void butMoveDown_Click(object sender, EventArgs e)
+        {
+            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1)
+                //if theres any selected item and it isnt bottom one;
+            {
+                int newIndex = lbObjects.SelectedIndex + 1;
+                InputsOutputs.Swap(lbObjects.SelectedIndex, newIndex);
+                InputsOutputsOnInOutListChanged(this, new EventArgs());
+                lbObjects.SelectedIndex = newIndex;
+            }
+            CheckIfMathInOutputRandomNumbersIsValid();
+            CheckIfRequestedCountOfNumbersIsPossible();
+            CheckIfLastActionInRepeatersIsValid();
+        }
         private void CheckIfRequestedCountOfNumbersIsPossible()
         {
             foreach (OutputCountOfNumbersMatchingConditions form in InputsOutputs.GetList(typeof(OutputCountOfNumbersMatchingConditions)))
@@ -173,21 +188,6 @@ namespace CAC
             }
         }
 
-        private void butMoveDown_Click(object sender, EventArgs e)
-        {
-            if (lbObjects.SelectedIndex != -1 && lbObjects.SelectedIndex != lbObjects.Items.Count - 1)
-                //if theres any selected item and it isnt bottom one;
-            {
-                int newIndex = lbObjects.SelectedIndex + 1;
-                InputsOutputs.Swap(lbObjects.SelectedIndex, newIndex);
-                InputsOutputsOnInOutListChanged(this, new EventArgs());
-                lbObjects.SelectedIndex = newIndex;
-            }
-            CheckIfMathInOutputRandomNumbersIsValid();
-            CheckIfRequestedCountOfNumbersIsPossible();
-            CheckIfLastActionInRepeatersIsValid();
-        }
-
         private void CheckIfLastActionInRepeatersIsValid()
         {
             foreach (ActionRepeatLast repeater in InputsOutputs.GetList(typeof(ActionRepeatLast)))
@@ -202,73 +202,38 @@ namespace CAC
 
         private void butExport_Click(object sender, EventArgs e)
         {
-            if (lbObjects.Items.Count > 0)
+            if (lbObjects.Items.Count == 0)
             {
-                var saveXml = new SaveFileDialog();
-                saveXml.Filter = @"XML files (*.xml)|*.xml";
-                if (saveXml.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        XmlManager.Export(saveXml.FileName);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Nepodařilo se exportovat data do XML souboru."); //todo catching general Exception is bad idea
-                    }
-                    MessageBox.Show("Soubor byl úspěšně vyexportován.");
-                }
-            }
-            else
                 MessageBox.Show("Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup.");
+                return;
+            }
+            var saveXml = new SaveFileDialog();
+            saveXml.Filter = @"XML files (*.xml)|*.xml";
+            if (saveXml.ShowDialog() == DialogResult.OK)
+            {
+                XmlManager.Export(saveXml.FileName);
+            }
         }
 
         private void lbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbObjects.SelectedItem != null)
             {
-                InputsOutputs.GetIOForm(lbObjects.SelectedIndex).Exists = true;
                 SideFormManager.ShowExisting(InputsOutputs.GetIOForm(lbObjects.SelectedIndex));
             }
         }
 
         private void butImport_Click(object sender, EventArgs e)
         {
-            if (lbObjects.Items.Count != 0)
-                if (
-                    MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) ==
-                    DialogResult.Cancel)
+            if (lbObjects.Items.Count != 0 &&
+                MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                     return;
 
             InputsOutputs.Clear();
 
-            var openXml = new OpenFileDialog();
-            openXml.Filter = "XML soubory (*.xml)|*.xml";
-            if (openXml.ShowDialog() != DialogResult.OK)
-                return;
-            try
-            {
+            var openXml = new OpenFileDialog {Filter = "XML soubory (*.xml)|*.xml"};
+            if (openXml.ShowDialog() == DialogResult.OK)
                 XmlManager.Import(openXml.FileName);
-            }
-            #region expetion handling
-            catch (FormatException)
-            {
-                MessageBox.Show("Zvolený XML soubor není podporován.");
-            }
-            catch (InvalidDataException exception)
-            {
-                MessageBox.Show(exception.Message + "není podporován a nebyl importován.");
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("Soubor nebyl nalezen");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Během importu se vyskytla chyba!");
-                InputsOutputs.Clear();
-            }
-            #endregion
 
         }
 
@@ -328,15 +293,18 @@ namespace CAC
                 //todo refaktorovat
                 if (code.TestResult != null)
                 {
-                    var line = new ListViewItem(new[] {code.Name, (code.TestResult.IsOk != null && (bool)code.TestResult.IsOk) ? "OK" : "Error"});
-                    line.UseItemStyleForSubItems = false;
+                    var line =
+                        new ListViewItem(new[]
+                        {code.Name, (code.TestResult.IsOk != null && (bool) code.TestResult.IsOk) ? "OK" : "Error"})
+                        {
+                            UseItemStyleForSubItems = false
+                        };
                     line.SubItems[1].ForeColor = GetStatusColor(code.TestResult.IsOk);
                     lV.Items.Add(line);
                 }
                 else
                 {
-                    var line = new ListViewItem(new[] {code.Name, "testuje se"});
-                    line.UseItemStyleForSubItems = false;
+                    var line = new ListViewItem(new[] {code.Name, "testuje se"}) {UseItemStyleForSubItems = false};
                     line.SubItems[1].ForeColor = Color.Orange;
                     lV.Items.Add(line);
                 }
@@ -410,7 +378,7 @@ namespace CAC
 
         private static Color GetStatusColor(bool? status)
         {
-            Color color=new Color();
+            var color=new Color();
             switch (status)
             {
                 case true:
@@ -435,7 +403,7 @@ namespace CAC
 
         private void butOpenFile_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(SourceCodes.GetSourceCode(lbCodes.SelectedIndex).Path);
+            Process.Start(SourceCodes.GetSourceCode(lbCodes.SelectedIndex).Path);
         }
     }
 }

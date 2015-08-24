@@ -29,13 +29,6 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void SetPath()
-        {
-            Assert.IsTrue(SourceCodes.SetPath(@"D:\CAC\unitTests\returnSameNum"));
-            Assert.IsFalse(SourceCodes.SetPath(@"D:\CAC\unitTests\nonEXISTING"));
-        }
-
-        [TestMethod]
         public void GetPath()
         {
             Reset();
@@ -57,7 +50,7 @@ namespace UnitTests
         {
             Reset();
             SourceCodes.SetPath(@"D:\CAC\unitTests\threeFiles");
-            SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles("c");
             List<SourceCode> sourceCodeFiles = SourceCodeFiles();
             Assert.IsTrue(sourceCodeFiles.Count==3);
         }
@@ -67,7 +60,7 @@ namespace UnitTests
         {
             Reset();
             SourceCodes.SetPath(@"D:\CAC\unitTests\threeFiles");
-            SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles("c");
             CollectionAssert.AreEquivalent(SourceCodeFiles(), SourceCodes.GetSourceCodeFiles());
         }
         [TestMethod]
@@ -75,7 +68,7 @@ namespace UnitTests
         {
             Reset();
             SourceCodes.SetPath(@"D:\CAC\unitTests\threeFiles");
-            SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles("c");
             SourceCode code = SourceCodes.GetSourceCode(1);
             Assert.AreEqual("main2.c", code.Name);
         }
@@ -84,7 +77,7 @@ namespace UnitTests
         {
             Reset();
             SourceCodes.SetPath(@"D:\CAC\unitTests\threeFiles");
-            SourceCodes.ReloadSourceCodeFiles();
+            SourceCodes.ReloadSourceCodeFiles("c");
             SourceCode code = SourceCodes.GetSourceCode("main2.c");
             Assert.AreEqual("main2.c", code.Name);
         }
