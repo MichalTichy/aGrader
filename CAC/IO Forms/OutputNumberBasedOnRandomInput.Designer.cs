@@ -1,14 +1,11 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
-
-namespace CAC.IO_Forms
+﻿namespace CAC.IO_Forms
 {
     partial class OutputNumberBasedOnRandomInput
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private IContainer components = null;
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,75 +28,61 @@ namespace CAC.IO_Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.butClose = new System.Windows.Forms.Button();
-            this.butAddOrDelete = new System.Windows.Forms.Button();
-            this.lbNumbers = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbMath = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbNumbers = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(247, 199);
-            this.butClose.Name = "butClose";
-            this.butClose.Size = new System.Drawing.Size(60, 23);
-            this.butClose.TabIndex = 15;
-            this.butClose.Text = "Zavřít";
-            this.butClose.UseVisualStyleBackColor = true;
+            this.butClose.Location = new System.Drawing.Point(190, 198);
             this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(14, 199);
-            this.butAddOrDelete.Name = "butAddOrDelete";
-            this.butAddOrDelete.Size = new System.Drawing.Size(60, 23);
-            this.butAddOrDelete.TabIndex = 14;
-            this.butAddOrDelete.Text = "Přidat";
-            this.butAddOrDelete.UseVisualStyleBackColor = true;
+            this.butAddOrDelete.Location = new System.Drawing.Point(12, 198);
             this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrDelete_Click);
             // 
-            // lbNumbers
+            // tbMath
             // 
-            this.lbNumbers.FormattingEnabled = true;
-            this.lbNumbers.Location = new System.Drawing.Point(14, 38);
-            this.lbNumbers.Name = "lbNumbers";
-            this.lbNumbers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbNumbers.Size = new System.Drawing.Size(293, 108);
-            this.lbNumbers.TabIndex = 16;
+            this.tbMath.Location = new System.Drawing.Point(12, 172);
+            this.tbMath.Name = "tbMath";
+            this.tbMath.Size = new System.Drawing.Size(238, 20);
+            this.tbMath.TabIndex = 25;
+            this.tbMath.Leave += new System.EventHandler(this.tbMath_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 26);
-            this.label1.TabIndex = 19;
+            this.label1.TabIndex = 24;
             this.label1.Text = "Číslo závislé na\r\nnáhodném vstupu";
             // 
-            // tbMath
+            // lbNumbers
             // 
-            this.tbMath.Location = new System.Drawing.Point(14, 173);
-            this.tbMath.Name = "tbMath";
-            this.tbMath.Size = new System.Drawing.Size(292, 20);
-            this.tbMath.TabIndex = 22;
-            this.tbMath.Leave += new System.EventHandler(this.tbMath_Leave);
+            this.lbNumbers.FormattingEnabled = true;
+            this.lbNumbers.Location = new System.Drawing.Point(12, 37);
+            this.lbNumbers.Name = "lbNumbers";
+            this.lbNumbers.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbNumbers.Size = new System.Drawing.Size(239, 108);
+            this.lbNumbers.TabIndex = 23;
             // 
-            // OutputNumberBasedOnRandomInput
+            // OutputNumberBasedOnRandomInput2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 228);
+            this.ClientSize = new System.Drawing.Size(263, 230);
             this.Controls.Add(this.tbMath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbNumbers);
-            this.Controls.Add(this.butClose);
-            this.Controls.Add(this.butAddOrDelete);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "OutputNumberBasedOnRandomInput";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Output";
+            this.Name = "OutputNumberBasedOnRandomInput2";
             this.Activated += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Activated);
+            this.Controls.SetChildIndex(this.butAddOrDelete, 0);
+            this.Controls.SetChildIndex(this.butClose, 0);
+            this.Controls.SetChildIndex(this.lbNumbers, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.tbMath, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,10 +90,8 @@ namespace CAC.IO_Forms
 
         #endregion
 
-        private Button butClose;
-        private Button butAddOrDelete;
-        private ListBox lbNumbers;
-        private Label label1;
-        private TextBox tbMath;
+        private System.Windows.Forms.TextBox tbMath;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lbNumbers;
     }
 }

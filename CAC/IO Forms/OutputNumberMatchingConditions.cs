@@ -1,18 +1,17 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using CAC.Mathematic;
 
-#endregion
-
 namespace CAC.IO_Forms
 {
-    public partial class OutputNumberMatchingConditions : Form
+    public partial class OutputNumberMatchingConditions : CAC.IO_Forms.InputOutputForm
     {
         public List<string> Conditions = new List<string>();
-        public bool Exists = false;
 
         public OutputNumberMatchingConditions()
         {
@@ -24,21 +23,6 @@ namespace CAC.IO_Forms
             InitializeComponent();
             Conditions = conditions;
             lbConditions.Items.AddRange(conditions.ToArray());
-        }
-
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
-        }
-
-        private void butAddOrChange_Click(object sender, EventArgs e)
-        {
-            if (!Exists)
-                InputsOutputs.Add(this);
-            else
-                InputsOutputs.Remove(this);
-            SideFormManager.Close();
         }
 
         public override string ToString()
@@ -63,7 +47,7 @@ namespace CAC.IO_Forms
                 MessageBox.Show("Tato podmínka již existuje.");
                 return;
             }
-            var unknown=new List<string>(1){"X"};
+            var unknown = new List<string>(1) { "X" };
             if (!MathValidator.IsValid(tbCondition.Text.Split('=')[0], unknown) ||
                 !MathValidator.IsValid(tbCondition.Text.Split('=')[1], unknown))
             {

@@ -1,16 +1,15 @@
-﻿#region
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
-
-#endregion
 
 namespace CAC.IO_Forms
 {
-    public partial class InputTextFile : Form
+    public partial class InputTextFile : CAC.IO_Forms.InputOutputForm
     {
-        public bool Exists = false;
-        public string Lineformat;
         public string Path;
 
         public InputTextFile()
@@ -18,28 +17,12 @@ namespace CAC.IO_Forms
             InitializeComponent();
         }
 
-        public InputTextFile(string path, string lineformat)
+        public InputTextFile(string path)
         {
             InitializeComponent();
             Path = path;
-            Lineformat = lineformat;
             tbPath.Text = path;
-            tBLineFormat.Text = lineformat;
-        }
-
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
-        }
-
-        private void butAddOrChange_Click(object sender, EventArgs e)
-        {
-            if (!Exists)
-                InputsOutputs.Add(this);
-            else
-                InputsOutputs.Remove(this);
-            SideFormManager.Close();
+            FullPathToolTip.SetToolTip(tbPath, Path);
         }
 
         public override string ToString()
@@ -64,11 +47,6 @@ namespace CAC.IO_Forms
                 tbPath.Text = Path;
                 FullPathToolTip.SetToolTip(tbPath, Path);
             }
-        }
-
-        private void tBLineFormat_TextChanged(object sender, EventArgs e)
-        {
-            Lineformat = tBLineFormat.Text;
         }
     }
 }

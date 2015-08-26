@@ -93,11 +93,8 @@ namespace CAC
 
             XmlElement path = document.CreateElement("path");
             path.InnerText = ioForm.Path;
-            XmlElement lineformat = document.CreateElement("lineformat");
-            lineformat.InnerText = ioForm.Lineformat;
 
             inTextFile.AppendChild(path);
-            inTextFile.AppendChild(lineformat);
 
             return inTextFile;
         }
@@ -238,8 +235,7 @@ namespace CAC
                     switch (node.Name)
                     {
                         case "InputTextFile":
-                            InputsOutputs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText,
-                                element.GetElementsByTagName("lineformat")[0].InnerText));
+                            InputsOutputs.Add(new InputTextFile(element.GetElementsByTagName("path")[0].InnerText));
                             break;
                         case "InputNumber":
                             InputsOutputs.Add(

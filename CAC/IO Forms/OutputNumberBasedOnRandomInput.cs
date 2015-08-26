@@ -1,22 +1,18 @@
-﻿#region
-
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using CAC.Mathematic;
 
-#endregion
-
 namespace CAC.IO_Forms
 {
-    //todo validovani nefunguje tak jak by melo.
-    public partial class OutputNumberBasedOnRandomInput : Form
+    public partial class OutputNumberBasedOnRandomInput : CAC.IO_Forms.InputOutputForm
     {
         private List<string> _existingUnknowns = new List<string>();
-        public bool Exists = false;
         public string Math;
 
         public OutputNumberBasedOnRandomInput()
@@ -95,7 +91,7 @@ namespace CAC.IO_Forms
         private void FillLbNumbers()
         {
             lbNumbers.Items.Clear();
-            var formId=InputsOutputs.GetIdOfForm(this);
+            var formId = InputsOutputs.GetIdOfForm(this);
             var countOfPrecedingInputsOutputs = (formId == -1) ? InputsOutputs.GetList().Count() : formId;
             IEnumerable<dynamic> inputsOutputs = InputsOutputs.GetList().Take(countOfPrecedingInputsOutputs);
 

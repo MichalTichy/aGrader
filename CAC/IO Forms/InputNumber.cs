@@ -1,15 +1,15 @@
-﻿#region
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
-
-#endregion
 
 namespace CAC.IO_Forms
 {
-    public partial class InputNumber : Form
+    public partial class InputNumber : CAC.IO_Forms.InputOutputForm
     {
-        public bool Exists = false;
         public decimal Value;
 
         public InputNumber()
@@ -23,21 +23,6 @@ namespace CAC.IO_Forms
             InitializeComponent();
             Value = value;
             numeric.Value = value;
-        }
-
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
-        }
-
-        private void butAddOrChange_Click(object sender, EventArgs e)
-        {
-            if (!Exists)
-                InputsOutputs.Add(this);
-            else
-                InputsOutputs.Remove(this);
-            SideFormManager.Close();
         }
 
         public override string ToString()

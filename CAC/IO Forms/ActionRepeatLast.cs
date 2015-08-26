@@ -1,38 +1,39 @@
-﻿#region
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-
-#endregion
 
 namespace CAC.IO_Forms
 {
-    public partial class ActionRepeatLast : Form
+    public partial class ActionRepeatLast : InputOutputForm
     {
-        public bool Exists = false;
         public int Repetitions;
 
         public ActionRepeatLast()
         {
             InitializeComponent();
-            Repetitions = (int) numeric.Value;
+            Repetitions = (int)numeric.Value;
         }
-
-        public object GetRepeatedForm()
-        {
-            int idOfThisForm = InputsOutputs.GetIdOfForm(this);
-            if (idOfThisForm == 0)
-                return null;
-            return InputsOutputs.GetIOForm(idOfThisForm!=-1 ? idOfThisForm - 1 : InputsOutputs.GetIdOfForm(InputsOutputs.GetList().Last()));
-        }
-
         public ActionRepeatLast(int numberOfRepetitions)
         {
             InitializeComponent();
             Repetitions = numberOfRepetitions;
             numeric.Value = numberOfRepetitions;
             labLastAction.Text = InputsOutputs.GetList().Last().ToString();
+        }
+
+        public object GetRepeatedForm()
+        {
+            if (!InputsOutputs.GetList().Any())
+                return null;
+            int idOfThisForm = InputsOutputs.GetIdOfForm(this);
+            if (idOfThisForm == 0)
+                return null;
+            return InputsOutputs.GetIOForm(idOfThisForm != -1 ? idOfThisForm - 1 : InputsOutputs.GetIdOfForm(InputsOutputs.GetList().Last()));
         }
 
         public bool CheckIfPreviousActionIsRepeatable()
@@ -57,32 +58,7 @@ namespace CAC.IO_Forms
             return true;
         }
 
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
-        }
-
-        private void butAddOrChange_Click(object sender, EventArgs e)
-        {
-            if (!Exists)
-                InputsOutputs.Add(this);
-            else
-                InputsOutputs.Remove(this);
-            SideFormManager.Close();
-        }
-
-        public override string ToString()
-        {
-            return "AKCE: opakuj předešlý krok " + Repetitions + "x";
-        }
-
-        private void numeric_ValueChanged(object sender, EventArgs e)
-        {
-            Repetitions = (int) numeric.Value;
-        }
-
-        private void InputNumber_Activated(object sender, EventArgs e)
+        private void ActionRepeatLast_Activated(object sender, EventArgs e)
         {
             UpdateRepeatedActionLabel();
             if (Exists)
@@ -90,19 +66,29 @@ namespace CAC.IO_Forms
                 butAddOrDelete.Text = "Smazat";
             }
         }
-
+        
         private void UpdateRepeatedActionLabel()
         {
-            var RepeatedForm = GetRepeatedForm();
-            labLastAction.Text = RepeatedForm!=null ? RepeatedForm.ToString() : "Není co opakovat.";
+            var repeatedForm = GetRepeatedForm();
+            labLastAction.Text = repeatedForm != null ? repeatedForm.ToString() : "Není co opakovat.";
         }
 
         private void ActionRepeatLast_Shown(object sender, EventArgs e)
         {
-            if (CheckIfPreviousActionIsRepeatable())
+            if (InputsOutputs.GetList().Count()!=0 && CheckIfPreviousActionIsRepeatable())
                 return;
 
             SideFormManager.Close();
+        }
+
+        private void numeric_ValueChanged(object sender, EventArgs e)
+        {
+            Repetitions = (int)numeric.Value;
+        }
+
+        public override string ToString()
+        {
+            return "AKCE: opakuj předešlý krok " + Repetitions + "x";
         }
     }
 }

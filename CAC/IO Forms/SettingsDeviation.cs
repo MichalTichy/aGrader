@@ -1,42 +1,35 @@
-﻿#region
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-
-#endregion
 
 namespace CAC.IO_Forms
 {
-    public partial class SettingsDeviation : Form
+    public partial class SettingsDeviation : CAC.IO_Forms.InputOutputForm
     {
         public double Deviation;
-        public bool Exists = false;
-
         public SettingsDeviation()
         {
             InitializeComponent();
-            Deviation = (double) numeric.Value;
+            Deviation = (double)numeric.Value;
         }
 
         public SettingsDeviation(double deviation)
         {
             InitializeComponent();
             Deviation = deviation;
-            numeric.Value = (decimal) deviation;
-        }
-
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
+            numeric.Value = (decimal)deviation;
         }
 
         private void butAddOrChange_Click(object sender, EventArgs e)
         {
             if (!Exists)
             {
-                if (InputsOutputs.GetList(typeof (SettingsDeviation)).Any())
+                if (InputsOutputs.GetList(typeof(SettingsDeviation)).Any())
                 {
                     MessageBox.Show("Odchylka je již nastavena!");
                     return;
@@ -55,7 +48,7 @@ namespace CAC.IO_Forms
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-            Deviation = (double) numeric.Value;
+            Deviation = (double)numeric.Value;
         }
 
         private void InputNumber_Activated(object sender, EventArgs e)

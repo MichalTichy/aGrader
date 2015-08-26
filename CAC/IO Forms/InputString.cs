@@ -1,15 +1,15 @@
-﻿#region
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
-
-#endregion
 
 namespace CAC.IO_Forms
 {
-    public partial class InputString : Form
+    public partial class InputString : CAC.IO_Forms.InputOutputForm
     {
-        public bool Exists = false;
         public string Text;
 
         public InputString()
@@ -22,21 +22,6 @@ namespace CAC.IO_Forms
             InitializeComponent();
             Text = text;
             tbString.Text = text;
-        }
-
-        private void butClose_Click(object sender, EventArgs e)
-        {
-            SideFormManager.Close();
-            InputsOutputs.OnInOutListChanged();
-        }
-
-        private void butAddOrChange_Click(object sender, EventArgs e)
-        {
-            if (!Exists)
-                InputsOutputs.Add(this);
-            else
-                InputsOutputs.Remove(this);
-            SideFormManager.Close();
         }
 
         public override string ToString()
