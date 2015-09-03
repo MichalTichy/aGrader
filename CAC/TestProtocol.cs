@@ -115,7 +115,7 @@ namespace CAC
             {
                 decimal result;
                 var numbers = _inputs.Where(s => decimal.TryParse(s, out result));
-                count = numbers.Count(number => MathExpresion.AreAllConditionsTrue(Decimal.Parse(number), output.Conditions,MaximumDeviation));
+                count = numbers.Count(number => MathExpresion.AreAllConditionsTrue(decimal.Parse(number), output.Conditions,MaximumDeviation));
             }
             else
             {

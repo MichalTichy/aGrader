@@ -57,7 +57,7 @@ namespace CAC.sourceCodes
             foreach (FileInfo file in _sourceDir.GetFiles("*."+ extension))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
             
-            if (AreAllFileNamesValid())
+            if (!AreAllFileNamesValid())
             {
                 _sourceCodeFiles.Clear();
             }
