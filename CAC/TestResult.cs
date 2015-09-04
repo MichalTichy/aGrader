@@ -110,19 +110,10 @@ namespace CAC
 
         private bool CompareRealAndExpectedOutput(string realOutput, NumberMatchingConditionsData expectedOutput)
         {
-            bool ok = true;
-            foreach (string condition in expectedOutput.Conditions)
-            {
-                var math = new MathExpresion(condition.Split('=')[0].Replace(" ", ""), decimal.Parse(realOutput));
-                double d1 = math.Evaluate();
-                double d2 = double.Parse(condition.Split('=')[1].Replace(" ", ""));
-
-                if ((Math.Abs(d1 - d2) < Protocol.MaximumDeviation)) continue;
-                ok = false;
-                break;
-            }
-            return ok;
-
+            //removes formating
+            realOutput = realOutput.Replace('.', ',');
+            var value = decimal.Parse(realOutput);
+            return expectedOutput.Conditions.All(condition => new BooleanExpresion(condition, value).Evaluate());
         }
         private bool CompareRealAndExpectedOutput(string realOutput, ErrorData expectedOutput)
         {

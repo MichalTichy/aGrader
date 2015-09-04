@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Ciloci.Flee;
@@ -16,8 +17,16 @@ namespace CAC.Mathematic
         {
             _booleanExpresion = booleanExpresion;
             _unknownNumbers = unknownNumbers;
+            
             BuildExpressionContext();
         }
+
+        public BooleanExpresion(string booleanExpresion, decimal value)
+        {
+            _booleanExpresion = booleanExpresion;
+            _unknownNumbers = new Dictionary<string, decimal> {{"X", value}};
+        }
+
 
         public bool Evaluate()
         {
@@ -32,6 +41,19 @@ namespace CAC.Mathematic
             {
                 collection.Add(unknownNumber.Key,unknownNumber.Value);
             }
+        }
+
+        public static bool AreAllConditionsTrue(decimal number, List<string> conditions)
+        {
+            foreach (string condition in conditions)
+            {
+                var d = new Dictionary<string, decimal> {{"X", number}};
+                if (!new BooleanExpresion(condition, d).Evaluate())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

@@ -39,6 +39,7 @@
             this.radioOutputs = new System.Windows.Forms.RadioButton();
             this.radioInputs = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCountOfNumbers)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -152,10 +153,21 @@
             this.panel1.Size = new System.Drawing.Size(234, 33);
             this.panel1.TabIndex = 44;
             // 
-            // OutputCountOfNumbersMatchingConditions2
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
+            this.label4.Location = new System.Drawing.Point(108, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 13);
+            this.label4.TabIndex = 45;
+            this.label4.Text = "odchylka neni brana v potaz";
+            // 
+            // OutputCountOfNumbersMatchingConditions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(263, 296);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.numCountOfNumbers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -165,7 +177,7 @@
             this.Controls.Add(this.lbConditions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "OutputCountOfNumbersMatchingConditions2";
+            this.Name = "OutputCountOfNumbersMatchingConditions";
             this.Activated += new System.EventHandler(this.OutputNumber_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);
@@ -178,6 +190,7 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.numCountOfNumbers, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
             ((System.ComponentModel.ISupportInitialize)(this.numCountOfNumbers)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -199,5 +212,6 @@
         private System.Windows.Forms.RadioButton radioOutputs;
         private System.Windows.Forms.RadioButton radioInputs;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
     }
 }

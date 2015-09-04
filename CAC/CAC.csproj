@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ciloci.Flee, Version=0.9.26.0, Culture=neutral, PublicKeyToken=c8526a021ef298ed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Trove.FLEE.0.9.26.0\lib\net20\Ciloci.Flee.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -131,8 +135,9 @@
     <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mathematic\BooleanExpresion.cs" />
     <Compile Include="Mathematic\MathExpresion.cs" />
-    <Compile Include="Mathematic\MathValidator.cs" />
+    <Compile Include="Mathematic\Validator.cs" />
     <Compile Include="InputsOutputs.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestProtocol.cs" />
@@ -200,6 +205,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\SideFormManager.SideForms.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

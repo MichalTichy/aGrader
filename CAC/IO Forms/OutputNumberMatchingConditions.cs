@@ -48,8 +48,7 @@ namespace CAC.IO_Forms
                 return;
             }
             var unknown = new List<string>(1) { "X" };
-            if (!MathValidator.IsValid(tbCondition.Text.Split('=')[0], unknown) ||
-                !MathValidator.IsValid(tbCondition.Text.Split('=')[1], unknown))
+            if (!Validator.IsValidBooleanExpression(tbCondition.Text,unknown))
             {
                 MessageBox.Show("Podmínka není validní.");
                 return;

@@ -34,6 +34,7 @@
             this.tbCondition = new System.Windows.Forms.TextBox();
             this.lbConditions = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // butClose
@@ -97,17 +98,28 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Podmínky";
             // 
-            // OutputNumberMatchingConditions2
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
+            this.label4.Location = new System.Drawing.Point(110, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 13);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "odchylka neni brana v potaz";
+            // 
+            // OutputNumberMatchingConditions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(263, 224);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.butRemoveConditon);
             this.Controls.Add(this.butAddCondition);
             this.Controls.Add(this.tbCondition);
             this.Controls.Add(this.lbConditions);
             this.Controls.Add(this.label1);
-            this.Name = "OutputNumberMatchingConditions2";
+            this.Name = "OutputNumberMatchingConditions";
             this.Activated += new System.EventHandler(this.OutputNumber_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);
@@ -117,6 +129,7 @@
             this.Controls.SetChildIndex(this.butAddCondition, 0);
             this.Controls.SetChildIndex(this.butRemoveConditon, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +143,6 @@
         private System.Windows.Forms.TextBox tbCondition;
         private System.Windows.Forms.ListBox lbConditions;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

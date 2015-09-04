@@ -70,7 +70,7 @@ namespace CAC.IO_Forms
 
         public bool IsMathValid()
         {
-            if (!MathValidator.IsValid(tbMath.Text, _existingUnknowns))
+            if (!Validator.IsValidMath(tbMath.Text, _existingUnknowns))
             {
                 tbMath.ForeColor = Color.Red;
                 return false;
