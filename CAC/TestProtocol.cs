@@ -17,7 +17,7 @@ namespace CAC
         private List<object> _outputs = new List<object>();
         private List<string> _prohibitedCommnads=new List<string>();
         private List<string> _requiedCommnads = new List<string>();
-
+        private Random random=new Random(DateTime.Now.Millisecond);
         private readonly Dictionary<string, decimal> _generatedRandomNumbers=new Dictionary<string, decimal>();
 
 #region encapsulation
@@ -67,7 +67,6 @@ namespace CAC
 
         private  void ProcessData(InputRandomNumber input)
         {
-            var random = new Random(DateTime.Now.Millisecond);
             decimal num;
             if (input.Decimal)
             {
