@@ -75,7 +75,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbString;
         protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.TextBox tbString;
     }
 }

@@ -26,6 +26,7 @@ namespace CAC.IO_Forms
             Conditions = conditions;
             lbConditions.Items.AddRange(conditions.ToArray());
             CountOfNumbers = countOfNumbers;
+            numCountOfNumbers.Value = countOfNumbers;
             radioInputs.Checked = takeInputs;
         }
         public override string ToString()

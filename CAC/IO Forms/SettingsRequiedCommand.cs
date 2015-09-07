@@ -19,5 +19,10 @@ namespace CAC.IO_Forms
         {
             
         }
+
+        public override string ToString()
+        {
+            return "Požadovaný příkaz " + tbString.Text;
+        }
     }
 }
