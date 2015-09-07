@@ -31,6 +31,7 @@ namespace CAC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtbCode = new System.Windows.Forms.RichTextBox();
             this.lV = new System.Windows.Forms.ListView();
@@ -61,6 +62,7 @@ namespace CAC
             this.butOpenFile = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.ErrorTooltip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -436,6 +438,7 @@ namespace CAC
         private ToolStripContentPanel ContentPanel;
         private StatusStrip statusStrip1;
         private ToolStripProgressBar progressBar;
+        private ToolTip ErrorTooltip;
     }
 }
 

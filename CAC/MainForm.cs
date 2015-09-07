@@ -71,6 +71,8 @@ namespace CAC
             lV.Clear();
             ResetProgressBar();
             lErrorMessage.Text = "";
+            ErrorTooltip.SetToolTip(lErrorMessage,lErrorMessage.Text);
+            
             SourceCodes.ReloadSourceCodeFiles("c");
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
@@ -97,6 +99,7 @@ namespace CAC
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
             lErrorMessage.Text = "";
+            ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
             if (lbCodes.SelectedItem == null) return;
             SourceCode code = SourceCodes.GetSourceCode(lbCodes.SelectedIndex);
 
@@ -111,10 +114,12 @@ namespace CAC
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
                     lErrorMessage.Text = "Kód nemůže být zkompilován!";
+                    ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
                 }
                 else if (code.CompilationErrorMsg!=null)
                 {
                     lErrorMessage.Text = code.CompilationErrorMsg;
+                    ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
                 }
             }
             else
