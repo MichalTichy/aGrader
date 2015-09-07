@@ -65,10 +65,10 @@ namespace CAC.sourceCodes
 
         private static bool AreAllFileNamesValid()
         {
-            char[] illegalChars = { '-', ' ', '_' }; //todo doplnit
-            foreach (SourceCode code in _sourceCodeFiles.Where(code => code.Name.IndexOfAny(illegalChars) != -1))
+            char[] illegalChars = { '-', ' '}; //todo doplnit
+            foreach (SourceCode code in _sourceCodeFiles.Where(code => code.Path.IndexOfAny(illegalChars) != -1))
             {
-                MessageBox.Show(code.Name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
+                MessageBox.Show("Název nebo cesta k souboru " +code.Name + "obsahuje nepovolené znaky (" + new string(illegalChars) + ")");
                 return false;
             }
             return true;
