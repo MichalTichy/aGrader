@@ -14,15 +14,7 @@ namespace CAC
 
         public static void LogException(string exception)
         {
-            if (!LogFile.Exists)
-            {
-                LogFile.Create();
-            }
-
-            using (StreamWriter sw=LogFile.AppendText())
-            {
-                sw.WriteLine(DateTime.Now.ToShortTimeString() + " | " +exception);
-            }
+            File.WriteAllText(LogFile.FullName, DateTime.Now.ToShortTimeString() + " | " + exception+"\n");
         }
     }
 }
