@@ -61,7 +61,7 @@ namespace CAC
             return itemWithinRequestedIndexRange.Where(item => item.GetType() == wantedType);
         }
 
-        public static IEnumerable<dynamic> GetInputsList(formType type, int maxIndex = -1)
+        public static IEnumerable<dynamic> GetInputsList(FormType type, int maxIndex = -1)
         {
             var inputsOutputs = maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex - 1);
             var inputsOutputsMatchingSearch =
@@ -69,7 +69,7 @@ namespace CAC
                     .Where(t => t.GetType().ToString().StartsWith("CAC.IO_Forms.Input"));
             return inputsOutputsMatchingSearch;
         }
-        public static IEnumerable<dynamic> GetOutputsList(formType type, int maxIndex = -1)
+        public static IEnumerable<dynamic> GetOutputsList(FormType type, int maxIndex = -1)
         {
             var inputsOutputs = maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex - 1);
             var inputsOutputsMatchingSearch =
@@ -92,8 +92,8 @@ namespace CAC
     }
 }
 
-public enum formType
+public enum FormType
 {
     Number,
-    String,
+    String
 }
