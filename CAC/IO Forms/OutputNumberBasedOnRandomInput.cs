@@ -95,10 +95,10 @@ namespace CAC.IO_Forms
             var countOfPrecedingInputsOutputs = (formId == -1) ? InputsOutputs.GetList().Count() : formId;
             IEnumerable<dynamic> inputsOutputs = InputsOutputs.GetList().Take(countOfPrecedingInputsOutputs);
 
-            foreach (InputRandomNumber inputRandomNumber in inputsOutputs.Where(item => item.GetType() == typeof(InputRandomNumber)))
+            foreach (InputRandomNumber inputRandomNumber in inputsOutputs.Where(item=>item is InputRandomNumber))
             {
-                lbNumbers.Items.Add(inputRandomNumber + " ZN: X" + inputRandomNumber.Id);
-                _existingUnknowns.Add('X' + inputRandomNumber.Id.ToString());
+                lbNumbers.Items.Add(inputRandomNumber + " ZN: " + inputRandomNumber.Id);
+                _existingUnknowns.Add(inputRandomNumber.Id);
             }
         }
     }

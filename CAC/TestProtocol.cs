@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace CAC
         private List<string> _requiedCommnads = new List<string>();
         private Random random=new Random(DateTime.Now.Millisecond);
         private readonly Dictionary<string, decimal> _generatedRandomNumbers=new Dictionary<string, decimal>();
+        private readonly Dictionary<string, decimal> _numbersLoadedFromFile=new Dictionary<string, decimal>();
 
 #region encapsulation
         public double MaximumDeviation
@@ -82,9 +85,16 @@ namespace CAC
             _inputs.Add(num.ToString().Replace(',', '.'));
             _generatedRandomNumbers.Add('X' + input.Id, num);
         }
-        private void ProcessData(InputTextFile input) //todo dodělat
+        private void ProcessData(InputTextFile input)
         {
-            throw new NotImplementedException();
+            string line;
+            using (var file = new StreamReader(input.Path))
+            {
+                while((line=file.ReadLine())!=null)
+                {
+                    _inputs.Add(line);
+                }
+            }
         }
         private void ProcessData(OutputNumber output)
         {
@@ -93,7 +103,7 @@ namespace CAC
 
         private void ProcessData(OutputNumberBasedOnRandomInput output)
         {
-            var equation = new Mathematic.MathExpresion(output.Math, _generatedRandomNumbers);
+            var equation = new MathExpresion(output.Math, _generatedRandomNumbers);
            _outputs.Add(new NumberData((decimal)equation.Evaluate()));
         }
 
