@@ -89,7 +89,7 @@ namespace CAC.IO_Forms
 
             int formId = InputsOutputs.GetIdOfForm(this);
 
-            int countOfPrecedingNumbres = radioInputs.Checked ? InputsOutputs.GetInputsList(formType.Number, formId).Count() : InputsOutputs.GetOutputsList(formType.Number, formId).Count();
+            int countOfPrecedingNumbres = radioInputs.Checked ? InputsOutputs.GetInputsList(FormType.Number, formId).Count() : InputsOutputs.GetOutputsList(FormType.Number, formId).Count();
 
             int numberOfValidNumbersAddedByRepeaters = GetCountOfValidRepetitions();
             if (numCountOfNumbers.Value <= countOfPrecedingNumbres + numberOfValidNumbersAddedByRepeaters)
