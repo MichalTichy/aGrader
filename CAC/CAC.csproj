@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="ExceptionsLog.cs" />
     <Compile Include="InputsOutpusStructs.cs" />
+    <Compile Include="IO Forms\ActionLoadOutputsFromTextFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\ActionLoadOutputsFromTextFile.Designer.cs">
+      <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\ActionRepeatLast.cs">
       <SubType>Form</SubType>
     </Compile>

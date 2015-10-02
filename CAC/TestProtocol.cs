@@ -160,5 +160,17 @@ namespace CAC
                 ProcessData(repeatedForm);
             }
         }
+
+        private void ProcessData(ActionLoadOutputsFromTextFile sourceFile)
+        {
+            string line;
+            using (var file = new StreamReader(sourceFile.Path))
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    _outputs.Add(new TextData(line));
+                }
+            }
+        }
     }
 }

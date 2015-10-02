@@ -389,7 +389,6 @@ namespace CAC
             this.MaximizeBox = false;
             this.Name = "CaC";
             this.Text = "C application Checker";
-            this.LocationChanged += new System.EventHandler(this.CaC_LocationChanged);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

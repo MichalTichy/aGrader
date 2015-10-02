@@ -98,7 +98,17 @@ namespace CAC
 
             return inTextFile;
         }
+        private static XmlNode GenerateIONode(ActionLoadOutputsFromTextFile ioForm, XmlDocument document)
+        {
+            XmlElement actionLoadOutputsFromTextFile = document.CreateElement(ioForm.Name);
 
+            XmlElement path = document.CreateElement("path");
+            path.InnerText = ioForm.Path;
+
+            actionLoadOutputsFromTextFile.AppendChild(path);
+
+            return actionLoadOutputsFromTextFile;
+        }
         private static XmlNode GenerateIONode(OutputNumber ioForm, XmlDocument document)
         {
             XmlElement outNumber = document.CreateElement(ioForm.Name);
@@ -297,6 +307,10 @@ namespace CAC
                         case "ActionRepeatLast":
                             InputsOutputs.Add(
                                 new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
+                            break;
+
+                        case "ActionLoadOutputsFromTextFile":
+                            InputsOutputs.Add(new ActionLoadOutputsFromTextFile(element.GetElementsByTagName("path")[0].InnerText));
                             break;
                         default:
                             throw new InvalidDataException(node.Name);

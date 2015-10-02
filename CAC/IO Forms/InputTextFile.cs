@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -47,6 +48,22 @@ namespace CAC.IO_Forms
                 tbPath.Text = Path;
                 FullPathToolTip.SetToolTip(tbPath, Path);
             }
+        }
+
+        protected override void butAddOrChange_Click(object sender, EventArgs e)
+        {
+            if (!Exists)
+            {
+                if (string.IsNullOrWhiteSpace(tbPath.Text))
+                {
+                    MessageBox.Show("Musíte vybrat soubor!");
+                    return;
+                }
+                InputsOutputs.Add(this);
+            }
+            else
+                InputsOutputs.Remove(this);
+            SideFormManager.Close();
         }
     }
 }

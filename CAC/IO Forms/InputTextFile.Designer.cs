@@ -74,14 +74,14 @@
             // 
             this.FullPathToolTip.ShowAlways = true;
             // 
-            // InputTextFile2
+            // InputTextFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(263, 82);
             this.Controls.Add(this.butBrowse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPath);
-            this.Name = "InputTextFile2";
+            this.Name = "InputTextFile";
             this.Activated += new System.EventHandler(this.InputFile_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);

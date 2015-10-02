@@ -25,7 +25,7 @@ namespace CAC.IO_Forms
             numeric.Value = (decimal)deviation;
         }
 
-        private void butAddOrChange_Click(object sender, EventArgs e)
+        protected override void butAddOrChange_Click(object sender, EventArgs e)
         {
             if (!Exists)
             {

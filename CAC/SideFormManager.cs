@@ -24,7 +24,8 @@ namespace CAC
             [Description("NASTAVENÍ: odchylka")] SettingsDeviation,
             [Description("NASTAVENÍ: zakázaný příkaz")] SettingsProhibitedCommand,
             [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
-            [Description("AKCE: opakování poslední akce")] ActionRepeatLast
+            [Description("AKCE: opakování poslední akce")] ActionRepeatLast,
+            [Description("AKCE: načti výstupy ze souboru")] ActionLoadOutputsFromTextFile,
         }
 
         private static dynamic _sideForm;
@@ -48,25 +49,18 @@ namespace CAC
 
         public static void UpdatePosition()
         {
+            Form mainForm = Application.OpenForms["CaC"];
+            if (mainForm == null) return;
             if (_sideForm == null) return;
-            try
-            {
-                _sideForm.SetDesktopLocation(Form.ActiveForm.Location.X + Form.ActiveForm.Size.Width,
-                    Form.ActiveForm.Location.Y + 65);
-            }
-            catch
-            {
-                // ignored
-            }
+            _sideForm.SetDesktopLocation(mainForm.Location.X + mainForm.Size.Width,
+                mainForm.Location.Y + 65);
         }
 
         public static void Close()
         {
-            if (_sideForm != null)
-            {
-                _sideForm.Hide();
-                _sideForm = null;
-            }
+            if (_sideForm == null) return;
+            _sideForm.Hide();
+            _sideForm = null;
         }
 
         public static string GetDescription(this Enum currentEnum)

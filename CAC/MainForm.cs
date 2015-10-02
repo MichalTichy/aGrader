@@ -28,6 +28,7 @@ namespace CAC
             InitializeComponent();
             FillCbObjects();
             cbobjects.SelectedIndexChanged += cbobjects_SelectedIndexChanged;
+            LocationChanged += CaC_LocationChanged;
             InputsOutputs.InOutListChanged += InputsOutputsOnInOutListChanged;
             
         }

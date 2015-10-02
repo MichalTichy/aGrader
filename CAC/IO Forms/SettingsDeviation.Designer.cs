@@ -41,7 +41,6 @@
             // butAddOrDelete
             // 
             this.butAddOrDelete.Location = new System.Drawing.Point(12, 66);
-            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrChange_Click);
             // 
             // label2
             // 
@@ -87,14 +86,14 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Maximální odchylka";
             // 
-            // SettingsDeviation2
+            // SettingsDeviation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(263, 100);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);
-            this.Name = "SettingsDeviation2";
+            this.Name = "SettingsDeviation";
             this.Activated += new System.EventHandler(this.InputNumber_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);

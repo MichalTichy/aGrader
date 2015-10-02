@@ -25,7 +25,7 @@ namespace CAC.IO_Forms
             InputsOutputs.OnInOutListChanged();
         }
 
-        private void butAddOrChange_Click(object sender, EventArgs e)
+        protected virtual void butAddOrChange_Click(object sender, EventArgs e)
         {
             if (!Exists)
                 InputsOutputs.Add(this);
@@ -34,7 +34,7 @@ namespace CAC.IO_Forms
             SideFormManager.Close();
         }
 
-        private void InputOutputForm_Activated(object sender, EventArgs e)
+        protected virtual void InputOutputForm_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
