@@ -266,6 +266,8 @@ namespace CAC
             lbCodes.ClearSelected();
             rtbCode.Clear();
             ResetProgressBar();
+            SetListViewToTestMode();
+            SourceCodes.RemoveResults();
             AddLineToLog("Zahajuji testy!");
             AddLineToLog("Počet souborů: "+SourceCodes.GetSourceCodeFiles().Count);
             TestManager.TestAllSourceCodes();
@@ -363,6 +365,7 @@ namespace CAC
 
         private void ResultReady(object sender, ResultReadyArgs testResultArgs)
         {
+            SetListViewToTestMode();
             ListViewItem line = lV.FindItemWithText(testResultArgs.Result.FileName);
             line.SubItems[1].Text = (testResultArgs.Result.IsOk != null && (bool)testResultArgs.Result.IsOk) ? "OK" : "Error";
 

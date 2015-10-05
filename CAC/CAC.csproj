@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="ExceptionsLog.cs" />
     <Compile Include="InputsOutpusStructs.cs" />
+    <Compile Include="IO Forms\ActionCompareFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\ActionCompareFiles.Designer.cs">
+      <DependentUpon>ActionCompareFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO Forms\ActionLoadOutputsFromTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,12 @@
     <Compile Include="sourceCodes\SourceCodes.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="TestResult.cs" />
+    <EmbeddedResource Include="IO Forms\ActionCompareFiles.resx">
+      <DependentUpon>ActionCompareFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\ActionLoadOutputsFromTextFile.resx">
+      <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>

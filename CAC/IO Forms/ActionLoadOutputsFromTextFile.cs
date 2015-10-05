@@ -8,21 +8,16 @@ using System.Windows.Forms;
 
 namespace CAC.IO_Forms
 {
-    public partial class ActionLoadOutputsFromTextFile : CAC.IO_Forms.InputTextFile
+    public partial class ActionLoadOutputsFromTextFile : CAC.IO_Forms.InputOutputForm
     {
-        public ActionLoadOutputsFromTextFile() : base()
+        public ActionLoadOutputsFromTextFile()
         {
             InitializeComponent();
         }
 
-        public ActionLoadOutputsFromTextFile(string path)  : base(path)
-        {
-        }
-
-
         public override string ToString()
         {
-            return "AKCE: načtení výstupů z " + System.IO.Path.GetFileName(Path);
+            return "AKCE: Načti výstupy ze souboru.";
         }
     }
 }

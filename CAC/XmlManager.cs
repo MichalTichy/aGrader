@@ -101,13 +101,22 @@ namespace CAC
         private static XmlNode GenerateIONode(ActionLoadOutputsFromTextFile ioForm, XmlDocument document)
         {
             XmlElement actionLoadOutputsFromTextFile = document.CreateElement(ioForm.Name);
+            return actionLoadOutputsFromTextFile;
+        }
+        private static XmlNode GenerateIONode(ActionCompareFiles ioForm, XmlDocument document)
+        {
+            XmlElement actionCompareFiles = document.CreateElement(ioForm.Name);
 
             XmlElement path = document.CreateElement("path");
             path.InnerText = ioForm.Path;
 
-            actionLoadOutputsFromTextFile.AppendChild(path);
+            XmlElement hashOnly = document.CreateElement("hashOnly");
+            hashOnly.InnerText = ioForm.radioHash.Checked.ToString();
 
-            return actionLoadOutputsFromTextFile;
+            actionCompareFiles.AppendChild(path);
+            actionCompareFiles.AppendChild(hashOnly);
+
+            return actionCompareFiles;
         }
         private static XmlNode GenerateIONode(OutputNumber ioForm, XmlDocument document)
         {
@@ -310,7 +319,10 @@ namespace CAC
                             break;
 
                         case "ActionLoadOutputsFromTextFile":
-                            InputsOutputs.Add(new ActionLoadOutputsFromTextFile(element.GetElementsByTagName("path")[0].InnerText));
+                            InputsOutputs.Add(new ActionLoadOutputsFromTextFile());
+                            break;
+                        case "ActionCompareFiles":
+                            InputsOutputs.Add(new ActionCompareFiles(element.GetElementsByTagName("path")[0].InnerText,Convert.ToBoolean(element.GetElementsByTagName("hashOnly")[0].InnerText)));
                             break;
                         default:
                             throw new InvalidDataException(node.Name);

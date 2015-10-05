@@ -165,7 +165,7 @@ namespace CAC
             this.Tabs.Location = new System.Drawing.Point(517, 12);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
-            this.Tabs.Size = new System.Drawing.Size(291, 344);
+            this.Tabs.Size = new System.Drawing.Size(311, 344);
             this.Tabs.TabIndex = 7;
             // 
             // tabPage1
@@ -178,14 +178,14 @@ namespace CAC
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(283, 318);
+            this.tabPage1.Size = new System.Drawing.Size(303, 318);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Průzkumník";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // butReload
             // 
-            this.butReload.Location = new System.Drawing.Point(211, 4);
+            this.butReload.Location = new System.Drawing.Point(229, 3);
             this.butReload.Name = "butReload";
             this.butReload.Size = new System.Drawing.Size(68, 23);
             this.butReload.TabIndex = 9;
@@ -196,7 +196,7 @@ namespace CAC
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 3);
+            this.label3.Location = new System.Drawing.Point(6, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 13);
             this.label3.TabIndex = 8;
@@ -207,13 +207,13 @@ namespace CAC
             this.tbpath.Location = new System.Drawing.Point(3, 32);
             this.tbpath.Name = "tbpath";
             this.tbpath.ReadOnly = true;
-            this.tbpath.Size = new System.Drawing.Size(202, 20);
+            this.tbpath.Size = new System.Drawing.Size(219, 20);
             this.tbpath.TabIndex = 7;
             this.tbpath.Text = "...";
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(211, 30);
+            this.butBrowse.Location = new System.Drawing.Point(228, 30);
             this.butBrowse.Name = "butBrowse";
             this.butBrowse.Size = new System.Drawing.Size(69, 23);
             this.butBrowse.TabIndex = 6;
@@ -226,7 +226,7 @@ namespace CAC
             this.lbCodes.FormattingEnabled = true;
             this.lbCodes.Location = new System.Drawing.Point(-4, 58);
             this.lbCodes.Name = "lbCodes";
-            this.lbCodes.Size = new System.Drawing.Size(291, 264);
+            this.lbCodes.Size = new System.Drawing.Size(307, 264);
             this.lbCodes.TabIndex = 5;
             this.lbCodes.SelectedIndexChanged += new System.EventHandler(this.lbCodes_SelectedIndexChanged);
             // 
@@ -243,14 +243,14 @@ namespace CAC
             this.tabProtocol.Location = new System.Drawing.Point(4, 22);
             this.tabProtocol.Name = "tabProtocol";
             this.tabProtocol.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProtocol.Size = new System.Drawing.Size(283, 318);
+            this.tabProtocol.Size = new System.Drawing.Size(303, 318);
             this.tabProtocol.TabIndex = 1;
             this.tabProtocol.Text = "Protokol";
             this.tabProtocol.UseVisualStyleBackColor = true;
             // 
             // butExport
             // 
-            this.butExport.Location = new System.Drawing.Point(152, 289);
+            this.butExport.Location = new System.Drawing.Point(172, 289);
             this.butExport.Name = "butExport";
             this.butExport.Size = new System.Drawing.Size(125, 23);
             this.butExport.TabIndex = 10;
@@ -270,7 +270,7 @@ namespace CAC
             // 
             // butMoveDown
             // 
-            this.butMoveDown.Location = new System.Drawing.Point(223, 110);
+            this.butMoveDown.Location = new System.Drawing.Point(243, 110);
             this.butMoveDown.Name = "butMoveDown";
             this.butMoveDown.Size = new System.Drawing.Size(54, 23);
             this.butMoveDown.TabIndex = 8;
@@ -280,7 +280,7 @@ namespace CAC
             // 
             // butMoveUp
             // 
-            this.butMoveUp.Location = new System.Drawing.Point(163, 110);
+            this.butMoveUp.Location = new System.Drawing.Point(172, 110);
             this.butMoveUp.Name = "butMoveUp";
             this.butMoveUp.Size = new System.Drawing.Size(54, 23);
             this.butMoveUp.TabIndex = 7;
@@ -291,7 +291,7 @@ namespace CAC
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 3);
+            this.label1.Location = new System.Drawing.Point(149, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 13);
             this.label1.TabIndex = 4;
@@ -300,7 +300,7 @@ namespace CAC
             // labHelop
             // 
             this.labHelop.AutoSize = true;
-            this.labHelop.Location = new System.Drawing.Point(3, 41);
+            this.labHelop.Location = new System.Drawing.Point(3, 46);
             this.labHelop.Name = "labHelop";
             this.labHelop.Size = new System.Drawing.Size(128, 13);
             this.labHelop.TabIndex = 2;
@@ -312,7 +312,7 @@ namespace CAC
             this.cbobjects.FormattingEnabled = true;
             this.cbobjects.Location = new System.Drawing.Point(0, 83);
             this.cbobjects.Name = "cbobjects";
-            this.cbobjects.Size = new System.Drawing.Size(283, 21);
+            this.cbobjects.Size = new System.Drawing.Size(303, 21);
             this.cbobjects.TabIndex = 1;
             // 
             // lbObjects
@@ -320,7 +320,7 @@ namespace CAC
             this.lbObjects.FormattingEnabled = true;
             this.lbObjects.Location = new System.Drawing.Point(0, 136);
             this.lbObjects.Name = "lbObjects";
-            this.lbObjects.Size = new System.Drawing.Size(287, 147);
+            this.lbObjects.Size = new System.Drawing.Size(303, 147);
             this.lbObjects.TabIndex = 0;
             this.lbObjects.SelectedIndexChanged += new System.EventHandler(this.lbObjects_SelectedIndexChanged);
             // 
@@ -361,7 +361,7 @@ namespace CAC
             this.progressBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 355);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(812, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -377,7 +377,7 @@ namespace CAC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 377);
+            this.ClientSize = new System.Drawing.Size(828, 377);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.butOpenFile);
             this.Controls.Add(this.butShowTestProgress);

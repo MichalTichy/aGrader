@@ -15,28 +15,17 @@ namespace CAC
     public class TestProtocol
     {
         private double _maximumDeviation=0.001;
-        private List<string> _inputs = new List<string>();
-        private List<object> _outputs = new List<object>();
+        public List<string> Inputs = new List<string>();
+        public List<object> Outputs = new List<object>();
         private List<string> _prohibitedCommnads=new List<string>();
         private List<string> _requiedCommnads = new List<string>();
         private Random random=new Random(DateTime.Now.Millisecond);
         private readonly Dictionary<string, decimal> _generatedRandomNumbers=new Dictionary<string, decimal>();
-        private readonly Dictionary<string, decimal> _numbersLoadedFromFile=new Dictionary<string, decimal>();
 
 #region encapsulation
         public double MaximumDeviation
         {
             get { return _maximumDeviation; }
-        }
-
-        public ReadOnlyCollection<string> Inputs
-        {
-            get { return _inputs.AsReadOnly(); }
-        }
-
-        public ReadOnlyCollection<object> Outputs
-        {
-            get { return _outputs.AsReadOnly(); }
         }
 
         public ReadOnlyCollection<string> ProhibitedCommnads
@@ -60,12 +49,12 @@ namespace CAC
 
         private void ProcessData(InputString input)
         {
-            _inputs.Add(input.Text);
+            Inputs.Add(input.Text);
         }
 
         private void ProcessData(InputNumber input)
         {
-            _inputs.Add(input.Value.ToString().Replace(',', '.'));
+            Inputs.Add(input.Value.ToString().Replace(',', '.'));
         }
 
         private  void ProcessData(InputRandomNumber input)
@@ -82,7 +71,7 @@ namespace CAC
                 num = random.Next((int)input.Min, (int)input.Max);
             }
 
-            _inputs.Add(num.ToString().Replace(',', '.'));
+            Inputs.Add(num.ToString().Replace(',', '.'));
             _generatedRandomNumbers.Add('X' + input.Id, num);
         }
         private void ProcessData(InputTextFile input)
@@ -92,29 +81,29 @@ namespace CAC
             {
                 while((line=file.ReadLine())!=null)
                 {
-                    _inputs.Add(line);
+                    Inputs.Add(line);
                 }
             }
         }
         private void ProcessData(OutputNumber output)
         {
-            _outputs.Add(new NumberData(output.Value));
+            Outputs.Add(new NumberData(output.Value));
         }
 
         private void ProcessData(OutputNumberBasedOnRandomInput output)
         {
             var equation = new MathExpresion(output.Math, _generatedRandomNumbers);
-           _outputs.Add(new NumberData((decimal)equation.Evaluate()));
+           Outputs.Add(new NumberData((decimal)equation.Evaluate()));
         }
 
         private void ProcessData(OutputString output)
         {
-            _outputs.Add(new TextData(output.Text));
+            Outputs.Add(new TextData(output.Text));
         }
 
         private void ProcessData(OutputNumberMatchingConditions output)
         {
-            _outputs.Add(new NumberMatchingConditionsData(output.Conditions));
+            Outputs.Add(new NumberMatchingConditionsData(output.Conditions));
         }
 
         private void ProcessData(OutputCountOfNumbersMatchingConditions output)
@@ -123,14 +112,14 @@ namespace CAC
             if (output.TakesInputs())
             {
                 decimal result;
-                var numbers = _inputs.Where(s => decimal.TryParse(s, out result));
+                var numbers = Inputs.Where(s => decimal.TryParse(s, out result));
                 count = numbers.Count(number => BooleanExpresion.AreAllConditionsTrue(decimal.Parse(number), output.Conditions));
             }
             else
             {
-                count = _outputs.Cast<NumberData>().Count(num => MathExpresion.AreAllConditionsTrue(num.Data, output.Conditions,MaximumDeviation));
+                count = Outputs.Cast<NumberData>().Count(num => MathExpresion.AreAllConditionsTrue(num.Data, output.Conditions,MaximumDeviation));
             }
-            _outputs.Add(new NumberData(count));
+            Outputs.Add(new NumberData(count));
         }
         private void ProcessData(SettingsDeviation deviation)
         {
@@ -163,14 +152,14 @@ namespace CAC
 
         private void ProcessData(ActionLoadOutputsFromTextFile sourceFile)
         {
-            string line;
-            using (var file = new StreamReader(sourceFile.Path))
-            {
-                while ((line = file.ReadLine()) != null)
-                {
-                    _outputs.Add(new TextData(line));
-                }
-            }
+            Outputs.Add(new FileWithOutputsData());
+        }
+
+        private void ProcessData(ActionCompareFiles actionCompareFiles)
+        {
+            Outputs.Add(actionCompareFiles.radioHash.Checked
+                ? new FileCompareData(actionCompareFiles.Path,File.ReadAllText(actionCompareFiles.Path).GetHashCode())
+                : new FileCompareData(actionCompareFiles.Path,File.ReadAllLines(actionCompareFiles.Path)));
         }
     }
 }

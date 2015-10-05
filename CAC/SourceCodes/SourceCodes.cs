@@ -97,5 +97,10 @@ namespace CAC.sourceCodes
         {
             return _sourceCodeFiles.First(h => h.Name == filename);
         }
+
+        public static void RemoveResults()
+        {
+            _sourceCodeFiles.ForEach(t=>t.RemoveTestResult());
+        }
     }
 }

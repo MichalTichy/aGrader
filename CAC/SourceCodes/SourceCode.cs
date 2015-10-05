@@ -85,5 +85,10 @@ namespace CAC.sourceCodes
         {
             _testResult = result;
         }
+
+        public void RemoveTestResult()
+        {
+            _testResult = null;
+        }
     }
 }

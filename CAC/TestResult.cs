@@ -22,6 +22,7 @@ namespace CAC
         private List<string> _outputs;
         private List<object> _expectedOutputs;
         private List<int> _badOutputs=new List<int>();
+        private Queue<string> _realOutputs; 
         public ReadOnlyCollection<string> Errors
 
         {
@@ -61,31 +62,18 @@ namespace CAC
 
         private void EvaluateResults()
         {
-            BalanceNumberOfExpectedAndRealOutputs(); 
-            var realOutputs=new Queue<string>(_outputs);
+            _realOutputs=new Queue<string>(_outputs);
             
             foreach (dynamic expectedOutput in _expectedOutputs)
             {
-                var realOutput = realOutputs.Dequeue();
+                var realOutput = _realOutputs.Dequeue();
                 if (string.IsNullOrEmpty(realOutput) || !CompareRealAndExpectedOutput(realOutput,expectedOutput))
                 {
-                    _badOutputs.Add(_outputs.Count-realOutputs.Count-1); //add id of last deleted item
+                    _badOutputs.Add(_outputs.Count-_realOutputs.Count-1); //add id of last deleted item
                 }
             }
 
             IsOk = (_errors == null || _errors.Count == 0) && (_badOutputs == null || _badOutputs.Count == 0);
-        }
-
-        private void BalanceNumberOfExpectedAndRealOutputs()
-        {
-            while (_outputs.Count>_expectedOutputs.Count)
-            {
-                _expectedOutputs.Add(new ErrorData());
-            }
-            while (_expectedOutputs.Count>_outputs.Count)
-            {
-                _outputs.Add(null);
-            }
         }
 
         private bool CompareRealAndExpectedOutput(string realOutput, TextData expectedOutput)
@@ -96,16 +84,15 @@ namespace CAC
         {
             //removes formating
             realOutput = realOutput.Replace('.', ',');
-            string expectedFormatedOutput = expectedOutput.Data.ToString().Replace('.', ',');
 
 
             NumberFormatInfo numberFormats = CultureInfo.CurrentCulture.NumberFormat;
 
-            if (expectedFormatedOutput.Contains(numberFormats.PositiveInfinitySymbol) ||
-                expectedFormatedOutput.Contains(numberFormats.NegativeInfinitySymbol))
+            if (expectedOutput.ToString().Contains(numberFormats.PositiveInfinitySymbol) ||
+                expectedOutput.ToString().Contains(numberFormats.NegativeInfinitySymbol))
                 return false;
 
-            return Math.Abs(decimal.Parse(realOutput) - decimal.Parse(expectedFormatedOutput)) <= (decimal) Protocol.MaximumDeviation;
+            return Math.Abs(decimal.Parse(realOutput) - decimal.Parse(expectedOutput.ToString())) <= (decimal) Protocol.MaximumDeviation;
         }
 
         private bool CompareRealAndExpectedOutput(string realOutput, NumberMatchingConditionsData expectedOutput)
@@ -113,8 +100,20 @@ namespace CAC
             //removes formating
             realOutput = realOutput.Replace('.', ',');
             var value = decimal.Parse(realOutput);
+
             return expectedOutput.Conditions.All(condition => new BooleanExpresion(condition, value).Evaluate());
         }
+        private bool CompareRealAndExpectedOutput(string realOutput, FileHashData data)
+        {
+            return realOutput == data.ToString();
+        }
+
+        private bool CompareRealAndExpectedOutput(string realOutput, LineFromTextFileData data)
+        {
+            return realOutput == data.ToString();
+        }
+
+
         private bool CompareRealAndExpectedOutput(string realOutput, ErrorData expectedOutput)
         {
             return false;

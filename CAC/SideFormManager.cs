@@ -26,6 +26,7 @@ namespace CAC
             [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
             [Description("AKCE: opakování poslední akce")] ActionRepeatLast,
             [Description("AKCE: načti výstupy ze souboru")] ActionLoadOutputsFromTextFile,
+            [Description("AKCE: porovnej soubory")] ActionCompareFiles
         }
 
         private static dynamic _sideForm;

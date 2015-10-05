@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace CAC
 {
-    struct TextData
+    internal struct TextData
     {
         public string Data;
 
@@ -19,7 +21,7 @@ namespace CAC
         }
     }
 
-    struct NumberData
+    internal struct NumberData
     {
         public decimal Data;
 
@@ -30,11 +32,11 @@ namespace CAC
 
         public override string ToString()
         {
-            return Data.ToString();
+            return Data.ToString().Replace('.', ',');
         }
     }
 
-    struct NumberMatchingConditionsData
+    internal struct NumberMatchingConditionsData
     {
         public List<string> Conditions;
 
@@ -45,8 +47,8 @@ namespace CAC
 
         public override string ToString()
         {
-            string conditions="";
-            var sb=new StringBuilder(conditions);
+            string conditions = "";
+            var sb = new StringBuilder(conditions);
             foreach (string condition in Conditions)
             {
                 sb.Append(condition);
@@ -55,7 +57,67 @@ namespace CAC
         }
     }
 
-    struct ErrorData
+    internal struct FileCompareData
+    {
+        public string RefereceFilePath;
+        public int? ReferenceFileHash;
+        public string[] ReferenceFileLines;
+
+        public FileCompareData(string path, int referenceFileHash)
+        {
+            RefereceFilePath = path;
+            ReferenceFileHash = referenceFileHash;
+            ReferenceFileLines = null;
+        }
+
+        public FileCompareData(string path, string[] referenceFileLines)
+        {
+            RefereceFilePath = path;
+            ReferenceFileHash = null;
+            ReferenceFileLines = referenceFileLines;
+        }
+    }
+
+    internal struct LineFromTextFileData
+    {
+        public int LineNumber;
+        private string _text;
+
+        public LineFromTextFileData(string line, int lineNumber)
+        {
+            LineNumber = lineNumber;
+            _text = line;
+        }
+
+        public override string ToString()
+        {
+            return _text;
+        }
+    }
+
+    internal struct FileHashData
+    {
+        public string FilePath;
+        private int? _hash;
+        public FileHashData(string filePath)
+        {
+            FilePath = filePath;
+            _hash = null;
+        }
+
+        public override string ToString()
+        {
+            if (_hash == null)
+                _hash = File.ReadAllText(FilePath).GetHashCode();
+            return _hash.ToString();
+        }
+    }
+
+    internal struct FileWithOutputsData
+    {
+    }
+
+    internal struct ErrorData
     {
         public readonly string ErrorMsg;
 

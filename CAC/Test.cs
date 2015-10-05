@@ -74,7 +74,7 @@ namespace CAC
             }
             catch
             {
-                // error is does not contain line number
+                // error does not contain line number
             }
 
             return new Tuple<string,int?>(msg,lineWithError);
@@ -108,9 +108,62 @@ namespace CAC
 
             ParseOutput(output);
             ParseErrors(error);
+            BalanceNumberOfExpectedAndRealOutputs();
+            ProcessActionsWithFiles();
+            BalanceNumberOfExpectedAndRealOutputs();
             var result=new TestResult(SourceCode.Name,Protocol,_outputs, _errors,_app.TotalProcessorTime.TotalMilliseconds);
             SourceCode.AddTestResult(result);
             return result;
+        }
+        private void BalanceNumberOfExpectedAndRealOutputs()
+        {
+            while (_outputs.Count > Protocol.Outputs.Count(t => !(t is FileCompareData) && !(t is FileWithOutputsData)))
+            {
+                Protocol.Outputs.Add(new ErrorData());
+            }
+            while (Protocol.Outputs.Count(t => !(t is FileCompareData) && !(t is FileWithOutputsData)) > _outputs.Count)
+            {
+                _outputs.Add(null);
+            }
+        }
+
+        private void ProcessActionsWithFiles()
+        {
+            object[] filteredObjects = Protocol.Outputs.Where(t => t is FileCompareData || t is FileWithOutputsData).ToArray();
+            foreach (dynamic data in filteredObjects)
+            {
+                ProcessFileAction(data);
+            }
+        }
+
+        private void ProcessFileAction(FileCompareData data)
+        {
+            string textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
+                                  Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
+            if (data.ReferenceFileHash!=null)
+            {
+                _outputs.Add(data.ReferenceFileHash.ToString());
+                Protocol.Outputs.Add(new FileHashData(textFilePath));
+            }
+            else
+            {
+                int i = 0;
+                foreach (string line in data.ReferenceFileLines)
+                {
+                    _outputs.Add(line);
+                    Protocol.Outputs.Add(new LineFromTextFileData(line,i++));
+                }
+            }
+            Protocol.Outputs.Remove(data);
+        }
+
+        private void ProcessFileAction(FileWithOutputsData data)
+        {
+            string textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
+                      Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
+            
+            _outputs.AddRange(File.ReadAllLines(textFilePath));
+            Protocol.Outputs.Remove(data);
         }
 
         private void CheckSourceCodeForRequiedCommands()
