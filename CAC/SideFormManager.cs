@@ -80,6 +80,14 @@ namespace CAC
 
             return description;
         }
+
+        public static void Show(Form form)
+        {
+            Close();
+            _sideForm = form;
+            form.Show();
+            UpdatePosition();
+        }
     }
 
     public class DescriptionAttribute : Attribute

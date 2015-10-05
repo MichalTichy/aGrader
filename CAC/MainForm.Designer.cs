@@ -33,6 +33,7 @@ namespace CAC
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.butChart = new System.Windows.Forms.Button();
             this.rtbCode = new System.Windows.Forms.RichTextBox();
             this.lV = new System.Windows.Forms.ListView();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -58,7 +59,7 @@ namespace CAC
             this.cbobjects = new System.Windows.Forms.ComboBox();
             this.lbObjects = new System.Windows.Forms.ListBox();
             this.lErrorMessage = new System.Windows.Forms.Label();
-            this.butShowTestProgress = new System.Windows.Forms.Button();
+            this.butShowTests = new System.Windows.Forms.Button();
             this.butOpenFile = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -81,6 +82,7 @@ namespace CAC
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.butChart);
             this.splitContainer1.Panel1.Controls.Add(this.rtbCode);
             // 
             // splitContainer1.Panel2
@@ -89,6 +91,18 @@ namespace CAC
             this.splitContainer1.Size = new System.Drawing.Size(499, 314);
             this.splitContainer1.SplitterDistance = 157;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // butChart
+            // 
+            this.butChart.Enabled = false;
+            this.butChart.Location = new System.Drawing.Point(454, 129);
+            this.butChart.Name = "butChart";
+            this.butChart.Size = new System.Drawing.Size(42, 26);
+            this.butChart.TabIndex = 1;
+            this.butChart.Text = "Graf";
+            this.butChart.UseVisualStyleBackColor = true;
+            this.butChart.Visible = false;
+            this.butChart.Click += new System.EventHandler(this.butChart_Click);
             // 
             // rtbCode
             // 
@@ -333,16 +347,16 @@ namespace CAC
             this.lErrorMessage.TabIndex = 8;
             this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // butShowTestProgress
+            // butShowTests
             // 
-            this.butShowTestProgress.Location = new System.Drawing.Point(117, 12);
-            this.butShowTestProgress.Name = "butShowTestProgress";
-            this.butShowTestProgress.Size = new System.Drawing.Size(75, 23);
-            this.butShowTestProgress.TabIndex = 9;
-            this.butShowTestProgress.Text = "průběh testů";
-            this.butShowTestProgress.UseVisualStyleBackColor = true;
-            this.butShowTestProgress.Visible = false;
-            this.butShowTestProgress.Click += new System.EventHandler(this.butShowTestProgress_Click);
+            this.butShowTests.Location = new System.Drawing.Point(117, 12);
+            this.butShowTests.Name = "butShowTests";
+            this.butShowTests.Size = new System.Drawing.Size(75, 23);
+            this.butShowTests.TabIndex = 9;
+            this.butShowTests.Text = "průběh testů";
+            this.butShowTests.UseVisualStyleBackColor = true;
+            this.butShowTests.Visible = false;
+            this.butShowTests.Click += new System.EventHandler(this.butShowTestProgress_Click);
             // 
             // butOpenFile
             // 
@@ -380,7 +394,7 @@ namespace CAC
             this.ClientSize = new System.Drawing.Size(828, 377);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.butOpenFile);
-            this.Controls.Add(this.butShowTestProgress);
+            this.Controls.Add(this.butShowTests);
             this.Controls.Add(this.lErrorMessage);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.butRunTest);
@@ -428,7 +442,7 @@ namespace CAC
         private Label lErrorMessage;
         private ListBox lbObjects;
         private ListView lV;
-        private Button butShowTestProgress;
+        private Button butShowTests;
         private Button butOpenFile;
         private ToolStripPanel BottomToolStripPanel;
         private ToolStripPanel TopToolStripPanel;
@@ -438,6 +452,7 @@ namespace CAC
         private StatusStrip statusStrip1;
         private ToolStripProgressBar progressBar;
         private ToolTip ErrorTooltip;
+        private Button butChart;
     }
 }
 

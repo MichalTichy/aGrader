@@ -68,7 +68,7 @@ namespace CAC
 
         private void UpdateLbCodes()
         {
-            butShowTestProgress.Visible = false;
+            butShowTests.Visible = false;
             lV.Clear();
             ResetProgressBar();
             lErrorMessage.Text = "";
@@ -260,9 +260,12 @@ namespace CAC
             }
 
             //todo mozna vypnout UI?
+            butChart.Enabled = false;
+            butChart.Visible = true;
+            butRunTest.Enabled = false;
             Tabs.SelectedIndex = 0;
             SetListViewToTestMode();
-            butShowTestProgress.Visible = true;
+            butShowTests.Visible = true;
             lbCodes.ClearSelected();
             rtbCode.Clear();
             ResetProgressBar();
@@ -286,6 +289,7 @@ namespace CAC
 
         private void SetListViewToTestMode()
         {
+            butChart.Visible = true;
             butOpenFile.Visible = false;
             TestManager.ResultReady -= ResultReady;
             TestManager.ResultReady += ResultReady;
@@ -328,6 +332,7 @@ namespace CAC
         private void SetListViewToCodeMode(SourceCode code)
         {
             butOpenFile.Visible = true;
+            butChart.Visible = false;
 
             lV.Items.Clear();
             lV.Columns.Clear();
@@ -382,6 +387,8 @@ namespace CAC
             if (progressBar.Value==progressBar.Maximum)
             {
                 AddLineToLog("Všechny testy byli dokončeny!");
+                butRunTest.Enabled = true;
+                butChart.Enabled = true;
             }
         }
 
@@ -413,6 +420,11 @@ namespace CAC
         private void butOpenFile_Click(object sender, EventArgs e)
         {
             Process.Start(SourceCodes.GetSourceCode(lbCodes.SelectedIndex).Path);
+        }
+
+        private void butChart_Click(object sender, EventArgs e)
+        {
+            SideFormManager.Show(new Graph());
         }
     }
 }
