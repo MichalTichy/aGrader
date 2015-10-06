@@ -33,6 +33,13 @@ namespace CAC
             get { return _outputs.AsReadOnly(); }
         }
 
+        public int CorrectOutputsCount => _errors.Count == 0
+            ? _expectedOutputs.Count - _badOutputs.Count
+            : 0;
+        public int WrongOutputsCount => _errors.Count == 0
+            ? _badOutputs.Count
+            : _expectedOutputs.Count;
+
         public ReadOnlyCollection<object> ExpectedOutputs
         {
             get { return _expectedOutputs.AsReadOnly(); }

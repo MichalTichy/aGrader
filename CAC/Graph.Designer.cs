@@ -33,15 +33,29 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartResults = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbCorrect = new System.Windows.Forms.CheckBox();
             this.cbWrong = new System.Windows.Forms.CheckBox();
             this.cbProcessorTime = new System.Windows.Forms.CheckBox();
+            this.cbSort = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.butSave = new System.Windows.Forms.Button();
+            this.saveImage = new System.Windows.Forms.SaveFileDialog();
+            this.chartBIG = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chartResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBIG)).BeginInit();
             this.SuspendLayout();
             // 
             // chartResults
             // 
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 5;
             chartArea1.Name = "ChartArea1";
             this.chartResults.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -66,7 +80,7 @@
             this.chartResults.Series.Add(series1);
             this.chartResults.Series.Add(series2);
             this.chartResults.Series.Add(series3);
-            this.chartResults.Size = new System.Drawing.Size(469, 322);
+            this.chartResults.Size = new System.Drawing.Size(739, 322);
             this.chartResults.TabIndex = 0;
             this.chartResults.Text = "chart1";
             // 
@@ -107,20 +121,99 @@
             this.cbProcessorTime.UseVisualStyleBackColor = true;
             this.cbProcessorTime.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
+            // cbSort
+            // 
+            this.cbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSort.FormattingEnabled = true;
+            this.cbSort.Items.AddRange(new object[] {
+            "názvu",
+            "počtu správných",
+            "počtu špatných",
+            "processor time"});
+            this.cbSort.Location = new System.Drawing.Point(606, 65);
+            this.cbSort.Name = "cbSort";
+            this.cbSort.Size = new System.Drawing.Size(121, 21);
+            this.cbSort.TabIndex = 4;
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(606, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Seřadit podle:";
+            // 
+            // butSave
+            // 
+            this.butSave.Location = new System.Drawing.Point(606, 259);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(121, 23);
+            this.butSave.TabIndex = 6;
+            this.butSave.Text = "Save graph";
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
+            // 
+            // saveImage
+            // 
+            this.saveImage.Filter = "bmp (*.bmp)|*.bmp\"";
+            // 
+            // chartBIG
+            // 
+            chartArea2.AxisX.Interval = 1D;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.MaximumAutoSize = 90F;
+            chartArea2.Name = "ChartArea1";
+            this.chartBIG.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartBIG.Legends.Add(legend2);
+            this.chartBIG.Location = new System.Drawing.Point(12, 378);
+            this.chartBIG.Name = "chartBIG";
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.Lime;
+            series4.IsValueShownAsLabel = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Správně";
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Red;
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Chybně";
+            series6.ChartArea = "ChartArea1";
+            series6.Enabled = false;
+            series6.IsValueShownAsLabel = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Processor\\ntime";
+            this.chartBIG.Series.Add(series4);
+            this.chartBIG.Series.Add(series5);
+            this.chartBIG.Series.Add(series6);
+            this.chartBIG.Size = new System.Drawing.Size(2500, 900);
+            this.chartBIG.TabIndex = 7;
+            this.chartBIG.Text = "chart1";
+            this.chartBIG.Visible = false;
+            // 
             // Graph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 352);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(739, 345);
+            this.Controls.Add(this.chartBIG);
+            this.Controls.Add(this.butSave);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbSort);
             this.Controls.Add(this.cbProcessorTime);
             this.Controls.Add(this.cbWrong);
             this.Controls.Add(this.cbCorrect);
             this.Controls.Add(this.chartResults);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Graph";
+            this.ShowIcon = false;
             this.Text = "Graph";
             ((System.ComponentModel.ISupportInitialize)(this.chartResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBIG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +225,10 @@
         private System.Windows.Forms.CheckBox cbCorrect;
         private System.Windows.Forms.CheckBox cbWrong;
         private System.Windows.Forms.CheckBox cbProcessorTime;
+        private System.Windows.Forms.ComboBox cbSort;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button butSave;
+        private System.Windows.Forms.SaveFileDialog saveImage;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBIG;
     }
 }

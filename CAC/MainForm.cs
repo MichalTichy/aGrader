@@ -422,9 +422,14 @@ namespace CAC
             Process.Start(SourceCodes.GetSourceCode(lbCodes.SelectedIndex).Path);
         }
 
+        private Graph _graphForm;
+
         private void butChart_Click(object sender, EventArgs e)
         {
-            SideFormManager.Show(new Graph());
+            _graphForm?.Close();
+            _graphForm=new Graph();
+            _graphForm.Show();
+
         }
     }
 }
