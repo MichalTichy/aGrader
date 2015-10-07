@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CAC.IO_Forms;
 using CAC.Mathematic;
 
@@ -157,9 +158,23 @@ namespace CAC
 
         private void ProcessData(ActionCompareFiles actionCompareFiles)
         {
-            Outputs.Add(actionCompareFiles.radioHash.Checked
-                ? new FileCompareData(actionCompareFiles.Path,File.ReadAllText(actionCompareFiles.Path).GetHashCode())
-                : new FileCompareData(actionCompareFiles.Path,File.ReadAllLines(actionCompareFiles.Path)));
+            try
+            {
+                Outputs.Add(actionCompareFiles.radioHash.Checked
+                    ? new FileCompareData(actionCompareFiles.Path,
+                        File.ReadAllText(actionCompareFiles.Path).GetHashCode())
+                    : new FileCompareData(actionCompareFiles.Path, File.ReadAllLines(actionCompareFiles.Path)));
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Soubor " + Path.GetFileName(actionCompareFiles.Path) + " neexistuje.");
+            }
+            catch (IOException ex)
+            {
+                //todo neplaty testovaci protokol by mnel zabranit spusteni testu
+                MessageBox.Show("Soubor " + Path.GetFileName(actionCompareFiles.Path) + " se nepodařilo načíst.");
+                ExceptionsLog.LogException(ex.ToString());
+            }
         }
     }
 }

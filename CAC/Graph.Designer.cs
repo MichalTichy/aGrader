@@ -130,7 +130,7 @@
             "počtu správných",
             "počtu špatných",
             "processor time"});
-            this.cbSort.Location = new System.Drawing.Point(606, 65);
+            this.cbSort.Location = new System.Drawing.Point(606, 141);
             this.cbSort.Name = "cbSort";
             this.cbSort.Size = new System.Drawing.Size(121, 21);
             this.cbSort.TabIndex = 4;
@@ -140,7 +140,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(606, 49);
+            this.label1.Location = new System.Drawing.Point(606, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 5;

@@ -161,8 +161,21 @@ namespace CAC
         {
             string textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
                       Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
-            
-            _outputs.AddRange(File.ReadAllLines(textFilePath));
+            try
+            {
+
+                _outputs.AddRange(File.ReadAllLines(textFilePath));
+            }
+            catch (FileNotFoundException ex)
+            {
+                _errors.Add("Soubor " + Path.GetFileName(textFilePath)+" neexistuje.");
+            }
+            catch (IOException ex)
+            {
+                _errors.Add("Soubor " + Path.GetFileName(textFilePath)+" se nepodařilo načíst.");
+                MessageBox.Show("Soubor " + Path.GetFileName(textFilePath) + " se nepodařilo načíst.");
+                ExceptionsLog.LogException(ex.ToString());
+            }
             Protocol.Outputs.Remove(data);
         }
 

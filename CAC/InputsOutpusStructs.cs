@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace CAC
 {
@@ -107,9 +108,18 @@ namespace CAC
 
         public override string ToString()
         {
-            if (_hash == null)
-                _hash = File.ReadAllText(FilePath).GetHashCode();
-            return _hash.ToString();
+            try
+            {
+                if (_hash == null)
+                    _hash = File.ReadAllText(FilePath).GetHashCode();
+                return _hash.ToString();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Soubor " + Path.GetFileName(FilePath) + "se nepodaøilo naèíst.");
+                ExceptionsLog.LogException(ex.ToString());
+                return "FILE LOAD ERROR";
+            }
         }
     }
 

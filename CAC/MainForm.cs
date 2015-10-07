@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using CAC.IO_Forms;
@@ -22,7 +23,6 @@ namespace CAC
         //todo pocet cisel splnujicich podminky
         //todo dát související věci k sobě
 
-        private string _lastTestLog = "";
         public CaC()
         {
             InitializeComponent();
@@ -386,9 +386,12 @@ namespace CAC
         {
             if (progressBar.Value==progressBar.Maximum)
             {
+                rtbCode.Clear();
                 AddLineToLog("Všechny testy byli dokončeny!");
+                rtbCode.Text = BuildTestResultsString();
                 butRunTest.Enabled = true;
                 butChart.Enabled = true;
+
             }
         }
 
@@ -412,9 +415,61 @@ namespace CAC
 
         private void butShowTestProgress_Click(object sender, EventArgs e)
         {
-            rtbCode.Text = _lastTestLog;
+            rtbCode.Text = BuildTestResultsString();
             lbCodes.ClearSelected();
             SetListViewToTestMode();
+        }
+
+        private string BuildTestResultsString()
+        {
+            var sb=new StringBuilder();
+
+            int maxChName = 0;
+            int maxChCorrect = 0;
+            int maxChWrong = 0;
+            GetMaximumNumberOfCharacters(ref maxChName, ref maxChCorrect, ref maxChWrong);
+
+            foreach (TestResult result in SourceCodes.GetSourceCodeFiles().Where(t=>t.TestResult!=null).Select(t=>t.TestResult))
+            {
+                string name = result.FileName;
+                string correctOutputsCount = result.CorrectOutputsCount.ToString();
+                string wrongOutputsCount = result.WrongOutputsCount.ToString();
+
+                BalanceLenghtOfStrings(ref name, maxChName, maxChCorrect, maxChWrong, ref correctOutputsCount, ref wrongOutputsCount);
+
+                sb.AppendFormat("{0} | Správně: {1} | Špatně: {2} | Čas: {3}", name,
+                    correctOutputsCount, wrongOutputsCount, result.ProcessorTime);
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+
+        private static void BalanceLenghtOfStrings(ref string name, int maxChName, int maxChCorrect, int maxChWrong, ref string correctOutputsCount, ref string wrongOutputsCount)
+        {
+            while (name.Length < maxChName)
+            {
+                name = name + "  ";
+            }
+            while (correctOutputsCount.Length < maxChCorrect)
+            {
+                correctOutputsCount = correctOutputsCount + "  ";
+            }
+            while (wrongOutputsCount.Length < maxChWrong)
+            {
+                wrongOutputsCount = wrongOutputsCount + "  ";
+            }
+        }
+
+        private static void GetMaximumNumberOfCharacters(ref int maxChName, ref int maxChCorrect, ref int maxChWrong)
+        {
+            foreach (
+                TestResult result in SourceCodes.GetSourceCodeFiles().Where(t => t.TestResult != null).Select(t => t.TestResult)
+                )
+            {
+                maxChName = result.FileName.Length > maxChName ? result.FileName.Length : maxChName;
+                maxChCorrect = result.CorrectOutputsCount/10 > maxChCorrect ? result.CorrectOutputsCount/10 : maxChCorrect;
+                maxChWrong = result.WrongOutputsCount/10 > maxChWrong ? result.WrongOutputsCount/10 : maxChWrong;
+            }
         }
 
         private void butOpenFile_Click(object sender, EventArgs e)
