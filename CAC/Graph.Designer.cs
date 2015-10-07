@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartResults = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbCorrect = new System.Windows.Forms.CheckBox();
             this.cbWrong = new System.Windows.Forms.CheckBox();
@@ -53,33 +53,33 @@
             // 
             // chartResults
             // 
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 5;
-            chartArea1.Name = "ChartArea1";
-            this.chartResults.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartResults.Legends.Add(legend1);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisX.LabelAutoFitMinFontSize = 5;
+            chartArea3.Name = "ChartArea1";
+            this.chartResults.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartResults.Legends.Add(legend3);
             this.chartResults.Location = new System.Drawing.Point(0, 0);
             this.chartResults.Name = "chartResults";
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Lime;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Správně";
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Red;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Chybně";
-            series3.ChartArea = "ChartArea1";
-            series3.Enabled = false;
-            series3.IsValueShownAsLabel = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Processor\\ntime";
-            this.chartResults.Series.Add(series1);
-            this.chartResults.Series.Add(series2);
-            this.chartResults.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.Color = System.Drawing.Color.Lime;
+            series7.IsValueShownAsLabel = true;
+            series7.Legend = "Legend1";
+            series7.Name = "Správně";
+            series8.ChartArea = "ChartArea1";
+            series8.Color = System.Drawing.Color.Red;
+            series8.IsValueShownAsLabel = true;
+            series8.Legend = "Legend1";
+            series8.Name = "Chybně";
+            series9.ChartArea = "ChartArea1";
+            series9.Enabled = false;
+            series9.IsValueShownAsLabel = true;
+            series9.Legend = "Legend1";
+            series9.Name = "Processor\\ntime";
+            this.chartResults.Series.Add(series7);
+            this.chartResults.Series.Add(series8);
+            this.chartResults.Series.Add(series9);
             this.chartResults.Size = new System.Drawing.Size(739, 322);
             this.chartResults.TabIndex = 0;
             this.chartResults.Text = "chart1";
@@ -158,37 +158,38 @@
             // 
             // saveImage
             // 
+            this.saveImage.DefaultExt = "bmp";
             this.saveImage.Filter = "bmp (*.bmp)|*.bmp\"";
             // 
             // chartBIG
             // 
-            chartArea2.AxisX.Interval = 1D;
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisX.MaximumAutoSize = 90F;
-            chartArea2.Name = "ChartArea1";
-            this.chartBIG.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartBIG.Legends.Add(legend2);
+            chartArea4.AxisX.Interval = 1D;
+            chartArea4.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea4.AxisX.MaximumAutoSize = 90F;
+            chartArea4.Name = "ChartArea1";
+            this.chartBIG.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartBIG.Legends.Add(legend4);
             this.chartBIG.Location = new System.Drawing.Point(12, 378);
             this.chartBIG.Name = "chartBIG";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Lime;
-            series4.IsValueShownAsLabel = true;
-            series4.Legend = "Legend1";
-            series4.Name = "Správně";
-            series5.ChartArea = "ChartArea1";
-            series5.Color = System.Drawing.Color.Red;
-            series5.IsValueShownAsLabel = true;
-            series5.Legend = "Legend1";
-            series5.Name = "Chybně";
-            series6.ChartArea = "ChartArea1";
-            series6.Enabled = false;
-            series6.IsValueShownAsLabel = true;
-            series6.Legend = "Legend1";
-            series6.Name = "Processor\\ntime";
-            this.chartBIG.Series.Add(series4);
-            this.chartBIG.Series.Add(series5);
-            this.chartBIG.Series.Add(series6);
+            series10.ChartArea = "ChartArea1";
+            series10.Color = System.Drawing.Color.Lime;
+            series10.IsValueShownAsLabel = true;
+            series10.Legend = "Legend1";
+            series10.Name = "Správně";
+            series11.ChartArea = "ChartArea1";
+            series11.Color = System.Drawing.Color.Red;
+            series11.IsValueShownAsLabel = true;
+            series11.Legend = "Legend1";
+            series11.Name = "Chybně";
+            series12.ChartArea = "ChartArea1";
+            series12.Enabled = false;
+            series12.IsValueShownAsLabel = true;
+            series12.Legend = "Legend1";
+            series12.Name = "Processor\\ntime";
+            this.chartBIG.Series.Add(series10);
+            this.chartBIG.Series.Add(series11);
+            this.chartBIG.Series.Add(series12);
             this.chartBIG.Size = new System.Drawing.Size(2500, 900);
             this.chartBIG.TabIndex = 7;
             this.chartBIG.Text = "chart1";

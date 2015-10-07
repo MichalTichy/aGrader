@@ -64,6 +64,7 @@ namespace CAC
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.ErrorTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.butSaveLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,6 +83,7 @@ namespace CAC
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.butSaveLog);
             this.splitContainer1.Panel1.Controls.Add(this.butChart);
             this.splitContainer1.Panel1.Controls.Add(this.rtbCode);
             // 
@@ -387,6 +389,18 @@ namespace CAC
             this.progressBar.Size = new System.Drawing.Size(500, 15);
             this.progressBar.Step = 1;
             // 
+            // butSaveLog
+            // 
+            this.butSaveLog.Enabled = false;
+            this.butSaveLog.Location = new System.Drawing.Point(406, 129);
+            this.butSaveLog.Name = "butSaveLog";
+            this.butSaveLog.Size = new System.Drawing.Size(42, 26);
+            this.butSaveLog.TabIndex = 2;
+            this.butSaveLog.Text = "Save";
+            this.butSaveLog.UseVisualStyleBackColor = true;
+            this.butSaveLog.Visible = false;
+            this.butSaveLog.Click += new System.EventHandler(this.butSaveLog_Click);
+            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +467,7 @@ namespace CAC
         private ToolStripProgressBar progressBar;
         private ToolTip ErrorTooltip;
         private Button butChart;
+        private Button butSaveLog;
     }
 }
 

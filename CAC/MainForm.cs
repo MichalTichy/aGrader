@@ -19,7 +19,6 @@ namespace CAC
 {
     public partial class CaC : Form
     {
-        //todo grafy
         //todo pocet cisel splnujicich podminky
         //todo dát související věci k sobě
 
@@ -262,6 +261,8 @@ namespace CAC
             //todo mozna vypnout UI?
             butChart.Enabled = false;
             butChart.Visible = true;
+            butSaveLog.Enabled = false;
+            butSaveLog.Visible = true;
             butRunTest.Enabled = false;
             Tabs.SelectedIndex = 0;
             SetListViewToTestMode();
@@ -290,6 +291,7 @@ namespace CAC
         private void SetListViewToTestMode()
         {
             butChart.Visible = true;
+            butSaveLog.Visible = true;
             butOpenFile.Visible = false;
             TestManager.ResultReady -= ResultReady;
             TestManager.ResultReady += ResultReady;
@@ -333,6 +335,7 @@ namespace CAC
         {
             butOpenFile.Visible = true;
             butChart.Visible = false;
+            butSaveLog.Visible = false;
 
             lV.Items.Clear();
             lV.Columns.Clear();
@@ -391,6 +394,7 @@ namespace CAC
                 rtbCode.Text = BuildTestResultsString();
                 butRunTest.Enabled = true;
                 butChart.Enabled = true;
+                butSaveLog.Enabled = true;
 
             }
         }
@@ -446,15 +450,15 @@ namespace CAC
 
         private static void BalanceLenghtOfStrings(ref string name, int maxChName, int maxChCorrect, int maxChWrong, ref string correctOutputsCount, ref string wrongOutputsCount)
         {
-            while (name.Length < maxChName)
+            for (int i = 0; i < maxChName-name.Length; i++)
             {
                 name = name + "  ";
             }
-            while (correctOutputsCount.Length < maxChCorrect)
+            for (int i = 0; i < maxChCorrect - correctOutputsCount.Length; i++)
             {
                 correctOutputsCount = correctOutputsCount + "  ";
             }
-            while (wrongOutputsCount.Length < maxChWrong)
+            for (int i = 0; i < maxChWrong - wrongOutputsCount.Length; i++)
             {
                 wrongOutputsCount = wrongOutputsCount + "  ";
             }
@@ -462,13 +466,11 @@ namespace CAC
 
         private static void GetMaximumNumberOfCharacters(ref int maxChName, ref int maxChCorrect, ref int maxChWrong)
         {
-            foreach (
-                TestResult result in SourceCodes.GetSourceCodeFiles().Where(t => t.TestResult != null).Select(t => t.TestResult)
-                )
+            foreach (TestResult result in SourceCodes.GetSourceCodeFiles().Where(t => t.TestResult != null).Select(t => t.TestResult))
             {
                 maxChName = result.FileName.Length > maxChName ? result.FileName.Length : maxChName;
-                maxChCorrect = result.CorrectOutputsCount/10 > maxChCorrect ? result.CorrectOutputsCount/10 : maxChCorrect;
-                maxChWrong = result.WrongOutputsCount/10 > maxChWrong ? result.WrongOutputsCount/10 : maxChWrong;
+                maxChCorrect = result.CorrectOutputsCount.ToString().Length > maxChCorrect ? result.CorrectOutputsCount.ToString().Length : maxChCorrect;
+                maxChWrong = result.WrongOutputsCount.ToString().Length > maxChWrong ? result.WrongOutputsCount.ToString().Length : maxChWrong;
             }
         }
 
@@ -485,6 +487,30 @@ namespace CAC
             _graphForm=new Graph();
             _graphForm.Show();
 
+        }
+
+        private void butSaveLog_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog
+            {
+                AddExtension = true,
+                DefaultExt = ".txt",
+                Filter = " text file | *.txt"
+            };
+
+            if (saveFile.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                using (var sw=new StreamWriter(saveFile.FileName,false,Encoding.Unicode))
+                {
+                    sw.Write(rtbCode.Text.Replace("  "," "));
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Soubor " + Path.GetFileName(saveFile.FileName) + " se nepodařilo vytvořit.");
+                ExceptionsLog.LogException(ex.ToString());
+            }
         }
     }
 }
