@@ -450,15 +450,18 @@ namespace CAC
 
         private static void BalanceLenghtOfStrings(ref string name, int maxChName, int maxChCorrect, int maxChWrong, ref string correctOutputsCount, ref string wrongOutputsCount)
         {
-            for (int i = 0; i < maxChName-name.Length; i++)
+            int nameLenghtDifference = maxChName - name.Length;
+            for (int i = 0; i < nameLenghtDifference; i++)
             {
                 name = name + "  ";
             }
-            for (int i = 0; i < maxChCorrect - correctOutputsCount.Length; i++)
+            int correctOutputsCountDifference = maxChCorrect - correctOutputsCount.Length;
+            for (int i = 0; i < correctOutputsCountDifference; i++)
             {
                 correctOutputsCount = correctOutputsCount + "  ";
             }
-            for (int i = 0; i < maxChWrong - wrongOutputsCount.Length; i++)
+            int wrongOutputsCountDifference = maxChWrong - wrongOutputsCount.Length;
+            for (int i = 0; i < wrongOutputsCountDifference; i++)
             {
                 wrongOutputsCount = wrongOutputsCount + "  ";
             }
