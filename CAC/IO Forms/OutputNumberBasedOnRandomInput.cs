@@ -41,7 +41,7 @@ namespace CAC.IO_Forms
             InputsOutputs.OnInOutListChanged();
         }
 
-        private void butAddOrDelete_Click(object sender, EventArgs e)
+        protected override void butAddOrChange_Click(object sender, EventArgs e)
         {
             if (!Exists)
                 if (IsMathValid())

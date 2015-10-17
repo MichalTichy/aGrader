@@ -41,7 +41,6 @@
             // butAddOrDelete
             // 
             this.butAddOrDelete.Location = new System.Drawing.Point(12, 198);
-            this.butAddOrDelete.Click += new System.EventHandler(this.butAddOrDelete_Click);
             // 
             // tbMath
             // 

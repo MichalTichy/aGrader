@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @10 Member=AnonymousMethod__4_1)" Category="CodeSchema_Method" Bounds="200,273.4075,169.293333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__4_1" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestManager.cs&quot; StartLineNumber=31 StartCharacterOffset=0 EndLineNumber=31 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=(Name=CreateProcess OverloadingParameters=[(@1 Namespace=CAC.sourceCodes Type=SourceCode)]))" Category="CodeSchema_Method" Bounds="29.5166666666667,388.702500000001,110.26,25.96" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="CreateProcess" Icon="CodeSchema_Method" Label="CreateProcess" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=29 StartCharacterOffset=0 EndLineNumber=29 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=(Name=ParseErrors OverloadingParameters=[@7]))" Category="CodeSchema_Method" Bounds="1088.31,129.5675,94.6733333333332,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ParseErrors" Icon="CodeSchema_Method" Label="ParseErrors" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=195 StartCharacterOffset=0 EndLineNumber=195 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=(Name=ParseOutput OverloadingParameters=[@7]))" Category="CodeSchema_Method" Bounds="955.76,129.5675,101.773333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ParseOutput" Icon="CodeSchema_Method" Label="ParseOutput" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=204 StartCharacterOffset=0 EndLineNumber=204 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=AnonymousMethod__10_0)" Category="CodeSchema_Method" Bounds="1072.765,201.4875,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__10_0" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=116 StartCharacterOffset=0 EndLineNumber=116 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=AnonymousMethod__10_1)" Category="CodeSchema_Method" Bounds="1278.765,201.4875,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__10_1" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=120 StartCharacterOffset=0 EndLineNumber=120 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=AnonymousMethod__11_0)" Category="CodeSchema_Method" Bounds="1484.765,201.4875,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__11_0" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=128 StartCharacterOffset=0 EndLineNumber=128 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=CheckSourceCodeForProhibitedCommands)" Category="CodeSchema_Method" Bounds="377.528333333333,129.5675,264.236666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CheckSourceCodeForProhibitedCommands" Icon="CodeSchema_Method" Label="CheckSourceCodeForProhibitedCommands" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=188 StartCharacterOffset=0 EndLineNumber=188 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @3 Member=CheckSourceCodeForRequiedCommands)" Category="CodeSchema_Method" Bounds="672.418333333333,129.5675,252.456666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CheckSourceCodeForRequiedCommands" Icon="CodeSchema_Method" Label="CheckSourceCodeForRequiedCommands" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=179 StartCharacterOffset=0 EndLineNumber=179 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @4 Member=AnonymousMethod__27_0)" Category="CodeSchema_Method" Bounds="589.765,518.270000000001,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__27_0" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=435 StartCharacterOffset=0 EndLineNumber=435 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @4 Member=AnonymousMethod__27_1)" Category="CodeSchema_Method" Bounds="795.765,518.270000000001,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__27_1" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=435 StartCharacterOffset=0 EndLineNumber=435 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @4 Member=AnonymousMethod__29_0)" Category="CodeSchema_Method" Bounds="266.765,590.190000000001,175.763333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__29_0" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=471 StartCharacterOffset=0 EndLineNumber=471 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 @4 Member=AnonymousMethod__29_1)" Category="CodeSchema_Method" Bounds="472.765,590.190000000001,175.763333333333,25.9599999999999" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__29_1" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=471 StartCharacterOffset=0 EndLineNumber=471 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 @2 Type=NumberData Member=ToString)" Category="CodeSchema_Method" Bounds="1710.07833333333,331.055,79.1366666666668,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="ToString" Icon="CodeSchema_Method" IsOverloaded="True" Label="ToString" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/InputsOutpusStructs.cs&quot; StartLineNumber=34 StartCharacterOffset=0 EndLineNumber=34 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@1 Namespace=CAC.sourceCodes Type=SourceCode Member=(Name=AddTestResult OverloadingParameters=[(@1 @2 @9)]))" Category="CodeSchema_Method" Bounds="1824.45333333333,129.5675,110.386666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="AddTestResult" Icon="CodeSchema_Method" Label="AddTestResult" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/sourceCodes/SourceCode.cs&quot; StartLineNumber=84 StartCharacterOffset=0 EndLineNumber=84 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=CAC.CaC.BalanceLenghtOfStrings @28 Type=void OverloadingParameters=[(Type=string Name=name),(Type=int Name=maxChName),(Type=int Name=maxChCorrect),(Type=int Name=maxChWrong),(Type=string Name=correctOutputsCount),(Type=string Name=wrongOutputsCount)] IsUnresolved=True)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1001.57833333333,518.270000000001,162.136666666667,25.96" Label="BalanceLenghtOfStrings" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=467 StartCharacterOffset=0 EndLineNumber=467 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@11" Category="CodeSchema_Method" Bounds="399.706666666667,273.4075,115.88,25.96" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="OnResultReady" Icon="CodeSchema_Method" Label="OnResultReady" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestManager.cs&quot; StartLineNumber=45 StartCharacterOffset=0 EndLineNumber=45 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@12" Category="CodeSchema_Method" Bounds="222.171666666667,129.5675,124.95,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="butRunTest_Click" Icon="CodeSchema_Method" Label="butRunTest_Click" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=276 StartCharacterOffset=0 EndLineNumber=276 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_Method" Bounds="1642.75,273.4075,213.793333333334,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CompareRealAndExpectedOutput" Icon="CodeSchema_Method" Label="CompareRealAndExpectedOutput" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestResult.cs&quot; StartLineNumber=96 StartCharacterOffset=0 EndLineNumber=96 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@14" Category="CodeSchema_Method" Bounds="407.625,331.055000000001,100.043333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ResultReady" Icon="CodeSchema_Method" Label="ResultReady" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=384 StartCharacterOffset=0 EndLineNumber=384 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@15" Category="CodeSchema_Method" Bounds="56.3700000000001,331.055000000001,56.5533333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Test" Icon="CodeSchema_Method" Label="Test" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=25 StartCharacterOffset=0 EndLineNumber=25 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@16" Category="CodeSchema_Method" Bounds="1705.39,129.5675,88.5133333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="TestResult" Icon="CodeSchema_Method" Label="TestResult" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestResult.cs&quot; StartLineNumber=67 StartCharacterOffset=0 EndLineNumber=67 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@17" Category="CodeSchema_Method" Bounds="0,273.4075,169.293333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__4_0" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestManager.cs&quot; StartLineNumber=30 StartCharacterOffset=0 EndLineNumber=30 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@18" Category="CodeSchema_Method" Bounds="1213.89666666667,129.5675,267.5,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="BalanceNumberOfExpectedAndRealOutputs" Icon="CodeSchema_Method" Label="BalanceNumberOfExpectedAndRealOutputs" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=120 StartCharacterOffset=0 EndLineNumber=120 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@19" Category="CodeSchema_Method" Bounds="602.073333333333,446.35,151.146666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="BuildTestResultsString" Icon="CodeSchema_Method" Label="BuildTestResultsString" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=446 StartCharacterOffset=0 EndLineNumber=446 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@20" Category="CodeSchema_Method" Bounds="1691.085,201.4875,117.123333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="EvaluateResults" Icon="CodeSchema_Method" Label="EvaluateResults" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestResult.cs&quot; StartLineNumber=83 StartCharacterOffset=0 EndLineNumber=83 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@21" Category="CodeSchema_Method" Bounds="167.841666666666,518.270000000001,141.61,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="GetSourceCodeFiles" Icon="CodeSchema_Method" Label="GetSourceCodeFiles" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/sourceCodes/SourceCodes.cs&quot; StartLineNumber=86 StartCharacterOffset=0 EndLineNumber=86 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@22" Category="CodeSchema_Method" Bounds="488.22,388.7025,160.853333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CheckIfAllTestsAreDone" Icon="CodeSchema_Method" Label="CheckIfAllTestsAreDone" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=399 StartCharacterOffset=0 EndLineNumber=399 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@23" Category="CodeSchema_Method" Bounds="801.239418779556,-11.7122440662652,62.58,25.96" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Main" Icon="CodeSchema_Method" Label="Main" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Program.cs&quot; StartLineNumber=21 StartCharacterOffset=0 EndLineNumber=21 EndCharacterOffset=0)" UseManualLocation="True">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+      <Category Ref="CurrentCallStackEntry" />
+    </Node>
+    <Node Id="@24" Category="CodeSchema_Method" Bounds="1512.08833333333,129.5675,163.116666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ProcessActionsWithFiles" Icon="CodeSchema_Method" Label="ProcessActionsWithFiles" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=128 StartCharacterOffset=0 EndLineNumber=128 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@25" Category="CodeSchema_Method" Bounds="1351.31072824297,11.4076706224899,77.3099999999999,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="RunTest" Icon="CodeSchema_Method" Label="RunTest" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/Test.cs&quot; StartLineNumber=112 StartCharacterOffset=0 EndLineNumber=112 EndCharacterOffset=0)" UseManualLocation="True">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@26" Category="CodeSchema_Method" Bounds="234.85,388.702500000001,159.593333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="SetListViewToTestMode" Icon="CodeSchema_Method" Label="SetListViewToTestMode" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=324 StartCharacterOffset=0 EndLineNumber=324 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@27" Category="CodeSchema_Method" Bounds="215.051666666667,201.487500000001,139.19,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="TestAllSourceCodes" Icon="CodeSchema_Method" Label="TestAllSourceCodes" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/TestManager.cs&quot; StartLineNumber=37 StartCharacterOffset=0 EndLineNumber=37 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+      <Category Ref="CurrentCallStackEntry" />
+    </Node>
+    <Node Id="@29" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="314.018333333333,446.350000000001,115.256666666667,25.96" Label="GetStatusColor" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=417 StartCharacterOffset=0 EndLineNumber=417 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@30" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="339.893333333333,518.27,219.506666666667,25.96" Label="GetMaximumNumberOfCharacters" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=471 StartCharacterOffset=0 EndLineNumber=471 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_Method" Bounds="459.951666666667,446.350000000001,111.39,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="AddLineToLog" Icon="CodeSchema_Method" Label="AddLineToLog" SourceLocation="(Assembly=&quot;file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/MainForm.cs&quot; StartLineNumber=286 StartCharacterOffset=0 EndLineNumber=286 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="ExternalCodeRootNode" Category="ExternalCallStackEntry" Bounds="1089.15333333333,0,92.9866666666667,25.96" Label="External Code">
+      <Category Ref="CallStackEntry" />
+    </Node>
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="@14" Category="CallStackDirectCall" Bounds="457.646667480469,299.367492675781,0,22.6875" />
+    <Link Source="@12" Target="@27" Category="CallStackDirectCall" Bounds="284.646667480469,155.527496337891,0,36.9600067138672" />
+    <Link Source="@13" Target="(@1 @2 Type=NumberData Member=ToString)" Category="CallStackDirectCall" Bounds="1749.64660644531,299.367492675781,0,22.6875" />
+    <Link Source="@14" Target="@22" Category="CallStackDirectCall" Bounds="482.639587402344,357.015014648438,53.0270385742188,27.5394287109375" />
+    <Link Source="@14" Target="@26" Category="CallStackDirectCall" Bounds="355.192016601563,357.015014648438,70.2565612792969,28.3224487304688" />
+    <Link Source="@14" Target="@29" Category="CallStackDirectCall" Bounds="384.519653320313,357.015014648438,58.7166748046875,81.7012329101563" />
+    <Link Source="@14" Target="@8" Category="CallStackDirectCall" Bounds="457.646667480469,357.015014648438,23.9690246582031,85.0458984375" />
+    <Link Source="@15" Target="(@1 @2 @3 Member=(Name=CreateProcess OverloadingParameters=[(@1 Namespace=CAC.sourceCodes Type=SourceCode)]))" Category="CallStackDirectCall" Bounds="84.6466674804688,357.015014648438,0,22.6875" />
+    <Link Source="@16" Target="@20" Category="CallStackDirectCall" Bounds="1749.64660644531,155.527496337891,0,36.9600067138672" />
+    <Link Source="@17" Target="@15" Category="CallStackDirectCall" Bounds="84.6466674804688,299.367492675781,0,22.6875" />
+    <Link Source="@18" Target="(@1 @2 @3 Member=AnonymousMethod__10_0)" Category="CallStackIndirectCall" Bounds="1199.8095703125,155.527496337891,111.204833984375,42.4712524414063" Label="External Code" LabelBounds="1173.17333333333,170.5275,72.9866666666667,15.96" />
+    <Link Source="@18" Target="(@1 @2 @3 Member=AnonymousMethod__10_1)" Category="CallStackIndirectCall" Bounds="1351.07580566406,155.527496337891,9.843017578125,37.2585296630859" Label="External Code" LabelBounds="1284.16,170.5275,72.9866666666667,15.96" />
+    <Link Source="@19" Target="(@1 @2 @4 Member=AnonymousMethod__27_0)" Category="CallStackIndirectCall" Bounds="677.646667480469,472.309997558594,0,36.9599914550781" Label="External Code" LabelBounds="604.66,487.31,72.9866666666667,15.96" />
+    <Link Source="@19" Target="(@1 @2 @4 Member=AnonymousMethod__27_1)" Category="CallStackIndirectCall" Bounds="717.712829589844,472.309997558594,123.225769042969,42.7738647460938" Label="External Code" LabelBounds="715.66,487.31,72.9866666666667,15.96" />
+    <Link Source="@19" Target="(Name=CAC.CaC.BalanceLenghtOfStrings @28 Type=void OverloadingParameters=[(Type=string Name=name),(Type=int Name=maxChName),(Type=int Name=maxChCorrect),(Type=int Name=maxChWrong),(Type=string Name=correctOutputsCount),(Type=string Name=wrongOutputsCount)] IsUnresolved=True)" Category="CallStackDirectCall" Bounds="750.602478027344,472.285522460938,250.089111328125,44.410888671875" />
+    <Link Source="@19" Target="@21" Category="CallStackDirectCall" Bounds="317.90234375,471.546966552734,285.171997070313,46.7188415527344" />
+    <Link Source="@19" Target="@30" Category="CallStackDirectCall" Bounds="499.378814697266,472.309997558594,137.118804931641,43.2525634765625" />
+    <Link Source="@20" Target="@13" Category="CallStackIndirectCall" Bounds="1749.64660644531,227.447494506836,0,36.9600067138672" Label="External Code" LabelBounds="1676.66,242.4475,72.9866666666667,15.96" />
+    <Link Source="@22" Target="@19" Category="CallStackDirectCall" Bounds="593.189270019531,414.662506103516,51.9589233398438,27.4798278808594" />
+    <Link Source="@22" Target="@8" Category="CallStackDirectCall" Bounds="533.671508789063,414.662506103516,23.0416259765625,25.0620727539063" />
+    <Link Source="@23" Target="@12" Category="CallStackIndirectCall" Bounds="343.698001199042,9.33634921821506,457.541417580513,117.983880129808" Label="External Code" LabelBounds="675.76920171422,43.7561406876152,72.9866666666667,15.96" />
+    <Link Source="@24" Target="(@1 @2 @3 Member=AnonymousMethod__11_0)" Category="CallStackIndirectCall" Bounds="1578.95935058594,155.527496337891,10.897216796875,37.3207550048828" Label="External Code" LabelBounds="1510.16,170.5275,72.9866666666667,15.96" />
+    <Link Source="@25" Target="(@1 @2 @3 Member=(Name=ParseErrors OverloadingParameters=[@7]))" Category="CallStackDirectCall" Bounds="1171.74602805833,37.3676695632935,190.282370193953,88.4076328773227" />
+    <Link Source="@25" Target="(@1 @2 @3 Member=(Name=ParseOutput OverloadingParameters=[@7]))" Category="CallStackDirectCall" Bounds="1057.35536942095,36.1274385433471,294.525614902057,90.7888720474309" />
+    <Link Source="@25" Target="(@1 @2 @3 Member=CheckSourceCodeForProhibitedCommands)" Category="CallStackDirectCall" Bounds="615.270775437542,29.5760937892791,736.03986176949,98.7941288344575" />
+    <Link Source="@25" Target="(@1 @2 @3 Member=CheckSourceCodeForRequiedCommands)" Category="CallStackDirectCall" Bounds="872.429294081103,32.111873424428,478.881343125929,95.6920739774572" />
+    <Link Source="@25" Target="(@1 Namespace=CAC.sourceCodes Type=SourceCode Member=(Name=AddTestResult OverloadingParameters=[(@1 @2 @9)]))" Category="CallStackDirectCall" Bounds="1428.62063720703,33.7151039898877,389.130129360644,93.896928341057" />
+    <Link Source="@25" Target="@16" Category="CallStackDirectCall" Bounds="1427.48923740485,36.7146534364225,274.095600614614,90.0439198440444" />
+    <Link Source="@25" Target="@18" Category="CallStackDirectCall" Bounds="1355.33000311008,37.3676695632935,29.9868375099911,83.7268621241984" />
+    <Link Source="@25" Target="@24" Category="CallStackDirectCall" Bounds="1412.3402508279,37.3676695632935,151.146994744694,87.6836590356098" />
+    <Link Source="@26" Target="@21" Category="CallStackDirectCall" Bounds="247.917892456055,414.662506103516,52.3184356689453,95.3598022460938" />
+    <Link Source="@26" Target="@29" Category="CallStackDirectCall" Bounds="327.480865478516,414.662506103516,25.003662109375,25.2876892089844" />
+    <Link Source="@27" Target="(@1 @2 @10 Member=AnonymousMethod__4_1)" Category="CallStackIndirectCall" Bounds="284.646667480469,227.447494506836,0,36.9600067138672" Label="External Code" LabelBounds="211.66,242.4475,72.9866666666667,15.96" />
+    <Link Source="@27" Target="@11" Category="CallStackDirectCall" Bounds="315.869415283203,227.447494506836,102.244018554688,42.5051422119141" />
+    <Link Source="@27" Target="@17" Category="CallStackIndirectCall" Bounds="125.116409301758,227.447494506836,119.464065551758,42.5884246826172" Label="External Code" LabelBounds="100.66,242.4475,72.9866666666667,15.96" />
+    <Link Source="@30" Target="(@1 @2 @4 Member=AnonymousMethod__29_0)" Category="CallStackIndirectCall" Bounds="375.568572998047,544.22998046875,54.0498046875,39.9058227539063" Label="External Code" LabelBounds="394.16,559.230000000001,72.9866666666667,15.96" />
+    <Link Source="@30" Target="(@1 @2 @4 Member=AnonymousMethod__29_1)" Category="CallStackIndirectCall" Bounds="469.679748535156,544.22998046875,63.3806762695313,41.066162109375" Label="External Code" LabelBounds="505.146666666667,559.23,72.9866666666667,15.96" />
+    <Link Source="ExternalCodeRootNode" Target="@23" Category="CallStackIndirectCall" Bounds="872.812707807365,2.82427472792232,216.34062633977,8.35925414659372" />
+  </Links>
+  <Categories>
+    <Category Id="BaseCustomContent" CanBeDataDriven="True" IsProviderRoot="False" />
+    <Category Id="CallStackDirectCall" Label="Call Stack direct call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack direct call" OutgoingActionLabel="Call Stack direct call" />
+    <Category Id="CallStackEntry" Label="Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Call Stack Entry" />
+    <Category Id="CallStackIndirectCall" Label="Call Stack indirect call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack indirect call" OutgoingActionLabel="Call Stack indirect call" />
+    <Category Id="CodeSchema_CallStackUnresolvedMethod" Label="Unresolved Method" CanBeDataDriven="True" DefaultAction="Microsoft.AllOutBoundLinks" IsProviderRoot="False" NavigationActionLabel="Unresolved Method" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_SourceLocation" Label="Source Location" Icon="File" />
+    <Category Id="CurrentCallStackEntry" Label="Current Call Stack Entry" BasedOn="BaseCustomContent" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Current Call Stack Entry" />
+    <Category Id="ExternalCallStackEntry" Label="External Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="External Call Stack Entry" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAnonymous" Label="Is Anonymous" Description="Flag indicating if this delegate, type, or method is anonymous" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsOverloaded" Label="IsOverloaded" Description="IsOverloaded" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="Generic Arguments" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" />
+    <Name Id="GenericParameterCount" Label="Generic Parameter Count" ValueType="System.String" />
+    <Name Id="IsUnresolved" Label="Is Unresolved" ValueType="System.String" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(fd3cbe29-1930-4dee-b144-986e88c4ab3f.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=CAC" />
+    <Alias n="3" Id="Type=Test" />
+    <Alias n="4" Id="Type=CaC" />
+    <Alias n="5" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6/mscorlib.dll" />
+    <Alias n="6" Id="Namespace=System" />
+    <Alias n="7" Id="(@5 @6 Type=String)" />
+    <Alias n="8" Id="(@1 @2 @4 Member=(Name=AddLineToLog OverloadingParameters=[@7]))" />
+    <Alias n="9" Id="Type=TestResult" />
+    <Alias n="10" Id="Type=TestManager" />
+    <Alias n="11" Id="(@1 @2 @10 Member=(Name=OnResultReady OverloadingParameters=[(@1 @2 @9)]))" />
+    <Alias n="12" Id="(@1 @2 @4 Member=(Name=butRunTest_Click OverloadingParameters=[(@5 @6 Type=Object),(@5 @6 Type=EventArgs)]))" />
+    <Alias n="13" Id="(@1 @2 @9 Member=(Name=CompareRealAndExpectedOutput OverloadingParameters=[@7,(@1 @2 Type=NumberData)]))" />
+    <Alias n="14" Id="(@1 @2 @4 Member=(Name=ResultReady OverloadingParameters=[(@5 @6 Type=Object),(@1 @2 Type=ResultReadyArgs)]))" />
+    <Alias n="15" Id="(@1 @2 @3 Member=(Name=.ctor OverloadingParameters=[(@1 Namespace=CAC.sourceCodes Type=SourceCode),(@1 @2 Type=TestProtocol)]))" />
+    <Alias n="16" Id="(@1 @2 @9 Member=(Name=.ctor OverloadingParameters=[@7,(@1 @2 Type=TestProtocol),(@5 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@7])),(@5 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@7])),(@5 @6 Type=Double)]))" />
+    <Alias n="17" Id="(@1 @2 @10 Member=AnonymousMethod__4_0)" />
+    <Alias n="18" Id="(@1 @2 @3 Member=BalanceNumberOfExpectedAndRealOutputs)" />
+    <Alias n="19" Id="(@1 @2 @4 Member=BuildTestResultsString)" />
+    <Alias n="20" Id="(@1 @2 @9 Member=EvaluateResults)" />
+    <Alias n="21" Id="(@1 Namespace=CAC.sourceCodes Type=SourceCodes Member=GetSourceCodeFiles)" />
+    <Alias n="22" Id="(@1 @2 @4 Member=CheckIfAllTestsAreDone)" />
+    <Alias n="23" Id="(@1 @2 Type=Program Member=Main)" />
+    <Alias n="24" Id="(@1 @2 @3 Member=ProcessActionsWithFiles)" />
+    <Alias n="25" Id="(@1 @2 @3 Member=RunTest)" />
+    <Alias n="26" Id="(@1 @2 @4 Member=SetListViewToTestMode)" />
+    <Alias n="27" Id="(@1 @2 @10 Member=TestAllSourceCodes)" />
+    <Alias n="28" Uri="Assembly=CAC.exe" />
+    <Alias n="29" Id="(Name=CAC.CaC.GetStatusColor @28 Type=System.Drawing.Color OverloadingParameters=[(Type=bool? Name=status)] IsUnresolved=True)" />
+    <Alias n="30" Id="(Name=CAC.CaC.GetMaximumNumberOfCharacters @28 Type=void OverloadingParameters=[(Type=int Name=maxChName),(Type=int Name=maxChCorrect),(Type=int Name=maxChWrong)] IsUnresolved=True)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CurrentCallStackCall')" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+      <Setter Property="Weight" Value="1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Indirect Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackIndirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+      <Setter Property="StrokeDashArray" Value="4 1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Direct Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackDirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (no source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('CodeSchema_SourceLocation')" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="#FFA5A5A5" />
+      <Setter Property="Stroke" Value="#FF0072C6" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External And Current" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('ExternalCallStackEntry') And HasCategory('CurrentCallStackEntry')" />
+      <Setter Property="Background" Value="#FFFFF8F0" />
+      <Setter Property="Stroke" Value="#FFCE5100" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFFFE3C6" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External Call Stack" ValueLabel="True">
+      <Condition Expression="HasCategory('ExternalCallStackEntry')" />
+      <Setter Property="Background" Value="#FFF7F7F7" />
+      <Setter Property="StrokeDashArray" Value="1 3" />
+      <Setter Property="Foreground" Value="#FFA5A5A5" />
+      <Setter Property="Stroke" Value="#FFA5A5A5" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Test Project" ValueLabel="Test Project">
+      <Condition Expression="HasCategory('CodeMap_TestProject')" />
+      <Setter Property="Icon" Value="CodeMap_TestProject" />
+      <Setter Property="Background" Value="#FF307A69" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Web Project" ValueLabel="Web Project">
+      <Condition Expression="HasCategory('CodeMap_WebProject')" />
+      <Setter Property="Icon" Value="CodeMap_WebProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Windows Store Project" ValueLabel="Windows Store Project">
+      <Condition Expression="HasCategory('CodeMap_WindowsStoreProject')" />
+      <Setter Property="Icon" Value="CodeMap_WindowsStoreProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Phone Project" ValueLabel="Phone Project">
+      <Condition Expression="HasCategory('CodeMap_PhoneProject')" />
+      <Setter Property="Icon" Value="CodeMap_PhoneProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Portable Library" ValueLabel="Portable Library">
+      <Condition Expression="HasCategory('CodeMap_PortableLibraryProject')" />
+      <Setter Property="Icon" Value="CodeMap_PortableLibraryProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="WPF Project" ValueLabel="WPF Project">
+      <Condition Expression="HasCategory('CodeMap_WpfProject')" />
+      <Setter Property="Icon" Value="CodeMap_WpfProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="VSIX Project" ValueLabel="VSIX Project">
+      <Condition Expression="HasCategory('CodeMap_VsixProject')" />
+      <Setter Property="Icon" Value="CodeMap_VsixProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Modeling Project" ValueLabel="Modeling Project">
+      <Condition Expression="HasCategory('CodeMap_ModelingProject')" />
+      <Setter Property="Icon" Value="CodeMap_ModelingProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Write" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldWrite')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+      <Setter Property="IsHidden" Value="false" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Return" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_ReturnTypeLink')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="References" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('References')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Uses Attribute" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_AttributeUse')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Solution Folder" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeMap_SolutionFolder')" />
+      <Setter Property="Background" Value="#FFDEBA83" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Project Reference" ValueLabel="Project Reference">
+      <Condition Expression="HasCategory('CodeMap_ProjectReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="External Reference" ValueLabel="External Reference">
+      <Condition Expression="HasCategory('CodeMap_ExternalReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Comment" ValueLabel="Has comment">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="fd3cbe29-1930-4dee-b144-986e88c4ab3f.OutputPathUri" Value="file:///C:/Users/Leanes/Documents/Visual Studio 2013/Projects/cac/CAC/bin/Debug/CAC.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>
