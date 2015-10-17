@@ -35,7 +35,7 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(190, 198);
+            this.butClose.Location = new System.Drawing.Point(239, 198);
             this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
@@ -47,7 +47,7 @@
             // 
             this.tbMath.Location = new System.Drawing.Point(12, 172);
             this.tbMath.Name = "tbMath";
-            this.tbMath.Size = new System.Drawing.Size(238, 20);
+            this.tbMath.Size = new System.Drawing.Size(287, 20);
             this.tbMath.TabIndex = 25;
             this.tbMath.Leave += new System.EventHandler(this.tbMath_Leave);
             // 
@@ -66,17 +66,17 @@
             this.lbNumbers.Location = new System.Drawing.Point(12, 37);
             this.lbNumbers.Name = "lbNumbers";
             this.lbNumbers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbNumbers.Size = new System.Drawing.Size(239, 108);
+            this.lbNumbers.Size = new System.Drawing.Size(287, 108);
             this.lbNumbers.TabIndex = 23;
             // 
-            // OutputNumberBasedOnRandomInput2
+            // OutputNumberBasedOnRandomInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 230);
+            this.ClientSize = new System.Drawing.Size(311, 230);
             this.Controls.Add(this.tbMath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbNumbers);
-            this.Name = "OutputNumberBasedOnRandomInput2";
+            this.Name = "OutputNumberBasedOnRandomInput";
             this.Activated += new System.EventHandler(this.OutputNumberBasedOnRandomInput_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);

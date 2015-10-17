@@ -10,11 +10,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("CAC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Automatic source code testing")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Michal Tichý")]
 [assembly: AssemblyProduct("CAC")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("FREEWARE")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -71,7 +71,7 @@ namespace CAC.IO_Forms
         public override string ToString()
         {
             if (Decimal)
-                return "VSTUP: náhodné desetiné číslo od " + Min + " do " + Max;
+                return "VSTUP: náhodné desetinné číslo od " + Min + " do " + Max;
             return "VSTUP: náhodné celé číslo od " + Min + " do " + Max;
         }
 

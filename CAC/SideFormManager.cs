@@ -14,9 +14,9 @@ namespace CAC
         {
             [Description("VSTUP: textový soubor")] InputTextFile,
             [Description("VSTUP: číslo")] InputNumber,
-            [Description("VSTUP: náhodné Číslo")] InputRandomNumber,
+            [Description("VSTUP: náhodné číslo")] InputRandomNumber,
             [Description("VSTUP: text")] InputString,
-            [Description("VÝSTUP: náhodné číslo")] OutputNumberBasedOnRandomInput,
+            [Description("VÝSTUP: číslo založené na vygenerovaném číslu")] OutputNumberBasedOnRandomInput,
             [Description("VÝSTUP: číslo splňující podmínky")] OutputNumberMatchingConditions,
             [Description("VÝSTUP: počet čísel splňujících podmínky")] OutputCountOfNumbersMatchingConditions,
             [Description("VÝSTUP: číslo")] OutputNumber,

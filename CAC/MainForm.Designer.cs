@@ -33,6 +33,7 @@ namespace CAC
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.butSaveLog = new System.Windows.Forms.Button();
             this.butChart = new System.Windows.Forms.Button();
             this.rtbCode = new System.Windows.Forms.RichTextBox();
             this.lV = new System.Windows.Forms.ListView();
@@ -64,7 +65,6 @@ namespace CAC
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.ErrorTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.butSaveLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +93,18 @@ namespace CAC
             this.splitContainer1.Size = new System.Drawing.Size(499, 314);
             this.splitContainer1.SplitterDistance = 157;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // butSaveLog
+            // 
+            this.butSaveLog.Enabled = false;
+            this.butSaveLog.Location = new System.Drawing.Point(406, 129);
+            this.butSaveLog.Name = "butSaveLog";
+            this.butSaveLog.Size = new System.Drawing.Size(42, 26);
+            this.butSaveLog.TabIndex = 2;
+            this.butSaveLog.Text = "Save";
+            this.butSaveLog.UseVisualStyleBackColor = true;
+            this.butSaveLog.Visible = false;
+            this.butSaveLog.Click += new System.EventHandler(this.butSaveLog_Click);
             // 
             // butChart
             // 
@@ -389,18 +401,6 @@ namespace CAC
             this.progressBar.Size = new System.Drawing.Size(500, 15);
             this.progressBar.Step = 1;
             // 
-            // butSaveLog
-            // 
-            this.butSaveLog.Enabled = false;
-            this.butSaveLog.Location = new System.Drawing.Point(406, 129);
-            this.butSaveLog.Name = "butSaveLog";
-            this.butSaveLog.Size = new System.Drawing.Size(42, 26);
-            this.butSaveLog.TabIndex = 2;
-            this.butSaveLog.Text = "Save";
-            this.butSaveLog.UseVisualStyleBackColor = true;
-            this.butSaveLog.Visible = false;
-            this.butSaveLog.Click += new System.EventHandler(this.butSaveLog_Click);
-            // 
             // CaC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,7 +416,7 @@ namespace CAC
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "CaC";
-            this.Text = "C application Checker";
+            this.Text = "C application Checker BETA 0.9.2";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

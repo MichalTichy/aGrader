@@ -50,7 +50,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 13);
             this.label2.TabIndex = 24;
-            this.label2.Text = "odchylka je standartně 0.001";
+            this.label2.Text = "odchylka je standardně 0.001";
             // 
             // numeric
             // 

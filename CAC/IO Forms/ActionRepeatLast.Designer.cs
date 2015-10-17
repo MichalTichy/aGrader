@@ -35,6 +35,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).BeginInit();
             this.SuspendLayout();
             // 
+            // butClose
+            // 
+            this.butClose.Location = new System.Drawing.Point(251, 75);
+            // 
             // labLastAction
             // 
             this.labLastAction.AutoSize = true;
@@ -67,14 +71,14 @@
             // 
             this.numeric.Location = new System.Drawing.Point(108, 46);
             this.numeric.Name = "numeric";
-            this.numeric.Size = new System.Drawing.Size(143, 20);
+            this.numeric.Size = new System.Drawing.Size(203, 20);
             this.numeric.TabIndex = 18;
             this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
             // 
             // ActionRepeatLast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 110);
+            this.ClientSize = new System.Drawing.Size(323, 110);
             this.Controls.Add(this.labLastAction);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
