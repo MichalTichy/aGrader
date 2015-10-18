@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CAC
+namespace aGrader
 {
-    partial class CaC
+    partial class aGrader
     {
         /// <summary>
         /// Required designer variable.
@@ -401,7 +401,7 @@ namespace CAC
             this.progressBar.Size = new System.Drawing.Size(500, 15);
             this.progressBar.Step = 1;
             // 
-            // CaC
+            // aGrader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -415,8 +415,8 @@ namespace CAC
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "CaC";
-            this.Text = "C application Checker BETA 0.9.2";
+            this.Name = "aGrader";
+            this.Text = "aGrader -automated programming assessment grading BETA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

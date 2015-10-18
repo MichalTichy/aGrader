@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using CAC.Mathematic;
+using aGrader.Mathematic;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
     public class TestResultArgs : EventArgs
     {

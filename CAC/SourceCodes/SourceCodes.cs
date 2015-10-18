@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace CAC.sourceCodes
+namespace aGrader.sourceCodes
 {
     public static class SourceCodes
     {

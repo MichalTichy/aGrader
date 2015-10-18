@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
-namespace CAC.IO_Forms
+namespace aGrader.IO_Forms
 {
-    public partial class InputRandomNumber : CAC.IO_Forms.InputOutputForm
+    public partial class InputRandomNumber : InputOutputForm
     {
         public static int IdCounter { get; private set; }
         public string Id;

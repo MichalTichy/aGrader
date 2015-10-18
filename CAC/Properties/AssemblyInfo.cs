@@ -9,12 +9,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("CAC")]
-[assembly: AssemblyDescription("Automatic source code testing")]
+[assembly: AssemblyTitle("aGrader")]
+[assembly: AssemblyDescription("automated programming assessment grading")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michal Tichý")]
-[assembly: AssemblyProduct("CAC")]
-[assembly: AssemblyCopyright("FREEWARE")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("aGrader")]
+[assembly: AssemblyCopyright("Michal TIchý")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -39,5 +39,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.9.0.0")]
+[assembly: AssemblyFileVersion("0.9.0.0")]

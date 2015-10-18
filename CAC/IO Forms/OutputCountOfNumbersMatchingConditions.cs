@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using CAC.Mathematic;
+using aGrader.Mathematic;
 
-namespace CAC.IO_Forms
+namespace aGrader.IO_Forms
 {
-    public partial class OutputCountOfNumbersMatchingConditions : CAC.IO_Forms.InputOutputForm
+    public partial class OutputCountOfNumbersMatchingConditions : InputOutputForm
     {
 
         public int CountOfNumbers;
@@ -112,7 +109,7 @@ namespace CAC.IO_Forms
                             t.GetRepeatedForm()
                                 .GetType()
                                 .ToString()
-                                .StartsWith(radioInputs.Checked ? "CAC.IO_Forms.Input" : "CAC.IO_Forms.Output")
+                                .StartsWith(radioInputs.Checked ? "aGrader.IO_Forms.Input" : "aGrader.IO_Forms.Output")
                                 && t.GetRepeatedForm().GetType()
                                 .ToString().Contains("Number"));
 

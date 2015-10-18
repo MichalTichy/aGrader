@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using CAC.Mathematic;
+using aGrader.Mathematic;
 
-namespace CAC.IO_Forms
+namespace aGrader.IO_Forms
 {
-    public partial class OutputNumberBasedOnRandomInput : CAC.IO_Forms.InputOutputForm
+    public partial class OutputNumberBasedOnRandomInput : InputOutputForm
     {
         private List<string> _existingUnknowns = new List<string>();
         public string Math;

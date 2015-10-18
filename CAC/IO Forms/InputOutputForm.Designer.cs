@@ -1,4 +1,4 @@
-﻿namespace CAC.IO_Forms
+﻿namespace aGrader.IO_Forms
 {
     partial class InputOutputForm
     {

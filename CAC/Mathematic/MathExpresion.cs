@@ -6,7 +6,7 @@ using System.Data;
 
 #endregion
 
-namespace CAC.Mathematic
+namespace aGrader.Mathematic
 {
     public class MathExpresion
     {

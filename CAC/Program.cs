@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
     internal static class Program
     {
@@ -19,7 +19,7 @@ namespace CAC
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new CaC());
+                Application.Run(new aGrader());
             }
             catch (Exception exception)
             {

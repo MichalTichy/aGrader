@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using CAC.sourceCodes;
+using aGrader.sourceCodes;
 
-namespace CAC
+namespace aGrader
 {
     public class Test
     {

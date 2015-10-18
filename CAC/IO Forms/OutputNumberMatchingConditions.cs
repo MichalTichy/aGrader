@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using CAC.Mathematic;
+using aGrader.Mathematic;
 
-namespace CAC.IO_Forms
+namespace aGrader.IO_Forms
 {
-    public partial class OutputNumberMatchingConditions : CAC.IO_Forms.InputOutputForm
+    public partial class OutputNumberMatchingConditions : InputOutputForm
     {
         public List<string> Conditions = new List<string>();
 

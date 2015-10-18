@@ -1,4 +1,4 @@
-﻿namespace CAC
+﻿namespace aGrader
 {
     partial class Graph
     {

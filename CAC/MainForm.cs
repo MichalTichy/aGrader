@@ -7,27 +7,25 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using CAC.IO_Forms;
-using CAC.Mathematic;
-using CAC.sourceCodes;
+using aGrader.IO_Forms;
+using aGrader.sourceCodes;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
-    public partial class CaC : Form
+    public partial class aGrader : Form
     {
         //todo pocet cisel splnujicich podminky
         //todo dát související věci k sobě
 
-        public CaC()
+        public aGrader()
         {
             InitializeComponent();
             FillCbObjects();
             cbobjects.SelectedIndexChanged += cbobjects_SelectedIndexChanged;
-            LocationChanged += CaC_LocationChanged;
+            LocationChanged += aGrader_LocationChanged;
             InputsOutputs.InOutListChanged += InputsOutputsOnInOutListChanged;
             
         }
@@ -138,7 +136,7 @@ namespace CAC
                 SideFormManager.Close();
         }
 
-        private void CaC_LocationChanged(object sender, EventArgs e)
+        private void aGrader_LocationChanged(object sender, EventArgs e)
         {
             SideFormManager.UpdatePosition();
         }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
     public static class SideFormManager
     {
@@ -34,7 +34,7 @@ namespace CAC
         public static void Show(SideForms formName)
         {
             Close();
-            _sideForm = Activator.CreateInstance(Type.GetType("CAC.IO_Forms." + formName));
+            _sideForm = Activator.CreateInstance(Type.GetType("aGrader.IO_Forms." + formName));
             UpdatePosition();
             _sideForm.Show();
         }
@@ -50,7 +50,7 @@ namespace CAC
 
         public static void UpdatePosition()
         {
-            Form mainForm = Application.OpenForms["CaC"];
+            Form mainForm = Application.OpenForms["aGrader"];
             if (mainForm == null) return;
             if (_sideForm == null) return;
             _sideForm.SetDesktopLocation(mainForm.Location.X + mainForm.Size.Width,

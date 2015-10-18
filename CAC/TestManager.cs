@@ -1,20 +1,13 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using CAC.IO_Forms;
-using CAC.Mathematic;
-using CAC.sourceCodes;
+using aGrader.sourceCodes;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
     public class ResultReadyArgs : EventArgs
     {

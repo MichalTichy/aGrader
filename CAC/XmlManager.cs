@@ -6,11 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
-using CAC.IO_Forms;
+using aGrader.IO_Forms;
 
 #endregion
 
-namespace CAC
+namespace aGrader
 {
     public static class XmlManager
     {
