@@ -32,6 +32,7 @@ namespace aGrader
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aGrader));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.butSaveLog = new System.Windows.Forms.Button();
             this.butChart = new System.Windows.Forms.Button();
@@ -244,7 +245,7 @@ namespace aGrader
             this.butBrowse.Location = new System.Drawing.Point(228, 30);
             this.butBrowse.Name = "butBrowse";
             this.butBrowse.Size = new System.Drawing.Size(69, 23);
-            this.butBrowse.TabIndex = 6;
+            this.butBrowse.TabIndex = 0;
             this.butBrowse.Text = "Procházet";
             this.butBrowse.UseVisualStyleBackColor = true;
             this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
@@ -414,6 +415,7 @@ namespace aGrader
             this.Controls.Add(this.butRunTest);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "aGrader";
             this.Text = "aGrader -automated programming assessment grading BETA";

@@ -28,10 +28,4 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
-	<ItemGroup>
-		<ProjectReference Include="..\CAC\aGrader.csproj">
-			<Name>aGrader</Name>
-			<Project>{FD3CBE29-1930-4DEE-B144-986E88C4AB3F}</Project>
-		</ProjectReference>
-	</ItemGroup>
 </Project>

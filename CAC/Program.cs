@@ -19,6 +19,7 @@ namespace aGrader
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new WelcomeForm());
                 Application.Run(new aGrader());
             }
             catch (Exception exception)
