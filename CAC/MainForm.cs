@@ -55,12 +55,10 @@ namespace aGrader
 
         private void butBrowse_Click(object sender, EventArgs e)
         {
-            SourceCodes.SetPath();
+            var languageSelect = new LanguageSelection {Location = new Point(Location.X + 525, Location.Y + 45)};
+            languageSelect.ShowDialog();
             tbpath.Text = SourceCodes.GetPath();
-            if (SourceCodes.IsDirectorySet())
-            {
-                UpdateLbCodes();
-            }
+            UpdateLbCodes();
         }
 
         private void UpdateLbCodes()
@@ -71,7 +69,7 @@ namespace aGrader
             lErrorMessage.Text = "";
             ErrorTooltip.SetToolTip(lErrorMessage,lErrorMessage.Text);
             
-            SourceCodes.ReloadSourceCodeFiles("c");
+            SourceCodes.ReloadFiles();
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {
@@ -123,7 +121,7 @@ namespace aGrader
             else
             {
                 MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
-                SourceCodes.ReloadSourceCodeFiles("c");
+                SourceCodes.ReloadFiles();
                 UpdateLbCodes();
             }
         }

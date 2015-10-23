@@ -227,9 +227,9 @@ namespace aGrader
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.Size = new System.Drawing.Size(182, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Zvolte adresář s *.c soubory";
+            this.label3.Text = "Zvolte adresář se zdrojovými soubory";
             // 
             // tbpath
             // 

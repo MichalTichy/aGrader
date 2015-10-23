@@ -16,22 +16,7 @@ namespace aGrader.sourceCodes
     {
         private static DirectoryInfo _sourceDir;
         private static List<SourceCode> _sourceCodeFiles = new List<SourceCode>();
-
-        public static void SetPath()
-        {
-            var dialog = new FolderBrowserDialog
-            {
-                Description = "Zvolte složku která obsahuje zdrojové kódy."
-            };
-
-            DialogResult dialogres = dialog.ShowDialog();
-
-            if (dialogres == DialogResult.OK)
-            {
-                _sourceDir = new DirectoryInfo(dialog.SelectedPath);
-            }
-        }
-
+        private static string _lastFileExtension;
         public static void SetPath(string path)
         {
             var directoryInfo = new DirectoryInfo(path);
@@ -54,13 +39,16 @@ namespace aGrader.sourceCodes
 
         public static void LoadSourceCodeFiles(string extension)
         {
+            _lastFileExtension = extension;
             switch (extension)
             {
-                case "c":LoadSourceCodeFilesC();
+                case "c":
+                    LoadSourceCodeFilesC();
                     break;
                 default:
                     MessageBox.Show("Unsuported file extension!");
                     ExceptionsLog.LogException($"{extension} is not suported!");
+                    _lastFileExtension = null;
                     break;
             }
         }
@@ -75,6 +63,13 @@ namespace aGrader.sourceCodes
             {
                 _sourceCodeFiles.Clear();
             }
+        }
+
+        public static void ReloadFiles()
+        {
+            if (_lastFileExtension == null)
+                return;
+            LoadSourceCodeFiles(_lastFileExtension);
         }
 
         private static bool AreAllCFileNamesValid()
