@@ -38,7 +38,7 @@
             // 
             this.butC.Location = new System.Drawing.Point(12, 43);
             this.butC.Name = "butC";
-            this.butC.Size = new System.Drawing.Size(100, 23);
+            this.butC.Size = new System.Drawing.Size(125, 23);
             this.butC.TabIndex = 0;
             this.butC.Text = "C";
             this.butC.UseVisualStyleBackColor = true;
@@ -46,9 +46,9 @@
             // 
             // butJava
             // 
-            this.butJava.Location = new System.Drawing.Point(130, 43);
+            this.butJava.Location = new System.Drawing.Point(174, 43);
             this.butJava.Name = "butJava";
-            this.butJava.Size = new System.Drawing.Size(100, 23);
+            this.butJava.Size = new System.Drawing.Size(125, 23);
             this.butJava.TabIndex = 1;
             this.butJava.Text = "Java";
             this.butJava.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // butCancel
             // 
             this.butCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butCancel.Location = new System.Drawing.Point(200, 12);
+            this.butCancel.Location = new System.Drawing.Point(269, 12);
             this.butCancel.Name = "butCancel";
             this.butCancel.Size = new System.Drawing.Size(30, 23);
             this.butCancel.TabIndex = 2;
@@ -79,13 +79,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCancel;
-            this.ClientSize = new System.Drawing.Size(242, 83);
+            this.ClientSize = new System.Drawing.Size(311, 83);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.butCancel);
             this.Controls.Add(this.butJava);
             this.Controls.Add(this.butC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(517, 12);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LanguageSelection";
