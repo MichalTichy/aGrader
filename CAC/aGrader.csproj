@@ -203,6 +203,12 @@
     <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="LanguageSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LanguageSelection.Designer.cs">
+      <DependentUpon>LanguageSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mathematic\BooleanExpresion.cs" />
     <Compile Include="Mathematic\MathExpresion.cs" />
     <Compile Include="Mathematic\Validator.cs" />
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\SettingsRequiedCommand.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageSelection.resx">
+      <DependentUpon>LanguageSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
