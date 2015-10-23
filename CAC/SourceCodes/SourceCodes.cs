@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -51,19 +52,32 @@ namespace aGrader.sourceCodes
             return _sourceDir != null;
         }
 
-        public static void ReloadSourceCodeFiles(string extension)
+        public static void LoadSourceCodeFiles(string extension)
+        {
+            switch (extension)
+            {
+                case "c":LoadSourceCodeFilesC();
+                    break;
+                default:
+                    MessageBox.Show("Unsuported file extension!");
+                    ExceptionsLog.LogException($"{extension} is not suported!");
+                    break;
+            }
+        }
+
+        private static void LoadSourceCodeFilesC()
         {
             _sourceCodeFiles.Clear();
-            foreach (FileInfo file in _sourceDir.GetFiles("*."+ extension))
+            foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
                 _sourceCodeFiles.Add(new SourceCode(file.FullName));
-            
-            if (!AreAllFileNamesValid())
+
+            if (!AreAllCFileNamesValid())
             {
                 _sourceCodeFiles.Clear();
             }
         }
 
-        private static bool AreAllFileNamesValid()
+        private static bool AreAllCFileNamesValid()
         {
             char[] illegalChars = { '-', ' '}; //todo doplnit
             foreach (SourceCode code in _sourceCodeFiles.Where(code => code.Path.IndexOfAny(illegalChars) != -1))
