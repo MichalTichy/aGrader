@@ -32,6 +32,8 @@
             this.butJava = new System.Windows.Forms.Button();
             this.butCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.butJavaOneFile = new System.Windows.Forms.Button();
+            this.butJavaMultipleFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // butC
@@ -52,6 +54,7 @@
             this.butJava.TabIndex = 1;
             this.butJava.Text = "Java";
             this.butJava.UseVisualStyleBackColor = true;
+            this.butJava.Click += new System.EventHandler(this.butJava_Click);
             // 
             // butCancel
             // 
@@ -74,13 +77,35 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Zvolte jazyk";
             // 
+            // butJavaOneFile
+            // 
+            this.butJavaOneFile.Location = new System.Drawing.Point(15, 80);
+            this.butJavaOneFile.Name = "butJavaOneFile";
+            this.butJavaOneFile.Size = new System.Drawing.Size(122, 49);
+            this.butJavaOneFile.TabIndex = 4;
+            this.butJavaOneFile.Text = "Programy složené z jednoho *.java souboru";
+            this.butJavaOneFile.UseVisualStyleBackColor = true;
+            this.butJavaOneFile.Click += new System.EventHandler(this.butJavaOneFile_Click);
+            // 
+            // butJavaMultipleFiles
+            // 
+            this.butJavaMultipleFiles.Location = new System.Drawing.Point(174, 80);
+            this.butJavaMultipleFiles.Name = "butJavaMultipleFiles";
+            this.butJavaMultipleFiles.Size = new System.Drawing.Size(122, 49);
+            this.butJavaMultipleFiles.TabIndex = 5;
+            this.butJavaMultipleFiles.Text = "Programy složené z více *.java souborů";
+            this.butJavaMultipleFiles.UseVisualStyleBackColor = true;
+            this.butJavaMultipleFiles.Click += new System.EventHandler(this.butJavaMultipleFiles_Click);
+            // 
             // LanguageSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCancel;
-            this.ClientSize = new System.Drawing.Size(311, 83);
+            this.ClientSize = new System.Drawing.Size(311, 75);
             this.ControlBox = false;
+            this.Controls.Add(this.butJavaMultipleFiles);
+            this.Controls.Add(this.butJavaOneFile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.butCancel);
             this.Controls.Add(this.butJava);
@@ -105,5 +130,7 @@
         private System.Windows.Forms.Button butJava;
         private System.Windows.Forms.Button butCancel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button butJavaOneFile;
+        private System.Windows.Forms.Button butJavaMultipleFiles;
     }
 }
