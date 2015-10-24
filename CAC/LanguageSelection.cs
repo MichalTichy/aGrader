@@ -66,11 +66,11 @@ namespace aGrader
         {
             ChangeEnabledStateOfButtons();
             var dialog = new FolderBrowserDialog
-            {Description = "  Zvolte složku která obsahuje jednotlivé soubory s příponou \"*.java\" (jeden soubor jeden test)" };
+            {Description = " Zvolte složku která obsahuje jednotlivé soubory s příponou \"*.java\" (jeden soubor jeden test)" };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 SourceCodes.SetPath(dialog.SelectedPath);
-                SourceCodes.LoadSourceCodeFiles("java");
+                SourceCodes.LoadSourceCodeFiles("java", "single");
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -88,7 +88,7 @@ namespace aGrader
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 SourceCodes.SetPath(dialog.SelectedPath);
-                SourceCodes.LoadSourceCodeFiles("java");
+                SourceCodes.LoadSourceCodeFiles("java", "multi");
                 DialogResult = DialogResult.OK;
                 Close();
             }

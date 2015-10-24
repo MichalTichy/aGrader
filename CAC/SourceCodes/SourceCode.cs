@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace aGrader.sourceCodes
 {
-    public class SourceCode
+    public abstract class SourceCode
     {
 
-        public readonly string Name;
-        public readonly string Path;
         public string CompilationErrorMsg;
         public int? NumberOfLineWithError;
+        public readonly string Name;
+        public readonly string Path;
 
         private Process _app;
         private TestResult _testResult;
@@ -29,17 +29,6 @@ namespace aGrader.sourceCodes
         {
             Path = path;
             Name = System.IO.Path.GetFileName(path);
-        }
-
-        public void GetCompilationError()
-        {
-            Tuple<string, int?> compilationError = Test.GetCompilationError(this);
-
-            if (compilationError.Item1 != null)
-            {
-                CompilationErrorMsg = compilationError.Item1;
-                NumberOfLineWithError = compilationError.Item2;
-            }
         }
 
         public override string ToString()
@@ -73,6 +62,8 @@ namespace aGrader.sourceCodes
 #endregion
             return null;
         }
+
+        public abstract void GetCompilationError();
 
         public bool Exists()
         {
