@@ -56,9 +56,9 @@ namespace aGrader
         private void butBrowse_Click(object sender, EventArgs e)
         {
             var languageSelect = new LanguageSelection {Location = new Point(Location.X + 525, Location.Y + 45)};
-            languageSelect.ShowDialog();
+            if (languageSelect.ShowDialog() == DialogResult.OK)
+                UpdateLbCodes();
             tbpath.Text = SourceCodes.GetPath();
-            UpdateLbCodes();
         }
 
         private void UpdateLbCodes()
