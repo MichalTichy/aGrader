@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Security;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 #endregion
@@ -78,6 +79,28 @@ namespace aGrader.sourceCodes
         public void RemoveTestResult()
         {
             _testResult = null;
+        }
+
+        public string GetSourceCodeWithoutComments()
+        {
+
+            var blockComments = @"/\*(.*?)\*/";
+            var lineComments = @"//(.*?)\r?\n";
+            var strings = @"""((\\[^\n]|[^""\n])*)""";
+            var verbatimStrings = @"@(""[^""]*"")+";
+
+            string noComments = Regex.Replace(GetSourceCode(),
+                blockComments + "|" + lineComments + "|" + strings + "|" + verbatimStrings,
+                me =>
+                {
+                    if (me.Value.StartsWith("/*") || me.Value.StartsWith("//"))
+                        return me.Value.StartsWith("//") ? Environment.NewLine : "";
+                    // Keep the literal strings
+                    return me.Value;
+                },
+                RegexOptions.Singleline);
+
+            return Regex.Replace(noComments, @"^\s+$[\r\n]*", "", RegexOptions.Multiline); //removes blank lines
         }
     }
 }

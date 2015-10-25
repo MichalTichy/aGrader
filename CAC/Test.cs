@@ -178,7 +178,7 @@ namespace aGrader
 
         private void CheckSourceCodeForRequiedCommands()
         {
-            foreach (string requiedCommnad in Protocol.RequiedCommnads.Where(requiedCommnad => SourceCode.GetSourceCode().Contains(requiedCommnad)))
+            foreach (string requiedCommnad in Protocol.RequiedCommnads.Where(requiedCommnad => !SourceCode.GetSourceCodeWithoutComments().Contains(requiedCommnad)))
             {
                _errors.Add("Nenalezen vyžadovaný příkaz: " + requiedCommnad);
             }
@@ -186,7 +186,7 @@ namespace aGrader
 
         private void CheckSourceCodeForProhibitedCommands()
         {
-            foreach (string prohibitedCommnad in Protocol.ProhibitedCommnads.Where(prohibitedCommnad => SourceCode.GetSourceCode().Contains(prohibitedCommnad)))
+            foreach (string prohibitedCommnad in Protocol.ProhibitedCommnads.Where(prohibitedCommnad => SourceCode.GetSourceCodeWithoutComments().Contains(prohibitedCommnad)))
             {
                 _errors.Add("Nalezen nepovolený příkaz: " + prohibitedCommnad);
             }

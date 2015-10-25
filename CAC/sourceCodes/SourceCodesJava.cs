@@ -30,7 +30,7 @@ namespace aGrader.sourceCodes
 
                 foreach (FileInfo file in directory.GetFiles())
                 {
-                    if(mainJavaFile==null && new SourceCodeJava(file.FullName).GetSourceCode().Contains("public static void main("))
+                    if(mainJavaFile==null && new SourceCodeJava(file.FullName).GetSourceCodeWithoutComments().Contains("public static void main("))
                     {
                         mainJavaFile = file.FullName;
                     }
