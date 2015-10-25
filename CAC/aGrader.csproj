@@ -213,6 +213,10 @@
     <Compile Include="Mathematic\MathExpresion.cs" />
     <Compile Include="Mathematic\Validator.cs" />
     <Compile Include="InputsOutputs.cs" />
+    <Compile Include="sourceCodes\SourceCodeC.cs" />
+    <Compile Include="sourceCodes\SourceCodeJava.cs" />
+    <Compile Include="sourceCodes\SourceCodesC.cs" />
+    <Compile Include="sourceCodes\SourceCodesJava.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestProtocol.cs" />
     <Compile Include="WelcomeForm.cs">
