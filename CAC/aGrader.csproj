@@ -203,6 +203,12 @@
     <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO Forms\SettingsTimeout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO Forms\SettingsTimeout.Designer.cs">
+      <DependentUpon>SettingsTimeout.cs</DependentUpon>
+    </Compile>
     <Compile Include="LanguageSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IO Forms\SettingsRequiedCommand.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO Forms\SettingsTimeout.resx">
+      <DependentUpon>SettingsTimeout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelection.resx">
       <DependentUpon>LanguageSelection.cs</DependentUpon>

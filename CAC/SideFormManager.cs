@@ -22,6 +22,7 @@ namespace aGrader
             [Description("VÝSTUP: číslo")] OutputNumber,
             [Description("VÝSTUP: text")] OutputString,
             [Description("NASTAVENÍ: odchylka")] SettingsDeviation,
+            [Description("NASTAVENÍ: maximální čas pro běh programu")]SettingsTimeout,
             [Description("NASTAVENÍ: zakázaný příkaz")] SettingsProhibitedCommand,
             [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
             [Description("AKCE: opakování poslední akce")] ActionRepeatLast,

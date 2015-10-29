@@ -223,6 +223,20 @@ namespace aGrader
             return settRequiedCommand;
         }
 
+        private static XmlNode GenerateIONode(SettingsTimeout ioForm, XmlDocument document)
+        {
+            XmlElement settRequiedCommand = document.CreateElement(ioForm.Name);
+
+            XmlElement stringvalue = document.CreateElement("timeout");
+            stringvalue.InnerText = ioForm.Timeout.ToString();
+
+            settRequiedCommand.AppendChild(stringvalue);
+
+            return settRequiedCommand;
+        }
+
+
+
         private static XmlNode GenerateIONode(ActionRepeatLast ioForm, XmlDocument document)
         {
             XmlElement actionRepeatLast = document.CreateElement(ioForm.Name);
@@ -312,6 +326,10 @@ namespace aGrader
                         case "SettingsRequiedCommand":
                             InputsOutputs.Add(
                                 new SettingsRequiedCommand((element.GetElementsByTagName("requiedCommand")[0].InnerText)));
+                            break;
+                        case "SettingsTimeout":
+                            InputsOutputs.Add(
+                                new SettingsTimeout(int.Parse((element.GetElementsByTagName("timeout")[0].InnerText))));
                             break;
                         case "ActionRepeatLast":
                             InputsOutputs.Add(

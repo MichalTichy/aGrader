@@ -17,7 +17,7 @@ namespace aGrader.sourceCodes
             else if (!_sourceDir.GetFiles().Any() && _sourceDir.GetDirectories().Any())
                 LoadSourceCodeFilesJavaMultiFiles();
             else
-                MessageBox.Show("Složka obsahuje samostatné soubory i skopiny soubor.\nBuď odstraňte složky se skupinami souborů nebo samostatné soubory.");
+                MessageBox.Show("Složka obsahuje samostatné soubory i skupiny souborů.\nBuď odstraňte složky se skupinami souborů nebo samostatné soubory.");
         }
 
         private static void LoadSourceCodeFilesJavaMultiFiles()
