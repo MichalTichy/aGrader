@@ -12,6 +12,7 @@ namespace aGrader
     public class TestProtocol
     {
         private double _maximumDeviation=0.001;
+        private int _timeout = 20000;
         public List<string> Inputs = new List<string>();
         public List<object> Outputs = new List<object>();
         private List<string> _prohibitedCommnads=new List<string>();
@@ -20,21 +21,15 @@ namespace aGrader
         private readonly Dictionary<string, decimal> _generatedRandomNumbers=new Dictionary<string, decimal>();
 
 #region encapsulation
-        public double MaximumDeviation
-        {
-            get { return _maximumDeviation; }
-        }
+        public double MaximumDeviation => _maximumDeviation;
 
-        public ReadOnlyCollection<string> ProhibitedCommnads
-        {
-            get { return _prohibitedCommnads.AsReadOnly(); }
-        }
+        public ReadOnlyCollection<string> ProhibitedCommnads => _prohibitedCommnads.AsReadOnly();
 
-        public ReadOnlyCollection<string> RequiedCommnads
-        {
-            get { return _requiedCommnads.AsReadOnly(); }
-        }
-#endregion
+        public ReadOnlyCollection<string> RequiedCommnads => _requiedCommnads.AsReadOnly();
+
+        public int Timeout => _timeout;
+
+        #endregion
 
         public TestProtocol()
         {
@@ -131,6 +126,11 @@ namespace aGrader
         private void ProcessData(SettingsRequiedCommand requiedCommand)
         {
             _prohibitedCommnads.Add(requiedCommand.Text);
+        }
+
+        private void ProcessData(SettingsTimeout timeout)
+        {
+            _timeout = timeout.Timeout;
         }
 
         private void ProcessData(ActionRepeatLast repeatLast)
