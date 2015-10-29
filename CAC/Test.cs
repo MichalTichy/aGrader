@@ -11,14 +11,13 @@ namespace aGrader
 {
     public class Test
     {
-        private const int Timeout = 20000;
-
         public readonly SourceCode SourceCode;
         public readonly TestProtocol Protocol;
 
         private List<string> _outputs=new List<string>();
         private List<string> _errors=new List<string>();
         private readonly Process _app;
+
         public Test(SourceCode sourceCode, TestProtocol protocol)
         {
             SourceCode = sourceCode;
@@ -94,10 +93,10 @@ namespace aGrader
             string output = "";
             string error = "";
 
-            if (!_app.WaitForExit(Timeout))
+            if (!_app.WaitForExit(Protocol.Timeout))
             {
                 _app.Kill();
-                error += "Aplikace nebyla ukončena před timeoutem (" + Timeout / 1000 + "s)\n"; 
+                error += "Aplikace nebyla ukončena před timeoutem (" + Protocol.Timeout / 1000 + "s)\n"; 
             }
 
             output += outputReader.ReadToEnd();
