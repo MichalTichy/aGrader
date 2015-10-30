@@ -1,20 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace aGrader.sourceCodes
 {
     public class SourceCodeJava : SourceCode
     {
-        public readonly string[] Dependencies;
+        public string[] Dependencies { get; set; }
 
         public SourceCodeJava(string path) : base(path)
         {
         }
 
-        public SourceCodeJava(string pathToMain, string[] dependencies) : base(pathToMain)
+        public SourceCodeJava(string name,string[] pathToMain, string[] dependencies) : base(pathToMain.Count()!=0?pathToMain[0]:null)
         {
-            Dependencies = dependencies;
+            Name = name;
+            if (!pathToMain.Any())
+            {
+                CompilationErrorMsg = "Nenalezena metoda Main!";
+            }
+            else if (pathToMain.Count() > 1)
+            {
+                CompilationErrorMsg = "Nalezeno několik metod Main!";
+            }
         }
-
 
         public override void GetCompilationError()
         {

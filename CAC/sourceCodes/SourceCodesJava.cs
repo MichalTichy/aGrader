@@ -25,22 +25,20 @@ namespace aGrader.sourceCodes
             foreach (DirectoryInfo directory in _sourceDir.GetDirectories())
             {
 
-                string mainJavaFile = null;
+                var mainJavaFiles = new List<string>();
                 var dependencies = new List<string>();
 
                 foreach (FileInfo file in directory.GetFiles())
                 {
-                    if(mainJavaFile==null && new SourceCodeJava(file.FullName).GetSourceCodeWithoutComments().Contains("public static void main("))
-                    {
-                        mainJavaFile = file.FullName;
-                    }
+                    if (
+                        new SourceCodeJava(file.FullName).GetSourceCodeWithoutComments()
+                            .Contains("public static void main("))
+                        mainJavaFiles.Add(file.FullName);
                     else
-                    {
                         dependencies.Add(file.FullName);
-                    }
                 }
 
-                _sourceCodeFiles.Add(new SourceCodeJava(mainJavaFile,dependencies.ToArray()));
+                _sourceCodeFiles.Add(new SourceCodeJava(directory.Name,mainJavaFiles.ToArray(),dependencies.ToArray()));
             }
         }
 

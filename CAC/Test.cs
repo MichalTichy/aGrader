@@ -9,82 +9,34 @@ using aGrader.sourceCodes;
 
 namespace aGrader
 {
-    public class Test
+    public abstract class Test
     {
         public readonly SourceCode SourceCode;
         public readonly TestProtocol Protocol;
 
-        private List<string> _outputs=new List<string>();
+        protected List<string> _outputs=new List<string>();
         private List<string> _errors=new List<string>();
-        private readonly Process _app;
 
         public Test(SourceCode sourceCode, TestProtocol protocol)
         {
             SourceCode = sourceCode;
             Protocol = protocol;
-            _app = CreateProcess(sourceCode);
 
         }
-        private static Process CreateProcess(SourceCode code)
-        {
-            string pathToTcc = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
-            if (!File.Exists(pathToTcc))
-            {
-                MessageBox.Show("Kompilátor nebyl nalezen! \n {0}", pathToTcc);
-                throw new FileNotFoundException("TCC not found! {0}",pathToTcc);
-            }
-            var app = new Process
-            {
-                StartInfo =
-                {
-                    FileName = pathToTcc,
-                    UseShellExecute = false,
-                    RedirectStandardInput = true,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    CreateNoWindow = true,
-                    Arguments = "-run " + code.Path
-                }
-            };
-            return app;
-        }
-        public static Tuple<string,int?> GetCompilationError(SourceCode code)
-        {
-            Process app=CreateProcess(code);
 
-            app.Start();
-            if (!app.WaitForExit(300))
-                app.Kill();
-
-            string msg = app.StandardError.ReadLine();
-            
-            if (string.IsNullOrWhiteSpace(msg))
-                return new Tuple<string, int?>(null,null);
-
-            var newRegex = new Regex(@":(\d*):");
-
-            int? lineWithError=null;
-            try
-            {
-                lineWithError = int.Parse(newRegex.Match(msg).ToString().Replace(":", "")) - 2;
-            }
-            catch
-            {
-                // error does not contain line number
-            }
-
-            return new Tuple<string,int?>(msg,lineWithError);
-        }
+        protected abstract Process CreateProcess(SourceCode code);
+        public abstract Tuple<string, int?> GetCompilationError(SourceCode code);
 
         public TestResult RunTest()
         {
+            Process app = CreateProcess(SourceCode);
             CheckSourceCodeForProhibitedCommands();
             CheckSourceCodeForRequiedCommands();
-            _app.Start();
+            app.Start();
 
-            StreamWriter inputWriter = _app.StandardInput;
-            StreamReader outputReader = _app.StandardOutput;
-            StreamReader errorReader = _app.StandardError;
+            StreamWriter inputWriter = app.StandardInput;
+            StreamReader outputReader = app.StandardOutput;
+            StreamReader errorReader = app.StandardError;
 
 
             foreach (string input in Protocol.Inputs)
@@ -93,9 +45,9 @@ namespace aGrader
             string output = "";
             string error = "";
 
-            if (!_app.WaitForExit(Protocol.Timeout))
+            if (!app.WaitForExit(Protocol.Timeout))
             {
-                _app.Kill();
+                app.Kill();
                 error += "Aplikace nebyla ukončena před timeoutem (" + Protocol.Timeout / 1000 + "s)\n"; 
             }
 
@@ -107,7 +59,7 @@ namespace aGrader
             BalanceNumberOfExpectedAndRealOutputs();
             ProcessActionsWithFiles();
             BalanceNumberOfExpectedAndRealOutputs();
-            var result=new TestResult(SourceCode.Name,Protocol,_outputs, _errors,_app.TotalProcessorTime.TotalMilliseconds);
+            var result=new TestResult(SourceCode.Name,Protocol,_outputs, _errors,app.TotalProcessorTime.TotalMilliseconds);
             SourceCode.AddTestResult(result);
             return result;
         }

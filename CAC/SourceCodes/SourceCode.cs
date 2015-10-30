@@ -16,7 +16,7 @@ namespace aGrader.sourceCodes
 
         public string CompilationErrorMsg;
         public int? NumberOfLineWithError;
-        public readonly string Name;
+        public string Name;
         public readonly string Path;
 
         private Process _app;
@@ -30,11 +30,6 @@ namespace aGrader.sourceCodes
         {
             Path = path;
             Name = System.IO.Path.GetFileName(path);
-        }
-
-        public override string ToString()
-        {
-            return Name;
         }
 
         public string GetSourceCode()

@@ -12,10 +12,13 @@ namespace aGrader.sourceCodes
         {
             
         }
-        
+        public override string ToString()
+        {
+            return Name;
+        }
         public override void GetCompilationError()
         {
-            Tuple<string, int?> compilationError = Test.GetCompilationError(this);
+            Tuple<string, int?> compilationError = new TestC(null,null).GetCompilationError(this);
 
             if (compilationError.Item1 != null)
             {
