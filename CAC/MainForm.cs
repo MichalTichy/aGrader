@@ -68,8 +68,6 @@ namespace aGrader
             ResetProgressBar();
             lErrorMessage.Text = "";
             ErrorTooltip.SetToolTip(lErrorMessage,lErrorMessage.Text);
-            
-            SourceCodes.ReloadFiles();
             lbCodes.Items.Clear();
             if (SourceCodes.GetSourceCodeFiles().Count != 0)
             {

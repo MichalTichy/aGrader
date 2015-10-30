@@ -28,7 +28,7 @@ namespace aGrader.sourceCodes
                 var mainJavaFiles = new List<string>();
                 var dependencies = new List<string>();
 
-                foreach (FileInfo file in directory.GetFiles())
+                foreach (FileInfo file in directory.GetFiles("*.java"))
                 {
                     if (
                         new SourceCodeJava(file.FullName).GetSourceCodeWithoutComments()
@@ -44,7 +44,7 @@ namespace aGrader.sourceCodes
 
         private static void LoadSourceCodeFilesJavaSingleFile()
         {
-            foreach (FileInfo fileInfo in _sourceDir.GetFiles())
+            foreach (FileInfo fileInfo in _sourceDir.GetFiles("*.java"))
             {
                 _sourceCodeFiles.Add(new SourceCodeJava(fileInfo.FullName));
             }

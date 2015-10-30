@@ -21,7 +21,7 @@ namespace aGrader
         {
             _protocol = new TestProtocol();
 
-            var testTasks= SourceCodes.GetSourceCodeFiles().Select(sourceCode => new Task<TestResult>(new Test(sourceCode, _protocol).RunTest)).ToList();
+            var testTasks= SourceCodes.GetSourceCodeFiles().Select(sourceCode => new Task<TestResult>(new TestC(sourceCode, _protocol).RunTest)).ToList();
             testTasks.ForEach(t=>t.Start());
             while (testTasks.Count>0)
             {

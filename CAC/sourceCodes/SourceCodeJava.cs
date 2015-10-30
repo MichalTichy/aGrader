@@ -18,17 +18,17 @@ namespace aGrader.sourceCodes
             Name = name;
             if (!pathToMain.Any())
             {
-                CompilationErrorMsg = "Nenalezena metoda Main!";
+                CompilationErrorMsg = "Nenalezen souborů s metodou Main!";
             }
             else if (pathToMain.Count() > 1)
             {
-                CompilationErrorMsg = "Nalezeno několik metod Main!";
+                CompilationErrorMsg = "Nalezeno několik souborů s metodou Main!";
             }
         }
 
         public override void GetCompilationError()
         {
-            throw new NotImplementedException();
+          //  throw new NotImplementedException();
         }
     }
 }

@@ -97,5 +97,10 @@ namespace aGrader.sourceCodes
 
             return Regex.Replace(noComments, @"^\s+$[\r\n]*", "", RegexOptions.Multiline); //removes blank lines
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

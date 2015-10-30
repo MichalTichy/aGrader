@@ -39,6 +39,7 @@ namespace aGrader.sourceCodes
 
         public static void LoadSourceCodeFiles(string extension,string aditionalParameter=null)
         {
+            _sourceCodeFiles.Clear();
             _lastFileExtension = extension;
             switch (extension)
             {

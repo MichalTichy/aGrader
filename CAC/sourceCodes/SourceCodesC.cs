@@ -16,7 +16,6 @@ namespace aGrader.sourceCodes
     {
         private static void LoadSourceCodeFilesC()
         {
-            _sourceCodeFiles.Clear();
             foreach (FileInfo file in _sourceDir.GetFiles("*.c"))
                 _sourceCodeFiles.Add(new SourceCodeC(file.FullName));
 
