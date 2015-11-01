@@ -427,6 +427,7 @@ namespace aGrader
 
         private string BuildTestResultsString()
         {
+            //todo predelat
             var sb=new StringBuilder();
 
             int maxChName = 0;
@@ -442,8 +443,8 @@ namespace aGrader
 
                 BalanceLenghtOfStrings(ref name, maxChName, maxChCorrect, maxChWrong, ref correctOutputsCount, ref wrongOutputsCount);
 
-                sb.AppendFormat("{0} | Správně: {1} | Špatně: {2} | Čas: {3}", name,
-                    correctOutputsCount, wrongOutputsCount, result.ProcessorTime);
+                sb.AppendFormat("Správně: {1} | Špatně: {2} | Čas: {3}| {0}", name,
+                    correctOutputsCount, wrongOutputsCount, result.ProcessorTime.ToString().PadRight(15- result.ProcessorTime.ToString().Length));
                 sb.AppendLine();
             }
             return sb.ToString();
