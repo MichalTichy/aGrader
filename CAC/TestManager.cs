@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using aGrader.sourceCodes;
 
 #endregion
@@ -21,7 +22,7 @@ namespace aGrader
         {
             _protocol = new TestProtocol();
 
-            var testTasks= SourceCodes.GetSourceCodeFiles().Select(sourceCode => new Task<TestResult>(new TestC(sourceCode, _protocol).RunTest)).ToList();
+            var testTasks= SourceCodes.GetSourceCodeFiles().Select(sourceCode => CreateTestTask(sourceCode)).ToList();
             testTasks.ForEach(t=>t.Start());
             while (testTasks.Count>0)
             {
@@ -30,6 +31,17 @@ namespace aGrader
                 TestResult result = await firstFinishedTask;
                 OnResultReady(result);
             }
+        }
+
+        private static Task<TestResult> CreateTestTask(SourceCode sourceCode)
+        {
+            if (sourceCode is SourceCodeC)
+                return new Task<TestResult>(new TestC(sourceCode, _protocol).RunTest);
+            if (sourceCode is SourceCodeJava)
+                return new Task<TestResult>(new TestJava(sourceCode, _protocol).RunTest);
+
+            MessageBox.Show("Nepodporovaný typ zdrojového souboru!");
+            throw new ApplicationException($"Unsupoorted type of SourceCode! {sourceCode.GetType()}");
         }
 
         private static void OnResultReady(TestResult result)

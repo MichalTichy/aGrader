@@ -125,5 +125,20 @@ namespace aGrader
         {
             return false;
         }
+
+        public void AddErrors(string error, bool insertAtTheBegining=false)
+        {
+            if (string.IsNullOrEmpty(error))
+                return;
+            if (insertAtTheBegining)
+            {
+                _errors.InsertRange(0,error.Split('\n'));
+            }
+            else
+            {
+                _errors.AddRange(error.Split('\n'));
+            }
+            IsOk = (_errors == null || _errors.Count == 0) && (_badOutputs == null || _badOutputs.Count == 0);
+        }
     }
 }

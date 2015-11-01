@@ -18,23 +18,81 @@ namespace aGrader
         public TestJava(SourceCode sourceCode, TestProtocol protocol) : base(sourceCode, protocol)
         {
         }
+
+        public override TestResult RunTest()
+        {
+            Process compilation = CreateCompilatonProcess(SourceCode);
+            compilation.Start();
+            StreamReader errorReader = compilation.StandardError;
+            string error = "";
+            if (!compilation.HasExited && !compilation.WaitForExit(Protocol.Timeout))
+            {
+                compilation.Kill();
+                error += "Aplikace nebyla zkompilována před timeoutem (" + Protocol.Timeout / 1000 + "s)\n";
+            }
+            error += errorReader.ReadToEnd().Replace("\n","");
+
+            TestResult testResult =base.RunTest();
+            testResult.AddErrors(error, true);
+
+            DeleteClassFiles(SourceCode);
+            return testResult;
+        }
+
+        private void DeleteClassFiles(SourceCode sourceCode)
+        {
+            string dir = Path.GetDirectoryName(sourceCode.Path);
+            foreach (string file in Directory.GetFiles(dir,"*.class",SearchOption.AllDirectories))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception)
+                {
+                    //IGNORED
+                }
+            }
+        }
+
         protected override Process CreateProcess(SourceCode code)
         {
-            if (_javaPath == null && GetPathToJava() == null)
+            string pathJava = GetPathToJava() + @"\bin\java.exe";
+            if (!File.Exists(pathJava))
             {
-                throw new NotImplementedException();
+                MessageBox.Show($"Java nebyla nalezena!\n{pathJava}");
+                throw new FileNotFoundException($"Java not found! {pathJava}");
             }
+            var app = new Process
+            {
+                StartInfo =
+                {
+                    FileName = pathJava,
+                    UseShellExecute = false,
+                    RedirectStandardInput = true,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                    Arguments = "-cp \""+Path.GetDirectoryName(SourceCode.Path)+"\" "+ Path.GetFileNameWithoutExtension(SourceCode.Path)
+                }
+            };
+            return app;
+        }
 
-            string pathJavac = _javaPath + @"\bin\javac.exe";
+        private Process CreateCompilatonProcess(SourceCode code)
+        {
+            string pathJavac = GetPathToJava() + @"\bin\javac.exe";
             if (!File.Exists(pathJavac))
             {
                 MessageBox.Show($"Kompilátor nebyl nalezen!\n{pathJavac}");
-                throw new FileNotFoundException($"Javac not found! {pathJavac}");
+                ExceptionsLog.LogException($"Javac not found! {pathJavac}");
+                //todo moznost najit javac rucne
             }
             var arguments = new StringBuilder();
-            arguments.Append(SourceCode.Path);
-            foreach (string dependency in ((SourceCodeJava) SourceCode).Dependencies)
-                arguments.Append($" {dependency}");
+            arguments.Append("\""+SourceCode.Path+"\"");
+            if (((SourceCodeJava) SourceCode).Dependencies != null)
+                foreach (string dependency in ((SourceCodeJava) SourceCode).Dependencies)
+                    arguments.Append($" \"{ dependency}\"");
 
             var app = new Process
             {

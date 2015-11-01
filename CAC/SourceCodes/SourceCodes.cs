@@ -97,5 +97,10 @@ namespace aGrader.sourceCodes
         {
             _sourceCodeFiles.ForEach(t=>t.RemoveTestResult());
         }
+
+        public static void ClearPath()
+        {
+            _sourceDir = null;
+        }
     }
 }

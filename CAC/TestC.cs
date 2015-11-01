@@ -34,7 +34,7 @@ namespace aGrader
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true,
-                    Arguments = "-run " + code.Path
+                    Arguments = "-run \"" + code.Path+"\""
                 }
             };
             return app;
@@ -45,7 +45,7 @@ namespace aGrader
             Process app=CreateProcess(code);
 
             app.Start();
-            if (!app.WaitForExit(300))
+            if (!app.HasExited && !app.WaitForExit(300))
                 app.Kill();
 
             string msg = app.StandardError.ReadLine();

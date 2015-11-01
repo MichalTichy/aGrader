@@ -27,7 +27,7 @@ namespace aGrader
         protected abstract Process CreateProcess(SourceCode code);
         public abstract Tuple<string, int?> GetCompilationError(SourceCode code);
 
-        public TestResult RunTest()
+        public virtual TestResult RunTest()
         {
             Process app = CreateProcess(SourceCode);
             CheckSourceCodeForProhibitedCommands();
@@ -45,7 +45,7 @@ namespace aGrader
             string output = "";
             string error = "";
 
-            if (!app.WaitForExit(Protocol.Timeout))
+            if (!app.HasExited && !app.WaitForExit(Protocol.Timeout))
             {
                 app.Kill();
                 error += "Aplikace nebyla ukončena před timeoutem (" + Protocol.Timeout / 1000 + "s)\n"; 
@@ -150,16 +150,23 @@ namespace aGrader
                 return;
             }
             _errors.AddRange(error.Split('\n'));
+            var toRemove= _errors.Where(s => string.IsNullOrWhiteSpace(s)).ToList();
+            toRemove.ForEach(t => _outputs.Remove(t));
         }
 
         private void ParseOutput(string output)
         {
+            output=output.Replace("\r", "");
             if (string.IsNullOrWhiteSpace(output))
             {
                 return;
             }
             _outputs.AddRange(output.Split('\n'));
+            var toRemove = _outputs.Where(s => string.IsNullOrWhiteSpace(s)).ToList();
+            toRemove.ForEach(t=>_outputs.Remove(t));
+
         }
     }
+
     
 }

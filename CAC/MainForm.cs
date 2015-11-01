@@ -84,6 +84,13 @@ namespace aGrader
 
         private void butReload_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(SourceCodes.GetPath()))
+            {
+                MessageBox.Show("Adresář neexistuje!");
+                SourceCodes.ClearPath();
+                return;
+            }
+            SourceCodes.ReloadFiles();
             if (SourceCodes.IsDirectorySet())
                 UpdateLbCodes();
             else
