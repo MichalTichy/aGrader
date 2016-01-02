@@ -14,17 +14,17 @@ namespace aGrader
     public class TestJava : Test
     {
         private static string _javaPath = null;
-
+        private string _destinationFolder;
         public TestJava(SourceCode sourceCode, TestProtocol protocol) : base(sourceCode, protocol)
         {
         }
 
         public override TestResult RunTest()
         {
-            Process compilation = CreateCompilatonProcess(SourceCode);
+            var compilation = CreateCompilatonProcess(SourceCode);
             compilation.Start();
-            StreamReader errorReader = compilation.StandardError;
-            string error = "";
+            var errorReader = compilation.StandardError;
+            var error = "";
             if (!compilation.HasExited && !compilation.WaitForExit(Protocol.Timeout))
             {
                 compilation.Kill();
@@ -32,26 +32,22 @@ namespace aGrader
             }
             error += errorReader.ReadToEnd().Replace("\n","");
 
-            TestResult testResult =base.RunTest();
+            var testResult =base.RunTest();
             testResult.AddErrors(error, true);
 
-            DeleteClassFiles(SourceCode);
+            DeleteDestinationFolder();
             return testResult;
         }
 
-        private void DeleteClassFiles(SourceCode sourceCode)
+        private void DeleteDestinationFolder()
         {
-            string dir = Path.GetDirectoryName(sourceCode.Path);
-            foreach (string file in Directory.GetFiles(dir,"*.class",SearchOption.AllDirectories))
+            try
             {
-                try
-                {
-                    File.Delete(file);
-                }
-                catch (Exception)
-                {
-                    //IGNORED
-                }
+                Directory.Delete(_destinationFolder,true);
+            }
+            catch (Exception)
+            {
+                // ignored
             }
         }
 
@@ -73,26 +69,29 @@ namespace aGrader
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true,
-                    Arguments = "-cp \""+Path.GetDirectoryName(SourceCode.Path)+"\" "+ Path.GetFileNameWithoutExtension(SourceCode.Path)
+                    Arguments = BuildRunArguments()
                 }
             };
             return app;
         }
 
+        private string BuildRunArguments()
+        {
+            var pathToFile = Directory.GetFiles(_destinationFolder, Path.GetFileName(SourceCode.Path).Replace(".java",".class"),SearchOption.AllDirectories).First();
+            var relativePath = pathToFile.Replace(_destinationFolder, "");
+            return "-cp \""+_destinationFolder+"\" "+ relativePath.Replace('/','.');
+        }
+
         private Process CreateCompilatonProcess(SourceCode code)
         {
             string pathJavac = GetPathToJava() + @"\bin\javac.exe";
+            CreateDestinationFolder();
             if (!File.Exists(pathJavac))
             {
                 MessageBox.Show($"Kompilátor nebyl nalezen!\n{pathJavac}");
                 ExceptionsLog.LogException($"Javac not found! {pathJavac}");
                 //todo moznost najit javac rucne
             }
-            var arguments = new StringBuilder();
-            arguments.Append("\""+SourceCode.Path+"\"");
-            if (((SourceCodeJava) SourceCode).Dependencies != null)
-                foreach (string dependency in ((SourceCodeJava) SourceCode).Dependencies)
-                    arguments.Append($" \"{ dependency}\"");
 
             var app = new Process
             {
@@ -104,10 +103,33 @@ namespace aGrader
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true,
-                    Arguments = arguments.ToString()
+                    Arguments = BuilCompilationdArguments()
                 }
             };
             return app;
+        }
+
+        private void CreateDestinationFolder()
+        {
+            _destinationFolder =
+               Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"aGrader",
+                    Path.GetFileNameWithoutExtension(Path.GetRandomFileName()));
+            Directory.CreateDirectory(_destinationFolder);//todo try catch
+        }
+
+        private string BuilCompilationdArguments()
+        {
+            var arguments = new StringBuilder();
+
+            arguments.Append($"-d  \"{_destinationFolder}\" ");
+            arguments.Append($"-sourcepath \"{Path.GetDirectoryName(SourceCode.Path)}\" ");
+            arguments.Append($"\"{SourceCode.Path}\"");
+
+            if (((SourceCodeJava) SourceCode).Dependencies == null) return arguments.ToString();
+
+            foreach (var dependency in ((SourceCodeJava) SourceCode).Dependencies)
+                arguments.Append($" \"{dependency}\"");
+            return arguments.ToString();
         }
 
         public static string GetPathToJava()
@@ -177,7 +199,7 @@ namespace aGrader
             int? lineWithError=null;
             try
             {
-                lineWithError = Int32.Parse(newRegex.Match(msg).ToString().Replace(":", "")) - 2;
+                lineWithError = int.Parse(newRegex.Match(msg).ToString().Replace(":", "")) - 2;
             }
             catch
             {

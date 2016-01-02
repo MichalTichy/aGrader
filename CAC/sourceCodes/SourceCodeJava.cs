@@ -16,6 +16,7 @@ namespace aGrader.sourceCodes
         public SourceCodeJava(string name,string[] pathToMain, string[] dependencies) : base(pathToMain.Count()!=0?pathToMain[0]:null)
         {
             Name = name;
+            Dependencies = dependencies;
             if (!pathToMain.Any())
             {
                 CompilationErrorMsg = "Nenalezen souborů s metodou Main!";
