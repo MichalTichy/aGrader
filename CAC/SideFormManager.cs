@@ -25,6 +25,7 @@ namespace aGrader
             [Description("NASTAVENÍ: maximální čas pro běh programu")]SettingsTimeout,
             [Description("NASTAVENÍ: zakázaný příkaz")] SettingsProhibitedCommand,
             [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
+            [Description("NASTAVENÍ: Spouštěcí parametry")] SettingsStartupArguments,
             [Description("AKCE: opakování poslední akce")] ActionRepeatLast,
             [Description("AKCE: načti výstupy ze souboru")] ActionLoadOutputsFromTextFile,
             [Description("AKCE: porovnej soubory")] ActionCompareFiles
@@ -35,7 +36,7 @@ namespace aGrader
         public static void Show(SideForms formName)
         {
             Close();
-            _sideForm = Activator.CreateInstance(Type.GetType("aGrader.IO_Forms." + formName));
+            _sideForm = Activator.CreateInstance(Type.GetType("aGrader.IOForms." + formName));
             UpdatePosition();
             _sideForm.Show();
         }

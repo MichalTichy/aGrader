@@ -235,8 +235,6 @@ namespace aGrader
             return settRequiedCommand;
         }
 
-
-
         private static XmlNode GenerateIONode(ActionRepeatLast ioForm, XmlDocument document)
         {
             XmlElement actionRepeatLast = document.CreateElement(ioForm.Name);
@@ -247,6 +245,18 @@ namespace aGrader
             actionRepeatLast.AppendChild(repetitions);
 
             return actionRepeatLast;
+        }
+
+        private static XmlNode GenerateIONode(SettingsStartupArguments ioForm, XmlDocument document)
+        {
+            XmlElement settingsStartupArguments = document.CreateElement(ioForm.Name);
+
+            XmlElement arguments = document.CreateElement("arguments");
+            arguments.InnerText = ioForm.Arguments;
+
+            settingsStartupArguments.AppendChild(arguments);
+
+            return settingsStartupArguments;
         }
         #endregion
 
@@ -341,6 +351,9 @@ namespace aGrader
                             break;
                         case "ActionCompareFiles":
                             InputsOutputs.Add(new ActionCompareFiles(element.GetElementsByTagName("path")[0].InnerText,Convert.ToBoolean(element.GetElementsByTagName("hashOnly")[0].InnerText)));
+                            break;
+                        case "SettingsStartupArguments":
+                            InputsOutputs.Add(new SettingsStartupArguments(element.GetElementsByTagName("arguments")[0].InnerText));
                             break;
                         default:
                             throw new InvalidDataException(node.Name);

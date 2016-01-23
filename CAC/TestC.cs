@@ -34,6 +34,9 @@ namespace aGrader
                     Arguments = "-run \"" + code.Path+"\""
                 }
             };
+
+            if (Protocol?.StartupArguments != null)
+                app.StartInfo.Arguments +=" " + Protocol.StartupArguments;
             return app;
         }
 

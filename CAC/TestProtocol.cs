@@ -13,6 +13,7 @@ namespace aGrader
     {
         private double _maximumDeviation=0.001;
         private int _timeout = 20000;
+        public string StartupArguments { get; private set; }
         public List<string> Inputs = new List<string>();
         public List<object> Outputs = new List<object>();
         private List<string> _prohibitedCommnads=new List<string>();
@@ -171,6 +172,11 @@ namespace aGrader
                 MessageBox.Show("Soubor " + Path.GetFileName(actionCompareFiles.Path) + " se nepodařilo načíst.");
                 ExceptionsLog.LogException(ex.ToString());
             }
+        }
+
+        private void ProcessData(SettingsStartupArguments settingsStartupArguments)
+        {
+            StartupArguments = settingsStartupArguments.Arguments;
         }
     }
 }

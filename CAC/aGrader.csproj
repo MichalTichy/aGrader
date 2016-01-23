@@ -143,6 +143,12 @@
     <Compile Include="IOForms\InputRandomNumber.Designer.cs">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="IOForms\SettingsStartupArguments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IOForms\SettingsStartupArguments.Designer.cs">
+      <DependentUpon>SettingsStartupArguments.cs</DependentUpon>
+    </Compile>
     <Compile Include="IOForms\InputString.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsStartupArguments.resx">
+      <DependentUpon>SettingsStartupArguments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputString.resx">
       <DependentUpon>InputString.cs</DependentUpon>

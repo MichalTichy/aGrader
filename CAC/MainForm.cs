@@ -17,9 +17,6 @@ namespace aGrader
 {
     public partial class aGrader : Form
     {
-        //todo pocet cisel splnujicich podminky
-        //todo dát související věci k sobě
-
         public aGrader()
         {
             InitializeComponent();
