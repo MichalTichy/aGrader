@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using aGrader.IO_Forms;
+using aGrader.IOForms;
 using aGrader.sourceCodes;
 
 #endregion

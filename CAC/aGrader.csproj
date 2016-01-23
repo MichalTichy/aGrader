@@ -107,106 +107,106 @@
       <DependentUpon>Graph.cs</DependentUpon>
     </Compile>
     <Compile Include="InputsOutpusStructs.cs" />
-    <Compile Include="IO Forms\ActionCompareFiles.cs">
+    <Compile Include="IOForms\ActionCompareFiles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\ActionCompareFiles.Designer.cs">
+    <Compile Include="IOForms\ActionCompareFiles.Designer.cs">
       <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\ActionLoadOutputsFromTextFile.cs">
+    <Compile Include="IOForms\ActionLoadOutputsFromTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\ActionLoadOutputsFromTextFile.Designer.cs">
+    <Compile Include="IOForms\ActionLoadOutputsFromTextFile.Designer.cs">
       <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\ActionRepeatLast.cs">
+    <Compile Include="IOForms\ActionRepeatLast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\ActionRepeatLast.Designer.cs">
+    <Compile Include="IOForms\ActionRepeatLast.Designer.cs">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\InputNumber.cs">
+    <Compile Include="IOForms\InputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\InputNumber.Designer.cs">
+    <Compile Include="IOForms\InputNumber.Designer.cs">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\InputOutputForm.cs">
+    <Compile Include="IOForms\InputOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\InputOutputForm.Designer.cs">
+    <Compile Include="IOForms\InputOutputForm.Designer.cs">
       <DependentUpon>InputOutputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\InputRandomNumber.cs">
+    <Compile Include="IOForms\InputRandomNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\InputRandomNumber.Designer.cs">
+    <Compile Include="IOForms\InputRandomNumber.Designer.cs">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\InputString.cs">
+    <Compile Include="IOForms\InputString.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\InputString.Designer.cs">
+    <Compile Include="IOForms\InputString.Designer.cs">
       <DependentUpon>InputString.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\InputTextFile.cs">
+    <Compile Include="IOForms\InputTextFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\InputTextFile.Designer.cs">
+    <Compile Include="IOForms\InputTextFile.Designer.cs">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\OutputCountOfNumbersMatchingConditions.cs">
+    <Compile Include="IOForms\OutputCountOfNumbersMatchingConditions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\OutputCountOfNumbersMatchingConditions.Designer.cs">
+    <Compile Include="IOForms\OutputCountOfNumbersMatchingConditions.Designer.cs">
       <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\OutputNumber.cs">
+    <Compile Include="IOForms\OutputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\OutputNumber.Designer.cs">
+    <Compile Include="IOForms\OutputNumber.Designer.cs">
       <DependentUpon>OutputNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\OutputNumberBasedOnRandomInput.cs">
+    <Compile Include="IOForms\OutputNumberBasedOnRandomInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\OutputNumberBasedOnRandomInput.Designer.cs">
+    <Compile Include="IOForms\OutputNumberBasedOnRandomInput.Designer.cs">
       <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\OutputNumberMatchingConditions.cs">
+    <Compile Include="IOForms\OutputNumberMatchingConditions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\OutputNumberMatchingConditions.Designer.cs">
+    <Compile Include="IOForms\OutputNumberMatchingConditions.Designer.cs">
       <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\OutputString.cs">
+    <Compile Include="IOForms\OutputString.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\OutputString.Designer.cs">
+    <Compile Include="IOForms\OutputString.Designer.cs">
       <DependentUpon>OutputString.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\SettingsDeviation.cs">
+    <Compile Include="IOForms\SettingsDeviation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\SettingsDeviation.Designer.cs">
+    <Compile Include="IOForms\SettingsDeviation.Designer.cs">
       <DependentUpon>SettingsDeviation.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\SettingsProhibitedCommand.cs">
+    <Compile Include="IOForms\SettingsProhibitedCommand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\SettingsProhibitedCommand.Designer.cs">
+    <Compile Include="IOForms\SettingsProhibitedCommand.Designer.cs">
       <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\SettingsRequiedCommand.cs">
+    <Compile Include="IOForms\SettingsRequiedCommand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\SettingsRequiedCommand.Designer.cs">
+    <Compile Include="IOForms\SettingsRequiedCommand.Designer.cs">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO Forms\SettingsTimeout.cs">
+    <Compile Include="IOForms\SettingsTimeout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IO Forms\SettingsTimeout.Designer.cs">
+    <Compile Include="IOForms\SettingsTimeout.Designer.cs">
       <DependentUpon>SettingsTimeout.cs</DependentUpon>
     </Compile>
     <Compile Include="LanguageSelection.cs">
@@ -250,49 +250,49 @@
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\ActionCompareFiles.resx">
+    <EmbeddedResource Include="IOForms\ActionCompareFiles.resx">
       <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\ActionLoadOutputsFromTextFile.resx">
+    <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.resx">
       <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\ActionRepeatLast.resx">
+    <EmbeddedResource Include="IOForms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\InputNumber.resx">
+    <EmbeddedResource Include="IOForms\InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\InputOutputForm.resx">
+    <EmbeddedResource Include="IOForms\InputOutputForm.resx">
       <DependentUpon>InputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\InputRandomNumber.resx">
+    <EmbeddedResource Include="IOForms\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\InputString.resx">
+    <EmbeddedResource Include="IOForms\InputString.resx">
       <DependentUpon>InputString.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\InputTextFile.resx">
+    <EmbeddedResource Include="IOForms\InputTextFile.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\OutputCountOfNumbersMatchingConditions.resx">
+    <EmbeddedResource Include="IOForms\OutputCountOfNumbersMatchingConditions.resx">
       <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\OutputNumberBasedOnRandomInput.resx">
+    <EmbeddedResource Include="IOForms\OutputNumberBasedOnRandomInput.resx">
       <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\OutputNumberMatchingConditions.resx">
+    <EmbeddedResource Include="IOForms\OutputNumberMatchingConditions.resx">
       <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\SettingsDeviation.resx">
+    <EmbeddedResource Include="IOForms\SettingsDeviation.resx">
       <DependentUpon>SettingsDeviation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\SettingsProhibitedCommand.resx">
+    <EmbeddedResource Include="IOForms\SettingsProhibitedCommand.resx">
       <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\SettingsRequiedCommand.resx">
+    <EmbeddedResource Include="IOForms\SettingsRequiedCommand.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IO Forms\SettingsTimeout.resx">
+    <EmbeddedResource Include="IOForms\SettingsTimeout.resx">
       <DependentUpon>SettingsTimeout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelection.resx">

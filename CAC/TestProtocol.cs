@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using aGrader.IO_Forms;
+using aGrader.IOForms;
 using aGrader.Mathematic;
 
 namespace aGrader
