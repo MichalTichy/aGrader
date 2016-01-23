@@ -98,8 +98,16 @@ namespace aGrader
             if (expectedOutput.ToString().Contains(numberFormats.PositiveInfinitySymbol) ||
                 expectedOutput.ToString().Contains(numberFormats.NegativeInfinitySymbol))
                 return false;
-
-            return Math.Abs(decimal.Parse(realOutput) - decimal.Parse(expectedOutput.ToString())) <= (decimal) Protocol.MaximumDeviation;
+            try
+            {
+                return Math.Abs(decimal.Parse(realOutput) - decimal.Parse(expectedOutput.ToString())) <= (decimal)Protocol.MaximumDeviation;
+            }
+            catch (Exception)
+            {
+                _errors.Add($"Nelze převést {realOutput} na číslo.");
+                ExceptionsLog.LogException($"Cannot convert {realOutput} to number.");
+                return false;
+            }
         }
 
         private bool CompareRealAndExpectedOutput(string realOutput, NumberMatchingConditionsData expectedOutput)

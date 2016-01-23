@@ -78,8 +78,8 @@ namespace aGrader
         private string BuildRunArguments()
         {
             var pathToFile = Directory.GetFiles(_destinationFolder, Path.GetFileName(SourceCode.Path).Replace(".java",".class"),SearchOption.AllDirectories).First();
-            var relativePath = pathToFile.Replace(_destinationFolder, "");
-            return "-cp \""+_destinationFolder+"\" "+ relativePath.Replace('/','.');
+            var relativePath = pathToFile.Replace(_destinationFolder+@"\", "");
+            return "-cp \""+_destinationFolder+"\" "+ relativePath.Replace(@"\",".").Replace(".class","");
         }
 
         private Process CreateCompilatonProcess(SourceCode code)
