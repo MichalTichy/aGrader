@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -26,7 +27,7 @@ namespace aGrader.IOForms
             {
                 if (InputsOutputs.GetList(typeof(SettingsDeviation)).Any())
                 {
-                    MessageBox.Show("Odchylka je již nastavena!");
+                    MessageBox.Show(Resources.SettingsDeviation_DeviationIsAllreadySet);
                     return;
                 }
                 InputsOutputs.Add(this);
@@ -38,7 +39,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "NASTAVENÍ: maximální odchylka " + Deviation;
+            return string.Format(Resources.IOFDescription_SettingsDeviation, Deviation);
         }
 
         private void numeric_ValueChanged(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace aGrader.IOForms
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
     }

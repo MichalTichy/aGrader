@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using aGrader.Mathematic;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -29,8 +30,8 @@ namespace aGrader.IOForms
             if (!IsMathValid() && Exists)
             {
                 DialogResult msg =
-                    MessageBox.Show("Matematický příklad nemá správný formát! \nPokud si přejete pokračovat objekt bude smazán.",
-                        "Upozornění", MessageBoxButtons.OKCancel);
+                    MessageBox.Show(Resources.OutputNumberBasedOnRandomInput_InvalidFormatOfMath,
+                        Resources.Warning, MessageBoxButtons.OKCancel);
                 if (msg == DialogResult.Cancel) return;
                 InputsOutputs.Remove(this);
             }
@@ -47,7 +48,7 @@ namespace aGrader.IOForms
                 }
                 else
                 {
-                    MessageBox.Show("Musíte zadat platný matematický příklad.");
+                    MessageBox.Show(Resources.OutputNumberBasedOnRandomInput_YouHaveToEnterValidMath);
                     return;
                 }
             else
@@ -57,7 +58,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "VÝSTUP: Číslo závyslé na vygenerovaných hodnotách"; //možná předělat?
+            return Resources.IOFDescription_NumberBasedOnGeneratedInput;
         }
 
         private void tbMath_Leave(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace aGrader.IOForms
             _existingUnknowns.Clear();
             FillLbNumbers();
             if (Exists)
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
         }
 
         private void FillLbNumbers()

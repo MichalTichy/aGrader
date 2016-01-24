@@ -1,4 +1,5 @@
 ﻿using System;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -39,7 +40,7 @@ namespace aGrader.IOForms
             if (numMax.Value <= numMin.Value)
             {
                 numMax.Value = numMin.Value + 1;
-                LabErr.Text = "MAX nemůže být menší než MIN!";
+                LabErr.Text = Resources.InputRandomNumber_MaxCantBeBiggerThanMin;
             }
             else
             {
@@ -53,7 +54,7 @@ namespace aGrader.IOForms
             if (numMin.Value >= numMax.Value)
             {
                 numMin.Value = numMax.Value + -1;
-                LabErr.Text = "MIN nemůže být větší než MAX!";
+                LabErr.Text = Resources.InputRandomNumber_MinCantBeGreatherThanMax;
             }
             else
             {
@@ -64,9 +65,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            if (Decimal)
-                return "VSTUP: náhodné desetinné číslo od " + Min + " do " + Max;
-            return "VSTUP: náhodné celé číslo od " + Min + " do " + Max;
+            return string.Format(Decimal ? Resources.IOFDescription_InputRandomDecimalNumber : Resources.IOFDescription_InputRandomNumber, Min, Max);
         }
 
         private void cbNoDecimal_CheckedChanged(object sender, EventArgs e)
@@ -89,7 +88,7 @@ namespace aGrader.IOForms
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
     }

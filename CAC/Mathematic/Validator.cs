@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 #endregion
 
@@ -20,7 +21,7 @@ namespace aGrader.Mathematic
 
             if (equation.Contains('X'))
             {
-                MessageBox.Show("Matematický příklad obsahuje neexistující neznámou.");
+                MessageBox.Show(Resources.Validator_UnknownVariable);
                 return false;
             }
 
@@ -32,7 +33,7 @@ namespace aGrader.Mathematic
             }
             catch (Exception)
             {
-                MessageBox.Show("Nezprávný tvar matematického příkladu!");
+                MessageBox.Show(Resources.OutputNumberBasedOnRandomInput_InvalidFormatOfMath);
                 return false;
             }
         }

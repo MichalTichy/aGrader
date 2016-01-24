@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -22,14 +23,14 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "VSTUP: soubor " + System.IO.Path.GetFileName(Path);
+            return string.Format(Resources.IOFDescription_InputTextFile, System.IO.Path.GetFileName(Path));
         }
 
         private void InputFile_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
 
@@ -50,7 +51,7 @@ namespace aGrader.IOForms
             {
                 if (string.IsNullOrWhiteSpace(tbPath.Text))
                 {
-                    MessageBox.Show("Musíte vybrat soubor!");
+                    MessageBox.Show(Resources.YouHaveToSelectFile);
                     return;
                 }
                 InputsOutputs.Add(this);

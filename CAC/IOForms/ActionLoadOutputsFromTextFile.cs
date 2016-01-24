@@ -1,4 +1,6 @@
-﻿namespace aGrader.IOForms
+﻿using aGrader.Properties;
+
+namespace aGrader.IOForms
 {
     public partial class ActionLoadOutputsFromTextFile : InputOutputForm
     {
@@ -9,7 +11,7 @@
 
         public override string ToString()
         {
-            return "AKCE: Načti výstupy ze souboru.";
+            return Resources.IOFDescription_LoadOutputsFromFile;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using aGrader.Properties;
 
 namespace aGrader.sourceCodes
 {
@@ -16,11 +17,11 @@ namespace aGrader.sourceCodes
             Dependencies = dependencies;
             if (!pathToMain.Any())
             {
-                CompilationErrorMsg = "Nenalezen souborů s metodou Main!";
+                CompilationErrorMsg = Resources.SourceCodeJava_NoFileWithMainFound;
             }
             else if (pathToMain.Count() > 1)
             {
-                CompilationErrorMsg = "Nalezeno několik souborů s metodou Main!";
+                CompilationErrorMsg = Resources.SourceCodeJava_MultipleFilesWithMainFound;
             }
         }
 

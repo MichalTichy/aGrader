@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 
 namespace aGrader
@@ -47,7 +48,7 @@ namespace aGrader
             if (!app.HasExited && !app.WaitForExit(Protocol.Timeout))
             {
                 app.Kill();
-                error += "Aplikace nebyla ukončena před timeoutem (" + Protocol.Timeout / 1000 + "s)\n"; 
+                error += string.Format(Resources.Test_AppDidNotEndedBeforeTimeout, Protocol.Timeout/1000); 
             }
 
             output += outputReader.ReadToEnd();
@@ -76,7 +77,7 @@ namespace aGrader
 
         private void ProcessActionsWithFiles()
         {
-            object[] filteredObjects = Protocol.Outputs.Where(t => t is FileCompareData || t is FileWithOutputsData).ToArray();
+            var filteredObjects = Protocol.Outputs.Where(t => t is FileCompareData || t is FileWithOutputsData).ToArray();
             foreach (dynamic data in filteredObjects)
             {
                 ProcessFileAction(data);
@@ -85,8 +86,7 @@ namespace aGrader
 
         private void ProcessFileAction(FileCompareData data)
         {
-            string textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
-                                  Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
+            string textFilePath = $@"{Path.GetDirectoryName(SourceCode.Path)}\{Path.GetFileNameWithoutExtension(SourceCode.Path)}.txt";
             if (data.ReferenceFileHash!=null)
             {
                 _outputs.Add(data.ReferenceFileHash.ToString());
@@ -94,8 +94,8 @@ namespace aGrader
             }
             else
             {
-                int i = 0;
-                foreach (string line in data.ReferenceFileLines)
+                var i = 0;
+                foreach (var line in data.ReferenceFileLines)
                 {
                     _outputs.Add(line);
                     Protocol.Outputs.Add(new LineFromTextFileData(line,i++));
@@ -106,21 +106,21 @@ namespace aGrader
 
         private void ProcessFileAction(FileWithOutputsData data)
         {
-            string textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
+            var textFilePath = Path.GetDirectoryName(SourceCode.Path) + @"\" +
                       Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
             try
             {
 
                 _outputs.AddRange(File.ReadAllLines(textFilePath));
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                _errors.Add("Soubor " + Path.GetFileName(textFilePath)+" neexistuje.");
+                _errors.Add(string.Format(Resources.FileDoesNotExist, Path.GetFileName(textFilePath)));
             }
             catch (IOException ex)
             {
-                _errors.Add("Soubor " + Path.GetFileName(textFilePath)+" se nepodařilo načíst.");
-                MessageBox.Show("Soubor " + Path.GetFileName(textFilePath) + " se nepodařilo načíst.");
+                _errors.Add(string.Format(Resources.CouldNotLoadFile,textFilePath));
+                MessageBox.Show(string.Format(Resources.CouldNotLoadFile, textFilePath));
                 ExceptionsLog.LogException(ex.ToString());
             }
             Protocol.Outputs.Remove(data);
@@ -128,17 +128,17 @@ namespace aGrader
 
         private void CheckSourceCodeForRequiedCommands()
         {
-            foreach (string requiedCommnad in Protocol.RequiedCommnads.Where(requiedCommnad => !SourceCode.GetSourceCodeWithoutComments().Contains(requiedCommnad)))
+            foreach (var requiedCommnad in Protocol.RequiedCommnads.Where(requiedCommnad => !SourceCode.GetSourceCodeWithoutComments().Contains(requiedCommnad)))
             {
-               _errors.Add("Nenalezen vyžadovaný příkaz: " + requiedCommnad);
+               _errors.Add(string.Format(Resources.Test_RequiedCommandWasNotFound, requiedCommnad));
             }
         }
 
         private void CheckSourceCodeForProhibitedCommands()
         {
-            foreach (string prohibitedCommnad in Protocol.ProhibitedCommnads.Where(prohibitedCommnad => SourceCode.GetSourceCodeWithoutComments().Contains(prohibitedCommnad)))
+            foreach (var prohibitedCommnad in Protocol.ProhibitedCommnads.Where(prohibitedCommnad => SourceCode.GetSourceCodeWithoutComments().Contains(prohibitedCommnad)))
             {
-                _errors.Add("Nalezen nepovolený příkaz: " + prohibitedCommnad);
+                _errors.Add(string.Format(Resources.Test_ProhibitedCommandFound, prohibitedCommnad));
             }
         }
 
@@ -149,7 +149,7 @@ namespace aGrader
                 return;
             }
             _errors.AddRange(error.Split('\n'));
-            var toRemove= _errors.Where(s => string.IsNullOrWhiteSpace(s)).ToList();
+            var toRemove= _errors.Where(string.IsNullOrWhiteSpace).ToList();
             toRemove.ForEach(t => _outputs.Remove(t));
         }
 
@@ -161,7 +161,7 @@ namespace aGrader
                 return;
             }
             _outputs.AddRange(output.Split('\n'));
-            var toRemove = _outputs.Where(s => string.IsNullOrWhiteSpace(s)).ToList();
+            var toRemove = _outputs.Where(string.IsNullOrWhiteSpace).ToList();
             toRemove.ForEach(t=>_outputs.Remove(t));
 
         }

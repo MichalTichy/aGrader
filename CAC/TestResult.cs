@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using aGrader.Mathematic;
+using aGrader.Properties;
 
 #endregion
 
@@ -104,7 +105,7 @@ namespace aGrader
             }
             catch (Exception)
             {
-                _errors.Add($"Nelze převést {realOutput} na číslo.");
+                _errors.Add(string.Format(Resources.TestResult_CannotConvertNumber, realOutput));
                 ExceptionsLog.LogException($"Cannot convert {realOutput} to number.");
                 return false;
             }

@@ -1,4 +1,6 @@
-﻿namespace aGrader.IOForms
+﻿using aGrader.Properties;
+
+namespace aGrader.IOForms
 {
     public partial class OutputString : InputString
     {
@@ -14,7 +16,7 @@
 
         public override string ToString()
         {
-            return "VÝSTUP: text: \"" + Text + "\"";
+            return string.Format(Resources.IOFDescription_OutputString, Text);
         }
     }
 }

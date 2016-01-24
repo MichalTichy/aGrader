@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 
 #endregion
@@ -18,7 +19,7 @@ namespace aGrader
     {
         public static event EventHandler<ResultReadyArgs> ResultReady;
         private static TestProtocol _protocol;
-        public async static void TestAllSourceCodes()
+        public static async void TestAllSourceCodes()
         {
             _protocol = new TestProtocol();
 
@@ -40,16 +41,13 @@ namespace aGrader
             if (sourceCode is SourceCodeJava)
                 return new Task<TestResult>(new TestJava(sourceCode, _protocol).RunTest);
 
-            MessageBox.Show("Nepodporovaný typ zdrojového souboru!");
+            MessageBox.Show(Resources.TestManager_UnsuportedTypeOfSourceCode);
             throw new ApplicationException($"Unsupoorted type of SourceCode! {sourceCode.GetType()}");
         }
 
         private static void OnResultReady(TestResult result)
         {
-            if (ResultReady !=null)
-            {
-                ResultReady(typeof(TestManager),new ResultReadyArgs() {Result = result});
-            }
+            ResultReady?.Invoke(typeof(TestManager),new ResultReadyArgs() {Result = result});
         }
     }
 }

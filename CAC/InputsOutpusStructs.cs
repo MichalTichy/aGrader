@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader
 {
@@ -114,7 +116,7 @@ namespace aGrader
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Soubor " + Path.GetFileName(FilePath) + "se nepodaøilo naèíst.");
+                MessageBox.Show(string.Format(Resources.CouldNotLoadFile, Path.GetFileName(FilePath)));
                 ExceptionsLog.LogException(ex.ToString());
                 return "FILE LOAD ERROR";
             }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using aGrader.IOForms;
+using aGrader.Properties;
 
 #endregion
 
@@ -363,19 +364,19 @@ namespace aGrader
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Soubor nebyl nalezen");
+                MessageBox.Show(string.Format(Resources.FileDoesNotExist,path));
             }
             catch (FormatException)
             {
-                MessageBox.Show("Zvolený XML soubor není podporován.");
+                MessageBox.Show(Resources.XmlManager_UnsuportedXmlFile);
             }
             catch (InvalidDataException exception)
             {
-                MessageBox.Show(exception.Message + "není podporován a nebyl importován.");
+                MessageBox.Show(string.Format(Resources.XmlManager_InvalidDataImportFail, exception.Message));
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Během importu se vyskytla chyba!");
+                MessageBox.Show(Resources.XmlManager_ImportFailed);
                 InputsOutputs.Clear();
                 ExceptionsLog.LogException(exception.ToString());
             }

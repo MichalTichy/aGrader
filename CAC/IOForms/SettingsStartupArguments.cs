@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -22,14 +23,14 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "NASTAVENÍ: souštěcí parametry: \"" + Arguments + "\"";
+            return string.Format(Resources.IOFDescription_StartupArguments, Arguments);
         }
 
         private void InputString_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
 
@@ -44,7 +45,7 @@ namespace aGrader.IOForms
             {
                 if (InputsOutputs.GetList(typeof(SettingsStartupArguments)).Any())
                 {
-                    MessageBox.Show("Spouštěcí parametry jsou již nastaveny.");
+                    MessageBox.Show(Resources.SettingsStartupArguments_StartupArgumentsAreAllreadySet);
                     return;
                 }
                 InputsOutputs.Add(this);

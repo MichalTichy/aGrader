@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -25,7 +26,7 @@ namespace aGrader.IOForms
         {
             if (!InputsOutputs.GetList().Any())
                 return null;
-            int idOfThisForm = InputsOutputs.GetIdOfForm(this);
+            var idOfThisForm = InputsOutputs.GetIdOfForm(this);
             if (idOfThisForm == 0)
                 return null;
             return InputsOutputs.GetIOForm(idOfThisForm != -1 ? idOfThisForm - 1 : InputsOutputs.GetIdOfForm(InputsOutputs.GetList().Last()));
@@ -35,18 +36,18 @@ namespace aGrader.IOForms
         {
             string[] nonRepetable =
             {
-                "ActionRepeatLast", "SettingsDeviation", "SettingsProhibitedCommand",
+                "ActionRepeatLast", "SettingsDeviation","SettingsStartupArguments", "SettingsProhibitedCommand",
                 "SettingsRequiedCommand"
             };
             if (!InputsOutputs.GetList().Any())
             {
-                MessageBox.Show("Není co opakovat.");
+                MessageBox.Show(Resources.ActionRepeatLast_NothingToRepeat);
                 return false;
             }
 
             if (nonRepetable.Contains(GetRepeatedForm().GetType().ToString()))
             {
-                MessageBox.Show("Poslední akce nemůže být zopakována.");
+                MessageBox.Show(Resources.ActionRepeatLast_LastActionCouldNotBeRepeated);
                 return false;
             }
 
@@ -58,14 +59,14 @@ namespace aGrader.IOForms
             UpdateRepeatedActionLabel();
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
         
         private void UpdateRepeatedActionLabel()
         {
             var repeatedForm = GetRepeatedForm();
-            labLastAction.Text = repeatedForm != null ? repeatedForm.ToString() : "Není co opakovat.";
+            labLastAction.Text = repeatedForm?.ToString() ?? Resources.ActionRepeatLast_NothingToRepeat;
         }
 
         private void ActionRepeatLast_Shown(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "AKCE: opakuj předešlý krok " + Repetitions + "x";
+            return string.Format(Resources.IOFDescription_RepeatLast, Repetitions);
         }
     }
 }

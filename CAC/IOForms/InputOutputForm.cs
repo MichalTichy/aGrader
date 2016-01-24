@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -31,7 +32,7 @@ namespace aGrader.IOForms
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
     }

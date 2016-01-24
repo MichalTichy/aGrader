@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using aGrader.Mathematic;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -29,28 +30,28 @@ namespace aGrader.IOForms
         public override string ToString()
         {
             if (Conditions.Count == 1)
-                return "VÝSTUP: číslo splňující 1 podmínku.";
-            return "VÝSTUP: číslo splňující " + Conditions.Count + " podmínek.";
+                return Resources.IOFDesruption_CountOfNumMatchingSingleCondition;
+            return string.Format(Resources.IOFDesruption_CountOfNumMatchingMultipleConditions, Conditions.Count);
         }
 
         private void OutputNumber_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
         private void butAddCondition_Click(object sender, EventArgs e)
         {
             if (Conditions.Contains(tbCondition.Text))
             {
-                MessageBox.Show("Tato podmínka již existuje.");
+                MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_ThisConditionAllreadyExists);
                 return;
             }
 
             if (!Validator.IsValidBooleanExpression(tbCondition.Text,new[] {"X"}))
             {
-                MessageBox.Show("Podmínka není validní.");
+                MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_InvalidCondition);
                 return;
             }
             Conditions.Add(tbCondition.Text);
@@ -61,7 +62,7 @@ namespace aGrader.IOForms
         {
             if (lbConditions.SelectedItem == null)
             {
-                MessageBox.Show("Musíte zvolit kterou podmínku chcete vymazat.");
+                MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_YouHaveToSelectConditionForDeletion);
                 return;
             }
             Conditions.Remove(lbConditions.SelectedItem.ToString());
@@ -84,18 +85,18 @@ namespace aGrader.IOForms
         public bool IsRequestedCountOfNumbersValid()
         {
 
-            int formId = InputsOutputs.GetIdOfForm(this);
+            var formId = InputsOutputs.GetIdOfForm(this);
 
-            int countOfPrecedingNumbres = radioInputs.Checked ? InputsOutputs.GetInputsList(FormType.Number, formId).Count() : InputsOutputs.GetOutputsList(FormType.Number, formId).Count();
+            var countOfPrecedingNumbres = radioInputs.Checked ? InputsOutputs.GetInputsList(FormType.Number, formId).Count() : InputsOutputs.GetOutputsList(FormType.Number, formId).Count();
 
-            int numberOfValidNumbersAddedByRepeaters = GetCountOfValidRepetitions();
+            var numberOfValidNumbersAddedByRepeaters = GetCountOfValidRepetitions();
             if (numCountOfNumbers.Value <= countOfPrecedingNumbres + numberOfValidNumbersAddedByRepeaters)
             {
                 numCountOfNumbers.BackColor = DefaultBackColor;
                 return true;
             }
             numCountOfNumbers.BackColor = Color.Red;
-            MessageBox.Show("Požadovaný počet čísel není možný.");
+            MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_RequestedNumberOfNumbersIsNotPOssible);
             return false;
         }
 
@@ -109,7 +110,7 @@ namespace aGrader.IOForms
                             t.GetRepeatedForm()
                                 .GetType()
                                 .ToString()
-                                .StartsWith(radioInputs.Checked ? "aGrader.IO_Forms.Input" : "aGrader.IO_Forms.Output")
+                                .StartsWith(radioInputs.Checked ? "aGrader.IOForms.Input" : "aGrader.IOForms.Output")
                                 && t.GetRepeatedForm().GetType()
                                 .ToString().Contains("Number"));
 

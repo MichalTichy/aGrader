@@ -52,7 +52,6 @@ namespace aGrader.Mathematic
 
         public double Evaluate()
         {
-            //Vypujceno z WEBU
             var table = new DataTable();
             table.Columns.Add("myExpression", string.Empty.GetType(), _mathExpresion);
             DataRow row = table.NewRow();

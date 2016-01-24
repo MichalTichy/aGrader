@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using aGrader.Mathematic;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -24,15 +25,15 @@ namespace aGrader.IOForms
         public override string ToString()
         {
             if (Conditions.Count == 1)
-                return "VÝSTUP: číslo splňující 1 podmínku.";
-            return "VÝSTUP: číslo splňující " + Conditions.Count + " podmínek.";
+                return Resources.IOFDescription_NumberSatisfyingSingleCondition;
+            return string.Format(Resources.IOFDescription_NumberSatisfyingMultipleConditions, Conditions.Count);
         }
 
         private void OutputNumber_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
 
@@ -40,13 +41,13 @@ namespace aGrader.IOForms
         {
             if (Conditions.Contains(tbCondition.Text))
             {
-                MessageBox.Show("Tato podmínka již existuje.");
+                MessageBox.Show(Resources.OutputNumberMatchingConditions_ThisConditionAllreadyExists);
                 return;
             }
             var unknown = new List<string>(1) { "X" };
             if (!Validator.IsValidBooleanExpression(tbCondition.Text,unknown))
             {
-                MessageBox.Show("Podmínka není validní.");
+                MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_InvalidCondition);
                 return;
             }
             Conditions.Add(tbCondition.Text);
@@ -58,7 +59,7 @@ namespace aGrader.IOForms
         {
             if (lbConditions.SelectedItem == null)
             {
-                MessageBox.Show("Musíte zvolit kterou podmínku chcete vymazat.");
+                MessageBox.Show(Resources.OutputCountOfNumbersMatchingConditions_YouHaveToSelectConditionForDeletion);
                 return;
             }
             Conditions.Remove(lbConditions.SelectedItem.ToString());

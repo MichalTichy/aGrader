@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 
 namespace aGrader
@@ -23,7 +24,7 @@ namespace aGrader
         {
             ShowJavaAdvancedButtons(false);
             ChangeEnabledStateOfButtons();
-            var dialog = new FolderBrowserDialog {Description = "Zvolte složku která obsahuje soubory s příponou .c"};
+            var dialog = new FolderBrowserDialog {Description = Resources.LanguageSelection_ChoseCFiles};
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 SourceCodes.SetPath(dialog.SelectedPath);
@@ -39,7 +40,7 @@ namespace aGrader
 
         private void ChangeEnabledStateOfButtons()
         {
-            foreach (Button button in Controls.OfType<Button>())
+            foreach (var button in Controls.OfType<Button>())
             {
                 button.Enabled = !button.Enabled;
             }
@@ -61,7 +62,7 @@ namespace aGrader
         {
             ChangeEnabledStateOfButtons();
             var dialog = new FolderBrowserDialog
-            {Description = " Zvolte složku která obsahuje jednotlivé soubory s příponou \"*.java\" (jeden soubor jeden test)" };
+            {Description = Resources.LanguageSelection_ChooseFolderSingleJava };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 SourceCodes.SetPath(dialog.SelectedPath);
@@ -79,7 +80,7 @@ namespace aGrader
         {
             ChangeEnabledStateOfButtons();
             var dialog = new FolderBrowserDialog
-            { Description = "Zvolte složku která obsahuje složky které obsahují soubory s příponou \"*.java\"   (jedna složka jeden test)" };
+            { Description = Resources.LanguageSelection_ChooseFolderJavaMultiFiles };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 SourceCodes.SetPath(dialog.SelectedPath);

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.sourceCodes
 {
@@ -15,7 +16,7 @@ namespace aGrader.sourceCodes
                 LoadSourceCodeFilesJavaMultiFiles();
             else
                 MessageBox.Show(
-                    "Složka obsahuje samostatné soubory i skupiny souborů.\nBuď odstraňte složky se skupinami souborů nebo samostatné soubory.");
+                    Resources.SourceCodes_JavaSingleMultiMismatch);
         }
 
         private static void LoadSourceCodeFilesJavaMultiFiles()

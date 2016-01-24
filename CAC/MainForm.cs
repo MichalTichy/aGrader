@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using aGrader.IOForms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 
 #endregion
@@ -75,7 +76,7 @@ namespace aGrader
                 SourceCodes.GetCompilationErrorsAsync();
             }
             else
-                MessageBox.Show("Nebyly nalezeny žádné platné soubory.");
+                MessageBox.Show(Resources.NoValidFilesFound);
             rtbCode.Clear();
         }
 
@@ -83,7 +84,7 @@ namespace aGrader
         {
             if (!Directory.Exists(SourceCodes.GetPath()))
             {
-                MessageBox.Show("Adresář neexistuje!");
+                MessageBox.Show(Resources.DirectoryDoesNotExist);
                 SourceCodes.ClearPath();
                 return;
             }
@@ -91,7 +92,7 @@ namespace aGrader
             if (SourceCodes.IsDirectorySet())
                 UpdateLbCodes();
             else
-                MessageBox.Show("Nejdříve musíte zvolit adresář obsahující zdrojové kódy.");
+                MessageBox.Show(Resources.MainForm_YouHaveToSelectDirectoryWithSourceCodes);
         }
 
         private void lbCodes_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,13 +106,13 @@ namespace aGrader
 
             if (code.Exists())
             {
-                rtbCode.Text = code.GetSourceCode() + "\n";
+                rtbCode.Text = $"{code.GetSourceCode()} \n";
                 if (code.NumberOfLineWithError!=null)
                 {
                     int lineWithError = (int)code.NumberOfLineWithError;
                     rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
                     rtbCode.SelectionBackColor = Color.Red;
-                    lErrorMessage.Text = "Kód nemůže být zkompilován!";
+                    lErrorMessage.Text = Resources.CannotCompile;
                     ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
                 }
                 else if (code.CompilationErrorMsg!=null)
@@ -122,7 +123,7 @@ namespace aGrader
             }
             else
             {
-                MessageBox.Show("Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.");
+                MessageBox.Show(Resources.MainForm_CannotOpenFile);
                 SourceCodes.ReloadFiles();
                 UpdateLbCodes();
             }
@@ -185,7 +186,7 @@ namespace aGrader
             foreach (OutputNumberBasedOnRandomInput form in InputsOutputs.GetList(typeof(OutputNumberBasedOnRandomInput)))
             {
                 if (form.IsMathValid()) continue;
-                MessageBox.Show("Požadovaná náhodná čísla nelze nadále použít!");
+                MessageBox.Show(Resources.MainForm_CantUseRequestedGeneratedNumbers);
                 SideFormManager.ShowExisting(form);
                 return;
             }
@@ -207,11 +208,10 @@ namespace aGrader
         {
             if (lbObjects.Items.Count == 0)
             {
-                MessageBox.Show("Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup.");
+                MessageBox.Show(Resources.MainForm_NothingToExport);
                 return;
             }
-            var saveXml = new SaveFileDialog();
-            saveXml.Filter = @"XML files (*.xml)|*.xml";
+            var saveXml = new SaveFileDialog {Filter = @"XML files (*.xml)|*.xml"};
             if (saveXml.ShowDialog() == DialogResult.OK)
             {
                 XmlManager.Export(saveXml.FileName);
@@ -229,12 +229,12 @@ namespace aGrader
         private void butImport_Click(object sender, EventArgs e)
         {
             if (lbObjects.Items.Count != 0 &&
-                MessageBox.Show("Budou přepsány stávající vstupy/výstupy!", "Upozornění", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                MessageBox.Show(Resources.MainForm_InputsAndOutputsWillBeOverwriten, Resources.Warning, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                     return;
 
             InputsOutputs.Clear();
 
-            var openXml = new OpenFileDialog {Filter = "XML soubory (*.xml)|*.xml"};
+            var openXml = new OpenFileDialog {Filter = Resources.FileFilter_XML};
             if (openXml.ShowDialog() == DialogResult.OK)
                 XmlManager.Import(openXml.FileName);
 
@@ -244,19 +244,19 @@ namespace aGrader
         {
             if (!SourceCodes.GetSourceCodeFiles().Any())
             {
-                MessageBox.Show("Ve zvolené složce nejsou žádné zdrojové kódy!");
+                MessageBox.Show(Resources.MainForm_NoSourceCodesInSelectedDirectory);
                 Tabs.SelectedIndex = 0;
                 return;
             }
 
             if (!InputsOutputs.GetList().Any())
             {
-                MessageBox.Show("Musíte nejdříve vytvořit testovací protokol!");
+                MessageBox.Show(Resources.MainForm_YouNeedToCreateTestProtocolFirst);
                 Tabs.SelectedIndex = 1;
                 return;
             }
 
-            //todo mozna vypnout UI?
+            //todo It would be maybe good to turn down UI
             butChart.Enabled = false;
             butChart.Visible = true;
             butSaveLog.Enabled = false;
@@ -270,8 +270,8 @@ namespace aGrader
             ResetProgressBar();
             SetListViewToTestMode();
             SourceCodes.RemoveResults();
-            AddLineToLog("Zahajuji testy!");
-            AddLineToLog("Počet souborů: "+SourceCodes.GetSourceCodeFiles().Count);
+            AddLineToLog(Resources.MainForm_StartingTests);
+            AddLineToLog(string.Format(Resources.MainForm_NumberOfFiles, SourceCodes.GetSourceCodeFiles().Count));
             TestManager.TestAllSourceCodes();
         }
 
@@ -283,7 +283,7 @@ namespace aGrader
 
         private void AddLineToLog(string text)
         {
-            rtbCode.AppendText("\n"+ DateTime.Now.ToLongTimeString()+" | "+ text);
+            rtbCode.AppendText($"\n {DateTime.Now.ToLongTimeString()} | {text}");
         }
 
         private void SetListViewToTestMode()
@@ -297,12 +297,11 @@ namespace aGrader
             lV.Items.Clear();
             lV.Columns.Clear();
 
-            lV.Columns.Add("Jméno souboru", 250);
-            lV.Columns.Add("Stav", 249);
+            lV.Columns.Add(Resources.NameOfFile, 250);
+            lV.Columns.Add(Resources.Status, 249);
 
-            foreach (SourceCode code in SourceCodes.GetSourceCodeFiles())
+            foreach (var code in SourceCodes.GetSourceCodeFiles())
             {
-                //todo refaktorovat
                 if (code.TestResult != null)
                 {
                     var line =
@@ -316,7 +315,7 @@ namespace aGrader
                 }
                 else
                 {
-                    var line = new ListViewItem(new[] {code.Name, "testuje se"}) {UseItemStyleForSubItems = false};
+                    var line = new ListViewItem(new[] {code.Name, Resources.TestInProgress}) {UseItemStyleForSubItems = false};
                     line.SubItems[1].ForeColor = Color.Orange;
                     lV.Items.Add(line);
                 }
@@ -340,19 +339,19 @@ namespace aGrader
             lV.Groups.Clear();
 
 
-            lV.Groups.Add(new ListViewGroup("Vstup"));
-            lV.Groups.Add(new ListViewGroup("Výstup"));
+            lV.Groups.Add(new ListViewGroup(Resources.Input));
+            lV.Groups.Add(new ListViewGroup(Resources.Output));
 
-            lV.Columns.Add("Vstup/Výstup", 250);
-            lV.Columns.Add("Očekávaný výstup", 249);
+            lV.Columns.Add(Resources.InputOutput, 250);
+            lV.Columns.Add(Resources.ExpectedOutput, 249);
 
             if (code.TestResult == null)
                 return;
 
-            foreach (string input in code.TestResult.Protocol.Inputs)
+            foreach (var input in code.TestResult.Protocol.Inputs)
                 lV.Items.Add(new ListViewItem(new[] {input, ""}, lV.Groups[0]));
 
-            for (int i = 0; i < code.TestResult.Outputs.Count; i++)
+            for (var i = 0; i < code.TestResult.Outputs.Count; i++)
             {
                 var line=new ListViewItem(new[] { code.TestResult.Outputs[i], code.TestResult.ExpectedOutputs[i].ToString() }, lV.Groups[1]);
                 if (code.TestResult.BadOutputs.Contains(i))
@@ -361,8 +360,8 @@ namespace aGrader
             }
 
             if (code.TestResult.Errors.Count == 0) return;
-            lV.Groups.Add(new ListViewGroup("Errory"));
-            foreach (string error in code.TestResult.Errors)
+            lV.Groups.Add(new ListViewGroup(Resources.Errors));
+            foreach (var error in code.TestResult.Errors)
             {
                 var line = new ListViewItem(error, lV.Groups[2]) {BackColor = Color.Red};
                 lV.Items.Add(line);
@@ -379,7 +378,7 @@ namespace aGrader
 
             line.SubItems[1].ForeColor = color;
             progressBar.PerformStep();
-            AddLineToLog("Soubor " + testResultArgs.Result.FileName + " byl  úspěšně otestován!");
+            AddLineToLog(string.Format(Resources.MainForm_FileWasSuccessfulyTested, testResultArgs.Result.FileName));
             CheckIfAllTestsAreDone();
         }
 
@@ -388,7 +387,7 @@ namespace aGrader
             if (progressBar.Value==progressBar.Maximum)
             {
                 rtbCode.Clear();
-                AddLineToLog("Všechny testy byli dokončeny!");
+                AddLineToLog(Resources.MainForm_AllTestsWereFinnished);
                 rtbCode.Text = BuildTestResultsString();
                 butRunTest.Enabled = true;
                 butChart.Enabled = true;
@@ -424,56 +423,18 @@ namespace aGrader
 
         private string BuildTestResultsString()
         {
-            //todo predelat
             var sb=new StringBuilder();
-
-            int maxChName = 0;
-            int maxChCorrect = 0;
-            int maxChWrong = 0;
-            GetMaximumNumberOfCharacters(ref maxChName, ref maxChCorrect, ref maxChWrong);
-
-            foreach (TestResult result in SourceCodes.GetSourceCodeFiles().Where(t=>t.TestResult!=null).Select(t=>t.TestResult))
+            
+            foreach (var result in SourceCodes.GetSourceCodeFiles().Where(t=>t.TestResult!=null).Select(t=>t.TestResult))
             {
-                string name = result.FileName;
-                string correctOutputsCount = result.CorrectOutputsCount.ToString();
-                string wrongOutputsCount = result.WrongOutputsCount.ToString();
-
-                BalanceLenghtOfStrings(ref name, maxChName, maxChCorrect, maxChWrong, ref correctOutputsCount, ref wrongOutputsCount);
-
-                sb.AppendFormat("Správně: {1} | Špatně: {2} | Čas: {3}| {0}", name,
-                    correctOutputsCount, wrongOutputsCount, result.ProcessorTime.ToString().PadRight(15- result.ProcessorTime.ToString().Length));
+                var name = result.FileName;
+                var correctOutputsCount = result.CorrectOutputsCount.ToString();
+                var wrongOutputsCount = result.WrongOutputsCount.ToString();
+                sb.AppendFormat(Resources.MainForm_TestResultLine, correctOutputsCount, wrongOutputsCount, result.ProcessorTime.ToString().PadRight(15 - result.ProcessorTime.ToString().Length), name);
+                
                 sb.AppendLine();
             }
             return sb.ToString();
-        }
-
-        private static void BalanceLenghtOfStrings(ref string name, int maxChName, int maxChCorrect, int maxChWrong, ref string correctOutputsCount, ref string wrongOutputsCount)
-        {
-            int nameLenghtDifference = maxChName - name.Length;
-            for (int i = 0; i < nameLenghtDifference; i++)
-            {
-                name = name + "  ";
-            }
-            int correctOutputsCountDifference = maxChCorrect - correctOutputsCount.Length;
-            for (int i = 0; i < correctOutputsCountDifference; i++)
-            {
-                correctOutputsCount = correctOutputsCount + "  ";
-            }
-            int wrongOutputsCountDifference = maxChWrong - wrongOutputsCount.Length;
-            for (int i = 0; i < wrongOutputsCountDifference; i++)
-            {
-                wrongOutputsCount = wrongOutputsCount + "  ";
-            }
-        }
-
-        private static void GetMaximumNumberOfCharacters(ref int maxChName, ref int maxChCorrect, ref int maxChWrong)
-        {
-            foreach (TestResult result in SourceCodes.GetSourceCodeFiles().Where(t => t.TestResult != null).Select(t => t.TestResult))
-            {
-                maxChName = result.FileName.Length > maxChName ? result.FileName.Length : maxChName;
-                maxChCorrect = result.CorrectOutputsCount.ToString().Length > maxChCorrect ? result.CorrectOutputsCount.ToString().Length : maxChCorrect;
-                maxChWrong = result.WrongOutputsCount.ToString().Length > maxChWrong ? result.WrongOutputsCount.ToString().Length : maxChWrong;
-            }
         }
 
         private void butOpenFile_Click(object sender, EventArgs e)
@@ -497,7 +458,7 @@ namespace aGrader
             {
                 AddExtension = true,
                 DefaultExt = ".txt",
-                Filter = " text file | *.txt"
+                Filter = Resources.FileFilter_TXT
             };
 
             if (saveFile.ShowDialog() != DialogResult.OK) return;
@@ -510,7 +471,7 @@ namespace aGrader
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Soubor " + Path.GetFileName(saveFile.FileName) + " se nepodařilo vytvořit.");
+                MessageBox.Show(string.Format(Resources.MainForm_CouldNotCreateTextFile, Path.GetFileName(saveFile.FileName)));
                 ExceptionsLog.LogException(ex.ToString());
             }
         }

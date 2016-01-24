@@ -16,8 +16,7 @@ namespace aGrader
 
         public static void OnInOutListChanged()
         {
-            if (InOutListChanged != null)
-                InOutListChanged(typeof (InputsOutputs), EventArgs.Empty);
+            InOutListChanged?.Invoke(typeof (InputsOutputs), EventArgs.Empty);
         }
 
         public static void Swap(int index1, int index2)
@@ -67,7 +66,7 @@ namespace aGrader
             var inputsOutputs = maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex - 1);
             var inputsOutputsMatchingSearch =
                 inputsOutputs.Where(t => t.GetType().ToString().Contains(type.ToString()))
-                    .Where(t => t.GetType().ToString().StartsWith("aGrader.IO_Forms.Input"));
+                    .Where(t => t.GetType().ToString().StartsWith("aGrader.IOForms.Input"));
             return inputsOutputsMatchingSearch;
         }
         public static IEnumerable<dynamic> GetOutputsList(FormType type, int maxIndex = -1)
@@ -75,7 +74,7 @@ namespace aGrader
             var inputsOutputs = maxIndex == -1 ? _inOutList : _inOutList.Take(maxIndex - 1);
             var inputsOutputsMatchingSearch =
                 inputsOutputs.Where(t => t.GetType().ToString().Contains(type.ToString()))
-                    .Where(t => t.GetType().ToString().StartsWith("aGrader.IO_Forms.Output"));
+                    .Where(t => t.GetType().ToString().StartsWith("aGrader.IOForms.Output"));
             return inputsOutputsMatchingSearch;
         }
 

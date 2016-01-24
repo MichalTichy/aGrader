@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 #endregion
 
@@ -54,7 +55,7 @@ namespace aGrader.sourceCodes
                         LoadSourceCodeFilesJava();
                     break;
                 default:
-                    MessageBox.Show("Unsuported file extension!");
+                    MessageBox.Show(Resources.SourceCodes_UnsuportedFileExtension);
                     ExceptionsLog.LogException($"{extension} is not suported!");
                     _lastFileExtension = null;
                     break;

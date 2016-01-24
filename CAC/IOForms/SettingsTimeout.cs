@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -27,7 +28,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return $"Maximální doba pro běh programu: {Timeout}";
+            return string.Format(Resources.IOFDescription_SettingsTimeout, Timeout);
         }
 
         protected override void butAddOrChange_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace aGrader.IOForms
             {
                 if (InputsOutputs.GetList(typeof(SettingsTimeout)).Any())
                 {
-                    MessageBox.Show("Timeout je již nastaven!");
+                    MessageBox.Show(Resources.SettingsTimeout_TimeoutAllreadySet);
                     return;
                 }
                 InputsOutputs.Add(this);

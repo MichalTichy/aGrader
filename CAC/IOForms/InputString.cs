@@ -1,4 +1,5 @@
 ﻿using System;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -20,14 +21,14 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "VSTUP: text: \"" + Text + "\"";
+            return string.Format(Resources.IOFDescription_InputString, Text);
         }
 
         private void InputString_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
 

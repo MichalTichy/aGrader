@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 
 namespace aGrader
@@ -15,11 +16,11 @@ namespace aGrader
 
         protected override Process CreateProcess(SourceCode code)
         {
-            string pathToTcc = Directory.GetCurrentDirectory() + @"\tcc\tcc.exe";
+            string pathToTcc = $@"{Directory.GetCurrentDirectory()}\tcc\tcc.exe";
             if (!File.Exists(pathToTcc))
             {
-                MessageBox.Show("Kompilátor nebyl nalezen! \n {0}", pathToTcc);
-                throw new FileNotFoundException("TCC not found! {0}", pathToTcc);
+                MessageBox.Show(Resources.Test_CompilatorNotFound, pathToTcc);
+                throw new FileNotFoundException(Resources.Test_CompilatorNotFound, pathToTcc);
             }
             var app = new Process
             {
@@ -31,12 +32,12 @@ namespace aGrader
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true,
-                    Arguments = "-run \"" + code.Path+"\""
+                    Arguments = $"-run \"{code.Path}\""
                 }
             };
 
             if (Protocol?.StartupArguments != null)
-                app.StartInfo.Arguments +=" " + Protocol.StartupArguments;
+                app.StartInfo.Arguments +=$" {Protocol.StartupArguments}";
             return app;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -20,13 +21,13 @@ namespace aGrader.IOForms
         }
         public override string ToString()
         {
-            return "AKCE: porovnání souborů " + System.IO.Path.GetFileName(Path) +"a vygenerovaného souboru";
+            return string.Format(Resources.IOFDescription_CompareFiles, System.IO.Path.GetFileName(Path));
         }
         private void Form_Activated(object sender, EventArgs e)
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
 
@@ -46,7 +47,7 @@ namespace aGrader.IOForms
             {
                 if (string.IsNullOrWhiteSpace(tbPath.Text))
                 {
-                    MessageBox.Show("Musíte vybrat soubor!");
+                    MessageBox.Show(Resources.YouHaveToSelectFile);
                     return;
                 }
                 InputsOutputs.Add(this);

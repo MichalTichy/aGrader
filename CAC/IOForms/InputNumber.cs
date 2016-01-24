@@ -1,4 +1,5 @@
 ﻿using System;
+using aGrader.Properties;
 
 namespace aGrader.IOForms
 {
@@ -21,7 +22,7 @@ namespace aGrader.IOForms
 
         public override string ToString()
         {
-            return "VSTUP: číslo " + Value;
+            return string.Format(Resources.IOFDescription_InputNumber, Value);
         }
 
         private void numeric_ValueChanged(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace aGrader.IOForms
         {
             if (Exists)
             {
-                butAddOrDelete.Text = "Smazat";
+                butAddOrDelete.Text = Resources.Delete;
             }
         }
     }

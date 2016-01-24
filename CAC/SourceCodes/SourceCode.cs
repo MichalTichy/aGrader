@@ -6,6 +6,7 @@ using System.IO;
 using System.Security;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 #endregion
 
@@ -41,21 +42,21 @@ namespace aGrader.sourceCodes
 #region exception handling
             catch (SecurityException)
             {
-                MessageBox.Show("Na čtení {0} nemáte oprávnění!", Name);
+                MessageBox.Show(string.Format(Resources.YouDontHavePermisionsToReadFile, Name),Resources.Warning);
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("Na čtení {0} nemáte oprávnění!", Name);
+                MessageBox.Show(string.Format(Resources.YouDontHavePermisionsToReadFile, Name), Resources.Warning);
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Soubor {0} nebyl nalezen!", Name);
+                MessageBox.Show(string.Format(Resources.FileDoesNotExist, Name), Resources.Warning);
             }
             catch (IOException)
             {
-                MessageBox.Show("Při čtení ze souboru {0} došlo k chybě!", Name);
+                MessageBox.Show(string.Format(Resources.CouldNotLoadFile, Name), Resources.Warning);
             }
-#endregion
+            #endregion
             return null;
         }
 

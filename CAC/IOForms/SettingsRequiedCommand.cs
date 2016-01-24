@@ -1,4 +1,6 @@
-﻿namespace aGrader.IOForms
+﻿using aGrader.Properties;
+
+namespace aGrader.IOForms
 {
     public partial class SettingsRequiedCommand : InputString
     {
@@ -14,7 +16,7 @@
 
         public override string ToString()
         {
-            return "Požadovaný příkaz " + tbString.Text;
+            return string.Format(Resources.IOFDescription_RequiedCommand, tbString.Text);
         }
     }
 }

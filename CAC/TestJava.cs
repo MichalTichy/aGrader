@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using aGrader.Properties;
 using aGrader.sourceCodes;
 using Microsoft.Win32;
 
@@ -20,14 +21,14 @@ namespace aGrader
 
         public override TestResult RunTest()
         {
-            var compilation = CreateCompilatonProcess(SourceCode);
+            var compilation = CreateCompilatonProcess();
             compilation.Start();
             var errorReader = compilation.StandardError;
             var error = "";
             if (!compilation.HasExited && !compilation.WaitForExit(Protocol.Timeout))
             {
                 compilation.Kill();
-                error += "Aplikace nebyla zkompilována před timeoutem (" + Protocol.Timeout / 1000 + "s)\n";
+                error += Resources.Test_AppDidNotEndedBeforeTimeout;
             }
             error += errorReader.ReadToEnd().Replace("\n","");
 
@@ -52,11 +53,11 @@ namespace aGrader
 
         protected override Process CreateProcess(SourceCode code)
         {
-            string pathJava = GetPathToJava() + @"\bin\java.exe";
+            string pathJava = $@"{GetPathToJava()}\bin\java.exe";
             if (!File.Exists(pathJava))
             {
-                MessageBox.Show($"Java nebyla nalezena!\n{pathJava}");
-                throw new FileNotFoundException($"Java not found! {pathJava}");
+                MessageBox.Show(string.Format(Resources.Test_JavaNotFound, pathJava));
+                throw new FileNotFoundException(string.Format(Resources.Test_JavaNotFound,pathJava));
             }
             var app = new Process
             {
@@ -78,20 +79,18 @@ namespace aGrader
         {
             var pathToFile = Directory.GetFiles(_destinationFolder, Path.GetFileName(SourceCode.Path).Replace(".java",".class"),SearchOption.AllDirectories).First();
             var relativePath = pathToFile.Replace(_destinationFolder+@"\", "");
-            var arguments = "-cp \"" + _destinationFolder + "\" " +
-                            relativePath.Replace(@"\", ".").Replace(".class", "");
+            var arguments = $"-cp \"{_destinationFolder}\" {relativePath.Replace(@"\", ".").Replace(".class", "")}";
             return Protocol?.StartupArguments!=null ? $"{arguments} {Protocol.StartupArguments}" : arguments;
         }
 
-        private Process CreateCompilatonProcess(SourceCode code)
+        private Process CreateCompilatonProcess()
         {
-            string pathJavac = GetPathToJava() + @"\bin\javac.exe";
+            var pathJavac = $@"{GetPathToJava()}\bin\javac.exe";
             CreateDestinationFolder();
             if (!File.Exists(pathJavac))
             {
-                MessageBox.Show($"Kompilátor nebyl nalezen!\n{pathJavac}");
+                MessageBox.Show(text: String.Format(Resources.Test_CompilatorNotFound, pathJavac));
                 ExceptionsLog.LogException($"Javac not found! {pathJavac}");
-                //todo moznost najit javac rucne
             }
 
             var app = new Process
@@ -184,7 +183,7 @@ namespace aGrader
        
         public override Tuple<string, int?> GetCompilationError(SourceCode code)
         {
-            Process app=CreateProcess(code);
+            var app=CreateProcess(code);
 
             app.Start();
             if (!app.WaitForExit(300))
@@ -192,7 +191,7 @@ namespace aGrader
 
             string msg = app.StandardError.ReadLine();
             
-            if (String.IsNullOrWhiteSpace(msg))
+            if (string.IsNullOrWhiteSpace(msg))
                 return new Tuple<string, int?>(null,null);
 
             var newRegex = new Regex(@":(\d*):");

@@ -3,6 +3,7 @@
 using System;
 using System.Reflection;
 using System.Windows.Forms;
+using aGrader.Properties;
 
 #endregion
 
@@ -12,23 +13,23 @@ namespace aGrader
     {
         public enum SideForms
         {
-            [Description("VSTUP: textový soubor")] InputTextFile,
-            [Description("VSTUP: číslo")] InputNumber,
-            [Description("VSTUP: náhodné číslo")] InputRandomNumber,
-            [Description("VSTUP: text")] InputString,
-            [Description("VÝSTUP: číslo založené na vygenerovaném číslu")] OutputNumberBasedOnRandomInput,
-            [Description("VÝSTUP: číslo splňující podmínky")] OutputNumberMatchingConditions,
-            [Description("VÝSTUP: počet čísel splňujících podmínky")] OutputCountOfNumbersMatchingConditions,
-            [Description("VÝSTUP: číslo")] OutputNumber,
-            [Description("VÝSTUP: text")] OutputString,
-            [Description("NASTAVENÍ: odchylka")] SettingsDeviation,
-            [Description("NASTAVENÍ: maximální čas pro běh programu")]SettingsTimeout,
-            [Description("NASTAVENÍ: zakázaný příkaz")] SettingsProhibitedCommand,
-            [Description("NASTAVENÍ: vyžadovaný příkaz")] SettingsRequiedCommand,
-            [Description("NASTAVENÍ: Spouštěcí parametry")] SettingsStartupArguments,
-            [Description("AKCE: opakování poslední akce")] ActionRepeatLast,
-            [Description("AKCE: načti výstupy ze souboru")] ActionLoadOutputsFromTextFile,
-            [Description("AKCE: porovnej soubory")] ActionCompareFiles
+            [Description("InputTextFile")] InputTextFile,
+            [Description("InputNumber")] InputNumber,
+            [Description("InputRandomNumber")] InputRandomNumber,
+            [Description("InputString")] InputString,
+            [Description("OutputNumberBasedOnRandomInput")] OutputNumberBasedOnRandomInput,
+            [Description("OutputNumberMatchingConditions")] OutputNumberMatchingConditions,
+            [Description("OutputCountOfNumbersMatchingConditions")] OutputCountOfNumbersMatchingConditions,
+            [Description("OutputNumber")] OutputNumber,
+            [Description("OutputString")] OutputString,
+            [Description("SettingsDeviation")] SettingsDeviation,
+            [Description("SettingsTimeout")]SettingsTimeout,
+            [Description("SettingsProhibitedCommand")] SettingsProhibitedCommand,
+            [Description("SettingsRequiedCommand")] SettingsRequiedCommand,
+            [Description("SettingsStartupArguments")] SettingsStartupArguments,
+            [Description("ActionRepeatLast")] ActionRepeatLast,
+            [Description("ActionLoadOutputsFromTextFile")] ActionLoadOutputsFromTextFile,
+            [Description("ActionCompareFiles")] ActionCompareFiles
         }
 
         private static dynamic _sideForm;
@@ -96,7 +97,7 @@ namespace aGrader
     {
         public DescriptionAttribute(string value)
         {
-            Value = value;
+            Value = Resources.ResourceManager.GetString(value);
         }
 
         public string Value { get; private set; }

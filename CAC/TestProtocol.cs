@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using aGrader.IOForms;
 using aGrader.Mathematic;
+using aGrader.Properties;
 
 namespace aGrader
 {
@@ -69,9 +70,9 @@ namespace aGrader
         }
         private void ProcessData(InputTextFile input)
         {
-            string line;
             using (var file = new StreamReader(input.Path))
             {
+                string line;
                 while((line=file.ReadLine())!=null)
                 {
                     Inputs.Add(line);
@@ -137,7 +138,7 @@ namespace aGrader
         private void ProcessData(ActionRepeatLast repeatLast)
         {
             dynamic repeatedForm = repeatLast.GetRepeatedForm();
-            for (int i = 0; i < repeatLast.Repetitions; i++)
+            for (var i = 0; i < repeatLast.Repetitions; i++)
             {
                 if (repeatedForm is InputRandomNumber)
                 {
@@ -164,12 +165,12 @@ namespace aGrader
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Soubor " + Path.GetFileName(actionCompareFiles.Path) + " neexistuje.");
+                MessageBox.Show(string.Format(Resources.FileDoesNotExist, Path.GetFileName(actionCompareFiles.Path)));
             }
             catch (IOException ex)
             {
-                //todo neplaty testovaci protokol by mnel zabranit spusteni testu
-                MessageBox.Show("Soubor " + Path.GetFileName(actionCompareFiles.Path) + " se nepodařilo načíst.");
+                //todo invalid test protocol should prevent test form starting
+                MessageBox.Show(string.Format(Resources.CouldNotLoadFile, Path.GetFileName(actionCompareFiles.Path)));
                 ExceptionsLog.LogException(ex.ToString());
             }
         }
