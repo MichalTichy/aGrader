@@ -40,7 +40,7 @@ namespace aGrader.IOForms
             if (numMax.Value <= numMin.Value)
             {
                 numMax.Value = numMin.Value + 1;
-                LabErr.Text = Resources.InputRandomNumber_MaxCantBeBiggerThanMin;
+                LabErr.Text = Resources.InputRandomNumber_MaxCantBeGreatherThanMin;
             }
             else
             {

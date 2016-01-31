@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutputCountOfNumbersMatchingConditions));
             this.numCountOfNumbers = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,127 +47,88 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(189, 260);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 260);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // numCountOfNumbers
             // 
-            this.numCountOfNumbers.Location = new System.Drawing.Point(155, 195);
+            resources.ApplyResources(this.numCountOfNumbers, "numCountOfNumbers");
             this.numCountOfNumbers.Name = "numCountOfNumbers";
-            this.numCountOfNumbers.Size = new System.Drawing.Size(94, 20);
-            this.numCountOfNumbers.TabIndex = 43;
             this.numCountOfNumbers.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 197);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Počet čísel";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 153);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Podmínka";
             // 
             // butRemoveConditon
             // 
-            this.butRemoveConditon.Location = new System.Drawing.Point(135, 123);
+            resources.ApplyResources(this.butRemoveConditon, "butRemoveConditon");
             this.butRemoveConditon.Name = "butRemoveConditon";
-            this.butRemoveConditon.Size = new System.Drawing.Size(114, 23);
-            this.butRemoveConditon.TabIndex = 40;
-            this.butRemoveConditon.Text = "-";
             this.butRemoveConditon.UseVisualStyleBackColor = true;
             this.butRemoveConditon.Click += new System.EventHandler(this.butRemoveConditon_Click);
             // 
             // butAddCondition
             // 
-            this.butAddCondition.Location = new System.Drawing.Point(15, 123);
+            resources.ApplyResources(this.butAddCondition, "butAddCondition");
             this.butAddCondition.Name = "butAddCondition";
-            this.butAddCondition.Size = new System.Drawing.Size(114, 23);
-            this.butAddCondition.TabIndex = 39;
-            this.butAddCondition.Text = "+";
             this.butAddCondition.UseVisualStyleBackColor = true;
             this.butAddCondition.Click += new System.EventHandler(this.butAddCondition_Click);
             // 
             // tbCondition
             // 
-            this.tbCondition.Location = new System.Drawing.Point(15, 169);
+            resources.ApplyResources(this.tbCondition, "tbCondition");
             this.tbCondition.Name = "tbCondition";
-            this.tbCondition.Size = new System.Drawing.Size(234, 20);
-            this.tbCondition.TabIndex = 38;
             // 
             // lbConditions
             // 
             this.lbConditions.FormattingEnabled = true;
-            this.lbConditions.Location = new System.Drawing.Point(15, 22);
+            resources.ApplyResources(this.lbConditions, "lbConditions");
             this.lbConditions.Name = "lbConditions";
-            this.lbConditions.Size = new System.Drawing.Size(234, 95);
-            this.lbConditions.TabIndex = 37;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Podmínky";
             // 
             // radioOutputs
             // 
-            this.radioOutputs.AutoSize = true;
-            this.radioOutputs.Location = new System.Drawing.Point(169, 3);
+            resources.ApplyResources(this.radioOutputs, "radioOutputs");
             this.radioOutputs.Name = "radioOutputs";
-            this.radioOutputs.Size = new System.Drawing.Size(62, 17);
-            this.radioOutputs.TabIndex = 38;
-            this.radioOutputs.Text = "Výstupy";
             this.radioOutputs.UseVisualStyleBackColor = true;
             // 
             // radioInputs
             // 
-            this.radioInputs.AutoSize = true;
+            resources.ApplyResources(this.radioInputs, "radioInputs");
             this.radioInputs.Checked = true;
-            this.radioInputs.Location = new System.Drawing.Point(3, 3);
             this.radioInputs.Name = "radioInputs";
-            this.radioInputs.Size = new System.Drawing.Size(57, 17);
-            this.radioInputs.TabIndex = 37;
             this.radioInputs.TabStop = true;
-            this.radioInputs.Text = "Vstupy";
             this.radioInputs.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.radioOutputs);
             this.panel1.Controls.Add(this.radioInputs);
-            this.panel1.Location = new System.Drawing.Point(15, 221);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 33);
-            this.panel1.TabIndex = 44;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            resources.ApplyResources(this.label4, "label4");
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(108, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 13);
-            this.label4.TabIndex = 45;
-            this.label4.Text = "odchylka neni brana v potaz";
             // 
             // OutputCountOfNumbersMatchingConditions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 296);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numCountOfNumbers);
             this.Controls.Add(this.label3);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputTextFile));
             this.butBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
@@ -37,38 +38,29 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 51);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 51);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(214, 22);
+            resources.ApplyResources(this.butBrowse, "butBrowse");
             this.butBrowse.Name = "butBrowse";
-            this.butBrowse.Size = new System.Drawing.Size(37, 23);
-            this.butBrowse.TabIndex = 27;
-            this.butBrowse.Text = "...";
             this.butBrowse.UseVisualStyleBackColor = true;
             this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Cesta k souboru";
             // 
             // tbPath
             // 
-            this.tbPath.Location = new System.Drawing.Point(12, 25);
+            resources.ApplyResources(this.tbPath, "tbPath");
             this.tbPath.Name = "tbPath";
             this.tbPath.ReadOnly = true;
-            this.tbPath.Size = new System.Drawing.Size(196, 20);
-            this.tbPath.TabIndex = 25;
             // 
             // FullPathToolTip
             // 
@@ -76,8 +68,7 @@
             // 
             // InputTextFile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 82);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.butBrowse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPath);

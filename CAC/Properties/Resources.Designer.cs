@@ -169,7 +169,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to textový soubor | *.txt.
+        ///   Looks up a localized string similar to textový soubor (*.txt) | *.txt.
         /// </summary>
         internal static string FileFilter_TXT {
             get {
@@ -235,9 +235,9 @@ namespace aGrader.Properties {
         /// <summary>
         ///   Looks up a localized string similar to MAX nemůže být menší než MIN!.
         /// </summary>
-        internal static string InputRandomNumber_MaxCantBeBiggerThanMin {
+        internal static string InputRandomNumber_MaxCantBeGreatherThanMin {
             get {
-                return ResourceManager.GetString("InputRandomNumber_MaxCantBeBiggerThanMin", resourceCulture);
+                return ResourceManager.GetString("InputRandomNumber_MaxCantBeGreatherThanMin", resourceCulture);
             }
         }
         
@@ -323,7 +323,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: Načti výstupy ze souboru..
+        ///   Looks up a localized string similar to AKCE: Načti výstupy ze souboru.
         /// </summary>
         internal static string IOFDescription_LoadOutputsFromFile {
             get {
@@ -377,7 +377,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zakázaný příkaz {0}.
+        ///   Looks up a localized string similar to NASTAVENÍ: Zakázaný příkaz {0}.
         /// </summary>
         internal static string IOFDescription_ProhibitedCommand {
             get {
@@ -395,7 +395,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vyžadovaný příkay {0}.
+        ///   Looks up a localized string similar to NASTAVENÍ: Vyžadovaný příkaz {0}.
         /// </summary>
         internal static string IOFDescription_RequiedCommand {
             get {
@@ -404,7 +404,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: maximální odchylka {0}.
+        ///   Looks up a localized string similar to NASTAVENÍ: Maximální odchylka {0}.
         /// </summary>
         internal static string IOFDescription_SettingsDeviation {
             get {
@@ -413,7 +413,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximální doba pro běh programu: {0}.
+        ///   Looks up a localized string similar to NASTAVENÍ: Maximální doba pro běh programu: {0}.
         /// </summary>
         internal static string IOFDescription_SettingsTimeout {
             get {
@@ -485,7 +485,8 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován..
+        ///   Looks up a localized string similar to Soubor se nepovedlo otevřít.
+        ///Seznam souborů bude nyní aktualizován..
         /// </summary>
         internal static string MainForm_CannotOpenFile {
             get {
@@ -919,7 +920,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}&quot; nelze převést na číslo..
+        ///   Looks up a localized string similar to &quot;{0}&quot; nelze převést na číslo..
         /// </summary>
         internal static string TestResult_CannotConvertNumber {
             get {
@@ -955,7 +956,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}není podporován a nebyl importován..
+        ///   Looks up a localized string similar to {0} není podporován a nebyl importován..
         /// </summary>
         internal static string XmlManager_InvalidDataImportFail {
             get {

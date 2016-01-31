@@ -137,7 +137,8 @@
     <value>Kód nemůže být zkompilován!</value>
   </data>
   <data name="MainForm_CannotOpenFile" xml:space="preserve">
-    <value>Soubor se nepovedlo otevřít./nSeznam souborů bude nyní aktualizován.</value>
+    <value>Soubor se nepovedlo otevřít.
+Seznam souborů bude nyní aktualizován.</value>
   </data>
   <data name="MainForm_CantUseRequestedGeneratedNumbers" xml:space="preserve">
     <value>Požadovaná náhodná čísla nelze nadále použít!</value>
@@ -200,7 +201,7 @@
     <value>testuje se</value>
   </data>
   <data name="FileFilter_TXT" xml:space="preserve">
-    <value>textový soubor | *.txt</value>
+    <value>textový soubor (*.txt) | *.txt</value>
   </data>
   <data name="CouldNotLoadFile" xml:space="preserve">
     <value>Soubor {0} se nepodařilo načíst.</value>
@@ -236,13 +237,13 @@
     <value>Nepodporovaný typ zdrojového souboru!</value>
   </data>
   <data name="TestResult_CannotConvertNumber" xml:space="preserve">
-    <value>{0}" nelze převést na číslo.</value>
+    <value>"{0}" nelze převést na číslo.</value>
   </data>
   <data name="XmlManager_UnsuportedXmlFile" xml:space="preserve">
     <value>Zvolený XML soubor není podporován.</value>
   </data>
   <data name="XmlManager_InvalidDataImportFail" xml:space="preserve">
-    <value>{0}není podporován a nebyl importován.</value>
+    <value>{0} není podporován a nebyl importován.</value>
   </data>
   <data name="XmlManager_ImportFailed" xml:space="preserve">
     <value>Během importu se vyskytla chyba!</value>
@@ -257,7 +258,7 @@
     <value>Musíte vybrat soubor!</value>
   </data>
   <data name="IOFDescription_LoadOutputsFromFile" xml:space="preserve">
-    <value>AKCE: Načti výstupy ze souboru.</value>
+    <value>AKCE: Načti výstupy ze souboru</value>
   </data>
   <data name="ActionRepeatLast_NothingToRepeat" xml:space="preserve">
     <value>Není co opakovat.</value>
@@ -271,7 +272,7 @@
   <data name="IOFDescription_RepeatLast" xml:space="preserve">
     <value>AKCE: opakuj předešlý krok {0}x</value>
   </data>
-  <data name="InputRandomNumber_MaxCantBeBiggerThanMin" xml:space="preserve">
+  <data name="InputRandomNumber_MaxCantBeGreatherThanMin" xml:space="preserve">
     <value>MAX nemůže být menší než MIN!</value>
   </data>
   <data name="InputRandomNumber_MinCantBeGreatherThanMax" xml:space="preserve">
@@ -336,13 +337,13 @@ Pokud si přejete pokračovat objekt bude smazán.</value>
     <value>Odchylka je již nastavena!</value>
   </data>
   <data name="IOFDescription_ProhibitedCommand" xml:space="preserve">
-    <value>Zakázaný příkaz {0}</value>
+    <value>NASTAVENÍ: Zakázaný příkaz {0}</value>
   </data>
   <data name="IOFDescription_RequiedCommand" xml:space="preserve">
-    <value>Vyžadovaný příkay {0}</value>
+    <value>NASTAVENÍ: Vyžadovaný příkaz {0}</value>
   </data>
   <data name="IOFDescription_SettingsDeviation" xml:space="preserve">
-    <value>NASTAVENÍ: maximální odchylka {0}</value>
+    <value>NASTAVENÍ: Maximální odchylka {0}</value>
   </data>
   <data name="SettingsStartupArguments_StartupArgumentsAreAllreadySet" xml:space="preserve">
     <value>Spouštěcí parametry jsou již nastaveny.</value>
@@ -375,7 +376,7 @@ Pokud si přejete pokračovat objekt bude smazán.</value>
     <value>VSTUP: textový soubor</value>
   </data>
   <data name="IOFDescription_SettingsTimeout" xml:space="preserve">
-    <value>Maximální doba pro běh programu: {0}</value>
+    <value>NASTAVENÍ: Maximální doba pro běh programu: {0}</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions" xml:space="preserve">
     <value>VÝSTUP: počet čísel splňujících podmínky</value>

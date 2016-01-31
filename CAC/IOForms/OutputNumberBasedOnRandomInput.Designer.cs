@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutputNumberBasedOnRandomInput));
             this.tbMath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbNumbers = new System.Windows.Forms.ListBox();
@@ -35,43 +36,34 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(239, 198);
+            resources.ApplyResources(this.butClose, "butClose");
             this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 198);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // tbMath
             // 
-            this.tbMath.Location = new System.Drawing.Point(12, 172);
+            resources.ApplyResources(this.tbMath, "tbMath");
             this.tbMath.Name = "tbMath";
-            this.tbMath.Size = new System.Drawing.Size(287, 20);
-            this.tbMath.TabIndex = 25;
             this.tbMath.Leave += new System.EventHandler(this.tbMath_Leave);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 8);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Číslo závislé na\r\nnáhodném vstupu";
             // 
             // lbNumbers
             // 
             this.lbNumbers.FormattingEnabled = true;
-            this.lbNumbers.Location = new System.Drawing.Point(12, 37);
+            resources.ApplyResources(this.lbNumbers, "lbNumbers");
             this.lbNumbers.Name = "lbNumbers";
             this.lbNumbers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbNumbers.Size = new System.Drawing.Size(287, 108);
-            this.lbNumbers.TabIndex = 23;
             // 
             // OutputNumberBasedOnRandomInput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(311, 230);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.tbMath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbNumbers);

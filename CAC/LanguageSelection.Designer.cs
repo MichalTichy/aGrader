@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageSelection));
             this.butC = new System.Windows.Forms.Button();
             this.butJava = new System.Windows.Forms.Button();
             this.butCancel = new System.Windows.Forms.Button();
@@ -38,71 +39,50 @@
             // 
             // butC
             // 
-            this.butC.Location = new System.Drawing.Point(12, 43);
+            resources.ApplyResources(this.butC, "butC");
             this.butC.Name = "butC";
-            this.butC.Size = new System.Drawing.Size(125, 23);
-            this.butC.TabIndex = 0;
-            this.butC.Text = "C";
             this.butC.UseVisualStyleBackColor = true;
             this.butC.Click += new System.EventHandler(this.butC_Click);
             // 
             // butJava
             // 
-            this.butJava.Location = new System.Drawing.Point(174, 43);
+            resources.ApplyResources(this.butJava, "butJava");
             this.butJava.Name = "butJava";
-            this.butJava.Size = new System.Drawing.Size(125, 23);
-            this.butJava.TabIndex = 1;
-            this.butJava.Text = "Java";
             this.butJava.UseVisualStyleBackColor = true;
             this.butJava.Click += new System.EventHandler(this.butJava_Click);
             // 
             // butCancel
             // 
             this.butCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butCancel.Location = new System.Drawing.Point(269, 12);
+            resources.ApplyResources(this.butCancel, "butCancel");
             this.butCancel.Name = "butCancel";
-            this.butCancel.Size = new System.Drawing.Size(30, 23);
-            this.butCancel.TabIndex = 2;
-            this.butCancel.Text = "X";
             this.butCancel.UseVisualStyleBackColor = true;
             this.butCancel.Click += new System.EventHandler(this.butCancel_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Zvolte jazyk";
             // 
             // butJavaOneFile
             // 
-            this.butJavaOneFile.Location = new System.Drawing.Point(15, 80);
+            resources.ApplyResources(this.butJavaOneFile, "butJavaOneFile");
             this.butJavaOneFile.Name = "butJavaOneFile";
-            this.butJavaOneFile.Size = new System.Drawing.Size(122, 49);
-            this.butJavaOneFile.TabIndex = 4;
-            this.butJavaOneFile.Text = "Programy složené z jednoho *.java souboru";
             this.butJavaOneFile.UseVisualStyleBackColor = true;
             this.butJavaOneFile.Click += new System.EventHandler(this.butJavaOneFile_Click);
             // 
             // butJavaMultipleFiles
             // 
-            this.butJavaMultipleFiles.Location = new System.Drawing.Point(174, 80);
+            resources.ApplyResources(this.butJavaMultipleFiles, "butJavaMultipleFiles");
             this.butJavaMultipleFiles.Name = "butJavaMultipleFiles";
-            this.butJavaMultipleFiles.Size = new System.Drawing.Size(122, 49);
-            this.butJavaMultipleFiles.TabIndex = 5;
-            this.butJavaMultipleFiles.Text = "Programy složené z více *.java souborů";
             this.butJavaMultipleFiles.UseVisualStyleBackColor = true;
             this.butJavaMultipleFiles.Click += new System.EventHandler(this.butJavaMultipleFiles_Click);
             // 
             // LanguageSelection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCancel;
-            this.ClientSize = new System.Drawing.Size(311, 75);
             this.ControlBox = false;
             this.Controls.Add(this.butJavaMultipleFiles);
             this.Controls.Add(this.butJavaOneFile);
@@ -111,14 +91,11 @@
             this.Controls.Add(this.butJava);
             this.Controls.Add(this.butC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(517, 12);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LanguageSelection";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "LanguageSelection";
             this.ResumeLayout(false);
             this.PerformLayout();
 

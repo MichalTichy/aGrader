@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDeviation));
             this.label2 = new System.Windows.Forms.Label();
             this.numeric = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,21 +37,17 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 66);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 66);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.Color.Maroon;
-            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "odchylka je standardně 0.001";
             // 
             // numeric
             // 
@@ -60,16 +57,13 @@
             0,
             0,
             196608});
-            this.numeric.Location = new System.Drawing.Point(12, 40);
+            resources.ApplyResources(this.numeric, "numeric");
             this.numeric.Maximum = new decimal(new int[] {
             2000000000,
             0,
             0,
             0});
             this.numeric.Name = "numeric";
-            this.numeric.Size = new System.Drawing.Size(239, 20);
-            this.numeric.TabIndex = 23;
-            this.numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numeric.Value = new decimal(new int[] {
             1,
             0,
@@ -79,17 +73,12 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Maximální odchylka";
             // 
             // SettingsDeviation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 100);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);

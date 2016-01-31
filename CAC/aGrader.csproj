@@ -253,26 +253,74 @@
     <Compile Include="sourceCodes\SourceCodes.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="TestResult.cs" />
+    <EmbeddedResource Include="Graph.en.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\ActionCompareFiles.en.resx">
+      <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionCompareFiles.resx">
       <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.en.resx">
+      <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.resx">
       <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\ActionRepeatLast.en.resx">
+      <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\InputNumber.en.resx">
+      <DependentUpon>InputNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\InputOutputForm.en.resx">
+      <DependentUpon>InputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputOutputForm.resx">
       <DependentUpon>InputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\InputRandomNumber.en.resx">
+      <DependentUpon>InputRandomNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\InputString.en.resx">
+      <DependentUpon>InputString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\InputTextFile.en.resx">
+      <DependentUpon>InputTextFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputCountOfNumbersMatchingConditions.en.resx">
+      <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputNumberBasedOnRandomInput.en.resx">
+      <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputNumberMatchingConditions.en.resx">
+      <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsDeviation.en.resx">
+      <DependentUpon>SettingsDeviation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsProhibitedCommand.en.resx">
+      <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsRequiedCommand.en.resx">
+      <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsStartupArguments.en.resx">
+      <DependentUpon>SettingsStartupArguments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\SettingsStartupArguments.resx">
       <DependentUpon>SettingsStartupArguments.cs</DependentUpon>
@@ -301,15 +349,25 @@
     <EmbeddedResource Include="IOForms\SettingsRequiedCommand.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsTimeout.en.resx">
+      <DependentUpon>SettingsTimeout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IOForms\SettingsTimeout.resx">
       <DependentUpon>SettingsTimeout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageSelection.en.resx">
+      <DependentUpon>LanguageSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelection.resx">
       <DependentUpon>LanguageSelection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.en.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -320,6 +378,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WelcomeForm.en.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
       <SubType>Designer</SubType>

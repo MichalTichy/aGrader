@@ -28,39 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputString));
             this.label1 = new System.Windows.Forms.Label();
             this.tbString = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 51);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 51);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Text";
             // 
             // tbString
             // 
-            this.tbString.Location = new System.Drawing.Point(12, 25);
+            resources.ApplyResources(this.tbString, "tbString");
             this.tbString.Name = "tbString";
-            this.tbString.Size = new System.Drawing.Size(239, 20);
-            this.tbString.TabIndex = 20;
             this.tbString.TextChanged += new System.EventHandler(this.tbString_TextChanged);
             // 
             // InputString
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 85);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbString);
             this.Name = "InputString";

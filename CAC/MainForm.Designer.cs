@@ -78,9 +78,8 @@ namespace aGrader
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 42);
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
@@ -91,99 +90,72 @@ namespace aGrader
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lV);
-            this.splitContainer1.Size = new System.Drawing.Size(499, 314);
-            this.splitContainer1.SplitterDistance = 157;
-            this.splitContainer1.TabIndex = 3;
             // 
             // butSaveLog
             // 
-            this.butSaveLog.Enabled = false;
-            this.butSaveLog.Location = new System.Drawing.Point(406, 129);
+            resources.ApplyResources(this.butSaveLog, "butSaveLog");
             this.butSaveLog.Name = "butSaveLog";
-            this.butSaveLog.Size = new System.Drawing.Size(42, 26);
-            this.butSaveLog.TabIndex = 2;
-            this.butSaveLog.Text = "Save";
             this.butSaveLog.UseVisualStyleBackColor = true;
-            this.butSaveLog.Visible = false;
             this.butSaveLog.Click += new System.EventHandler(this.butSaveLog_Click);
             // 
             // butChart
             // 
-            this.butChart.Enabled = false;
-            this.butChart.Location = new System.Drawing.Point(454, 129);
+            resources.ApplyResources(this.butChart, "butChart");
             this.butChart.Name = "butChart";
-            this.butChart.Size = new System.Drawing.Size(42, 26);
-            this.butChart.TabIndex = 1;
-            this.butChart.Text = "Graf";
             this.butChart.UseVisualStyleBackColor = true;
-            this.butChart.Visible = false;
             this.butChart.Click += new System.EventHandler(this.butChart_Click);
             // 
             // rtbCode
             // 
-            this.rtbCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbCode.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.rtbCode, "rtbCode");
             this.rtbCode.Name = "rtbCode";
             this.rtbCode.ReadOnly = true;
-            this.rtbCode.Size = new System.Drawing.Size(499, 157);
-            this.rtbCode.TabIndex = 0;
-            this.rtbCode.Text = "";
             // 
             // lV
             // 
-            this.lV.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.lV, "lV");
             this.lV.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lV.Location = new System.Drawing.Point(0, 0);
             this.lV.MultiSelect = false;
             this.lV.Name = "lV";
-            this.lV.Size = new System.Drawing.Size(499, 153);
-            this.lV.TabIndex = 0;
             this.lV.UseCompatibleStateImageBehavior = false;
             this.lV.View = System.Windows.Forms.View.Details;
             // 
             // BottomToolStripPanel
             // 
-            this.BottomToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.BottomToolStripPanel, "BottomToolStripPanel");
             this.BottomToolStripPanel.Name = "BottomToolStripPanel";
             this.BottomToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.BottomToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.BottomToolStripPanel.Size = new System.Drawing.Size(0, 0);
             // 
             // TopToolStripPanel
             // 
-            this.TopToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.TopToolStripPanel, "TopToolStripPanel");
             this.TopToolStripPanel.Name = "TopToolStripPanel";
             this.TopToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.TopToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.TopToolStripPanel.Size = new System.Drawing.Size(0, 0);
             // 
             // RightToolStripPanel
             // 
-            this.RightToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.RightToolStripPanel, "RightToolStripPanel");
             this.RightToolStripPanel.Name = "RightToolStripPanel";
             this.RightToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.RightToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.RightToolStripPanel.Size = new System.Drawing.Size(0, 0);
             // 
             // LeftToolStripPanel
             // 
-            this.LeftToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.LeftToolStripPanel, "LeftToolStripPanel");
             this.LeftToolStripPanel.Name = "LeftToolStripPanel";
             this.LeftToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.LeftToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.LeftToolStripPanel.Size = new System.Drawing.Size(0, 0);
             // 
             // ContentPanel
             // 
-            this.ContentPanel.Size = new System.Drawing.Size(150, 150);
+            resources.ApplyResources(this.ContentPanel, "ContentPanel");
             // 
             // butRunTest
             // 
-            this.butRunTest.Location = new System.Drawing.Point(13, 12);
+            resources.ApplyResources(this.butRunTest, "butRunTest");
             this.butRunTest.Name = "butRunTest";
-            this.butRunTest.Size = new System.Drawing.Size(98, 23);
-            this.butRunTest.TabIndex = 5;
-            this.butRunTest.Text = "Spustit test";
             this.butRunTest.UseVisualStyleBackColor = true;
             this.butRunTest.Click += new System.EventHandler(this.butRunTest_Click);
             // 
@@ -191,11 +163,9 @@ namespace aGrader
             // 
             this.Tabs.Controls.Add(this.tabPage1);
             this.Tabs.Controls.Add(this.tabProtocol);
-            this.Tabs.Location = new System.Drawing.Point(517, 12);
+            resources.ApplyResources(this.Tabs, "Tabs");
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
-            this.Tabs.Size = new System.Drawing.Size(311, 344);
-            this.Tabs.TabIndex = 7;
             // 
             // tabPage1
             // 
@@ -204,59 +174,40 @@ namespace aGrader
             this.tabPage1.Controls.Add(this.tbpath);
             this.tabPage1.Controls.Add(this.butBrowse);
             this.tabPage1.Controls.Add(this.lbCodes);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(303, 318);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Průzkumník";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // butReload
             // 
-            this.butReload.Location = new System.Drawing.Point(229, 3);
+            resources.ApplyResources(this.butReload, "butReload");
             this.butReload.Name = "butReload";
-            this.butReload.Size = new System.Drawing.Size(68, 23);
-            this.butReload.TabIndex = 9;
-            this.butReload.Text = "Obnovit";
             this.butReload.UseVisualStyleBackColor = true;
             this.butReload.Click += new System.EventHandler(this.butReload_Click);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 8);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Zvolte adresář se zdrojovými soubory";
             // 
             // tbpath
             // 
-            this.tbpath.Location = new System.Drawing.Point(3, 32);
+            resources.ApplyResources(this.tbpath, "tbpath");
             this.tbpath.Name = "tbpath";
             this.tbpath.ReadOnly = true;
-            this.tbpath.Size = new System.Drawing.Size(219, 20);
-            this.tbpath.TabIndex = 7;
-            this.tbpath.Text = "...";
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(228, 30);
+            resources.ApplyResources(this.butBrowse, "butBrowse");
             this.butBrowse.Name = "butBrowse";
-            this.butBrowse.Size = new System.Drawing.Size(69, 23);
-            this.butBrowse.TabIndex = 0;
-            this.butBrowse.Text = "Procházet";
             this.butBrowse.UseVisualStyleBackColor = true;
             this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
             // 
             // lbCodes
             // 
             this.lbCodes.FormattingEnabled = true;
-            this.lbCodes.Location = new System.Drawing.Point(-4, 58);
+            resources.ApplyResources(this.lbCodes, "lbCodes");
             this.lbCodes.Name = "lbCodes";
-            this.lbCodes.Size = new System.Drawing.Size(307, 264);
-            this.lbCodes.TabIndex = 5;
             this.lbCodes.SelectedIndexChanged += new System.EventHandler(this.lbCodes_SelectedIndexChanged);
             // 
             // tabProtocol
@@ -269,144 +220,100 @@ namespace aGrader
             this.tabProtocol.Controls.Add(this.labHelop);
             this.tabProtocol.Controls.Add(this.cbobjects);
             this.tabProtocol.Controls.Add(this.lbObjects);
-            this.tabProtocol.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabProtocol, "tabProtocol");
             this.tabProtocol.Name = "tabProtocol";
-            this.tabProtocol.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProtocol.Size = new System.Drawing.Size(303, 318);
-            this.tabProtocol.TabIndex = 1;
-            this.tabProtocol.Text = "Protokol";
             this.tabProtocol.UseVisualStyleBackColor = true;
             // 
             // butExport
             // 
-            this.butExport.Location = new System.Drawing.Point(172, 289);
+            resources.ApplyResources(this.butExport, "butExport");
             this.butExport.Name = "butExport";
-            this.butExport.Size = new System.Drawing.Size(125, 23);
-            this.butExport.TabIndex = 10;
-            this.butExport.Text = "Exportovat";
             this.butExport.UseVisualStyleBackColor = true;
             this.butExport.Click += new System.EventHandler(this.butExport_Click);
             // 
             // butImport
             // 
-            this.butImport.Location = new System.Drawing.Point(6, 289);
+            resources.ApplyResources(this.butImport, "butImport");
             this.butImport.Name = "butImport";
-            this.butImport.Size = new System.Drawing.Size(125, 23);
-            this.butImport.TabIndex = 9;
-            this.butImport.Text = "Importovat";
             this.butImport.UseVisualStyleBackColor = true;
             this.butImport.Click += new System.EventHandler(this.butImport_Click);
             // 
             // butMoveDown
             // 
-            this.butMoveDown.Location = new System.Drawing.Point(243, 110);
+            resources.ApplyResources(this.butMoveDown, "butMoveDown");
             this.butMoveDown.Name = "butMoveDown";
-            this.butMoveDown.Size = new System.Drawing.Size(54, 23);
-            this.butMoveDown.TabIndex = 8;
-            this.butMoveDown.Text = "ˇ";
             this.butMoveDown.UseVisualStyleBackColor = true;
             this.butMoveDown.Click += new System.EventHandler(this.butMoveDown_Click);
             // 
             // butMoveUp
             // 
-            this.butMoveUp.Location = new System.Drawing.Point(172, 110);
+            resources.ApplyResources(this.butMoveUp, "butMoveUp");
             this.butMoveUp.Name = "butMoveUp";
-            this.butMoveUp.Size = new System.Drawing.Size(54, 23);
-            this.butMoveUp.TabIndex = 7;
-            this.butMoveUp.Text = "^";
             this.butMoveUp.UseVisualStyleBackColor = true;
             this.butMoveUp.Click += new System.EventHandler(this.butMoveUp_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 3);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Tvorba testovacího protokolu";
             // 
             // labHelop
             // 
-            this.labHelop.AutoSize = true;
-            this.labHelop.Location = new System.Drawing.Point(3, 46);
+            resources.ApplyResources(this.labHelop, "labHelop");
             this.labHelop.Name = "labHelop";
-            this.labHelop.Size = new System.Drawing.Size(128, 13);
-            this.labHelop.TabIndex = 2;
-            this.labHelop.Text = "Zvolte požadovaný úkon.";
             // 
             // cbobjects
             // 
             this.cbobjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobjects.FormattingEnabled = true;
-            this.cbobjects.Location = new System.Drawing.Point(0, 83);
+            resources.ApplyResources(this.cbobjects, "cbobjects");
             this.cbobjects.Name = "cbobjects";
-            this.cbobjects.Size = new System.Drawing.Size(303, 21);
-            this.cbobjects.TabIndex = 1;
             // 
             // lbObjects
             // 
             this.lbObjects.FormattingEnabled = true;
-            this.lbObjects.Location = new System.Drawing.Point(0, 136);
+            resources.ApplyResources(this.lbObjects, "lbObjects");
             this.lbObjects.Name = "lbObjects";
-            this.lbObjects.Size = new System.Drawing.Size(303, 147);
-            this.lbObjects.TabIndex = 0;
             this.lbObjects.SelectedIndexChanged += new System.EventHandler(this.lbObjects_SelectedIndexChanged);
             // 
             // lErrorMessage
             // 
             this.lErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lErrorMessage.Location = new System.Drawing.Point(287, 12);
+            resources.ApplyResources(this.lErrorMessage, "lErrorMessage");
             this.lErrorMessage.Name = "lErrorMessage";
-            this.lErrorMessage.Size = new System.Drawing.Size(224, 23);
-            this.lErrorMessage.TabIndex = 8;
-            this.lErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // butShowTests
             // 
-            this.butShowTests.Location = new System.Drawing.Point(117, 12);
+            resources.ApplyResources(this.butShowTests, "butShowTests");
             this.butShowTests.Name = "butShowTests";
-            this.butShowTests.Size = new System.Drawing.Size(75, 23);
-            this.butShowTests.TabIndex = 9;
-            this.butShowTests.Text = "průběh testů";
             this.butShowTests.UseVisualStyleBackColor = true;
-            this.butShowTests.Visible = false;
             this.butShowTests.Click += new System.EventHandler(this.butShowTestProgress_Click);
             // 
             // butOpenFile
             // 
-            this.butOpenFile.Location = new System.Drawing.Point(198, 12);
+            resources.ApplyResources(this.butOpenFile, "butOpenFile");
             this.butOpenFile.Name = "butOpenFile";
-            this.butOpenFile.Size = new System.Drawing.Size(83, 23);
-            this.butOpenFile.TabIndex = 10;
-            this.butOpenFile.Text = "otevřít soubor";
             this.butOpenFile.UseVisualStyleBackColor = true;
-            this.butOpenFile.Visible = false;
             this.butOpenFile.Click += new System.EventHandler(this.butOpenFile_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 355);
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
-            this.statusStrip1.TabIndex = 11;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // progressBar
             // 
-            this.progressBar.AutoSize = false;
+            resources.ApplyResources(this.progressBar, "progressBar");
             this.progressBar.Margin = new System.Windows.Forms.Padding(11, 4, 1, 3);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(500, 15);
             this.progressBar.Step = 1;
             // 
             // aGrader
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 377);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.butOpenFile);
             this.Controls.Add(this.butShowTests);
@@ -415,10 +322,8 @@ namespace aGrader
             this.Controls.Add(this.butRunTest);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "aGrader";
-            this.Text = "aGrader -automated programming assessment grading BETA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

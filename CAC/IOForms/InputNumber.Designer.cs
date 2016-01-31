@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputNumber));
             this.numeric = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numeric)).BeginInit();
@@ -35,16 +36,16 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 49);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 49);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // numeric
             // 
             this.numeric.DecimalPlaces = 3;
-            this.numeric.Location = new System.Drawing.Point(12, 23);
+            resources.ApplyResources(this.numeric, "numeric");
             this.numeric.Maximum = new decimal(new int[] {
             2000000000,
             0,
@@ -56,27 +57,19 @@
             0,
             -2147483648});
             this.numeric.Name = "numeric";
-            this.numeric.Size = new System.Drawing.Size(239, 20);
-            this.numeric.TabIndex = 19;
-            this.numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 7);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Číslo";
             // 
-            // InputNumber2
+            // InputNumber
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 82);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.numeric);
             this.Controls.Add(this.label1);
-            this.Name = "InputNumber2";
+            this.Name = "InputNumber";
             this.Activated += new System.EventHandler(this.InputNumber_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);

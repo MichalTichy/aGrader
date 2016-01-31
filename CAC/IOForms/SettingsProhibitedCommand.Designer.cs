@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsProhibitedCommand));
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.Text = "Zakázaný příkaz";
+            resources.ApplyResources(this.label1, "label1");
             // 
             // SettingsProhibitedCommand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 85);
+            resources.ApplyResources(this, "$this");
             this.Name = "SettingsProhibitedCommand";
             this.ResumeLayout(false);
             this.PerformLayout();

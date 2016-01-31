@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutputString));
+            this.SuspendLayout();
+            // 
+            // OutputString
+            // 
+            resources.ApplyResources(this, "$this");
+            this.Name = "OutputString";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

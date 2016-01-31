@@ -117,7 +117,252 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chartResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="chartResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 322</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chartResults.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chartResults.Text" xml:space="preserve">
+    <value>chart1</value>
+  </data>
+  <data name="&gt;&gt;chartResults.Name" xml:space="preserve">
+    <value>chartResults</value>
+  </data>
+  <data name="&gt;&gt;chartResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;chartResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chartResults.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="cbCorrect.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbCorrect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 328</value>
+  </data>
+  <data name="cbCorrect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
+  </data>
+  <data name="cbCorrect.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cbCorrect.Text" xml:space="preserve">
+    <value>Počet správých výstupů</value>
+  </data>
+  <data name="&gt;&gt;cbCorrect.Name" xml:space="preserve">
+    <value>cbCorrect</value>
+  </data>
+  <data name="&gt;&gt;cbCorrect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCorrect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCorrect.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cbWrong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbWrong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 328</value>
+  </data>
+  <data name="cbWrong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
+  </data>
+  <data name="cbWrong.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="cbWrong.Text" xml:space="preserve">
+    <value>Počet špatných výstupů</value>
+  </data>
+  <data name="&gt;&gt;cbWrong.Name" xml:space="preserve">
+    <value>cbWrong</value>
+  </data>
+  <data name="&gt;&gt;cbWrong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbWrong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbWrong.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cbProcessorTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbProcessorTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 328</value>
+  </data>
+  <data name="cbProcessorTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 17</value>
+  </data>
+  <data name="cbProcessorTime.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbProcessorTime.Text" xml:space="preserve">
+    <value>Náročnost (processor time)</value>
+  </data>
+  <data name="&gt;&gt;cbProcessorTime.Name" xml:space="preserve">
+    <value>cbProcessorTime</value>
+  </data>
+  <data name="&gt;&gt;cbProcessorTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbProcessorTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbProcessorTime.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbSort.Items" xml:space="preserve">
+    <value>názvu</value>
+  </data>
+  <data name="cbSort.Items1" xml:space="preserve">
+    <value>počtu správných</value>
+  </data>
+  <data name="cbSort.Items2" xml:space="preserve">
+    <value>počtu špatných</value>
+  </data>
+  <data name="cbSort.Items3" xml:space="preserve">
+    <value>processor time</value>
+  </data>
+  <data name="cbSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 141</value>
+  </data>
+  <data name="cbSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbSort.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbSort.Name" xml:space="preserve">
+    <value>cbSort</value>
+  </data>
+  <data name="&gt;&gt;cbSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSort.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbSort.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 125</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Seřadit podle:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="butSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 259</value>
+  </data>
+  <data name="butSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="butSave.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="butSave.Text" xml:space="preserve">
+    <value>Uložit graf</value>
+  </data>
+  <data name="&gt;&gt;butSave.Name" xml:space="preserve">
+    <value>butSave</value>
+  </data>
+  <data name="&gt;&gt;butSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butSave.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;butSave.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="saveImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="saveImage.Filter" xml:space="preserve">
+    <value>bmp (*.bmp)|*.bmp"</value>
+  </data>
+  <data name="chartBIG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 378</value>
+  </data>
+  <data name="chartBIG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>2500, 900</value>
+  </data>
+  <data name="chartBIG.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="chartBIG.Text" xml:space="preserve">
+    <value>chart1</value>
+  </data>
+  <data name="chartBIG.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;chartBIG.Name" xml:space="preserve">
+    <value>chartBIG</value>
+  </data>
+  <data name="&gt;&gt;chartBIG.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;chartBIG.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chartBIG.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>739, 345</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Graf</value>
+  </data>
+  <data name="&gt;&gt;saveImage.Name" xml:space="preserve">
+    <value>saveImage</value>
+  </data>
+  <data name="&gt;&gt;saveImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Graph</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

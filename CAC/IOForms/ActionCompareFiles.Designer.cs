@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionCompareFiles));
             this.butBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
@@ -43,94 +44,64 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 155);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 155);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(214, 32);
+            resources.ApplyResources(this.butBrowse, "butBrowse");
             this.butBrowse.Name = "butBrowse";
-            this.butBrowse.Size = new System.Drawing.Size(37, 23);
-            this.butBrowse.TabIndex = 30;
-            this.butBrowse.Text = "...";
             this.butBrowse.UseVisualStyleBackColor = true;
             this.butBrowse.Click += new System.EventHandler(this.butBrowse_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 13);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Cesta ke kontrolnímu souboru";
             // 
             // tbPath
             // 
-            this.tbPath.Location = new System.Drawing.Point(12, 35);
+            resources.ApplyResources(this.tbPath, "tbPath");
             this.tbPath.Name = "tbPath";
             this.tbPath.ReadOnly = true;
-            this.tbPath.Size = new System.Drawing.Size(196, 20);
-            this.tbPath.TabIndex = 28;
             // 
             // radioHash
             // 
-            this.radioHash.AutoSize = true;
-            this.radioHash.Location = new System.Drawing.Point(169, 3);
+            resources.ApplyResources(this.radioHash, "radioHash");
             this.radioHash.Name = "radioHash";
-            this.radioHash.Size = new System.Drawing.Size(72, 17);
-            this.radioHash.TabIndex = 38;
-            this.radioHash.Text = "jen HASH";
             this.radioHash.UseVisualStyleBackColor = true;
             // 
             // radioLines
             // 
-            this.radioLines.AutoSize = true;
+            resources.ApplyResources(this.radioLines, "radioLines");
             this.radioLines.Checked = true;
-            this.radioLines.Location = new System.Drawing.Point(3, 3);
             this.radioLines.Name = "radioLines";
-            this.radioLines.Size = new System.Drawing.Size(79, 17);
-            this.radioLines.TabIndex = 37;
             this.radioLines.TabStop = true;
-            this.radioLines.Text = "Po řádcích";
             this.radioLines.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.radioHash);
             this.panel1.Controls.Add(this.radioLines);
-            this.panel1.Location = new System.Drawing.Point(12, 125);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 24);
-            this.panel1.TabIndex = 45;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 111);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "Porovnávat:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(13, 58);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(234, 36);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Soubor k porovnání musí být ve stejné složce\r\njako zdrojové kódy a mít název ve t" +
-    "varu:\r\njménoZdrojovéhoSouboru.txt";
             // 
             // ActionCompareFiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 190);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);

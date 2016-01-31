@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionRepeatLast));
             this.labLastAction = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,48 +38,32 @@
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(251, 75);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // labLastAction
             // 
-            this.labLastAction.AutoSize = true;
-            this.labLastAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labLastAction.Location = new System.Drawing.Point(12, 22);
+            resources.ApplyResources(this.labLastAction, "labLastAction");
             this.labLastAction.Name = "labLastAction";
-            this.labLastAction.Size = new System.Drawing.Size(64, 13);
-            this.labLastAction.TabIndex = 21;
-            this.labLastAction.Text = "Loading...";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Akce k zopakování:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Počet opakování";
             // 
             // numeric
             // 
-            this.numeric.Location = new System.Drawing.Point(108, 46);
+            resources.ApplyResources(this.numeric, "numeric");
             this.numeric.Name = "numeric";
-            this.numeric.Size = new System.Drawing.Size(203, 20);
-            this.numeric.TabIndex = 18;
             this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
             // 
             // ActionRepeatLast
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(323, 110);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.labLastAction);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

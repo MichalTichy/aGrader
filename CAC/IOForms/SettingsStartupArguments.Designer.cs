@@ -28,42 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsStartupArguments));
             this.label1 = new System.Windows.Forms.Label();
             this.tbArguments = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // butClose
             // 
-            this.butClose.Location = new System.Drawing.Point(191, 51);
+            resources.ApplyResources(this.butClose, "butClose");
             // 
             // butAddOrDelete
             // 
-            this.butAddOrDelete.Location = new System.Drawing.Point(12, 51);
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Spouštěcí parametry";
             // 
             // tbArguments
             // 
-            this.tbArguments.Location = new System.Drawing.Point(12, 25);
+            resources.ApplyResources(this.tbArguments, "tbArguments");
             this.tbArguments.Name = "tbArguments";
-            this.tbArguments.Size = new System.Drawing.Size(239, 20);
-            this.tbArguments.TabIndex = 20;
             this.tbArguments.TextChanged += new System.EventHandler(this.tbString_TextChanged);
             // 
-            // ActionStartupArguments
+            // SettingsStartupArguments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(263, 85);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbArguments);
-            this.Name = "ActionStartupArguments";
+            this.Name = "SettingsStartupArguments";
             this.Activated += new System.EventHandler(this.InputString_Activated);
             this.Controls.SetChildIndex(this.butAddOrDelete, 0);
             this.Controls.SetChildIndex(this.butClose, 0);
