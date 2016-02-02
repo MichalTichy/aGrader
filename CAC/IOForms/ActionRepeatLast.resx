@@ -162,7 +162,7 @@
     <value>21</value>
   </data>
   <data name="labLastAction.Text" xml:space="preserve">
-    <value>Loading...</value>
+    <value>Loading ...</value>
   </data>
   <data name="&gt;&gt;labLastAction.Name" xml:space="preserve">
     <value>labLastAction</value>

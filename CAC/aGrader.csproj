@@ -253,73 +253,85 @@
     <Compile Include="sourceCodes\SourceCodes.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="TestResult.cs" />
-    <EmbeddedResource Include="Graph.en.resx">
+    <EmbeddedResource Include="Graph.cs-CZ.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\ActionCompareFiles.en.resx">
+    <EmbeddedResource Include="IOForms\ActionCompareFiles.cs-CZ.resx">
       <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionCompareFiles.resx">
       <DependentUpon>ActionCompareFiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.en.resx">
+    <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.cs-CZ.resx">
       <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionLoadOutputsFromTextFile.resx">
       <DependentUpon>ActionLoadOutputsFromTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\ActionRepeatLast.en.resx">
+    <EmbeddedResource Include="IOForms\ActionRepeatLast.cs-CZ.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\InputNumber.en.resx">
+    <EmbeddedResource Include="IOForms\InputNumber.cs-CZ.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputNumber.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\InputOutputForm.en.resx">
+    <EmbeddedResource Include="IOForms\InputOutputForm.cs-CZ.resx">
       <DependentUpon>InputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputOutputForm.resx">
       <DependentUpon>InputOutputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\InputRandomNumber.en.resx">
+    <EmbeddedResource Include="IOForms\InputRandomNumber.cs-CZ.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputRandomNumber.resx">
       <DependentUpon>InputRandomNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\InputString.en.resx">
+    <EmbeddedResource Include="IOForms\InputString.cs-CZ.resx">
       <DependentUpon>InputString.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\InputTextFile.en.resx">
+    <EmbeddedResource Include="IOForms\InputTextFile.cs-CZ.resx">
       <DependentUpon>InputTextFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\OutputCountOfNumbersMatchingConditions.en.resx">
+    <EmbeddedResource Include="IOForms\OutputCountOfNumbersMatchingConditions.cs-CZ.resx">
       <DependentUpon>OutputCountOfNumbersMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\OutputNumberBasedOnRandomInput.en.resx">
+    <EmbeddedResource Include="IOForms\OutputNumber.cs-CZ.resx">
+      <DependentUpon>OutputNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputNumber.resx">
+      <DependentUpon>OutputNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputNumberBasedOnRandomInput.cs-CZ.resx">
       <DependentUpon>OutputNumberBasedOnRandomInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\OutputNumberMatchingConditions.en.resx">
+    <EmbeddedResource Include="IOForms\OutputNumberMatchingConditions.cs-CZ.resx">
       <DependentUpon>OutputNumberMatchingConditions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\SettingsDeviation.en.resx">
+    <EmbeddedResource Include="IOForms\OutputString.cs-CZ.resx">
+      <DependentUpon>OutputString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\OutputString.resx">
+      <DependentUpon>OutputString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\SettingsDeviation.cs-CZ.resx">
       <DependentUpon>SettingsDeviation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\SettingsProhibitedCommand.en.resx">
+    <EmbeddedResource Include="IOForms\SettingsProhibitedCommand.cs-CZ.resx">
       <DependentUpon>SettingsProhibitedCommand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\SettingsRequiedCommand.en.resx">
+    <EmbeddedResource Include="IOForms\SettingsRequiedCommand.cs-CZ.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\SettingsStartupArguments.en.resx">
+    <EmbeddedResource Include="IOForms\SettingsStartupArguments.cs-CZ.resx">
       <DependentUpon>SettingsStartupArguments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\SettingsStartupArguments.resx">
@@ -349,25 +361,25 @@
     <EmbeddedResource Include="IOForms\SettingsRequiedCommand.resx">
       <DependentUpon>SettingsRequiedCommand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IOForms\SettingsTimeout.en.resx">
+    <EmbeddedResource Include="IOForms\SettingsTimeout.cs-CZ.resx">
       <DependentUpon>SettingsTimeout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\SettingsTimeout.resx">
       <DependentUpon>SettingsTimeout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LanguageSelection.en.resx">
+    <EmbeddedResource Include="LanguageSelection.cs-CZ.resx">
       <DependentUpon>LanguageSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelection.resx">
       <DependentUpon>LanguageSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.en.resx">
+    <EmbeddedResource Include="MainForm.cs-CZ.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.cs-CZ.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -378,7 +390,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WelcomeForm.en.resx">
+    <EmbeddedResource Include="WelcomeForm.cs-CZ.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">

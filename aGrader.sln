@@ -29,7 +29,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_NeutralResourcesLanguage = en-US
 		RESX_AutoCreateNewLanguageFiles = True
-		RESX_NeutralResourcesLanguage = cs-CZ
 	EndGlobalSection
 EndGlobal
