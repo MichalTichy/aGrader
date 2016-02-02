@@ -110,7 +110,6 @@ namespace aGrader
                       Path.GetFileNameWithoutExtension(SourceCode.Path) + ".txt";
             try
             {
-
                 _outputs.AddRange(File.ReadAllLines(textFilePath));
             }
             catch (FileNotFoundException)

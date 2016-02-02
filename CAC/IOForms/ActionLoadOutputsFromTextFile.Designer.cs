@@ -32,6 +32,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // butClose
+            // 
+            resources.ApplyResources(this.butClose, "butClose");
+            // 
+            // butAddOrDelete
+            // 
+            resources.ApplyResources(this.butAddOrDelete, "butAddOrDelete");
+            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");

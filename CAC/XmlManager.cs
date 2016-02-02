@@ -34,9 +34,9 @@ namespace aGrader
             catch (Exception exception)
             {
                 ExceptionsLog.LogException(exception.ToString());
-                MessageBox.Show("Protokol se nepodařilo exportovat.");
+                MessageBox.Show(Resources.XmlManager_ExportFailed);
             }
-            MessageBox.Show("Protokol byl úspěšně vyexportován.");
+            MessageBox.Show(Resources.XmlManager_ExportWasSuccesful);
         }
         #region generation of XML nodes
 
