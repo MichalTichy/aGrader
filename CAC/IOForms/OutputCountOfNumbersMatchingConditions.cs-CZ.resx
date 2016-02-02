@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Počet čísel</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Podmínka</value>
+  </data>
+  <data name="butRemoveConditon.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="butAddCondition.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Number</value>
+    <value>Podmínky</value>
+  </data>
+  <data name="radioOutputs.Text" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="radioInputs.Text" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Odchylka není brána v potaz!</value>
   </data>
 </root>

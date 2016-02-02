@@ -183,8 +183,7 @@
     <value>24</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Číslo závislé na
-náhodném vstupu</value>
+    <value>Number based in generated input.</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

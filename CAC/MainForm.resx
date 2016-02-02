@@ -139,7 +139,7 @@
     <value>2</value>
   </data>
   <data name="butSaveLog.Text" xml:space="preserve">
-    <value>Uložit</value>
+    <value>Save</value>
   </data>
   <data name="butSaveLog.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -169,7 +169,7 @@
     <value>1</value>
   </data>
   <data name="butChart.Text" xml:space="preserve">
-    <value>Graf</value>
+    <value>Graph</value>
   </data>
   <data name="butChart.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -349,7 +349,7 @@
     <value>5</value>
   </data>
   <data name="butRunTest.Text" xml:space="preserve">
-    <value>Spustit test</value>
+    <value>Run test</value>
   </data>
   <data name="&gt;&gt;butRunTest.Name" xml:space="preserve">
     <value>butRunTest</value>
@@ -373,7 +373,7 @@
     <value>9</value>
   </data>
   <data name="butReload.Text" xml:space="preserve">
-    <value>Obnovit</value>
+    <value>Refresh</value>
   </data>
   <data name="&gt;&gt;butReload.Name" xml:space="preserve">
     <value>butReload</value>
@@ -400,7 +400,7 @@
     <value>8</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Zvolte adresář se zdrojovými soubory</value>
+    <value>Choose directory with source code files</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -448,7 +448,7 @@
     <value>0</value>
   </data>
   <data name="butBrowse.Text" xml:space="preserve">
-    <value>Procházet</value>
+    <value>Browse</value>
   </data>
   <data name="&gt;&gt;butBrowse.Name" xml:space="preserve">
     <value>butBrowse</value>
@@ -496,7 +496,7 @@
     <value>0</value>
   </data>
   <data name="tabPage1.Text" xml:space="preserve">
-    <value>Průzkumník</value>
+    <value>File browser</value>
   </data>
   <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
     <value>tabPage1</value>
@@ -520,7 +520,7 @@
     <value>10</value>
   </data>
   <data name="butExport.Text" xml:space="preserve">
-    <value>Exportovat</value>
+    <value>Export</value>
   </data>
   <data name="&gt;&gt;butExport.Name" xml:space="preserve">
     <value>butExport</value>
@@ -544,7 +544,7 @@
     <value>9</value>
   </data>
   <data name="butImport.Text" xml:space="preserve">
-    <value>Importovat</value>
+    <value>Import</value>
   </data>
   <data name="&gt;&gt;butImport.Name" xml:space="preserve">
     <value>butImport</value>
@@ -619,7 +619,7 @@
     <value>4</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Tvorba testovacího protokolu</value>
+    <value>Test protocol creation</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -646,7 +646,7 @@
     <value>2</value>
   </data>
   <data name="labHelop.Text" xml:space="preserve">
-    <value>Zvolte požadovaný úkon.</value>
+    <value>Choose requested task.</value>
   </data>
   <data name="&gt;&gt;labHelop.Name" xml:space="preserve">
     <value>labHelop</value>
@@ -715,7 +715,7 @@
     <value>1</value>
   </data>
   <data name="tabProtocol.Text" xml:space="preserve">
-    <value>Protokol</value>
+    <value>Protocol</value>
   </data>
   <data name="&gt;&gt;tabProtocol.Name" xml:space="preserve">
     <value>tabProtocol</value>
@@ -784,7 +784,7 @@
     <value>9</value>
   </data>
   <data name="butShowTests.Text" xml:space="preserve">
-    <value>průběh testů</value>
+    <value>tests progress</value>
   </data>
   <data name="butShowTests.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -811,7 +811,7 @@
     <value>10</value>
   </data>
   <data name="butOpenFile.Text" xml:space="preserve">
-    <value>otevřít soubor</value>
+    <value>open file</value>
   </data>
   <data name="butOpenFile.Visible" type="System.Boolean, mscorlib">
     <value>False</value>

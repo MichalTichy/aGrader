@@ -162,7 +162,7 @@
     <value>33</value>
   </data>
   <data name="cbNoDecimal.Text" xml:space="preserve">
-    <value>jen celá čísla</value>
+    <value>Integers only</value>
   </data>
   <data name="&gt;&gt;cbNoDecimal.Name" xml:space="preserve">
     <value>cbNoDecimal</value>
@@ -292,7 +292,7 @@
     <value>28</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Náhodné číslo</value>
+    <value>Random number</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

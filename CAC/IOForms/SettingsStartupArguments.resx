@@ -162,7 +162,7 @@
     <value>21</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Spouštěcí parametry</value>
+    <value>Startup parameters</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

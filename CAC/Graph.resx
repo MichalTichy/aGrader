@@ -156,7 +156,7 @@
     <value>1</value>
   </data>
   <data name="cbCorrect.Text" xml:space="preserve">
-    <value>Počet správých výstupů</value>
+    <value>Count of right outputs</value>
   </data>
   <data name="&gt;&gt;cbCorrect.Name" xml:space="preserve">
     <value>cbCorrect</value>
@@ -183,7 +183,7 @@
     <value>2</value>
   </data>
   <data name="cbWrong.Text" xml:space="preserve">
-    <value>Počet špatných výstupů</value>
+    <value>Count of wrong outputs</value>
   </data>
   <data name="&gt;&gt;cbWrong.Name" xml:space="preserve">
     <value>cbWrong</value>
@@ -210,7 +210,7 @@
     <value>3</value>
   </data>
   <data name="cbProcessorTime.Text" xml:space="preserve">
-    <value>Náročnost (processor time)</value>
+    <value>Run time (processor time)</value>
   </data>
   <data name="&gt;&gt;cbProcessorTime.Name" xml:space="preserve">
     <value>cbProcessorTime</value>
@@ -225,13 +225,13 @@
     <value>4</value>
   </data>
   <data name="cbSort.Items" xml:space="preserve">
-    <value>názvu</value>
+    <value>name</value>
   </data>
   <data name="cbSort.Items1" xml:space="preserve">
-    <value>počtu správných</value>
+    <value>Count of right outputs</value>
   </data>
   <data name="cbSort.Items2" xml:space="preserve">
-    <value>počtu špatných</value>
+    <value>Count of wrong outputs</value>
   </data>
   <data name="cbSort.Items3" xml:space="preserve">
     <value>processor time</value>
@@ -270,7 +270,7 @@
     <value>5</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Seřadit podle:</value>
+    <value>Sort by:</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -294,7 +294,7 @@
     <value>6</value>
   </data>
   <data name="butSave.Text" xml:space="preserve">
-    <value>Uložit graf</value>
+    <value>Save graph</value>
   </data>
   <data name="&gt;&gt;butSave.Name" xml:space="preserve">
     <value>butSave</value>
@@ -351,7 +351,7 @@
     <value>739, 345</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Graf</value>
+    <value>Graph</value>
   </data>
   <data name="&gt;&gt;saveImage.Name" xml:space="preserve">
     <value>saveImage</value>

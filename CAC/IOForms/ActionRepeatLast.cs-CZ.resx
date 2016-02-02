@@ -117,28 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Count of numbers</value>
+  <data name="labLastAction.Text" xml:space="preserve">
+    <value>Načítání...</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Condition</value>
-  </data>
-  <data name="butRemoveConditon.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="butAddCondition.Text" xml:space="preserve">
-    <value>+</value>
+    <value>Akce k zopakování:</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Conditions</value>
-  </data>
-  <data name="radioOutputs.Text" xml:space="preserve">
-    <value>Outputs</value>
-  </data>
-  <data name="radioInputs.Text" xml:space="preserve">
-    <value>Inputs</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Deviation is ignored!</value>
+    <value>Počet opakování</value>
   </data>
 </root>

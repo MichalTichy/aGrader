@@ -190,4 +190,10 @@ jménoZdrojovéhoSouboru.txt</value>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>aGrader.IOForms.InputOutputForm, aGrader, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="butBrowse.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Path to file</value>
+  </data>
 </root>

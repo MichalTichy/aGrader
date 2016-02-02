@@ -183,7 +183,7 @@
     <value>42</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Počet čísel</value>
+    <value>Count of numbers</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -210,7 +210,7 @@
     <value>41</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Podmínka</value>
+    <value>Condition</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -327,7 +327,7 @@
     <value>36</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Podmínky</value>
+    <value>Conditions</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -354,7 +354,7 @@
     <value>38</value>
   </data>
   <data name="radioOutputs.Text" xml:space="preserve">
-    <value>Výstupy</value>
+    <value>Outputs</value>
   </data>
   <data name="&gt;&gt;radioOutputs.Name" xml:space="preserve">
     <value>radioOutputs</value>
@@ -381,7 +381,7 @@
     <value>37</value>
   </data>
   <data name="radioInputs.Text" xml:space="preserve">
-    <value>Vstupy</value>
+    <value>Inputs</value>
   </data>
   <data name="&gt;&gt;radioInputs.Name" xml:space="preserve">
     <value>radioInputs</value>
@@ -429,7 +429,7 @@
     <value>45</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>Odchylka není brána v potaz!</value>
+    <value>Deviation is ignored!</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>

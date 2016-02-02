@@ -129,7 +129,7 @@
     <value>17</value>
   </data>
   <data name="butClose.Text" xml:space="preserve">
-    <value>Zavřít</value>
+    <value>Close</value>
   </data>
   <data name="&gt;&gt;butClose.Name" xml:space="preserve">
     <value>butClose</value>
@@ -153,7 +153,7 @@
     <value>16</value>
   </data>
   <data name="butAddOrDelete.Text" xml:space="preserve">
-    <value>Přidat</value>
+    <value>Add</value>
   </data>
   <data name="&gt;&gt;butAddOrDelete.Name" xml:space="preserve">
     <value>butAddOrDelete</value>

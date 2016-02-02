@@ -118,18 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Condition</value>
-  </data>
-  <data name="butRemoveConditon.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="butAddCondition.Text" xml:space="preserve">
-    <value>+</value>
+    <value>odchylka je standardně 0.001</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Conditions</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Deviation is ignored!</value>
+    <value>Maximální odchylka</value>
   </data>
 </root>

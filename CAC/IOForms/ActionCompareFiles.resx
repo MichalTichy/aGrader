@@ -186,7 +186,7 @@
     <value>29</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Cesta ke kontrolnímu souboru</value>
+    <value>Path to reference file</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -234,7 +234,7 @@
     <value>38</value>
   </data>
   <data name="radioHash.Text" xml:space="preserve">
-    <value>jen HASH</value>
+    <value>HASH only</value>
   </data>
   <data name="&gt;&gt;radioHash.Name" xml:space="preserve">
     <value>radioHash</value>
@@ -261,7 +261,7 @@
     <value>37</value>
   </data>
   <data name="radioLines.Text" xml:space="preserve">
-    <value>Po řádcích</value>
+    <value>line by line</value>
   </data>
   <data name="&gt;&gt;radioLines.Name" xml:space="preserve">
     <value>radioLines</value>
@@ -309,7 +309,7 @@
     <value>46</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Porovnávat:</value>
+    <value>Compare:</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -342,9 +342,9 @@
     <value>47</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Soubor k porovnání musí být ve stejné složce
-jako zdrojové kódy a mít název ve tvaru:
-jménoZdrojovéhoSouboru.txt</value>
+    <value>Reference file has to be in the same folder
+ as source codes and has to have name in format:
+nameOfSourceCode.txt</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>

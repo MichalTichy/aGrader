@@ -187,7 +187,7 @@
     <value>18</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Číslo</value>
+    <value>Number</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

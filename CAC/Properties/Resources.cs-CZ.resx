@@ -118,312 +118,318 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NothingToRepeat" xml:space="preserve">
-    <value>Nothing to repeat.</value>
+    <value>Není co opakovat.</value>
   </data>
   <data name="NoValidFilesFound" xml:space="preserve">
-    <value>No valid files were found.</value>
+    <value>Nebyly nalezeny žádné platné soubory.</value>
   </data>
   <data name="DirectoryDoesNotExist" xml:space="preserve">
-    <value>The directory does not exist.</value>
+    <value>Adresář neexistuje!</value>
   </data>
   <data name="MainForm_YouHaveToSelectDirectoryWithSourceCodes" xml:space="preserve">
-    <value>You have to select a directory with source codes first.</value>
+    <value>Nejdříve musíte zvolit adresář obsahující zdrojové kódy.</value>
   </data>
   <data name="CannotCompile" xml:space="preserve">
-    <value>Cannot compile the source code.</value>
+    <value>Kód nemůže být zkompilován!</value>
   </data>
   <data name="MainForm_CannotOpenFile" xml:space="preserve">
-    <value>The file was not opened.
-List of files will be refreshed now.</value>
+    <value>Soubor se nepovedlo otevřít.
+Seznam souborů bude nyní aktualizován.</value>
   </data>
   <data name="MainForm_CantUseRequestedGeneratedNumbers" xml:space="preserve">
-    <value>Requested generated numbers no longer cannot be used.</value>
-  </data>
-  <data name="MainForm_InputsAndOutputsWillBeOverwriten" xml:space="preserve">
-    <value>Existing inputs/outputs will be overwriten.</value>
+    <value>Požadovaná náhodná čísla nelze nadále použít!</value>
   </data>
   <data name="MainForm_NothingToExport" xml:space="preserve">
-    <value>Nothing to export. You have to add some Input/Output to the protocol first.</value>
+    <value>Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup.</value>
+  </data>
+  <data name="MainForm_InputsAndOutputsWillBeOverwriten" xml:space="preserve">
+    <value>Budou přepsány stávající vstupy/výstupy!</value>
   </data>
   <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
+    <value>Upozornění</value>
   </data>
   <data name="FileFilter_XML" xml:space="preserve">
-    <value>XML files (*.xml)|*.xml</value>
+    <value>XML soubory (*.xml)|*.xml</value>
   </data>
   <data name="MainForm_NoSourceCodesInSelectedDirectory" xml:space="preserve">
-    <value>There are no source codes in the selected directory!</value>
+    <value>Ve zvolené složce nejsou žádné zdrojové kódy!</value>
   </data>
   <data name="MainForm_YouNeedToCreateTestProtocolFirst" xml:space="preserve">
-    <value>You have to create test protocol first.</value>
+    <value>Musíte nejdříve vytvořit testovací protokol!</value>
   </data>
   <data name="Errors" xml:space="preserve">
-    <value>Errors</value>
+    <value>Errory</value>
   </data>
   <data name="ExpectedOutput" xml:space="preserve">
-    <value>Expected output</value>
-  </data>
-  <data name="MainForm_AllTestsWereFinnished" xml:space="preserve">
-    <value>All tests were finished.</value>
-  </data>
-  <data name="InputOutput" xml:space="preserve">
-    <value>Input/Output</value>
+    <value>Očekávaný výstup</value>
   </data>
   <data name="Input" xml:space="preserve">
-    <value>Input</value>
+    <value>Vstup</value>
+  </data>
+  <data name="InputOutput" xml:space="preserve">
+    <value>Vstup/Výstup</value>
+  </data>
+  <data name="MainForm_AllTestsWereFinnished" xml:space="preserve">
+    <value>Všechny testy byli dokončeny!</value>
   </data>
   <data name="MainForm_FileWasSuccessfulyTested" xml:space="preserve">
-    <value>File {0} was tested successully!</value>
+    <value>Soubor {0} byl  úspěšně otestován!</value>
   </data>
   <data name="MainForm_NumberOfFiles" xml:space="preserve">
-    <value>Number of files: {0}</value>
+    <value>Počet souborů: {0}</value>
   </data>
   <data name="MainForm_StartingTests" xml:space="preserve">
-    <value>Starting tests!</value>
+    <value>Zahajuji testy!</value>
   </data>
   <data name="MainForm_TestResultLine" xml:space="preserve">
-    <value>Correct: {0} | Incorrect: {1} | Time: {2}| {3}</value>
+    <value>Správně: {0} | Špatně: {1} | Čas: {2}| {3}</value>
   </data>
   <data name="NameOfFile" xml:space="preserve">
-    <value>File name</value>
+    <value>Jméno souboru</value>
   </data>
   <data name="Output" xml:space="preserve">
-    <value>Output</value>
+    <value>Výstup</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>Stav</value>
   </data>
   <data name="TestInProgress" xml:space="preserve">
-    <value>test in progress</value>
+    <value>testuje se</value>
   </data>
   <data name="FileFilter_TXT" xml:space="preserve">
-    <value>text file (*.txt) | *.txt</value>
+    <value>textový soubor (*.txt) | *.txt</value>
   </data>
   <data name="CouldNotLoadFile" xml:space="preserve">
-    <value>An error occurred while loading file {0}.</value>
+    <value>Soubor {0} se nepodařilo načíst.</value>
   </data>
   <data name="MainForm_CouldNotCreateTextFile" xml:space="preserve">
-    <value>An error occurred while creating a file {0}.</value>
-  </data>
-  <data name="LanguageSelection_ChooseFolderJavaMultiFiles" xml:space="preserve">
-    <value>Select directory that contains directories which contains "*.java" files (one directory = one test)</value>
-  </data>
-  <data name="LanguageSelection_ChooseFolderSingleJava" xml:space="preserve">
-    <value>Select directory that contains individual files with "*.java" extension (one file = one test)</value>
+    <value>Soubor {0} se nepodařilo vytvořit.</value>
   </data>
   <data name="LanguageSelection_ChoseCFiles" xml:space="preserve">
-    <value>Select directory that contains files with "*.c" extension.</value>
+    <value>Zvolte složku která obsahuje soubory s příponou .c</value>
+  </data>
+  <data name="LanguageSelection_ChooseFolderSingleJava" xml:space="preserve">
+    <value>Zvolte složku která obsahuje jednotlivé soubory s příponou "*.java" (jeden soubor jeden test)</value>
+  </data>
+  <data name="LanguageSelection_ChooseFolderJavaMultiFiles" xml:space="preserve">
+    <value>Zvolte složku která obsahuje složky které obsahují soubory s příponou "*.java"   (jedna složka jeden test)</value>
   </data>
   <data name="FileDoesNotExist" xml:space="preserve">
-    <value>File {0} does not exist.</value>
+    <value>Soubor {0} neexistuje.</value>
   </data>
   <data name="Test_AppDidNotEndedBeforeTimeout" xml:space="preserve">
-    <value>The application was not terminated before timeout ({0}s)\n</value>
+    <value>Aplikace nebyla ukončena před timeoutem ({0}s)\n</value>
   </data>
   <data name="Test_CompilatorNotFound" xml:space="preserve">
-    <value>Compilator was not found! \n {0}</value>
+    <value>Kompilátor nebyl nalezen! \n {0}</value>
   </data>
   <data name="Test_JavaNotFound" xml:space="preserve">
-    <value>Java was not found!\n{0}</value>
+    <value>Java nebyla nalezena!\n{0}</value>
   </data>
   <data name="Test_RequiedCommandWasNotFound" xml:space="preserve">
-    <value>Required command was not found: {0}</value>
+    <value>Nenalezen vyžadovaný příkaz: {0}</value>
   </data>
   <data name="TestManager_UnsuportedTypeOfSourceCode" xml:space="preserve">
-    <value>Unsupported type of source file!</value>
+    <value>Nepodporovaný typ zdrojového souboru!</value>
   </data>
   <data name="TestResult_CannotConvertNumber" xml:space="preserve">
-    <value>"{0}" could not be converted to number.</value>
+    <value>"{0}" nelze převést na číslo.</value>
   </data>
   <data name="XmlManager_UnsuportedXmlFile" xml:space="preserve">
-    <value>Selected XML file is not supported.</value>
+    <value>Zvolený XML soubor není podporován.</value>
   </data>
   <data name="XmlManager_InvalidDataImportFail" xml:space="preserve">
-    <value>{0} is not supported and was not imported.</value>
+    <value>{0} není podporován a nebyl importován.</value>
   </data>
   <data name="XmlManager_ImportFailed" xml:space="preserve">
-    <value>An error occured during import.</value>
+    <value>Během importu se vyskytla chyba!</value>
   </data>
   <data name="IOFDescription_CompareFiles" xml:space="preserve">
-    <value>ACTION: comparison of file {0} and generated file</value>
+    <value>AKCE: porovnání souboru {0} a vygenerovaného souboru</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Smazat</value>
   </data>
   <data name="YouHaveToSelectFile" xml:space="preserve">
-    <value>You have to select some file!</value>
+    <value>Musíte vybrat soubor!</value>
   </data>
   <data name="IOFDescription_LoadOutputsFromFile" xml:space="preserve">
-    <value>ACTION: Load outputs from file</value>
+    <value>AKCE: Načti výstupy ze souboru</value>
   </data>
   <data name="ActionRepeatLast_NothingToRepeat" xml:space="preserve">
-    <value>Nothing to repeat.</value>
+    <value>Není co opakovat.</value>
   </data>
   <data name="ActionRepeatLast_LastActionCouldNotBeRepeated" xml:space="preserve">
-    <value>Last action could not be repeated.</value>
+    <value>Poslední akce nemůže být zopakována.</value>
   </data>
   <data name="IOFDescription_InputNumber" xml:space="preserve">
-    <value>INPUT: number {0}</value>
+    <value>VSTUP: číslo {0}</value>
   </data>
   <data name="IOFDescription_RepeatLast" xml:space="preserve">
-    <value>ACTION: repeat last step {0}x</value>
+    <value>AKCE: opakuj předešlý krok {0}x</value>
   </data>
   <data name="InputRandomNumber_MaxCantBeGreatherThanMin" xml:space="preserve">
-    <value>MAX can't be greater than Min</value>
+    <value>MAX nemůže být menší než MIN!</value>
   </data>
   <data name="InputRandomNumber_MinCantBeGreatherThanMax" xml:space="preserve">
-    <value>MIN can't be greater than Max</value>
+    <value>MIN nemůže být větší než MAX!</value>
   </data>
   <data name="IOFDescription_InputRandomDecimalNumber" xml:space="preserve">
-    <value>INPUT: random decimal number from {0} to {1}</value>
+    <value>VSTUP: náhodné desetinné číslo od {0} do {1}</value>
   </data>
   <data name="IOFDescription_InputRandomNumber" xml:space="preserve">
-    <value>INPUT: random number from {0} to {1}</value>
+    <value>VSTUP: náhodné celé číslo od {0} do {1}</value>
   </data>
   <data name="IOFDescription_InputString" xml:space="preserve">
-    <value>INPUT: text: \"{0}\"</value>
+    <value>VSTUP: text: \"{0}\"</value>
   </data>
   <data name="IOFDescription_InputTextFile" xml:space="preserve">
-    <value>INPUT: file {0}</value>
+    <value>VSTUP: soubor {0}</value>
   </data>
   <data name="IOFDesruption_CountOfNumMatchingMultipleConditions" xml:space="preserve">
-    <value>OUTPUT: count of number matching {0} conditions</value>
+    <value>VÝSTUP: počet čísel splňující {0} podmínek.</value>
   </data>
   <data name="IOFDesruption_CountOfNumMatchingSingleCondition" xml:space="preserve">
-    <value>OUTPUT: count of number matching 1 condition</value>
+    <value>VÝSTUP: počet čísel splňujících 1 podmínku.</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions_ThisConditionAllreadyExists" xml:space="preserve">
-    <value>This condition already exists.</value>
+    <value>Tato podmínka již existuje.</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions_InvalidCondition" xml:space="preserve">
-    <value>The condition is not valid.</value>
+    <value>Podmínka není validní.</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions_YouHaveToSelectConditionForDeletion" xml:space="preserve">
-    <value>You have to select condition for deletion first.</value>
+    <value>Musíte zvolit kterou podmínku chcete vymazat.</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions_RequestedNumberOfNumbersIsNotPOssible" xml:space="preserve">
-    <value>The requested count of numbers is not possible.</value>
+    <value>Požadovaný počet čísel není možný.</value>
   </data>
   <data name="IOFDescription_OutputNumber" xml:space="preserve">
-    <value>OUTPUT: Number {0}</value>
+    <value>VÝSTUP: Číslo {0}</value>
   </data>
   <data name="OutputNumberBasedOnRandomInput_InvalidFormatOfMath" xml:space="preserve">
-    <value>Math has an incorrect format!
-If you still wish to continue then the object will be deleted.</value>
+    <value>Matematický příklad nemá správný formát! 
+Pokud si přejete pokračovat objekt bude smazán.</value>
   </data>
   <data name="OutputNumberBasedOnRandomInput_YouHaveToEnterValidMath" xml:space="preserve">
-    <value>You have to enter valid math.</value>
+    <value>Musíte zadat platný matematický příklad.</value>
   </data>
   <data name="IOFDescription_NumberBasedOnGeneratedInput" xml:space="preserve">
-    <value>OUTPUT: Number based on generated values.</value>
+    <value>VÝSTUP: Číslo závyslé na vygenerovaných hodnotách.</value>
   </data>
   <data name="IOFDescription_NumberSatisfyingMultipleConditions" xml:space="preserve">
-    <value>OUTPUT: Number satisfying {0} conditions.</value>
+    <value>VÝSTUP: číslo splňující {0} podmínek.</value>
   </data>
   <data name="IOFDescription_NumberSatisfyingSingleCondition" xml:space="preserve">
-    <value>OUTPUT: Number satisfying 1 condition.</value>
+    <value>VÝSTUP: číslo splňující 1 podmínku.</value>
   </data>
   <data name="OutputNumberMatchingConditions_ThisConditionAllreadyExists" xml:space="preserve">
-    <value>This condition already exists.</value>
+    <value>Tato podmínka již existuje.</value>
   </data>
   <data name="IOFDescription_OutputString" xml:space="preserve">
-    <value>OUTPUT: text: \"{0}\"</value>
+    <value>VÝSTUP: text: \"{0}\"</value>
   </data>
   <data name="SettingsDeviation_DeviationIsAllreadySet" xml:space="preserve">
-    <value>Deviation is already set!</value>
+    <value>Odchylka je již nastavena!</value>
   </data>
   <data name="IOFDescription_ProhibitedCommand" xml:space="preserve">
-    <value>SETTINGS: Prohibited command  \"{0}\"</value>
+    <value>NASTAVENÍ: Zakázaný příkaz {0}</value>
   </data>
   <data name="IOFDescription_RequiedCommand" xml:space="preserve">
-    <value>SETTINGS: Requied command  \"{0}\"</value>
+    <value>NASTAVENÍ: Vyžadovaný příkaz {0}</value>
   </data>
   <data name="IOFDescription_SettingsDeviation" xml:space="preserve">
-    <value>SETTINGS: Maximal deviation {0}</value>
+    <value>NASTAVENÍ: Maximální odchylka {0}</value>
   </data>
   <data name="SettingsStartupArguments_StartupArgumentsAreAllreadySet" xml:space="preserve">
-    <value>Startup arguments are already set.</value>
+    <value>Spouštěcí parametry jsou již nastaveny.</value>
   </data>
   <data name="IOFDescription_StartupArguments" xml:space="preserve">
-    <value>SETTINGS: Startup arguments:  \"{0}\"</value>
+    <value>NASTAVENÍ: souštěcí parametry: \"{0}\"</value>
   </data>
   <data name="SettingsTimeout_TimeoutAllreadySet" xml:space="preserve">
-    <value>Timeout is already set!</value>
+    <value>Timeout je již nastaven!</value>
   </data>
   <data name="ActionCompareFiles" xml:space="preserve">
-    <value>ACTION: Compare files</value>
+    <value>AKCE: porovnej soubory</value>
   </data>
   <data name="ActionLoadOutputsFromTextFile" xml:space="preserve">
-    <value>ACTION: Load outputs from file</value>
+    <value>AKCE: načti výstupy ze souboru</value>
   </data>
   <data name="ActionRepeatLast" xml:space="preserve">
-    <value>ACTION: Repeat last action</value>
+    <value>AKCE: opakování poslední akce</value>
   </data>
   <data name="InputNumber" xml:space="preserve">
-    <value>INPUT: Number</value>
+    <value>VSTUP: číslo</value>
   </data>
   <data name="InputRandomNumber" xml:space="preserve">
-    <value>INPUT: Random number</value>
+    <value>VSTUP: náhodné číslo</value>
   </data>
   <data name="InputString" xml:space="preserve">
-    <value>INPUT: Text</value>
+    <value>VSTUP: text</value>
   </data>
   <data name="InputTextFile" xml:space="preserve">
-    <value>INPUT: Text file</value>
+    <value>VSTUP: textový soubor</value>
   </data>
   <data name="IOFDescription_SettingsTimeout" xml:space="preserve">
-    <value>SETTINGS: Program timeout: {0}</value>
+    <value>NASTAVENÍ: Maximální doba pro běh programu: {0}</value>
   </data>
   <data name="OutputCountOfNumbersMatchingConditions" xml:space="preserve">
-    <value>OUTPUT: Count of numbers matching conditions</value>
+    <value>VÝSTUP: počet čísel splňujících podmínky</value>
   </data>
   <data name="OutputNumber" xml:space="preserve">
-    <value>OUTPUT: Number</value>
+    <value>VÝSTUP: číslo</value>
   </data>
   <data name="OutputNumberBasedOnRandomInput" xml:space="preserve">
-    <value>OUTPUT: Number based on generated number</value>
+    <value>VÝSTUP: číslo založené na vygenerovaném číslu</value>
   </data>
   <data name="OutputNumberMatchingConditions" xml:space="preserve">
-    <value>OUTPUT: Number matching conditions</value>
+    <value>VÝSTUP: číslo splňující podmínky</value>
   </data>
   <data name="OutputString" xml:space="preserve">
-    <value>OUTPUT: Text</value>
+    <value>VÝSTUP: text</value>
   </data>
   <data name="SettingsDeviation" xml:space="preserve">
-    <value>SETTINGS: Deviation</value>
+    <value>NASTAVENÍ: odchylka</value>
   </data>
   <data name="SettingsProhibitedCommand" xml:space="preserve">
-    <value>SETTINGS: Prohibited command</value>
+    <value>NASTAVENÍ: zakázaný příkaz</value>
   </data>
   <data name="SettingsRequiedCommand" xml:space="preserve">
-    <value>SETTINGS: Required command</value>
+    <value>NASTAVENÍ: vyžadovaný příkaz</value>
   </data>
   <data name="SettingsStartupArguments" xml:space="preserve">
-    <value>SETTINGS: Startup arguments</value>
+    <value>NASTAVENÍ: Spouštěcí parametry</value>
   </data>
   <data name="SettingsTimeout" xml:space="preserve">
-    <value>SETTINGS: Program timeout</value>
+    <value>NASTAVENÍ: maximální čas pro běh programu</value>
   </data>
   <data name="Test_ProhibitedCommandFound" xml:space="preserve">
-    <value>Prohibited command found: {0}</value>
+    <value>Nalezen nepovolený příkaz: {0}</value>
   </data>
   <data name="Validator_UnknownVariable" xml:space="preserve">
-    <value>Math contains the unknown variable.</value>
+    <value>Matematický příklad obsahuje neexistující neznámou.</value>
   </data>
   <data name="SourceCodeJava_MultipleFilesWithMainFound" xml:space="preserve">
-    <value>Multiple files with main method found!</value>
+    <value>Nalezeno několik souborů s metodou Main!</value>
   </data>
   <data name="SourceCodeJava_NoFileWithMainFound" xml:space="preserve">
-    <value>No file with main method found!</value>
+    <value>Nenalezen soubor s metodou Main!</value>
   </data>
   <data name="YouDontHavePermisionsToReadFile" xml:space="preserve">
-    <value>You don't have permission to read {0}!</value>
+    <value>Na čtení {0} nemáte oprávnění!</value>
   </data>
   <data name="SourceCodes_UnsuportedFileExtension" xml:space="preserve">
-    <value>Unsupported type of file.</value>
+    <value>Nopodporovaný typ souboru.</value>
   </data>
   <data name="SourceCodes_JavaSingleMultiMismatch" xml:space="preserve">
-    <value>Directory contains programs made from single java file and programs with multiple java files  simultaneously.
-You have to choose only one of those.</value>
+    <value>Složka obsahuje samostatné soubory i skupiny souborů.
+Buď odstraňte složky se skupinami souborů nebo samostatné soubory.</value>
+  </data>
+  <data name="XmlManager_ExportFailed" xml:space="preserve">
+    <value>Protokol se nepodařilo exportovat.</value>
+  </data>
+  <data name="XmlManager_ExportWasSuccesful" xml:space="preserve">
+    <value>Protokol byl úspěšně vyexportován.</value>
   </data>
 </root>

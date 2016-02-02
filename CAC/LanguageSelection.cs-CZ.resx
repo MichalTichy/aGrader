@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="butC.Text" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="butJava.Text" xml:space="preserve">
+    <value>Java</value>
+  </data>
+  <data name="butCancel.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Requied command</value>
+    <value>Zvolte jazyk</value>
+  </data>
+  <data name="butJavaOneFile.Text" xml:space="preserve">
+    <value>Programy složené z jednoho *.java souboru</value>
+  </data>
+  <data name="butJavaMultipleFiles.Text" xml:space="preserve">
+    <value>Programy složené z více *.java souborů</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>VyberJayzka</value>
   </data>
 </root>

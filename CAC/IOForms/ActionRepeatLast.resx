@@ -162,7 +162,7 @@
     <value>21</value>
   </data>
   <data name="labLastAction.Text" xml:space="preserve">
-    <value>Načítání...</value>
+    <value>Loading...</value>
   </data>
   <data name="&gt;&gt;labLastAction.Name" xml:space="preserve">
     <value>labLastAction</value>
@@ -189,7 +189,7 @@
     <value>20</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Akce k zopakování:</value>
+    <value>Action to repeat:</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -216,7 +216,7 @@
     <value>19</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Počet opakování</value>
+    <value>Number of repeats</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

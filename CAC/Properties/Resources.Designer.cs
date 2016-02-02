@@ -61,7 +61,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: porovnej soubory.
+        ///   Looks up a localized string similar to ACTION: Compare files.
         /// </summary>
         internal static string ActionCompareFiles {
             get {
@@ -70,7 +70,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: načti výstupy ze souboru.
+        ///   Looks up a localized string similar to ACTION: Load outputs from file.
         /// </summary>
         internal static string ActionLoadOutputsFromTextFile {
             get {
@@ -79,7 +79,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: opakování poslední akce.
+        ///   Looks up a localized string similar to ACTION: Repeat last action.
         /// </summary>
         internal static string ActionRepeatLast {
             get {
@@ -88,7 +88,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poslední akce nemůže být zopakována..
+        ///   Looks up a localized string similar to Last action could not be repeated..
         /// </summary>
         internal static string ActionRepeatLast_LastActionCouldNotBeRepeated {
             get {
@@ -97,7 +97,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Není co opakovat..
+        ///   Looks up a localized string similar to Nothing to repeat..
         /// </summary>
         internal static string ActionRepeatLast_NothingToRepeat {
             get {
@@ -106,7 +106,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kód nemůže být zkompilován!.
+        ///   Looks up a localized string similar to Cannot compile the source code..
         /// </summary>
         internal static string CannotCompile {
             get {
@@ -115,7 +115,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor {0} se nepodařilo načíst..
+        ///   Looks up a localized string similar to An error occurred while loading file {0}..
         /// </summary>
         internal static string CouldNotLoadFile {
             get {
@@ -124,7 +124,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Smazat.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
             get {
@@ -133,7 +133,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adresář neexistuje!.
+        ///   Looks up a localized string similar to The directory does not exist..
         /// </summary>
         internal static string DirectoryDoesNotExist {
             get {
@@ -142,7 +142,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Errory.
+        ///   Looks up a localized string similar to Errors.
         /// </summary>
         internal static string Errors {
             get {
@@ -151,7 +151,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Očekávaný výstup.
+        ///   Looks up a localized string similar to Expected output.
         /// </summary>
         internal static string ExpectedOutput {
             get {
@@ -160,7 +160,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor {0} neexistuje..
+        ///   Looks up a localized string similar to File {0} does not exist..
         /// </summary>
         internal static string FileDoesNotExist {
             get {
@@ -169,7 +169,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to textový soubor (*.txt) | *.txt.
+        ///   Looks up a localized string similar to text file (*.txt) | *.txt.
         /// </summary>
         internal static string FileFilter_TXT {
             get {
@@ -178,7 +178,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to XML soubory (*.xml)|*.xml.
+        ///   Looks up a localized string similar to XML files (*.xml)|*.xml.
         /// </summary>
         internal static string FileFilter_XML {
             get {
@@ -197,7 +197,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vstup.
+        ///   Looks up a localized string similar to Input.
         /// </summary>
         internal static string Input {
             get {
@@ -206,7 +206,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: číslo.
+        ///   Looks up a localized string similar to INPUT: Number.
         /// </summary>
         internal static string InputNumber {
             get {
@@ -215,7 +215,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vstup/Výstup.
+        ///   Looks up a localized string similar to Input/Output.
         /// </summary>
         internal static string InputOutput {
             get {
@@ -224,7 +224,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: náhodné číslo.
+        ///   Looks up a localized string similar to INPUT: Random number.
         /// </summary>
         internal static string InputRandomNumber {
             get {
@@ -233,7 +233,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MAX nemůže být menší než MIN!.
+        ///   Looks up a localized string similar to MAX can&apos;t be greater than Min.
         /// </summary>
         internal static string InputRandomNumber_MaxCantBeGreatherThanMin {
             get {
@@ -242,7 +242,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MIN nemůže být větší než MAX!.
+        ///   Looks up a localized string similar to MIN can&apos;t be greater than Max.
         /// </summary>
         internal static string InputRandomNumber_MinCantBeGreatherThanMax {
             get {
@@ -251,7 +251,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: text.
+        ///   Looks up a localized string similar to INPUT: Text.
         /// </summary>
         internal static string InputString {
             get {
@@ -260,7 +260,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: textový soubor.
+        ///   Looks up a localized string similar to INPUT: Text file.
         /// </summary>
         internal static string InputTextFile {
             get {
@@ -269,7 +269,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: porovnání souboru {0} a vygenerovaného souboru.
+        ///   Looks up a localized string similar to ACTION: comparison of file {0} and generated file.
         /// </summary>
         internal static string IOFDescription_CompareFiles {
             get {
@@ -278,7 +278,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: číslo {0}.
+        ///   Looks up a localized string similar to INPUT: number {0}.
         /// </summary>
         internal static string IOFDescription_InputNumber {
             get {
@@ -287,7 +287,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: náhodné desetinné číslo od {0} do {1}.
+        ///   Looks up a localized string similar to INPUT: random decimal number from {0} to {1}.
         /// </summary>
         internal static string IOFDescription_InputRandomDecimalNumber {
             get {
@@ -296,7 +296,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: náhodné celé číslo od {0} do {1}.
+        ///   Looks up a localized string similar to INPUT: random number from {0} to {1}.
         /// </summary>
         internal static string IOFDescription_InputRandomNumber {
             get {
@@ -305,7 +305,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: text: \&quot;{0}\&quot;.
+        ///   Looks up a localized string similar to INPUT: text: \&quot;{0}\&quot;.
         /// </summary>
         internal static string IOFDescription_InputString {
             get {
@@ -314,7 +314,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VSTUP: soubor {0}.
+        ///   Looks up a localized string similar to INPUT: file {0}.
         /// </summary>
         internal static string IOFDescription_InputTextFile {
             get {
@@ -323,7 +323,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: Načti výstupy ze souboru.
+        ///   Looks up a localized string similar to ACTION: Load outputs from file.
         /// </summary>
         internal static string IOFDescription_LoadOutputsFromFile {
             get {
@@ -332,7 +332,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: Číslo závyslé na vygenerovaných hodnotách..
+        ///   Looks up a localized string similar to OUTPUT: Number based on generated values..
         /// </summary>
         internal static string IOFDescription_NumberBasedOnGeneratedInput {
             get {
@@ -341,7 +341,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: číslo splňující {0} podmínek..
+        ///   Looks up a localized string similar to OUTPUT: Number satisfying {0} conditions..
         /// </summary>
         internal static string IOFDescription_NumberSatisfyingMultipleConditions {
             get {
@@ -350,7 +350,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: číslo splňující 1 podmínku..
+        ///   Looks up a localized string similar to OUTPUT: Number satisfying 1 condition..
         /// </summary>
         internal static string IOFDescription_NumberSatisfyingSingleCondition {
             get {
@@ -359,7 +359,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: Číslo {0}.
+        ///   Looks up a localized string similar to OUTPUT: Number {0}.
         /// </summary>
         internal static string IOFDescription_OutputNumber {
             get {
@@ -368,7 +368,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: text: \&quot;{0}\&quot;.
+        ///   Looks up a localized string similar to OUTPUT: text: \&quot;{0}\&quot;.
         /// </summary>
         internal static string IOFDescription_OutputString {
             get {
@@ -377,7 +377,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: Zakázaný příkaz {0}.
+        ///   Looks up a localized string similar to SETTINGS: Prohibited command  \&quot;{0}\&quot;.
         /// </summary>
         internal static string IOFDescription_ProhibitedCommand {
             get {
@@ -386,7 +386,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKCE: opakuj předešlý krok {0}x.
+        ///   Looks up a localized string similar to ACTION: repeat last step {0}x.
         /// </summary>
         internal static string IOFDescription_RepeatLast {
             get {
@@ -395,7 +395,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: Vyžadovaný příkaz {0}.
+        ///   Looks up a localized string similar to SETTINGS: Requied command  \&quot;{0}\&quot;.
         /// </summary>
         internal static string IOFDescription_RequiedCommand {
             get {
@@ -404,7 +404,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: Maximální odchylka {0}.
+        ///   Looks up a localized string similar to SETTINGS: Maximal deviation {0}.
         /// </summary>
         internal static string IOFDescription_SettingsDeviation {
             get {
@@ -413,7 +413,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: Maximální doba pro běh programu: {0}.
+        ///   Looks up a localized string similar to SETTINGS: Program timeout: {0}.
         /// </summary>
         internal static string IOFDescription_SettingsTimeout {
             get {
@@ -422,7 +422,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: souštěcí parametry: \&quot;{0}\&quot;.
+        ///   Looks up a localized string similar to SETTINGS: Startup arguments:  \&quot;{0}\&quot;.
         /// </summary>
         internal static string IOFDescription_StartupArguments {
             get {
@@ -431,7 +431,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: počet čísel splňující {0} podmínek..
+        ///   Looks up a localized string similar to OUTPUT: count of number matching {0} conditions.
         /// </summary>
         internal static string IOFDesruption_CountOfNumMatchingMultipleConditions {
             get {
@@ -440,7 +440,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: počet čísel splňujících 1 podmínku..
+        ///   Looks up a localized string similar to OUTPUT: count of number matching 1 condition.
         /// </summary>
         internal static string IOFDesruption_CountOfNumMatchingSingleCondition {
             get {
@@ -449,7 +449,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zvolte složku která obsahuje složky které obsahují soubory s příponou &quot;*.java&quot;   (jedna složka jeden test).
+        ///   Looks up a localized string similar to Select directory that contains directories which contains &quot;*.java&quot; files (one directory = one test).
         /// </summary>
         internal static string LanguageSelection_ChooseFolderJavaMultiFiles {
             get {
@@ -458,7 +458,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Zvolte složku která obsahuje jednotlivé soubory s příponou &quot;*.java&quot; (jeden soubor jeden test).
+        ///   Looks up a localized string similar to Select directory that contains individual files with &quot;*.java&quot; extension (one file = one test).
         /// </summary>
         internal static string LanguageSelection_ChooseFolderSingleJava {
             get {
@@ -467,7 +467,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zvolte složku která obsahuje soubory s příponou .c.
+        ///   Looks up a localized string similar to Select directory that contains files with &quot;*.c&quot; extension..
         /// </summary>
         internal static string LanguageSelection_ChoseCFiles {
             get {
@@ -476,7 +476,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Všechny testy byli dokončeny!.
+        ///   Looks up a localized string similar to All tests were finished..
         /// </summary>
         internal static string MainForm_AllTestsWereFinnished {
             get {
@@ -485,8 +485,8 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor se nepovedlo otevřít.
-        ///Seznam souborů bude nyní aktualizován..
+        ///   Looks up a localized string similar to The file was not opened.
+        ///List of files will be refreshed now..
         /// </summary>
         internal static string MainForm_CannotOpenFile {
             get {
@@ -495,7 +495,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Požadovaná náhodná čísla nelze nadále použít!.
+        ///   Looks up a localized string similar to Requested generated numbers no longer cannot be used..
         /// </summary>
         internal static string MainForm_CantUseRequestedGeneratedNumbers {
             get {
@@ -504,7 +504,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor {0} se nepodařilo vytvořit..
+        ///   Looks up a localized string similar to An error occurred while creating a file {0}..
         /// </summary>
         internal static string MainForm_CouldNotCreateTextFile {
             get {
@@ -513,7 +513,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soubor {0} byl  úspěšně otestován!.
+        ///   Looks up a localized string similar to File {0} was tested successully!.
         /// </summary>
         internal static string MainForm_FileWasSuccessfulyTested {
             get {
@@ -522,7 +522,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Budou přepsány stávající vstupy/výstupy!.
+        ///   Looks up a localized string similar to Existing inputs/outputs will be overwriten..
         /// </summary>
         internal static string MainForm_InputsAndOutputsWillBeOverwriten {
             get {
@@ -531,7 +531,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ve zvolené složce nejsou žádné zdrojové kódy!.
+        ///   Looks up a localized string similar to There are no source codes in the selected directory!.
         /// </summary>
         internal static string MainForm_NoSourceCodesInSelectedDirectory {
             get {
@@ -540,7 +540,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Není co exportovat. Nejprve musíte přidat alespoň jeden vstup/výstup..
+        ///   Looks up a localized string similar to Nothing to export. You have to add some Input/Output to the protocol first..
         /// </summary>
         internal static string MainForm_NothingToExport {
             get {
@@ -549,7 +549,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Počet souborů: {0}.
+        ///   Looks up a localized string similar to Number of files: {0}.
         /// </summary>
         internal static string MainForm_NumberOfFiles {
             get {
@@ -558,7 +558,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zahajuji testy!.
+        ///   Looks up a localized string similar to Starting tests!.
         /// </summary>
         internal static string MainForm_StartingTests {
             get {
@@ -567,7 +567,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Správně: {0} | Špatně: {1} | Čas: {2}| {3}.
+        ///   Looks up a localized string similar to Correct: {0} | Incorrect: {1} | Time: {2}| {3}.
         /// </summary>
         internal static string MainForm_TestResultLine {
             get {
@@ -576,7 +576,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nejdříve musíte zvolit adresář obsahující zdrojové kódy..
+        ///   Looks up a localized string similar to You have to select a directory with source codes first..
         /// </summary>
         internal static string MainForm_YouHaveToSelectDirectoryWithSourceCodes {
             get {
@@ -585,7 +585,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Musíte nejdříve vytvořit testovací protokol!.
+        ///   Looks up a localized string similar to You have to create test protocol first..
         /// </summary>
         internal static string MainForm_YouNeedToCreateTestProtocolFirst {
             get {
@@ -594,7 +594,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jméno souboru.
+        ///   Looks up a localized string similar to File name.
         /// </summary>
         internal static string NameOfFile {
             get {
@@ -603,7 +603,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Není co opakovat..
+        ///   Looks up a localized string similar to Nothing to repeat..
         /// </summary>
         internal static string NothingToRepeat {
             get {
@@ -612,7 +612,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nebyly nalezeny žádné platné soubory..
+        ///   Looks up a localized string similar to No valid files were found..
         /// </summary>
         internal static string NoValidFilesFound {
             get {
@@ -621,7 +621,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Výstup.
+        ///   Looks up a localized string similar to Output.
         /// </summary>
         internal static string Output {
             get {
@@ -630,7 +630,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: počet čísel splňujících podmínky.
+        ///   Looks up a localized string similar to OUTPUT: Count of numbers matching conditions.
         /// </summary>
         internal static string OutputCountOfNumbersMatchingConditions {
             get {
@@ -639,7 +639,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podmínka není validní..
+        ///   Looks up a localized string similar to The condition is not valid..
         /// </summary>
         internal static string OutputCountOfNumbersMatchingConditions_InvalidCondition {
             get {
@@ -648,7 +648,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Požadovaný počet čísel není možný..
+        ///   Looks up a localized string similar to The requested count of numbers is not possible..
         /// </summary>
         internal static string OutputCountOfNumbersMatchingConditions_RequestedNumberOfNumbersIsNotPOssible {
             get {
@@ -657,7 +657,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tato podmínka již existuje..
+        ///   Looks up a localized string similar to This condition already exists..
         /// </summary>
         internal static string OutputCountOfNumbersMatchingConditions_ThisConditionAllreadyExists {
             get {
@@ -666,7 +666,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Musíte zvolit kterou podmínku chcete vymazat..
+        ///   Looks up a localized string similar to You have to select condition for deletion first..
         /// </summary>
         internal static string OutputCountOfNumbersMatchingConditions_YouHaveToSelectConditionForDeletion {
             get {
@@ -675,7 +675,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: číslo.
+        ///   Looks up a localized string similar to OUTPUT: Number.
         /// </summary>
         internal static string OutputNumber {
             get {
@@ -684,7 +684,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: číslo založené na vygenerovaném číslu.
+        ///   Looks up a localized string similar to OUTPUT: Number based on generated number.
         /// </summary>
         internal static string OutputNumberBasedOnRandomInput {
             get {
@@ -693,8 +693,8 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Matematický příklad nemá správný formát! 
-        ///Pokud si přejete pokračovat objekt bude smazán..
+        ///   Looks up a localized string similar to Math has an incorrect format!
+        ///If you still wish to continue then the object will be deleted..
         /// </summary>
         internal static string OutputNumberBasedOnRandomInput_InvalidFormatOfMath {
             get {
@@ -703,7 +703,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Musíte zadat platný matematický příklad..
+        ///   Looks up a localized string similar to You have to enter valid math..
         /// </summary>
         internal static string OutputNumberBasedOnRandomInput_YouHaveToEnterValidMath {
             get {
@@ -712,7 +712,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: číslo splňující podmínky.
+        ///   Looks up a localized string similar to OUTPUT: Number matching conditions.
         /// </summary>
         internal static string OutputNumberMatchingConditions {
             get {
@@ -721,7 +721,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tato podmínka již existuje..
+        ///   Looks up a localized string similar to This condition already exists..
         /// </summary>
         internal static string OutputNumberMatchingConditions_ThisConditionAllreadyExists {
             get {
@@ -730,7 +730,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VÝSTUP: text.
+        ///   Looks up a localized string similar to OUTPUT: Text.
         /// </summary>
         internal static string OutputString {
             get {
@@ -739,7 +739,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: odchylka.
+        ///   Looks up a localized string similar to SETTINGS: Deviation.
         /// </summary>
         internal static string SettingsDeviation {
             get {
@@ -748,7 +748,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odchylka je již nastavena!.
+        ///   Looks up a localized string similar to Deviation is already set!.
         /// </summary>
         internal static string SettingsDeviation_DeviationIsAllreadySet {
             get {
@@ -757,7 +757,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: zakázaný příkaz.
+        ///   Looks up a localized string similar to SETTINGS: Prohibited command.
         /// </summary>
         internal static string SettingsProhibitedCommand {
             get {
@@ -766,7 +766,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: vyžadovaný příkaz.
+        ///   Looks up a localized string similar to SETTINGS: Required command.
         /// </summary>
         internal static string SettingsRequiedCommand {
             get {
@@ -775,7 +775,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: Spouštěcí parametry.
+        ///   Looks up a localized string similar to SETTINGS: Startup arguments.
         /// </summary>
         internal static string SettingsStartupArguments {
             get {
@@ -784,7 +784,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spouštěcí parametry jsou již nastaveny..
+        ///   Looks up a localized string similar to Startup arguments are already set..
         /// </summary>
         internal static string SettingsStartupArguments_StartupArgumentsAreAllreadySet {
             get {
@@ -793,7 +793,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NASTAVENÍ: maximální čas pro běh programu.
+        ///   Looks up a localized string similar to SETTINGS: Program timeout.
         /// </summary>
         internal static string SettingsTimeout {
             get {
@@ -802,7 +802,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Timeout je již nastaven!.
+        ///   Looks up a localized string similar to Timeout is already set!.
         /// </summary>
         internal static string SettingsTimeout_TimeoutAllreadySet {
             get {
@@ -811,7 +811,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nalezeno několik souborů s metodou Main!.
+        ///   Looks up a localized string similar to Multiple files with main method found!.
         /// </summary>
         internal static string SourceCodeJava_MultipleFilesWithMainFound {
             get {
@@ -820,7 +820,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nenalezen soubor s metodou Main!.
+        ///   Looks up a localized string similar to No file with main method found!.
         /// </summary>
         internal static string SourceCodeJava_NoFileWithMainFound {
             get {
@@ -829,8 +829,8 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Složka obsahuje samostatné soubory i skupiny souborů.
-        ///Buď odstraňte složky se skupinami souborů nebo samostatné soubory..
+        ///   Looks up a localized string similar to Directory contains programs made from single java file and programs with multiple java files  simultaneously.
+        ///You have to choose only one of those..
         /// </summary>
         internal static string SourceCodes_JavaSingleMultiMismatch {
             get {
@@ -839,7 +839,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nopodporovaný typ souboru..
+        ///   Looks up a localized string similar to Unsupported type of file..
         /// </summary>
         internal static string SourceCodes_UnsuportedFileExtension {
             get {
@@ -848,7 +848,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stav.
+        ///   Looks up a localized string similar to Status.
         /// </summary>
         internal static string Status {
             get {
@@ -857,7 +857,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aplikace nebyla ukončena před timeoutem ({0}s)\n.
+        ///   Looks up a localized string similar to The application was not terminated before timeout ({0}s)\n.
         /// </summary>
         internal static string Test_AppDidNotEndedBeforeTimeout {
             get {
@@ -866,7 +866,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kompilátor nebyl nalezen! \n {0}.
+        ///   Looks up a localized string similar to Compilator was not found! \n {0}.
         /// </summary>
         internal static string Test_CompilatorNotFound {
             get {
@@ -875,7 +875,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Java nebyla nalezena!\n{0}.
+        ///   Looks up a localized string similar to Java was not found!\n{0}.
         /// </summary>
         internal static string Test_JavaNotFound {
             get {
@@ -884,7 +884,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nalezen nepovolený příkaz: {0}.
+        ///   Looks up a localized string similar to Prohibited command found: {0}.
         /// </summary>
         internal static string Test_ProhibitedCommandFound {
             get {
@@ -893,7 +893,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nenalezen vyžadovaný příkaz: {0}.
+        ///   Looks up a localized string similar to Required command was not found: {0}.
         /// </summary>
         internal static string Test_RequiedCommandWasNotFound {
             get {
@@ -902,7 +902,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to testuje se.
+        ///   Looks up a localized string similar to test in progress.
         /// </summary>
         internal static string TestInProgress {
             get {
@@ -911,7 +911,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nepodporovaný typ zdrojového souboru!.
+        ///   Looks up a localized string similar to Unsupported type of source file!.
         /// </summary>
         internal static string TestManager_UnsuportedTypeOfSourceCode {
             get {
@@ -920,7 +920,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;{0}&quot; nelze převést na číslo..
+        ///   Looks up a localized string similar to &quot;{0}&quot; could not be converted to number..
         /// </summary>
         internal static string TestResult_CannotConvertNumber {
             get {
@@ -929,7 +929,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Matematický příklad obsahuje neexistující neznámou..
+        ///   Looks up a localized string similar to Math contains the unknown variable..
         /// </summary>
         internal static string Validator_UnknownVariable {
             get {
@@ -938,7 +938,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upozornění.
+        ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string Warning {
             get {
@@ -947,7 +947,25 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Během importu se vyskytla chyba!.
+        ///   Looks up a localized string similar to Export failed!.
+        /// </summary>
+        internal static string XmlManager_ExportFailed {
+            get {
+                return ResourceManager.GetString("XmlManager_ExportFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export was succesful..
+        /// </summary>
+        internal static string XmlManager_ExportWasSuccesful {
+            get {
+                return ResourceManager.GetString("XmlManager_ExportWasSuccesful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured during import..
         /// </summary>
         internal static string XmlManager_ImportFailed {
             get {
@@ -956,7 +974,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} není podporován a nebyl importován..
+        ///   Looks up a localized string similar to {0} is not supported and was not imported..
         /// </summary>
         internal static string XmlManager_InvalidDataImportFail {
             get {
@@ -965,7 +983,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zvolený XML soubor není podporován..
+        ///   Looks up a localized string similar to Selected XML file is not supported..
         /// </summary>
         internal static string XmlManager_UnsuportedXmlFile {
             get {
@@ -974,7 +992,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Na čtení {0} nemáte oprávnění!.
+        ///   Looks up a localized string similar to You don&apos;t have permission to read {0}!.
         /// </summary>
         internal static string YouDontHavePermisionsToReadFile {
             get {
@@ -983,7 +1001,7 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Musíte vybrat soubor!.
+        ///   Looks up a localized string similar to You have to select some file!.
         /// </summary>
         internal static string YouHaveToSelectFile {
             get {

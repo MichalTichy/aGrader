@@ -117,61 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="butSaveLog.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="butChart.Text" xml:space="preserve">
-    <value>Graph</value>
-  </data>
-  <data name="butRunTest.Text" xml:space="preserve">
-    <value>Run test</value>
-  </data>
-  <data name="butReload.Text" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Choose directory with source code files</value>
-  </data>
-  <data name="butBrowse.Text" xml:space="preserve">
-    <value>Browse</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>File browser</value>
-  </data>
-  <data name="butExport.Text" xml:space="preserve">
-    <value>Export</value>
-  </data>
-  <data name="butImport.Text" xml:space="preserve">
-    <value>Import</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Test protocol creation</value>
-  </data>
-  <data name="labHelop.Text" xml:space="preserve">
-    <value>Choose requested task.</value>
-  </data>
-  <data name="tabProtocol.Text" xml:space="preserve">
-    <value>Protocol</value>
-  </data>
-  <data name="butShowTests.Text" xml:space="preserve">
-    <value>tests progress</value>
-  </data>
-  <data name="butOpenFile.Text" xml:space="preserve">
-    <value>open file</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>aGrader -automated programming assessment grading BETA</value>
-  </data>
-  <data name="statusStrip1.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="butMoveDown.Text" xml:space="preserve">
-    <value>ˇ</value>
-  </data>
-  <data name="butMoveUp.Text" xml:space="preserve">
-    <value>^</value>
-  </data>
-  <data name="tbpath.Text" xml:space="preserve">
-    <value>...</value>
+    <value>Zakázaný příkaz</value>
   </data>
 </root>

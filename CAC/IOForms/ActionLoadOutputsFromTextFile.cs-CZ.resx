@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,19 +121,6 @@
     <value>...</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Path to reference file</value>
-  </data>
-  <data name="radioHash.Text" xml:space="preserve">
-    <value>HASH only</value>
-  </data>
-  <data name="radioLines.Text" xml:space="preserve">
-    <value>line by line</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Compare:</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Reference file has to be in the same folder as source codes and has to have name in format:
-nameOfSourceCode.txt</value>
+    <value>Cesta k souboru</value>
   </data>
 </root>

@@ -117,43 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="chartResults.Text" xml:space="preserve">
-    <value>chart1</value>
-  </data>
-  <data name="cbCorrect.Text" xml:space="preserve">
-    <value>Count of right outputs</value>
-  </data>
-  <data name="cbWrong.Text" xml:space="preserve">
-    <value>Count of wrong outputs</value>
-  </data>
-  <data name="cbProcessorTime.Text" xml:space="preserve">
-    <value>Run time (processor time)</value>
-  </data>
-  <data name="cbSort.Items" xml:space="preserve">
-    <value>name</value>
-  </data>
-  <data name="cbSort.Items1" xml:space="preserve">
-    <value>Count of right outputs</value>
-  </data>
-  <data name="cbSort.Items2" xml:space="preserve">
-    <value>Count of wrong outputs</value>
-  </data>
-  <data name="cbSort.Items3" xml:space="preserve">
-    <value>processor time</value>
+  <data name="butBrowse.Text" xml:space="preserve">
+    <value>...</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Sort by:</value>
+    <value>Cesta ke kontrolnímu souboru</value>
   </data>
-  <data name="butSave.Text" xml:space="preserve">
-    <value>Save graph</value>
+  <data name="radioHash.Text" xml:space="preserve">
+    <value>jen HASH</value>
   </data>
-  <data name="saveImage.Filter" xml:space="preserve">
-    <value>bmp (*.bmp)|*.bmp"</value>
+  <data name="radioLines.Text" xml:space="preserve">
+    <value>Po řádcích</value>
   </data>
-  <data name="chartBIG.Text" xml:space="preserve">
-    <value>chart1</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Porovnávat:</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Graph</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Soubor k porovnání musí být ve stejné složce
+jako zdrojové kódy a mít název ve tvaru:
+jménoZdrojovéhoSouboru.txt</value>
   </data>
 </root>

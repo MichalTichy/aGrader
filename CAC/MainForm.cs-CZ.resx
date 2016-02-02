@@ -117,7 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="butSaveLog.Text" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="butChart.Text" xml:space="preserve">
+    <value>Graf</value>
+  </data>
+  <data name="butRunTest.Text" xml:space="preserve">
+    <value>Spustit test</value>
+  </data>
+  <data name="butReload.Text" xml:space="preserve">
+    <value>Obnovit</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Zvolte adresář se zdrojovými soubory</value>
+  </data>
+  <data name="tbpath.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="butBrowse.Text" xml:space="preserve">
+    <value>Procházet</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Průzkumník</value>
+  </data>
+  <data name="butExport.Text" xml:space="preserve">
+    <value>Exportovat</value>
+  </data>
+  <data name="butImport.Text" xml:space="preserve">
+    <value>Importovat</value>
+  </data>
+  <data name="butMoveDown.Text" xml:space="preserve">
+    <value>ˇ</value>
+  </data>
+  <data name="butMoveUp.Text" xml:space="preserve">
+    <value>^</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Number based in generated input.</value>
+    <value>Tvorba testovacího protokolu</value>
+  </data>
+  <data name="labHelop.Text" xml:space="preserve">
+    <value>Zvolte požadovaný úkon.</value>
+  </data>
+  <data name="tabProtocol.Text" xml:space="preserve">
+    <value>Protokol</value>
+  </data>
+  <data name="butShowTests.Text" xml:space="preserve">
+    <value>průběh testů</value>
+  </data>
+  <data name="butOpenFile.Text" xml:space="preserve">
+    <value>otevřít soubor</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>aGrader -automated programming assessment grading BETA</value>
   </data>
 </root>
