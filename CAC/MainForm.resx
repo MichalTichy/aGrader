@@ -5054,7 +5054,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>aGrader -automated programming assessment grading BETA</value>
+    <value>aGrader -automated programming assessment grading</value>
   </data>
   <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
     <value>progressBar</value>
