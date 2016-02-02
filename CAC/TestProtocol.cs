@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace aGrader
         public string StartupArguments { get; private set; }
         public List<string> Inputs = new List<string>();
         public List<object> Outputs = new List<object>();
+        public List<ExternalAppData> ExternalApps = new List<ExternalAppData>();
+
         private List<string> _prohibitedCommnads=new List<string>();
         private List<string> _requiedCommnads = new List<string>();
         private Random random=new Random(DateTime.Now.Millisecond);
@@ -173,6 +176,15 @@ namespace aGrader
                 MessageBox.Show(string.Format(Resources.CouldNotLoadFile, Path.GetFileName(actionCompareFiles.Path)));
                 ExceptionsLog.LogException(ex.ToString());
             }
+        }
+
+        private void ProcessData(ActionStartExternalApp actionStartExternalApp)
+        {
+            if (!File.Exists(actionStartExternalApp.Path))
+            {
+                MessageBox.Show(Resources.FileDoesNotExist, actionStartExternalApp.Path);
+            }
+            ExternalApps.Add(new ExternalAppData(actionStartExternalApp.Path, actionStartExternalApp.Arguments, actionStartExternalApp.RunAfter));
         }
 
         private void ProcessData(SettingsStartupArguments settingsStartupArguments)

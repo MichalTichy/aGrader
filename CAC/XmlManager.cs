@@ -119,6 +119,26 @@ namespace aGrader
 
             return actionCompareFiles;
         }
+
+        private static XmlNode GenerateIONode(ActionStartExternalApp ioForm, XmlDocument document)
+        {
+            XmlElement actionCompareFiles = document.CreateElement(ioForm.Name);
+
+            XmlElement path = document.CreateElement("path");
+            path.InnerText = ioForm.Path;
+
+            XmlElement runAfter = document.CreateElement("runAfter");
+            runAfter.InnerText = ioForm.RunAfter.ToString();
+
+            XmlElement arguments = document.CreateElement("arguments");
+            arguments.InnerText = ioForm.Arguments;
+
+            actionCompareFiles.AppendChild(path);
+            actionCompareFiles.AppendChild(arguments);
+            actionCompareFiles.AppendChild(runAfter);
+
+            return actionCompareFiles;
+        }
         private static XmlNode GenerateIONode(OutputNumber ioForm, XmlDocument document)
         {
             XmlElement outNumber = document.CreateElement(ioForm.Name);
@@ -346,7 +366,10 @@ namespace aGrader
                             InputsOutputs.Add(
                                 new ActionRepeatLast(int.Parse(element.GetElementsByTagName("repetitions")[0].InnerText)));
                             break;
-
+                        case "ActionStartExternalApp":
+                            InputsOutputs.Add(
+                                new ActionStartExternalApp(bool.Parse(element.GetElementsByTagName("runAfter")[0].InnerText), element.GetElementsByTagName("path")[0].InnerText, element.GetElementsByTagName("arguments")[0].InnerText));
+                            break;
                         case "ActionLoadOutputsFromTextFile":
                             InputsOutputs.Add(new ActionLoadOutputsFromTextFile());
                             break;

@@ -141,4 +141,18 @@ namespace aGrader
             return ErrorMsg;
         }
     }
+
+    public struct ExternalAppData
+    {
+        public string Path;
+        public string Arguments;
+        public bool runAfter;
+
+        public ExternalAppData(string path, string arguments, bool runAfter)
+        {
+            Path = path;
+            Arguments = arguments;
+            this.runAfter = runAfter;
+        }
+    }
 }

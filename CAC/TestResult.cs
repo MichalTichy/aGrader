@@ -55,6 +55,10 @@ namespace aGrader
         public readonly double ProcessorTime;
         public readonly TestProtocol Protocol;
 
+        public TestResult()
+        {
+            _errors=new List<string>();
+        }
         public TestResult(string fileName, TestProtocol protocol, List<string> outputs, List<string> errors, double procesorTime)
         {
             FileName = fileName;

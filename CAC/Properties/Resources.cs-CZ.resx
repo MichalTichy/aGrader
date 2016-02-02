@@ -448,4 +448,25 @@ Chcete ho stáhnout?</value>
   <data name="InvalidPath" xml:space="preserve">
     <value>Nesprávná cesta!</value>
   </data>
+  <data name="ActionStartExternalApp_Tip" xml:space="preserve">
+    <value>Spustit před testem:
+@name bude nahrazeno jménem zdrojového souboru.
+
+Spustit po testu:
+@name bude nahrazeno jménem zdrojového souboru.
+@correct bude nahrazeno počtem zprávných výstupů.
+@wrong bude nahrazeno počtem nezprávných výstupů.
+@time bdue nahrazeno časem který bzl nutný pro běh (processor time)</value>
+  </data>
+  <data name="ActionStartExternalApp_invalidArguments" xml:space="preserve">
+    <value>Pokud je externí aplikace spuštěna před testem,
+pak spouštěcí argument nesmí obsahovat
+zástupné symboly pro externí aplikace spouštěné po testu (@correct,...)</value>
+  </data>
+  <data name="ActionStartExternalApp" xml:space="preserve">
+    <value>AKCE: Spustit externí aplikaci</value>
+  </data>
+  <data name="IOFDescription_RunExternalApplication" xml:space="preserve">
+    <value>AKCE: Spustit externí aplikaci</value>
+  </data>
 </root>

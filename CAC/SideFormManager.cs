@@ -29,7 +29,8 @@ namespace aGrader
             [Description("SettingsStartupArguments")] SettingsStartupArguments,
             [Description("ActionRepeatLast")] ActionRepeatLast,
             [Description("ActionLoadOutputsFromTextFile")] ActionLoadOutputsFromTextFile,
-            [Description("ActionCompareFiles")] ActionCompareFiles
+            [Description("ActionCompareFiles")] ActionCompareFiles,
+            [Description("ActionStartExternalApp")] ActionStartExternalApp
         }
 
         private static dynamic _sideForm;

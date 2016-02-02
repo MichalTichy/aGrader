@@ -127,6 +127,12 @@
     <Compile Include="IOForms\ActionRepeatLast.Designer.cs">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
     </Compile>
+    <Compile Include="IOForms\ActionStartExternalApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IOForms\ActionStartExternalApp.Designer.cs">
+      <DependentUpon>ActionStartExternalApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="IOForms\InputNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\ActionRepeatLast.resx">
       <DependentUpon>ActionRepeatLast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\ActionStartExternalApp.cs-CZ.resx">
+      <DependentUpon>ActionStartExternalApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IOForms\ActionStartExternalApp.resx">
+      <DependentUpon>ActionStartExternalApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IOForms\InputNumber.cs-CZ.resx">
       <DependentUpon>InputNumber.cs</DependentUpon>

@@ -106,6 +106,41 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ACTION: Run external application.
+        /// </summary>
+        internal static string ActionStartExternalApp {
+            get {
+                return ResourceManager.GetString("ActionStartExternalApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When external application is run before test,
+        ///than the arguments can&apos;t contain &quot;After test run&quot; placeholders (@correct,...).
+        /// </summary>
+        internal static string ActionStartExternalApp_invalidArguments {
+            get {
+                return ResourceManager.GetString("ActionStartExternalApp_invalidArguments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run before test:
+        ///@name will be replaced by tested file name.
+        ///
+        ///Run after test:
+        ///@name will be replaced by tested file name.
+        ///@correct will be replaced by count of right outputs.
+        ///@wrong will be replaced by count of wrong outputs.
+        ///@time will be replaced by processor time..
+        /// </summary>
+        internal static string ActionStartExternalApp_Tip {
+            get {
+                return ResourceManager.GetString("ActionStartExternalApp_Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot compile the source code..
         /// </summary>
         internal static string CannotCompile {
@@ -409,6 +444,15 @@ namespace aGrader.Properties {
         internal static string IOFDescription_RequiedCommand {
             get {
                 return ResourceManager.GetString("IOFDescription_RequiedCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ACTION: Run external application.
+        /// </summary>
+        internal static string IOFDescription_RunExternalApplication {
+            get {
+                return ResourceManager.GetString("IOFDescription_RunExternalApplication", resourceCulture);
             }
         }
         

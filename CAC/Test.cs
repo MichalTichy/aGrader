@@ -30,8 +30,10 @@ namespace aGrader
         public virtual TestResult RunTest()
         {
             Process app = CreateProcess(SourceCode);
+            var result=new TestResult();
             CheckSourceCodeForProhibitedCommands();
             CheckSourceCodeForRequiedCommands();
+            RunExternalApps(false,result);
             app.Start();
 
             StreamWriter inputWriter = app.StandardInput;
@@ -59,10 +61,41 @@ namespace aGrader
             BalanceNumberOfExpectedAndRealOutputs();
             ProcessActionsWithFiles();
             BalanceNumberOfExpectedAndRealOutputs();
-            var result=new TestResult(SourceCode.Name,Protocol,_outputs, _errors,app.TotalProcessorTime.TotalMilliseconds);
+            _errors.AddRange(result.Errors);
+            result =new TestResult(SourceCode.Name,Protocol,_outputs,_errors ,app.TotalProcessorTime.TotalMilliseconds);
+            RunExternalApps(true,result);
             SourceCode.AddTestResult(result);
             return result;
         }
+
+        private void RunExternalApps(bool runAfter,TestResult result)
+        {
+            foreach (ExternalAppData app in Protocol.ExternalApps.Where(t=>t.runAfter==runAfter))
+            {
+                string arguments = app.runAfter
+                    ? app.Arguments.Replace("@name", SourceCode.Name)
+                        .Replace("@correct", result.CorrectOutputsCount.ToString())
+                        .Replace("@wrong", result.WrongOutputsCount.ToString())
+                        .Replace("@time", result.ProcessorTime.ToString())
+                    : app.Arguments.Replace("@name", SourceCode.Name);
+
+                var extApp = new Process {StartInfo = new ProcessStartInfo(app.Path, arguments)};
+                try
+                {
+                    extApp.Start();
+                    if (!extApp.HasExited && !extApp.WaitForExit(Protocol.Timeout))
+                    {
+                        extApp.Kill();
+                        result.AddErrors(string.Format(Resources.Test_AppDidNotEndedBeforeTimeout, Protocol.Timeout / 1000),true);
+                    }
+                }
+                catch (Exception)
+                {
+                    result.AddErrors("Could not run external application.",true);
+                }
+            }
+        }
+
         private void BalanceNumberOfExpectedAndRealOutputs()
         {
             while (_outputs.Count > Protocol.Outputs.Count(t => !(t is FileCompareData) && !(t is FileWithOutputsData)))
