@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
+using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using aGrader.Properties;
 using aGrader.sourceCodes;
@@ -19,8 +22,16 @@ namespace aGrader
             string pathToTcc = $@"{Directory.GetCurrentDirectory()}\tcc\tcc.exe";
             if (!File.Exists(pathToTcc))
             {
-                MessageBox.Show(Resources.Test_CompilatorNotFound, pathToTcc);
-                throw new FileNotFoundException(Resources.Test_CompilatorNotFound, pathToTcc);
+                var messageBoxResult = MessageBox.Show(Resources.Test_CompilatorNotFoundWannaDownload, pathToTcc,MessageBoxButtons.YesNo);
+                if (messageBoxResult == DialogResult.Yes)
+                {
+                    new Task(DownloadTcc).Start();
+                }
+                else
+                {
+                    MessageBox.Show(Resources.TestsCannotBeRunWithoutCompiler);
+                    throw new FileNotFoundException(Resources.Test_CompilatorNotFound, pathToTcc);
+                }
             }
             var app = new Process
             {
@@ -41,9 +52,29 @@ namespace aGrader
             return app;
         }
 
+        private static void DownloadTcc()
+        {
+            try
+            {
+                string pathToTcc = GetTccPath();
+                using (var wc = new WebClient())
+                {
+                    wc.DownloadFile(@"http://www.tichymichal.net/Downloads/tcc.zip", Environment.CurrentDirectory + @"/tcc.zip");
+                }
+                ZipFile.ExtractToDirectory(Environment.CurrentDirectory + @"/tcc.zip", Environment.CurrentDirectory);
+                File.Delete(Environment.CurrentDirectory + @"/tcc.zip");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Resources.TestC_DownloadFailed);
+                throw;
+
+            }
+        }
+
         public override Tuple<string,int?> GetCompilationError(SourceCode code)
         {
-            Process app=CreateProcess(code);
+            var app=CreateProcess(code);
 
             app.Start();
             if (!app.HasExited && !app.WaitForExit(300))
@@ -67,6 +98,25 @@ namespace aGrader
             }
 
             return new Tuple<string,int?>(msg,lineWithError);
+        }
+
+        public static string GetTccPath()
+        {
+            string pathToTcc = $@"{Directory.GetCurrentDirectory()}\tcc\tcc.exe";
+            if (!File.Exists(pathToTcc))
+            {
+                var messageBoxResult = MessageBox.Show(Resources.Test_CompilatorNotFoundWannaDownload, pathToTcc, MessageBoxButtons.YesNo);
+                if (messageBoxResult == DialogResult.Yes)
+                {
+                    new Task(DownloadTcc).Start();
+                }
+                else
+                {
+                    MessageBox.Show(Resources.TestsCannotBeRunWithoutCompiler);
+                    throw new FileNotFoundException(Resources.Test_CompilatorNotFound, pathToTcc);
+                }
+            }
+            return pathToTcc;
         }
     }
     

@@ -436,4 +436,11 @@ You have to choose only one of those.</value>
   <data name="XmlManager_ExportWasSuccesful" xml:space="preserve">
     <value>Export was succesful.</value>
   </data>
+  <data name="Test_CompilatorNotFoundWannaDownload" xml:space="preserve">
+    <value>Compile (TCC) was not found.
+Do you want to download it?</value>
+  </data>
+  <data name="TestC_DownloadFailed" xml:space="preserve">
+    <value>Download failed!</value>
+  </data>
 </root>

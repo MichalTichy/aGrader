@@ -432,4 +432,8 @@ Buď odstraňte složky se skupinami souborů nebo samostatné soubory.</value>
   <data name="XmlManager_ExportWasSuccesful" xml:space="preserve">
     <value>Protokol byl úspěšně vyexportován.</value>
   </data>
+  <data name="Test_CompilatorNotFoundWannaDownload" xml:space="preserve">
+    <value>Kompilátor (TCC) nebyl nelezen.
+Chcete ho stáhnout?</value>
+  </data>
 </root>

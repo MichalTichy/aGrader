@@ -23,6 +23,7 @@ namespace aGrader
         private void butC_Click(object sender, EventArgs e)
         {
             ShowJavaAdvancedButtons(false);
+            TestC.GetTccPath();
             ChangeEnabledStateOfButtons();
             var dialog = new FolderBrowserDialog {Description = Resources.LanguageSelection_ChoseCFiles};
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -48,6 +49,7 @@ namespace aGrader
 
         private void butJava_Click(object sender, EventArgs e)
         {
+            TestJava.GetPathToJava();
             ShowJavaAdvancedButtons(true);
         }
 

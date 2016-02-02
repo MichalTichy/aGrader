@@ -269,6 +269,15 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid path!.
+        /// </summary>
+        internal static string InvalidPath {
+            get {
+                return ResourceManager.GetString("InvalidPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ACTION: comparison of file {0} and generated file.
         /// </summary>
         internal static string IOFDescription_CompareFiles {
@@ -445,6 +454,15 @@ namespace aGrader.Properties {
         internal static string IOFDesruption_CountOfNumMatchingSingleCondition {
             get {
                 return ResourceManager.GetString("IOFDesruption_CountOfNumMatchingSingleCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Java Development Kit not found!.
+        /// </summary>
+        internal static string JdknotFound {
+            get {
+                return ResourceManager.GetString("JdknotFound", resourceCulture);
             }
         }
         
@@ -875,6 +893,16 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compile (TCC) was not found.
+        ///Do you want to download it?.
+        /// </summary>
+        internal static string Test_CompilatorNotFoundWannaDownload {
+            get {
+                return ResourceManager.GetString("Test_CompilatorNotFoundWannaDownload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Java was not found!\n{0}.
         /// </summary>
         internal static string Test_JavaNotFound {
@@ -902,6 +930,15 @@ namespace aGrader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download failed!.
+        /// </summary>
+        internal static string TestC_DownloadFailed {
+            get {
+                return ResourceManager.GetString("TestC_DownloadFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to test in progress.
         /// </summary>
         internal static string TestInProgress {
@@ -925,6 +962,15 @@ namespace aGrader.Properties {
         internal static string TestResult_CannotConvertNumber {
             get {
                 return ResourceManager.GetString("TestResult_CannotConvertNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tests cannot be run without compiler!.
+        /// </summary>
+        internal static string TestsCannotBeRunWithoutCompiler {
+            get {
+                return ResourceManager.GetString("TestsCannotBeRunWithoutCompiler", resourceCulture);
             }
         }
         

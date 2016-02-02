@@ -154,7 +154,19 @@ namespace aGrader
             if (_javaPath != null && Directory.Exists(_javaPath))
                 return _javaPath;
 
-            return null;
+            var result= MessageBox.Show(Resources.JdknotFound, Resources.Warning, MessageBoxButtons.YesNo);
+            var fbd = new FolderBrowserDialog();
+
+            if (result==DialogResult.Yes && fbd.ShowDialog()==DialogResult.OK)
+            {
+                if (File.Exists($@"{fbd.SelectedPath}\bin\javac.exe"))
+                {
+                    _javaPath = fbd.SelectedPath;
+                    return _javaPath;
+                }
+            }
+            MessageBox.Show(Resources.InvalidPath + "\n" + Resources.TestsCannotBeRunWithoutCompiler);
+            throw new DirectoryNotFoundException("Jdk not found!");
         }
 
         private static string GetPathFromRegistry(RegistryKey key)
