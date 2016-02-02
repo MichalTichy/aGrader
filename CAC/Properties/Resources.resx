@@ -443,4 +443,13 @@ Do you want to download it?</value>
   <data name="TestC_DownloadFailed" xml:space="preserve">
     <value>Download failed!</value>
   </data>
+  <data name="TestsCannotBeRunWithoutCompiler" xml:space="preserve">
+    <value>Tests cannot be run without compiler!</value>
+  </data>
+  <data name="JdknotFound" xml:space="preserve">
+    <value>Java Development Kit not found!</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Invalid path!</value>
+  </data>
 </root>

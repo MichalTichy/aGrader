@@ -436,4 +436,16 @@ Buď odstraňte složky se skupinami souborů nebo samostatné soubory.</value>
     <value>Kompilátor (TCC) nebyl nelezen.
 Chcete ho stáhnout?</value>
   </data>
+  <data name="TestC_DownloadFailed" xml:space="preserve">
+    <value>Stahování selhalo!</value>
+  </data>
+  <data name="TestsCannotBeRunWithoutCompiler" xml:space="preserve">
+    <value>Bez kompilátoru nelze testy spustit!</value>
+  </data>
+  <data name="JdknotFound" xml:space="preserve">
+    <value>Java Development Kit nebyl nalezen!</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Nesprávná cesta!</value>
+  </data>
 </root>

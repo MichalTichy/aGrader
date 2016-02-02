@@ -19,20 +19,7 @@ namespace aGrader
 
         protected override Process CreateProcess(SourceCode code)
         {
-            string pathToTcc = $@"{Directory.GetCurrentDirectory()}\tcc\tcc.exe";
-            if (!File.Exists(pathToTcc))
-            {
-                var messageBoxResult = MessageBox.Show(Resources.Test_CompilatorNotFoundWannaDownload, pathToTcc,MessageBoxButtons.YesNo);
-                if (messageBoxResult == DialogResult.Yes)
-                {
-                    new Task(DownloadTcc).Start();
-                }
-                else
-                {
-                    MessageBox.Show(Resources.TestsCannotBeRunWithoutCompiler);
-                    throw new FileNotFoundException(Resources.Test_CompilatorNotFound, pathToTcc);
-                }
-            }
+            string pathToTcc = GetTccPath();
             var app = new Process
             {
                 StartInfo =
@@ -56,7 +43,6 @@ namespace aGrader
         {
             try
             {
-                string pathToTcc = GetTccPath();
                 using (var wc = new WebClient())
                 {
                     wc.DownloadFile(@"http://www.tichymichal.net/Downloads/tcc.zip", Environment.CurrentDirectory + @"/tcc.zip");
