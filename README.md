@@ -1,13 +1,10 @@
-**Application for automatic testing if C source codes meet the assignment.**
+**aGrader**
+Automatically grading of programming assignments
 
 Assignments can contain many different inputs (numbers, random numbers, strings,...) and outputs.
 
-*planned features:*
-
-1. Ability to use files as input or output for assignment.
-
-2. Showing results in graph.
-
-3. sorting source codes by efficiency (processor time).
-
-4. ...
+in English and Czech
+supports C and Java projects
+no programming skills requied to create assignments
+graphs
+easy to add support for another programming language.
