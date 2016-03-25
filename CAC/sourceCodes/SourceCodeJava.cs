@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using aGrader.Properties;
 
 namespace aGrader.sourceCodes
@@ -17,17 +18,17 @@ namespace aGrader.sourceCodes
             Dependencies = dependencies;
             if (!pathToMain.Any())
             {
-                CompilationErrorMsg = Resources.SourceCodeJava_NoFileWithMainFound;
+                CompilationErrors.Add(new Tuple<string, int?>(Resources.SourceCodeJava_NoFileWithMainFound,null));
             }
             else if (pathToMain.Count() > 1)
             {
-                CompilationErrorMsg = Resources.SourceCodeJava_MultipleFilesWithMainFound;
+                CompilationErrors.Add(new Tuple<string, int?>(Resources.SourceCodeJava_MultipleFilesWithMainFound, null));
             }
         }
 
         public override void GetCompilationError()
         {
-          //  throw new NotImplementedException();
+            CompilationErrors = new TestJava(this, new TestProtocol()).GetCompilationError();
         }
     }
 }

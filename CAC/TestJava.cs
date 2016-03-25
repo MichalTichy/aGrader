@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace aGrader
 
         public override TestResult RunTest()
         {
-            var compilation = CreateCompilatonProcess();
+            var compilation = CreateCompilationProcess();
             compilation.Start();
             var errorReader = compilation.StandardError;
             var error = "";
@@ -31,7 +32,6 @@ namespace aGrader
                 error += Resources.Test_AppDidNotEndedBeforeTimeout;
             }
             error += errorReader.ReadToEnd().Replace("\n","");
-
             var testResult =base.RunTest();
             testResult.AddErrors(error, true);
 
@@ -83,7 +83,7 @@ namespace aGrader
             return Protocol?.StartupArguments!=null ? $"{arguments} {Protocol.StartupArguments}" : arguments;
         }
 
-        private Process CreateCompilatonProcess()
+        private Process CreateCompilationProcess()
         {
             var pathJavac = $@"{GetPathToJava()}\bin\javac.exe";
             CreateDestinationFolder();
@@ -103,7 +103,7 @@ namespace aGrader
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true,
-                    Arguments = BuilCompilationdArguments()
+                    Arguments = BuilComplicationArguments()
                 }
             };
             return app;
@@ -117,10 +117,11 @@ namespace aGrader
             Directory.CreateDirectory(_destinationFolder);//todo try catch
         }
 
-        private string BuilCompilationdArguments()
+        private string BuilComplicationArguments()
         {
             var arguments = new StringBuilder();
 
+            arguments.Append("-encoding UTF8 ");
             arguments.Append($"-d  \"{_destinationFolder}\" ");
             arguments.Append($"-sourcepath \"{Path.GetDirectoryName(SourceCode.Path)}\" ");
             arguments.Append($"\"{SourceCode.Path}\"");
@@ -193,32 +194,50 @@ namespace aGrader
             return null;
         }
        
-        public override Tuple<string, int?> GetCompilationError(SourceCode code)
+        public override List<Tuple<string, int?>> GetCompilationError()
         {
-            var app=CreateProcess(code);
 
-            app.Start();
-            if (!app.WaitForExit(300))
-                app.Kill();
-
-            string msg = app.StandardError.ReadLine();
-            
-            if (string.IsNullOrWhiteSpace(msg))
-                return new Tuple<string, int?>(null,null);
-
-            var newRegex = new Regex(@":(\d*):");
-
-            int? lineWithError=null;
-            try
+            var compilation = CreateCompilationProcess();
+            compilation.Start();
+            var errorReader = compilation.StandardError;
+            var error = "";
+            if (!compilation.HasExited && !compilation.WaitForExit(Protocol.Timeout))
             {
-                lineWithError = int.Parse(newRegex.Match(msg).ToString().Replace(":", "")) - 2;
+                compilation.Kill();
+                error += Resources.Test_AppDidNotEndedBeforeTimeout;
             }
-            catch
+            error += errorReader.ReadToEnd().Replace("\n", "");
+            var parsedErrors = ParseJavacErrors(error);
+            return parsedErrors.Select(
+                t =>
+                    t.Item1.Contains(SourceCode.Path)
+                        ? new Tuple<string, int?>(t.Item1, t.Item2)
+                        : new Tuple<string, int?>(t.Item1, null)).ToList();
+        }
+
+        private List<Tuple<string, int?>> ParseJavacErrors(string error)
+        {
+            var parsedErrors= new List<Tuple<string, int?>>();
+            var errors = error.Split('^').ToList();
+
+            var last = errors.Last();
+            if (last.EndsWith(" error\r") || last.EndsWith(" errors\r"))
             {
-                // error does not contain line number
+                errors.Remove(last);
             }
 
-            return new Tuple<string, int?>(msg,lineWithError);
+            foreach (string err in errors.Select(t=>t.Trim()))
+            {
+                var regexResultLineNumber = Regex.Match(err, @"((?!:)\d+(?=:))").Value;
+                int? lineNumber;
+                if (string.IsNullOrWhiteSpace(regexResultLineNumber))
+                    lineNumber = null;
+                else
+                    lineNumber = int.Parse(regexResultLineNumber);
+                
+                parsedErrors.Add(new Tuple<string, int?>(err,lineNumber));
+            }
+            return parsedErrors;
         }
     }
     

@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Security;
@@ -14,9 +15,7 @@ namespace aGrader.sourceCodes
 {
     public abstract class SourceCode
     {
-
-        public string CompilationErrorMsg;
-        public int? NumberOfLineWithError;
+        public List<Tuple<string, int?>> CompilationErrors; 
         public string Name;
         public readonly string Path;
 
@@ -27,7 +26,8 @@ namespace aGrader.sourceCodes
         {
             get { return _testResult; }
         }
-        public SourceCode(string path)
+
+        protected SourceCode(string path)
         {
             Path = path;
             Name = System.IO.Path.GetFileName(path);

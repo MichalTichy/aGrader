@@ -83,6 +83,7 @@ namespace aGrader
 
         private void butReload_Click(object sender, EventArgs e)
         {
+            lErrorMessage.Text = "";
             if (!Directory.Exists(SourceCodes.GetPath()))
             {
                 MessageBox.Show(Resources.DirectoryDoesNotExist);
@@ -108,18 +109,15 @@ namespace aGrader
             if (code.Exists())
             {
                 rtbCode.Text = $"{code.GetSourceCode()} \n";
-                if (code.NumberOfLineWithError!=null)
+                foreach (var compilationError in code.CompilationErrors)
                 {
-                    int lineWithError = (int)code.NumberOfLineWithError;
-                    rtbCode.Select(rtbCode.GetFirstCharIndexFromLine(lineWithError), rtbCode.Lines[lineWithError].Length);
-                    rtbCode.SelectionBackColor = Color.Red;
                     lErrorMessage.Text = Resources.CannotCompile;
-                    ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
-                }
-                else if (code.CompilationErrorMsg!=null)
-                {
-                    lErrorMessage.Text = code.CompilationErrorMsg;
-                    ErrorTooltip.SetToolTip(lErrorMessage, lErrorMessage.Text);
+                    if (compilationError.Item2!=null)
+                    {
+                        rtbCode.Select(rtbCode.GetFirstCharIndexFromLine((int)compilationError.Item2), rtbCode.Lines[(int)compilationError.Item2].Length);
+                        rtbCode.SelectionBackColor = Color.Red;
+                    }
+                    ErrorTooltip.SetToolTip(lErrorMessage, $"{ErrorTooltip.GetToolTip(lErrorMessage)}\n{compilationError.Item1}");
                 }
             }
             else

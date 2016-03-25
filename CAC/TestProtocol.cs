@@ -69,7 +69,7 @@ namespace aGrader
             }
 
             Inputs.Add(num.ToString().Replace(',', '.'));
-            _generatedRandomNumbers.Add('X' + input.Id, num);
+            _generatedRandomNumbers.Add(input.Id, num);
         }
         private void ProcessData(InputTextFile input)
         {

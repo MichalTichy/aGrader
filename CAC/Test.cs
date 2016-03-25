@@ -11,13 +11,13 @@ namespace aGrader
 {
     public abstract class Test
     {
-        public readonly SourceCode SourceCode;
-        public readonly TestProtocol Protocol;
+        protected readonly SourceCode SourceCode;
+        protected readonly TestProtocol Protocol;
 
         protected List<string> _outputs=new List<string>();
         private List<string> _errors=new List<string>();
 
-        public Test(SourceCode sourceCode, TestProtocol protocol)
+        protected Test(SourceCode sourceCode, TestProtocol protocol)
         {
             SourceCode = sourceCode;
             Protocol = protocol;
@@ -25,14 +25,21 @@ namespace aGrader
         }
 
         protected abstract Process CreateProcess(SourceCode code);
-        public abstract Tuple<string, int?> GetCompilationError(SourceCode code);
+        public abstract List<Tuple<string, int?>> GetCompilationError();
 
         public virtual TestResult RunTest()
         {
+            var result = new TestResult();
+            if (SourceCode.CompilationErrors.Any())
+            {
+                result = new TestResult(SourceCode.Name, Protocol, _outputs,
+                    SourceCode.CompilationErrors.Select(t => t.Item1).ToList(), 0);
+                SourceCode.AddTestResult(result);
+                return result;
+            }
             Process app = CreateProcess(SourceCode);
-            var result=new TestResult();
             CheckSourceCodeForProhibitedCommands();
-            CheckSourceCodeForRequiedCommands();
+            CheckSourceCodeForRequiredCommands();
             RunExternalApps(false,result);
             app.Start();
 
@@ -158,19 +165,19 @@ namespace aGrader
             Protocol.Outputs.Remove(data);
         }
 
-        private void CheckSourceCodeForRequiedCommands()
+        private void CheckSourceCodeForRequiredCommands()
         {
-            foreach (var requiedCommnad in Protocol.RequiedCommnads.Where(requiedCommnad => !SourceCode.GetSourceCodeWithoutComments().Contains(requiedCommnad)))
+            foreach (var requiredCommand in Protocol.RequiedCommnads.Where(requiredCommand => !SourceCode.GetSourceCodeWithoutComments().Contains(requiredCommand)))
             {
-               _errors.Add(string.Format(Resources.Test_RequiedCommandWasNotFound, requiedCommnad));
+               _errors.Add(string.Format(Resources.Test_RequiedCommandWasNotFound, requiredCommand));
             }
         }
 
         private void CheckSourceCodeForProhibitedCommands()
         {
-            foreach (var prohibitedCommnad in Protocol.ProhibitedCommnads.Where(prohibitedCommnad => SourceCode.GetSourceCodeWithoutComments().Contains(prohibitedCommnad)))
+            foreach (var prohibitedCommand in Protocol.ProhibitedCommnads.Where(prohibitedCommand => SourceCode.GetSourceCodeWithoutComments().Contains(prohibitedCommand)))
             {
-                _errors.Add(string.Format(Resources.Test_ProhibitedCommandFound, prohibitedCommnad));
+                _errors.Add(string.Format(Resources.Test_ProhibitedCommandFound, prohibitedCommand));
             }
         }
 

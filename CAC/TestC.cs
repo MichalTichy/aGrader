@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -58,9 +59,9 @@ namespace aGrader
             }
         }
 
-        public override Tuple<string,int?> GetCompilationError(SourceCode code)
+        public override List<Tuple<string,int?>> GetCompilationError()
         {
-            var app=CreateProcess(code);
+            var app=CreateProcess(SourceCode);
 
             app.Start();
             if (!app.HasExited && !app.WaitForExit(300))
@@ -69,7 +70,7 @@ namespace aGrader
             string msg = app.StandardError.ReadLine();
             
             if (string.IsNullOrWhiteSpace(msg))
-                return new Tuple<string, int?>(null,null);
+                return new List<Tuple<string, int?>>();
 
             var newRegex = new Regex(@":(\d*):");
 
@@ -83,7 +84,7 @@ namespace aGrader
                 // error does not contain line number
             }
 
-            return new Tuple<string,int?>(msg,lineWithError);
+            return new List<Tuple<string, int?>>() {new Tuple<string, int?>(msg, lineWithError)};
         }
 
         public static string GetTccPath()

@@ -14,13 +14,7 @@ namespace aGrader.sourceCodes
         }
         public override void GetCompilationError()
         {
-            Tuple<string, int?> compilationError = new TestC(null,null).GetCompilationError(this);
-
-            if (compilationError.Item1 != null)
-            {
-                CompilationErrorMsg = compilationError.Item1;
-                NumberOfLineWithError = compilationError.Item2;
-            }
+            CompilationErrors = new TestC(this,new TestProtocol()).GetCompilationError();
         }
     }
 }
